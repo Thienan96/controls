@@ -1,0 +1,24 @@
+:host {
+    display: block;
+  }
+  
+  .tooltip {
+    background: rgba(97, 97, 97, 0.9);
+    color: #fff;
+    border-radius: 4px;
+    margin: 14px;
+    max-width: 350px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    font-size: 12px;
+    transform-origin: left center;
+    transform: scale(1);
+    white-space: pre-wrap;
+    
+  }
+  

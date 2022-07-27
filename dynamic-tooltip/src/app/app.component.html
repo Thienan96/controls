@@ -1,0 +1,75 @@
+<p>
+  <span
+    style="display: inline-block"
+    appTooltip="The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element."
+    [isCheckText]="false"
+    >appTooltip, text</span
+  >
+</p>
+
+<p>
+  <ng-template #templateTooltip
+    >templateTooltip templateTooltip templateTooltip.</ng-template
+  >
+  <span
+    style="display: inline-block"
+    appTooltip
+    [isCheckText]="false"
+    [template]="templateTooltip"
+    >appTooltip, template</span
+  >
+</p>
+
+<div>
+  <ng-template #customTemplateTooltip>
+    <div>
+      The Angular Material tooltip provides a text label that is displayed when
+      the user hovers over or longpresses an element.
+    </div>
+    <button (click)="hideTooltip()">Click here to hide tooltip</button>
+  </ng-template>
+  <span
+    style="display: inline-block"
+    appTooltip
+    #customTooltip="appTooltip"
+    [isCheckText]="false"
+    [keepOpenWhenMouseLeave]="true"
+    [template]="customTemplateTooltip"
+    >appTooltip with template and keep open when mouse leave</span
+  >
+</div>
+
+<p>
+  <span
+    appTooltip="How are you"
+    [isCheckText]="false"
+    [defaultPosition]="defaultPosition"
+    >appTooltip with custom default position</span
+  >
+</p>
+
+<p>
+  <span
+    [appTooltip]="XSS"
+    [isCheckText]="false"
+    [defaultPosition]="defaultPosition"
+    >appTooltip with XXS</span
+  >
+</p>
+
+<p>
+  <ng-template #slidingTooltip>
+    <div>
+      The Angular Material tooltip provides a text label that is displayed when
+      the user hovers over or longpresses an element.
+    </div>
+  </ng-template>
+  <span
+    appTooltip
+    [isCheckText]="false"
+    [sliding]="true"
+    [template]="slidingTooltip"
+    >appTooltip with sliding appTooltip with slidingappTooltip with
+    slidingappTooltip with slidingappTooltip with sliding</span
+  >
+</p>
