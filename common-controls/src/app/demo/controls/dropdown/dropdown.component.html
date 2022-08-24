@@ -1,0 +1,148 @@
+<div fxLayout="column">
+    <div fxFlex style="margin-bottom: 16px;">
+        <mat-slide-toggle [checked]="disabledSearch" (change)="onDisabledSearchChanged($event)">Disable Search</mat-slide-toggle>
+        <mat-slide-toggle [checked]="disabled" (change)="onDisabledChanged($event)">Disable</mat-slide-toggle>
+    </div>
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test tree dropdown'"
+                          (onGetData)='onGetTreeData($event)'
+                          addItemText="Add new item"
+                          [(ngModel)]="dropdownValue"
+                          (valueChanged)='onValueChange($event)'
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item" let-indentLines="indentLines">
+                <ntk-tree-indent [offset-height]="20" [indent-lines]="indentLines" [height]="20"></ntk-tree-indent>
+                <div>{{item.Name}}</div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test pre append'"
+                          (onGetData)='onGetDropdownData($event)'
+                          [ntk-required]="isRequired"
+                          addItemText="Add new item"
+                          [(ngModel)]="dropdownValue"
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div>{{item.Name}}</div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test pre append'"
+                          (onGetData)='onGetDropdownData($event)'
+                          [allowAddItem]='true'
+                          addItemText="Add new item"
+                          [(ngModel)]="dropdownValue"
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div class='hs-block-ellipsis' [matTooltip]="item.Name" ntk-tooltip-toggle>aaa {{item.Name}}
+                </div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test input invalid item'"
+                          (onGetData)='onGetDropdownData($event)'
+                          [(ngModel)]="dropdownValue"
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div>{{item.Name}}</div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test empty'"
+                          [ntk-required]="isRequired"
+                          [getData]='getEmtpyData'
+                          [(ngModel)]="dropdownValueEmpty"
+                          [allowAddItem]='false'
+                          [addItemText]="'Add new item'"
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div>{{item.Name}}</div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test dropdown with header'"
+                          [getData]='getData1'
+                          [allowAddItem]='true'
+                          [addItemText]="'Add new item'"
+                          [allowHeader]="true"
+                          [headerTemplate]="headerTemplate"
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div fxFlex fxLayout='row' fxLayoutGap='16px' style="width: 100%;">
+                    <div fxFlex='50'>{{item.Id}}</div>
+                    <div fxFlex>{{item.Name}}</div>
+                </div>
+            </ng-template>
+
+            <ng-template #headerTemplate>
+                <div fxFlex fxLayout='row' fxLayoutGap='16px' style="width: 100%;">
+                    <div fxFlex='50'>{{'Id'}}</div>
+                    <div fxFlex>{{'Name'}}</div>
+                </div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+
+    <mat-form-field fxFlex>
+        <ntk-mat-dropdown [placeholder]="'Test less items'"
+                          [getData]='getFewData'
+                          [canSearch]="!disabledSearch"
+                          [disabled]="disabled">
+            <ng-template let-item="item">
+                <div>{{item.Name}}</div>
+            </ng-template>
+        </ntk-mat-dropdown>
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+        <ntk-mat-tree-dropdown [placeholder]="'ntk-mat-tree-dropdown'"
+                               [getData]='getRooms'
+                               [(ngModel)]="selectedRoom"></ntk-mat-tree-dropdown>
+    </mat-form-field>
+
+    <div fxLayout = "row">
+        <mat-form-field fxFlex>
+            <ntk-mat-dropdown [placeholder]="'With icon'"
+                                (onGetData)='onGetDropdownData($event)'
+                                [ntk-required]="isRequired"
+                                addItemText="Add new item"
+                                [(ngModel)]="dropdownValue"
+                              [allowAddItem]='false'
+                              [addItemText]="'Add new item'"
+                              [canSearch]="!disabledSearch"
+                              [disabled]="disabled"
+                              [iconName]="iconName"
+                              >
+                <ng-template let-item="item">
+                    <div>{{item.Name}}</div>
+                </ng-template>
+            </ntk-mat-dropdown>
+        </mat-form-field>
+
+        <button (click)="setIconName()" style="width:200px;height:50px;margin-left:100px;">Set icon</button>
+
+        <button (click)="clearIconName()" style="width:200px;height:50px;margin-left:100px;">Clear icon</button>
+
+    </div>
+    
+  
+
+</div>

@@ -1,0 +1,20 @@
+<mat-divider *ngIf="moduleDef.isSeparate"></mat-divider>
+<ntk-module-item
+        *ngIf="!moduleDef.isSeparate"
+        [style.height.px]="itemHeight"
+        [moduleDef]="moduleDef"
+        [indent]="indent"
+        [isCollapsed]="isCollapsed"
+        (click)="onModuleItemClick(moduleDef)"></ntk-module-item>
+<div class="children" *ngIf="moduleDef.isExpanded && moduleDef.children.length>0">
+    <ntk-module-item-wrapper
+            *ngFor="let module of moduleDef.children"
+            [moduleDef]="module"
+            [indent]="indent"
+            [parent]="parent"
+            [itemHeight]="itemHeight"
+            [isCollapsed]="isCollapsed"
+            (expandStateChanged)="parent.onGroupExpandStateChanged($event)"
+            (moduleItemClick)="parent.gotoModule($event)">
+    </ntk-module-item-wrapper>
+</div>

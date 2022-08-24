@@ -1,0 +1,50 @@
+@mixin ntk-filters-bar-item-component($theme, $options) {
+  $warn: map-get($theme, warn);
+  ntk-filters-bar-item {
+    display: block;
+    height: 48px;
+    // cursor: pointer;
+    position: relative;
+    margin: 0 8px;
+
+    .hover-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8px;
+      top: 8px;
+      background: rgba(0, 0, 0, 0.05);
+      display: none;
+    }
+    &:hover {
+      .hover-line {
+        display: block;
+      }
+    }
+    .display-value {
+      font-weight: 500;
+      &.without-favorite {
+        padding-left: 8px;
+      }
+    }
+    .display-value-boolean {
+      &.without-favorite {
+        padding-left: 8px;
+      }
+    }
+    .message-invaid {
+      color: mat-color($warn);
+      line-height: 17px;
+      text-align: center;
+      max-width: 200px;
+      display: inline-block;
+    }
+
+    &.is-date-type-date {
+      .ntk-toolbar-filter-item-width {
+        width: 618px !important;
+      }
+    }
+  }
+
+}

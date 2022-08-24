@@ -1,0 +1,7 @@
+@mixin ntk-toolbar-custom-filter-dialog($theme, $options) {
+  .ntk-toolbar-custom-filter-dialog-panel {
+    .mat-dialog-container {
+      padding: 0;
+    }
+  }
+}

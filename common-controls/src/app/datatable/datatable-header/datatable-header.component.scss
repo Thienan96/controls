@@ -1,0 +1,15 @@
+@mixin datatable-header($theme, $options) {
+  $headerBackgroundColor: map_get($options, headerBackgroundColor);
+  $borderColor: map_get($options, borderColor);
+  $headerHeight: map_get($options, headerHeight);
+  ntk-datatable-header {
+    height: $headerHeight;
+    border-bottom: 1px solid $borderColor;
+    background: $headerBackgroundColor;
+
+    &:hover ntk-datatable-header-cell:not(.un-resizeable) .datatable-cell {
+      border-right: 1px lightgray dotted;
+    }
+  }
+
+}

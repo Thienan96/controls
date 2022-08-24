@@ -1,0 +1,62 @@
+<div fxLayout="row" (click)="onSelectedChanged()"
+  [ngClass]="{ 'hs-item-list-selected': isSelected, 'font-italic': isTextItalic }" style="height: 48px;"
+  class="hs-item-list">
+  <div class="aside aside-center">
+    <div fxLayout="row" [style.transform]="'translateX(-' + scrollLeft + 'px)'" fxLayoutAlign="start center"
+      style="float:left; height: 100%;">
+      <div [style.width.px]="listWidth[0] || 33" style="box-sizing: border-box;">
+        <mat-checkbox *ngIf="row.AccessRights?.CanArchive" style="padding-left: 8px; width: 20px;" [(ngModel)]="row.isChecked"
+        color="primary" [ngClass]="{ 'head-check-force': row.isChecked }" class="head-check"
+        (change)="onCheckedChanged()">
+      </mat-checkbox>
+      </div>
+      <div [style.width.px]="listWidth[1] || 200" style="box-sizing: border-box;">
+        <div fxLayoutAlign="start center" class="ntk-folder-name">
+          <ntk-folder-tree-indent *ngIf="row.Level != 0" [offset-height]="isFirstItemInLevel ? -15 : 0"
+            [level-folder]="row.Level - 1" [height]="48" [indent-lines]="calculateMiddleLines"></ntk-folder-tree-indent>
+          <button class="button-expand-collapse" style="overflow: hidden; position: relative; margin-left: -4px;"
+            [disabled]="!row.HasChildren" [disableRipple]="true" mat-icon-button (click)="onToggleButtonClick()"
+            style="position: relative;">
+            <mat-icon *ngIf="!row.expanded && !row.isExpanding" class="expand-button"><span>arrow_right</span>
+            </mat-icon>
+            <mat-icon *ngIf="row.expanded && !row.isExpanding" class="expand-button"><span>arrow_drop_down</span>
+            </mat-icon>
+            <mat-spinner *ngIf="row.isExpanding" diameter="20" style="margin: 0 auto;" class="expand-button">
+            </mat-spinner>
+          </button>
+          <span class="folder-has-link" *ngIf="row?.IsManagedExternally; else elseFolder">
+            <mat-icon class="folder-icon" style="color: rgba(0, 0, 0, 0.54); padding-right: 8px;">folder</mat-icon>
+            <mat-icon class="folder-icon folder-icon-link">link</mat-icon>
+          </span>
+          <ng-template #elseFolder>
+            <mat-icon class="folder-icon" *ngIf="typeOfFolder === 'normalFolder'"
+              style="color: rgba(0, 0, 0, 0.54); padding-right: 8px;">folder</mat-icon>
+            <mat-icon class="folder-icon" *ngIf="typeOfFolder === 'systemFolderActive' || typeOfFolder === 'systemFolderArchive'"
+              style="color: rgba(0, 0, 0, 0.54); padding-right: 8px;">folder_special</mat-icon>
+          </ng-template>
+          <div class="ntk-folder-name">
+            {{ row.Name }} &nbsp; <span style="font-weight: bold;"
+              *ngIf="row.DocumentCount">({{row.DocumentCount}})</span>
+          </div>
+        </div>
+      </div>
+      <div [style.width.px]="listWidth[2] || 200" style="padding-left: 8px; box-sizing: border-box;">
+        <div class="ntk-folder-name">
+          {{ row.VisibleBy }}
+        </div>
+      </div>
+      <div [style.width.px]="listWidth[3] || 200" style="padding-left: 8px; box-sizing: border-box;">
+        <div class="ntk-folder-name">
+          {{ row.Room?.Name }}
+        </div>
+      </div>
+      <div *ngIf="row.Connectors" class="ntk-folder-name" [style.width.px]="listWidth[3] || 65">
+        <button onclick="this.blur()" #tooltip="matTooltip" [matTooltip]="lbConnectorsInformation"
+          matTooltipPosition="left" style="order: 2; margin-left: auto;" (click)="showConnectroInfo()" mat-icon-button>
+          <mat-icon class="folder-icon" color="primary"> info </mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="row.Id === '-1'">Loading...</div>
+</div>

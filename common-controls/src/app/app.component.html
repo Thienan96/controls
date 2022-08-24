@@ -1,0 +1,21 @@
+<div fxLayout="row" style="height: 100%" >
+    <mat-drawer-container [hasBackdrop]="hasBackdrop" [class]="mode" (backdropClick)="onBackdropClicked()" >
+        <mat-drawer [mode]="mode" [opened]="opened" [autoFocus]="false" [disableClose]="true">
+            <ntk-module-bar style="display: block !important;"
+                            appTitle="Common Controls"
+                            [value]="globalModulesDef"
+                            [isModuleActive]="isModuleActive"
+                            [hasAccess]="hasAccess"
+                            [showScrollerBar]="showScrollerBar"
+                            [forceExpanded]="forceExpanded"
+                            (collapsedChange)="onCollapsedChange()"
+                            [showCollapseButton]="showCollapseButton"
+                            (moduleItemClick)="onModuleItemClicked()"
+                            (menuButtonClick)="onMenuButtonClicked()"
+            ></ntk-module-bar>
+        </mat-drawer>
+        <mat-drawer-content >
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

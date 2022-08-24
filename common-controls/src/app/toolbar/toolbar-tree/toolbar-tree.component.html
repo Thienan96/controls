@@ -1,0 +1,28 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding matTreeNodePaddingIndent="24" >
+        <div *ngIf="viewType==='NormalTree'" (click)="onLeafClicked(node)">
+            <mat-checkbox color="primary" [checked]="node.IsSelected" (change)="onLeafClicked(node)" [value]="node">{{node.DisplayValue}}</mat-checkbox>
+            <div class="mask"></div>
+        </div>
+        <div *ngIf="viewType==='TreeGroup'" >
+            <div *ngIf="node.Type === filterItem.NodeType" class="groupName" >{{node.DisplayValue}}</div>
+            <div *ngIf="node.Type === filterItem.LeafType" (click)="onLeafClicked(node)">
+                <mat-checkbox color="primary" [checked]="node.IsSelected" (change)="onLeafClicked(node)" [value]="node">{{node.DisplayValue}}</mat-checkbox>
+                <div class="mask"></div>
+            </div>
+        </div>
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodePaddingIndent="24">
+        <div *ngIf="viewType==='NormalTree'" (click)="onNodeClicked(node)">
+            <mat-checkbox color="primary" [checked]="node.IsSelected" (change)="onNodeClicked(node)" [value]="node">{{node.DisplayValue}}</mat-checkbox>
+            <div class="mask"></div>
+        </div>
+        <div *ngIf="viewType==='TreeGroup'" >
+            <div *ngIf="node.Type === filterItem.NodeType" class="groupName" >{{node.DisplayValue}}</div>
+            <div *ngIf="node.Type === filterItem.LeafType" (click)="onNodeClicked(node)">
+                <mat-checkbox color="primary" [checked]="node.IsSelected" (change)="onNodeClicked(node)" [value]="node">{{node.DisplayValue}}</mat-checkbox>
+                <div class="mask"></div>
+            </div>
+        </div>
+    </mat-tree-node>
+</mat-tree>

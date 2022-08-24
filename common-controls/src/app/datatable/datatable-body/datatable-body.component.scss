@@ -1,0 +1,15 @@
+@mixin datatable-body($theme, $options) {
+  $borderColor: map_get($options, borderColor);
+  ntk-datatable-body {
+    display: block;
+    border-bottom: 1px solid $borderColor;
+    box-sizing: content-box !important;
+    ntk-virtual-scroll {
+      display: block;
+      height: 100%;
+      overflow-x: hidden !important;
+    }
+
+  }
+
+}

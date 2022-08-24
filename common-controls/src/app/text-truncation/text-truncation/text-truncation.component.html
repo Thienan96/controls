@@ -1,0 +1,9 @@
+<div class="middle-truncate-content" #container
+     [class.fixing-direction]="fixingDirection"
+     [class.show-ellipsis]="showEllipsis"
+     [style.max-height]="maxHeight"
+     [ntkTooltip]="textContent"
+     [isCheckText]="false"
+     [disable]="!autoTooltip || !showEllipsis">
+    <span class="first-part selectable" #content><ng-content></ng-content></span>
+</div>

@@ -1,0 +1,49 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+
+::ng-deep {
+  ntk-datatable {
+    .button-actions {
+      display: none !important;
+    }
+
+    ntk-datatable-row {
+      &.active, &:hover {
+        .button-actions {
+          display: flex !important;
+        }
+      }
+    }
+
+  }
+}
+
+
+::ng-deep {
+  ntk-datatable-sort {
+    ntk-datatable {
+
+      .is-root {
+        //.aside-right
+        // {
+        //  display: none;
+        //}
+        //.aside-left, ntk-datatable-cell {
+        //  border-right: 1px solid transparent !important;
+        //}
+        //
+        //.aside-left {
+        //  -webkit-box-flex: 1 !important;
+        //  flex: 1 !important;
+        //
+        //  & > * {
+        //    width: auto !important;
+        //  }
+        //}
+      }
+    }
+  }
+}

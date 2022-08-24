@@ -1,0 +1,61 @@
+@import './kanban-group/kanban-group.component';
+@import './kanban-header/kanban-header.component';
+@import './kanban-items/kanban-items.component';
+@import './kanban-item/kanban-item.component';
+
+@mixin ntk-kanban($theme, $options: ()) {
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+
+  $defaultValues: (
+          padding: 8px,
+          header:(
+                  borderBottom: 5px solid #f5f5f5,
+                  height: 52px
+          ),
+          availableColor: #3b73af,
+          activeColor: red,
+          placeholderBackground: rgba(235, 242, 249, 0.85),
+          columnBackground: #f5f5f5
+  );
+  $options: map-merge($defaultValues, $options);
+
+
+  @include kanban-group-component($theme, $options);
+  @include kanban-header-component($theme, $options);
+  @include ntk-kanban-items-component($theme, $options);
+  @include ntk-kanban-item-component($theme, $options);
+
+  $padding: map_get($options, padding);
+
+
+  .ntk-kanban {
+
+    ntk-kanban-items,
+    .column-header {
+      margin: 0 $padding/2;
+    }
+
+    ntk-kanban-items:first-child,
+    .column-header:first-child {
+      margin-left: 0;
+    }
+
+    ntk-kanban-items:last-child,
+    .column-header:last-child {
+      margin-right: 0;
+    }
+
+    ntk-kanban-group,
+    .header-content {
+      margin-left: $padding;
+      margin-right: $padding;
+    }
+
+    .group-title {
+      line-height: 40px;
+      margin-bottom: 0;
+    }
+
+  }
+}

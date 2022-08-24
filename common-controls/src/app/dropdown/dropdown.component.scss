@@ -1,0 +1,76 @@
+.mat-dropdown-container {
+    display: inline-table;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+
+    .mat-dropdown-arrow {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid;
+        margin: 0 4px;
+        color: rgba(0, 0, 0, 0.54);
+    }
+
+    .mat-dropdown-arrow-wrapper {
+        padding-left: 3px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .mat-dropdown-clear:before {
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 3px;
+        vertical-align: middle;
+        content: "×";
+    }
+
+    .mat-dropdown-value {
+        display: table-cell;
+        max-width: 0;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: rgba(0, 0, 0, 0.87);
+
+        .mat-input-element {
+            font: inherit;
+            background: 0 0;
+            // GF-142: text color disable wrong
+            // color:currentColor;
+            border: none;
+            outline: 0;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            vertical-align: bottom;
+            text-align: inherit;
+        }
+    }
+
+    &.disabled-search .mat-dropdown-value {
+        cursor: pointer;
+        input {
+            cursor: inherit;
+        }
+    }
+
+    .clear {
+        width: 12px;
+        height: 12px;
+        font-size: 12px;
+    }
+
+    .mat-dropdown-icon {
+        font-size: 18px;
+        color: gray;
+        cursor:default;
+        vertical-align: middle;
+    }
+}

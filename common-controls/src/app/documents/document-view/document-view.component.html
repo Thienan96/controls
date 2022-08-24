@@ -1,0 +1,87 @@
+﻿<div fxFlex fxLayout="column">
+    <div fxFlex="none" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="start end">
+        <div fxFlex>
+            <div *ngIf='canDraw' fxLayout="row" fxLayoutAlign="start center">
+                <mat-button-toggle-group #shapesGroup="matButtonToggleGroup" (change)='onDrawingShapeChanged($event)'>
+                    <mat-button-toggle value="PolyLine" class="icon-button">
+                      <mat-icon>gesture</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="Arrow" class="icon-button">
+                      <mat-icon>trending_flat</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="Rectangle" class="icon-button">
+                      <mat-icon>crop_5_4</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="Ellipse" class="icon-button">
+                      <mat-icon>panorama_fish_eye</mat-icon>
+                    </mat-button-toggle>
+                    <mat-button-toggle value="None" class="icon-button" checked>
+                        <mat-icon>touch_app</mat-icon>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <button mat-icon-button class="icon-button" color='warn' (click)="onDeleteSelectedClick()" style="margin-left: 16px;">
+                    <mat-icon aria-label="delete">delete</mat-icon>
+                </button>
+            </div>            
+        </div>        
+        <div fxFlex="none" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="32px" fxLayoutGap.lt-sm="0px">
+            <!--this is pagger-->
+            <div fxFlex="none" fxLayout="row" fxLayoutAlign="center center" *ngIf="pageNumber > 1">
+                <div style="width: 40px;">
+                    <button mat-icon-button class="icon-button" (click)="previousPage()" *ngIf="pageIndex > 1">
+                        <mat-icon aria-label="back">keyboard_arrow_left</mat-icon>
+                    </button>
+                </div>
+                <div style="width:auto; text-align:center;margin-top: 4px;">
+                    <input [(ngModel)]="pageIndex" (change)="onPageIndexChange($event)" type="number" style="width:40px; outline: none"
+                        min="1" [max]="pageNumber"
+                        [disabled]="pageNumber === 1"> / {{pageNumber}}
+                </div>
+                <div style="width: 40px;">
+                    <button mat-icon-button class="icon-button" (click)="nextPage()" *ngIf="pageIndex < pageNumber">
+                        <mat-icon aria-label="back">keyboard_arrow_right</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <!--This is controllers bar-->
+            <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px" fxLayoutGap.lt-sm="0px">
+                <button matTooltipPosition="left" matTooltip="{{'lbRotateLeftTooltip' | translator}}"  mat-icon-button class="icon-button" (click)="onRotateLeft()">
+                    <mat-icon aria-label="rotate left">rotate_left</mat-icon>
+                </button>
+                <button matTooltipPosition="left" matTooltip="{{'lbRotateRightTooltip' | translator}}" mat-icon-button  class="icon-button" (click)="onRotateRight()">
+                    <mat-icon aria-label="rotate right">rotate_right</mat-icon>
+                </button>
+                <button matTooltipPosition="left" matTooltip="{{'lbZoomOut' | translator}}" [disabled]='drawingBoard.getStateZoom.disableZoomOut' mat-icon-button class="icon-button" (click)="onZoomOut()">
+                    <mat-icon aria-label="zoom out">zoom_out</mat-icon>
+                </button>
+                <button matTooltipPosition="left" matTooltip="{{'lbZoomIn' | translator}}" [disabled]='drawingBoard.getStateZoom.disableZoomIn' mat-icon-button class="icon-button" (click)="onZoomIn()">
+                    <mat-icon aria-label="zoom in">zoom_in</mat-icon>
+                </button>
+                <!-- retrict download when offline -->
+                <button *ngIf='isShowDownload && !isOffline' elementDebounceClick (debounceClick)="downloadImage()"  [debounceTime]="500" 
+                    [disabled]="!documentWrapper" matTooltipPosition="left" 
+                    mat-icon-button class="icon-button">
+                    
+                    <mat-icon aria-label="zoom in">file_download</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex fxLayout="column" fxLayoutAlign="start stretch" style="padding:0;margin:0; position: relative; overflow: hidden;">
+        <!-- <div #divImage style="position:relative; margin: auto auto;">
+            <img #imgFullSize style="position:relative; box-sizing:border-box; top:0; z-index:1;" (load)="onImageLoaded()">
+            <div #divDrawing style="position:absolute; box-sizing:border-box; top:0; left:0px; background-color:transparent;z-index:2;"></div>
+        </div> -->
+        <ntk-drawing-board fxFlex [imageUrl]="imageUrl" [drawingShapes]='drawingShapes'
+        [canDraw]='canDraw' (shapes-changed)='onDrawingChanged($event)' #drawingBoard>
+        </ntk-drawing-board>
+        <div *ngIf="!!isLoadingData" fxLayoutAlign="center center" style="position:absolute; width: 100%; height: 100%; top:0; left:0; background-color:transparent;z-index: 100; margin:0;padding:0">
+            <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>        
+         </div>
+
+        <!-- <div *ngIf="!!isLoadingData" fxLayoutAlign="center center" style="position:absolute; width: 100%; height: 100%; top:0; left:0; background-color:transparent;z-index: 100; margin:0;padding:0">
+            <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+        </div> -->
+    </div>    
+</div>

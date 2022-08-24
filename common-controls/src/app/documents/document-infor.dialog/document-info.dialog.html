@@ -1,0 +1,31 @@
+﻿<style>
+    .info { 
+        margin: 5px 5px 5px 8px; 
+        word-wrap: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+<div fxFill fxLayout="column">
+    <div fxFlex="none" fxLayout="column" mat-dialog-title class="hs-dialog-title hs-dialog-title-message-box">
+        <span ntk-translator="lbInformation">Information</span>
+    </div>
+
+    <div fxFlex="100" fxLayout="column" mat-dialog-content class="hs-dialog-content" style="margin:0px; padding:8px">
+        <div fxLayout="column">
+            <p class="info"><span ntk-translator="lbTitle">Title</span>:&nbsp;{{model?.Name}}</p>
+            <p class="info"><span ntk-translator="lbDocumentType">Type</span>:&nbsp;{{model?.DocumentType}}</p>
+            <p class="info"><span ntk-translator="lbDocumentUploadedDate">Date</span>:&nbsp;{{model?.UploadedDate | formatDate}}</p>
+            <p class="info"><span ntk-translator="lbCreatedBy">Created by</span>:&nbsp;{{model?.UploadedBy}}</p>
+            <p class="info"><span ntk-translator="lbDocumentFileSize">Size</span>:&nbsp;{{formatbytesToKb(model? model.FileSize : 0)}}</p>
+        </div>
+    </div>
+
+    <div fxFlex="none" fxLayout="row" mat-dialog-actions 
+         style="margin: 8px 8px 8px 8px !important; padding: 0 !important">
+        <div fxFill fxLayoutAlign="end center">
+            <button mat-button class="hs-toolbar-filter-button" (click)="close()">{{'btOk' | translator | uppercase}}</button>
+        </div>
+    </div>
+</div>

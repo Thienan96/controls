@@ -1,0 +1,32 @@
+<div class="header" *ngIf="!isSmallScreen">
+    <form>
+        <div fxLayout="row">
+            <div fxFlex="none" class="display-value">{{filter.TranslateKey|translator}}:&nbsp;</div>
+            <div fxFlex>
+                <mat-form-field floatLabel="never" class="field-search">
+                    <input matInput autocomplete="off" [autoFocus]="autoFocus" [(ngModel)]="searchKeyword" name="searchKeyWord" (keydown)="onKeyDown($event)">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-toolbar *ngIf="isSmallScreen" fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' >
+        <button fxFlex="none" mat-icon-button  (click)="onCancel()" >
+            <mat-icon>close</mat-icon>
+        </button>
+        <div fxFlex class="hs-block-ellipsis"  style="margin-left: 8px;">
+            <span style="text-transform:capitalize;">{{filter.DisplayValue}}</span>
+        </div>
+        <button mat-button  (click)="onSubmit()" style="text-transform: uppercase;">{{'btOk' | translator}}</button>
+    </mat-toolbar>
+    <div fxFlex fxLayout="column" *ngIf="isSmallScreen" class="content-actions" [class.mat-elevation-z4]='true' style="padding: 16px 24px 16px 24px;" >
+        <mat-dialog-content>
+            <mat-form-field >
+                <input matInput [autoFocus]="autoFocus" autocomplete="off" [(ngModel)]="searchKeyword" name="searchKeyWord" (keydown)="onKeyDown($event)"
+                       placeholder="{{'lbValue' |translator}}"/>
+            </mat-form-field>
+        </mat-dialog-content>
+    </div>
+</div>

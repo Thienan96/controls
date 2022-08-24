@@ -1,0 +1,269 @@
+<div fxLayout="column" style="height:100%;padding: 10px;width: 100%">
+    <div fxFlex="none" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <button mat-button aria-label="Select columns" (click)="onSelectColumns()">Select Columns</button>
+        <button mat-button (click)="refreshDatatable(forceRefresh)">Refresh</button>
+        <button mat-button (click)="onCheckIds()">Check IDs</button>
+        <button mat-button (click)="changeSelected()">Change Selected</button>
+        <mat-slide-toggle [checked]="isShowBorder" (change)="onShowBorderButtonChange($event)">Show border</mat-slide-toggle>
+        <mat-slide-toggle [checked]="isEditable" (change)="onEditableButtonChange($event)">Editable</mat-slide-toggle>
+        <button mat-button mat-raised-button (click)="onSave()">Save</button>
+    </div>
+    <div fxFlex="none" style="height: 50px">{{rowSelected?.Name}}</div>
+    <ntk-datatable fxFlex
+                   class="border"
+                   [class.full-width]="isFullWidth"
+                   [class.datatable-border]="isShowBorder"
+                   [class.datatable-editable]="isEditable"
+                   [itemHeight]="50"
+                   [pageSize]="5"
+                   fxLayout="row"
+                   [loadData]="loadData.bind(this)"
+                   (select)="onSelect($event)"
+                   (rowDbClick)="onRowDbClick($event)"
+                   [showHeader]="true"
+                   [showFooter]="true"
+                   [hasAlternate]="isAlternateColor"
+                   [defaultSort]="defaultSort"
+                   [footer]="footer"
+                   (columnResized)="columnResized($event)"
+                   (columnSorted)="onColumnSorted($event)"
+                   [isEditable]="isEditable"
+                   [isDisabledSelectionRow]="isDisabledSelectionRow"
+                   (added)="onAfterAdded($event)"
+                   (removed)="onAfterRemoved($event)"
+                   [originalRows]="originalRows"
+                   [isRef]="isRef.bind(this)"
+                   [getRef]="getRef.bind(this)"
+                   [isCellEditable]="isCellEditable.bind(this)"
+                   [isCellDisabled]="isCellDisabled.bind(this)"
+                   [isRowDisabled]="isRowDisabled.bind(this)"
+                   [selected]="selectedRows">
+        <ng-template #headerTemplate let-column="column" let-directionSort="directionSort">
+            <ng-container [ngSwitch]="column.property">
+                <div *ngSwitchCase="'isChecked'" fxLayoutAlign="start center">
+                    <mat-checkbox [tabIndex]="-1" fxFlex disableRipple [checked]="isSelectAll" color='primary' (change)="selectedAllChanged($event)"></mat-checkbox>
+                </div>
+                <div *ngSwitchCase="'Name'" fxLayout="row" fxLayoutAlign="start center" fxFill >
+                    <span>{{column.displayValue}}<sup *ngIf="column.required">*</sup></span>
+                    <button *ngIf= 'column.activatedSort' mat-icon-button disableRipple='true'>
+                        <mat-icon>{{directionSort === 1 ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+                    </button>
+                </div>
+                <div *ngSwitchCase="'Quality'" fxLayoutAlign="center center" fxFill>
+                    <span>{{column.displayValue}}<sup *ngIf="column.required">*</sup></span>
+                    <button *ngIf= 'column.activatedSort' mat-icon-button disableRipple='true'>
+                        <mat-icon>{{directionSort === 1 ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+                    </button>
+                </div>
+                <div *ngSwitchCase="'UnitPrice'" fxLayoutAlign="end center" fxFill>
+                    <span>{{column.displayValue}}<sup *ngIf="column.required">*</sup></span>
+                    <button *ngIf= 'column.activatedSort' mat-icon-button disableRipple='true'>
+                        <mat-icon>{{directionSort === 1 ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+                    </button>
+                </div>
+                <div *ngSwitchCase="'Date'" fxLayoutAlign="end center" fxFill>{{column.displayValue}}<sup *ngIf="column.required">*</sup></div>
+                <div *ngSwitchCase="'Option'" fxLayoutAlign="center center" fxFill>{{column.displayValue}}<sup *ngIf="column.required">*</sup></div>
+                <div *ngSwitchCase="'Total'" fxLayoutAlign="end center" fxFill>{{column.displayValue}}<sup *ngIf="column.required">*</sup></div>
+                <div *ngSwitchCase="'actions'" fxLayoutAlign="center center" fxFill>{{column.displayValue}}<sup *ngIf="column.required">*</sup></div>
+                <div *ngSwitchDefault fxLayout="row" fxLayoutAlign="start center" fxFill>
+                    <span>{{column.displayValue}}<sup *ngIf="column.required">*</sup></span>
+                    <button *ngIf= 'column.activatedSort' mat-icon-button disableRipple='true'>
+                        <mat-icon>{{directionSort === 1 ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+                    </button>
+                </div>
+            </ng-container>
+        </ng-template>
+        <ng-template #footerTemplate let-column="column">
+            <ng-container [ngSwitch]="column.property">
+                <div fxLayout="row" *ngSwitchCase="'Quality'" fxLayoutAlign="center center" fxFill>{{column.value}}</div>
+                <div fxLayout="row" *ngSwitchCase="'UnitPrice'" fxLayoutAlign="center center" fxFill>{{column.value}}</div>
+                <div fxLayout="row" *ngSwitchCase="'Date'" fxLayoutAlign="end center" fxFill>{{column.value}}</div>
+                <div fxLayout="row" *ngSwitchCase="'Option'" fxLayoutAlign="center center" fxFill>{{column.value}}</div>
+                <div fxLayout="row" *ngSwitchCase="'Total'" fxLayoutAlign="end center" fxFill>{{column.value}}</div>
+                <div *ngSwitchDefault fxLayoutAlign="start center" fxFill>{{column.value}}</div>
+            </ng-container>
+        </ng-template>
+        <ntk-datatable-column [pin]="'left'" [property]="'isChecked'" [sortable]="false" [resizeable]='false' [width]="50">
+            <ng-template let-row="row">
+                <div fxLayoutAlign="end center" style="height:100%;width: 100%;">
+                    <mat-checkbox [tabIndex]="-1" color='primary' [ngClass]="{'head-check-force': row?.isChecked}" class="head-check" [checked]="row.isChecked" disableRipple (change)="stateChanged($event, row)" [value]="row"></mat-checkbox>
+                </div>
+            </ng-template>
+        </ntk-datatable-column>
+        <ntk-datatable-column *ngFor="let col of visibleColumns"
+                              [property]="col.property"
+                              [translationKey]="col.translationKey"
+                              [displayValue]="col.displayValue"
+                              [pin]="col.pin"
+                              [mandatory]="col.mandatory"
+                              [show]="col.show"
+                              [width]="col.width"
+                              [minWidth]="col.minWidth"
+                              [maxWidth]="col.maxWidth"
+                              [sortable]="col.sortable"
+                              [selectable]="col.selectable"
+                              [dataType]="col.dataType"
+                              [required]="col.required"
+                              [editable]="col.editable">
+            <ng-template let-col="cell" let-row="row" let-scope="scope">
+                <ng-container [ngSwitch]="col.property">
+                    <div *ngSwitchCase="'Type'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="start center" style="height:100%;">
+                        <div fxLayoutAlign="end center" fxFill *ngIf="!scope.isEditMode">
+                            <div fxFlex class="cell-padding-left">{{scope.value?.Name}}</div>
+                            <div fxFlex="none" fxLayoutAlign="start center" class="ntk-table-editable-cell-dropdown-button" [class.ntk-table-editable-cell-dropdown-button-disabled]="scope.disabled" (click)="onDropdownClick({row:row, col:col} , $event)">
+                                <div class="ntk-table-editable-cell-dropdown-button-arrow"></div>
+                            </div>
+                        </div>
+                        <ntk-table-editable-cell-dropdown *ngIf="scope.isEditMode"
+                                                          class="datatable-cell-align-left"
+                                                          [value]="scope.value"
+                                                          [prevValue]="scope.prevValue"
+                                                          [canSearch]="true"
+                                                          [searchText]="scope.searchText"
+                                                          [isShowDropDown]="true"
+                                                          [autoFocus]="true"
+                                                          [onGetDropdownData]="onGetTypeData.bind(this)"
+                                                          [getDisplayText]="onGetTypeDisplayText.bind(this)"
+                                                          (load)="scope.onEditableControlInit($event)"
+                                                          (enter)="scope.onEnter()"
+                                                          (escape)="scope.onEscape()"
+                                                          (destroy)="scope.onEditableControlDestroy($event)"
+                                                          (valueChanged)="scope.onValueChanged($event)">
+                            <ng-template let-item="item">
+                                <div class='hs-block-ellipsis' [matTooltip]="item.Name" ntk-tooltip-toggle>{{item.Name}}</div>
+                            </ng-template>
+                        </ntk-table-editable-cell-dropdown>
+                    </div>
+                    <div *ngSwitchCase="'Name'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="start center" style="height:100%;">
+                        <div *ngIf="!scope.isEditMode" class="cell-padding">{{scope.value}}</div>
+                        <ntk-table-editable-cell-input *ngIf="scope.isEditMode"
+                                                       class="datatable-cell-align-left"
+                                                       [value]="scope.value"
+                                                       [prevValue]="scope.prevValue"
+                                                       [autoFocus]="true"
+                                                       (load)="scope.onEditableControlInit($event)"
+                                                       (enter)="scope.onEnter()"
+                                                       (escape)="scope.onEscape()"
+                                                       (destroy)="scope.onEditableControlDestroy($event)"
+                                                       (valueChanged)="scope.onValueChanged($event)">
+                            <input matInput type="text"  [(ngModel)]="scope.value"/>
+                        </ntk-table-editable-cell-input>
+                    </div>
+                    <div *ngSwitchCase="'Description'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="start center"  style="height:100%;">
+                        <ntk-middle-truncation *ngIf="!scope.isEditMode" class="cell-padding" [autoTooltip]="true" [maxLines]="2">{{scope.value}}</ntk-middle-truncation>
+                        <ntk-table-editable-cell-input *ngIf="scope.isEditMode"
+                                                       class="datatable-cell-align-left"
+                                                       [value]="scope.value"
+                                                       [prevValue]="scope.prevValue"
+                                                       [autoFocus]="true"
+                                                       (load)="scope.onEditableControlInit($event)"
+                                                       (enter)="scope.onEnter()"
+                                                       (escape)="scope.onEscape()"
+                                                       (destroy)="scope.onEditableControlDestroy($event)"
+                                                       (valueChanged)="scope.onValueChanged($event)">
+                            <textarea matInput type="text" [(ngModel)]="scope.value"></textarea>
+                        </ntk-table-editable-cell-input>
+                    </div>
+                    <div *ngSwitchCase="'UnitPrice'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="end center" style="height:100%;">
+                        <div *ngIf="!scope.isEditMode" class="cell-padding">{{scope.value}}</div>
+                        <ntk-table-editable-cell-input *ngIf="scope.isEditMode"
+                                                       class="datatable-cell-align-right"
+                                                       [value]="scope.value"
+                                                       [prevValue]="scope.prevValue"
+                                                       [autoFocus]="true"
+                                                       (load)="scope.onEditableControlInit($event)"
+                                                       (enter)="scope.onEnter()"
+                                                       (escape)="scope.onEscape()"
+                                                       (destroy)="scope.onEditableControlDestroy($event)"
+                                                       (valueChanged)="scope.onValueChanged($event)">
+                            <input matInput type="text" [ntk-only-number]="true" [decimal]="true" [(ngModel)]="scope.value" />
+                        </ntk-table-editable-cell-input>
+                    </div>
+                    <div *ngSwitchCase="'Quality'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="center center" style="height:100%;">
+                        <div *ngIf="!scope.isEditMode" class="cell-padding">{{scope.value}}</div>
+                        <ntk-table-editable-cell-input *ngIf="scope.isEditMode"
+                                                       class="datatable-cell-align-center"
+                                                       [value]="scope.value"
+                                                       [prevValue]="scope.prevValue"
+                                                       [autoFocus]="true"
+                                                       (load)="scope.onEditableControlInit($event)"
+                                                       (enter)="scope.onEnter()"
+                                                       (escape)="scope.onEscape()"
+                                                       (destroy)="scope.onEditableControlDestroy($event)"
+                                                       (valueChanged)="scope.onValueChanged($event)">
+                            <input matInput type="text" [ntk-only-number]="true" [decimal]="false" [(ngModel)]="scope.value" />
+                        </ntk-table-editable-cell-input>
+                    </div>
+                    <div *ngSwitchCase="'Date'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="end center" style="height:100%;">
+                        <div *ngIf="!scope.isEditMode" fxFill fxLayoutAlign="start center" class="cell-padding">
+                            <div fxFlex  fxLayoutAlign="end center">{{scope.value|formatDate}}</div>
+                            <button fxFlex="none" [tabIndex]="-1" [disabled]="scope.disabled" mat-icon-button class="ntk-table-editable-cell-date-picker-button" (click)="onDatePickerClick({row:row,col:col} , $event)">
+                                <mat-icon>today</mat-icon>
+                            </button>
+                        </div>
+                        <ntk-table-editable-cell-date *ngIf="scope.isEditMode"
+                                                      class="datatable-cell-align-right"
+                                                      [value]="scope.value"
+                                                      [prevValue]="scope.prevValue"
+                                                      [autoFocus]="true"
+                                                      [showDropDown]="true"
+                                                      (load)="scope.onEditableControlInit($event)"
+                                                      (enter)="scope.onEnter($event)"
+                                                      (escape)="scope.onEscape()"
+                                                      (destroy)="scope.onEditableControlDestroy($event)"
+                                                      (valueChanged)="scope.onValueChanged($event)"></ntk-table-editable-cell-date>
+                    </div>
+                    <div *ngSwitchCase="'Option'" (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayoutAlign="end center" style="height:100%;">
+                        <ntk-table-editable-cell-checkbox style="width: 100%;"
+                                                          class="cell-control"
+                                                          [value]="scope.value"
+                                                          (valueChanged)="scope.onValueChanged($event)"
+                                                          [readonly]="!scope.editable">
+                            <mat-checkbox color="primary" [disabled]="scope.disabled" [checked]="scope.value" [tabIndex]="-1"></mat-checkbox>
+                        </ntk-table-editable-cell-checkbox>
+                    </div>
+                    <div *ngSwitchCase="'Total'" (click)="onCellClick({row:row, col:col} , $event)" fxLayoutAlign="end center" style="height:100%;">
+                        <div class="cell-padding">{{scope.value}}</div>
+                    </div>
+                    <div *ngSwitchCase="'actions'"  fxLayoutAlign="end center" class="cell-padding button-actions" style="height:100%;">
+                        <button mat-icon-button #menuTrigger="matMenuTrigger" [tabIndex]="-1"  [matMenuTriggerFor]="actionMenu" [matMenuTriggerData]="{row: row, rowIndex: rowIndex, trigger: menuTrigger}">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <button mat-icon-button [tabIndex]="-1">
+                            <mat-icon>drag_handle</mat-icon>
+                        </button>
+                    </div>
+                    <div *ngSwitchDefault (click)="onCellClick({row:row, col:col} , $event)" (dblclick)="onCellDblClick({row:row, col:col} , $event)" fxLayout="row" fxLayoutAlign="start center" style="height:100%;">
+                        <div *ngIf="!scope.isEditMode" class="cell-padding">{{scope.value}}</div>
+                        <ntk-table-editable-cell-input *ngIf="scope.isEditMode"
+                                                       class="datatable-cell-align-left"
+                                                       [value]="scope.value"
+                                                       [prevValue]="scope.prevValue"
+                                                       [autoFocus]="true"
+                                                       (load)="scope.onEditableControlInit($event)"
+                                                       (enter)="scope.onEnter()"
+                                                       (escape)="scope.onEscape()"
+                                                       (destroy)="scope.onEditableControlDestroy($event)"
+                                                       (valueChanged)="scope.onValueChanged($event)">
+                            <input matInput type="text"  [(ngModel)]="scope.value"/>
+                        </ntk-table-editable-cell-input>
+                    </div>
+                </ng-container>
+            </ng-template>
+        </ntk-datatable-column>
+    </ntk-datatable>
+</div>
+<!--- Context menu for line -->
+<mat-menu #actionMenu="matMenu" direction="down" yPosition="below" xPosition="before" >
+    <ng-template matMenuContent let-row="row">
+        <button mat-menu-item (click)="onLineAdded(row)">
+            <mat-icon>add</mat-icon>New line
+        </button>
+        <button mat-menu-item (click)="onLineCopied(row)">
+            <mat-icon>content_copy</mat-icon>Copy line
+        </button>
+        <button mat-menu-item (click)="onLineRemoved(row)">
+            <mat-icon>delete</mat-icon>Delete line
+        </button>
+    </ng-template>
+</mat-menu>

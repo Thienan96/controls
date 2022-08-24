@@ -1,0 +1,26 @@
+<div #scrollbar class="scrollbar" (scroll)="onScroll($event)" style="position: relative;overflow: hidden;height: 100%;">
+    <ng-content></ng-content>
+    <virtual-scroller #scroll
+                      [parentScroll]='scrollbar'
+                      [style.height.%]="100"
+                      [style.width.%]="100"
+                      [items]="items"
+                      (vsUpdate)="onUpdate($event)"
+                      (vsChange)="onChange($event)"
+                      [enableUnequalChildrenSizes]="true">
+        <div #container class="virtual-list-container" style="margin:0;padding:0;">
+            <div *ngFor="let row of viewPortItems; trackBy:trackByFunction; let i = index;" [class.last]="viewPortItems.length-1 === i" [style.min-height.px]="itemHeight">
+                <div *ngIf="row.item">
+                    <ng-container *ngTemplateOutlet="_itemTemplate;context:{item: row}"></ng-container>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="lastItemParent" class="last-item-parent timeline-droppable-top"
+             expandableDropList
+             [droppableData]="lastItemParent"
+             position="Bottom" >
+            <div class="indicate-line" [style.left.px]="lastItemParent.level*indent"></div>
+        </div>
+    </virtual-scroller>
+</div>
+

@@ -1,0 +1,30 @@
+span.field-label {
+	display: block;
+	color: rgba(0,0,0,0.54);
+	font-size: 11px;
+	letter-spacing: 0.020em;
+	margin: 2px 0;
+}
+
+span.field-data {
+	// display: block;
+	// color: black;
+	line-height: 20px;
+	white-space: normal;
+	word-break: break-word;
+	display: inline-block;
+}
+.custom-sufix {
+	color: rgba(0, 0, 0, 0.54);
+	font-size: 12px;
+	margin: 0 0 0 4px;	
+}
+
+.field-icon-button {
+	width: 28px;
+	height: 28px;
+	line-height: 32px;
+	margin-left: 8px;
+	user-select: none;
+	cursor: pointer;
+}

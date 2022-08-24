@@ -1,0 +1,25 @@
+<div fxLayout="row" style="width:100%;height:100%;">
+    <div class="aside aside-left" fxFlex="none">
+        <div *ngFor="let column of columnsByPin.left"
+             fxFlex="none"
+             [style.width.px]="column.width"
+             [style.minWidth.px]="column.width"
+             [class.is-last-column]="column.isLastColumn"></div>
+    </div>
+    <div class="aside aside-center" fxFlex style="overflow:auto;">
+        <div fxLayout="row" style="float:left;height:1px;" class="fixed-table-horizontal-thumb">
+            <div *ngFor="let column of columnsByPin.center"
+                 fxFlex="none"
+                 [style.width.px]="column.width"
+                 [style.minWidth.px]="column.width"
+                 [class.is-last-column]="column.isLastColumn"></div>
+        </div>        
+    </div>
+    <div class="aside aside-right" fxFlex="none" fxLayout="row">
+        <div *ngFor="let column of columnsByPin.right"
+             fxFlex="none"
+             [style.width.px]="column.width"
+             [style.minWidth.px]="column.width"
+             [class.is-last-column]="column.isLastColumn"></div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿<form enctype="multipart/form-data" method="post" class="attachments-container">
+    <ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName="{{getStyleLogo()}}" [multiple]="'false'">
+        <ng-template ngx-file-drop-content-tmp>
+            <div #panelBrowseFiles fxFlex fxLayout="column" fxLayoutAlign="start stretch" class="ntk-browser-box"
+                style="display: block !important">
+                <div *ngIf='attachmentData.length === 0' fxLayout="row" browseBtnClassName="ntk-browser-box-content"
+                    fxFlex>
+                    <span fxFlex></span>
+                    <label class="ntk-browser-box-text">
+                        <input type="file" #inputCloudFiles (change)="onSelectFiles(inputCloudFiles.files)"
+                            accept=".jpeg,.jpg" style="display: none">
+                        <input type="file" #inputBrowseFiles (change)="onSelectFiles(inputBrowseFiles.files)"
+                            accept=",.jpeg,.jpg" style="display: none">
+                        <button (click)="inputBrowseFiles.click()" mat-button color="primary">{{'btAddLogo' | translator | uppercase}}</button>
+                    </label>
+                    <span fxFlex></span>
+                </div>
+                <div *ngIf='attachmentData.length !== 0' fxLayout="row" fxLayoutAlign="center center" style="min-height: 180px; max-height: 300px">
+                    <ntk-image-thumb *ngFor="let item of attachmentData" (logoUploaded)='getLogoUploaded($event)' 
+                        [containerWidth] = "300" [containerHeight]="225" [isFitImageToVp] = "true"
+                        (imageThumbLoaded)="onImageThumbLoaded($event)"
+                        (statusChanged)="onImageThumbStatusChanged($event)" [model]="item" [isLogo]='true'>
+                    </ntk-image-thumb>
+                </div>
+                <div *ngIf='attachmentData.length !== 0' fxLayout="row" fxLayoutAlign="center center"
+                    fxLayoutGap='16px'>
+                    <button mat-button color="primary" [hidden]='hiddenButtons' (click)="changeLogo.click()">{{'btChangeLogo' | translator | uppercase}}</button>
+                    <input type="file" #changeLogo (change)="onSelectFiles(changeLogo.files)"
+                        (click)="changeLogo.value = null" accept=".jpeg,.jpg" style="display: none">
+                    <button mat-button color="primary" [hidden]='hiddenButtons' (click)='removeLogo()'>{{'btRemoveLogo' | translator | uppercase}}</button>
+                </div>
+            </div>
+        </ng-template>
+    </ngx-file-drop>
+</form>

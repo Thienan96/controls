@@ -1,0 +1,197 @@
+<ntk-toolbar #toolbar1 class="abcd"
+             storageKey="IncidentStates"
+             [value]="currentFilter1"
+             [title]="'Toolbar 1'"
+             (titleClicked)="onTittleClicked()"
+             [currentViewMode]="currentViewMode1"
+             (canCreateFilterChange)="canCreateFilter($event)"
+             (getColumnFilterChange)="getColumnFilter($event)"
+             (filtersChanged)="onFiltersChanged($event)"
+             (getPredefineFiltersChange)="getPredefineFiltersChange($event)"
+             [showCustomFiltersCount]="true"             
+             controllerName="incident">
+    <ntk-toolbar-filters>
+        <ntk-toolbar-filters-item columnName="UnArchived" filterType="Action" translateKey="btFilterByActive"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Archived"   filterType="Action" translateKey="btFilterByArchived"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Duration" filterType="Selector" [filterOperator]="FilterOperator.Greater" [dataType]="DataType.Duration" [allowNegative]="false"  translateKey="lbDuration"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Subject" filterType="Selector" filterOperator="Contains" dataType="" translateKey="lbName"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Integer" filterType="Selector" filterOperator="Equals" dataType="Integer" translateKey="lbInteger"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Decimal" filterType="Selector" [allowNegative]="false"  filterOperator="Equals" dataType="Decimal" translateKey="lbDecimal"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Site.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbSite" viewType="VirtualLoad">
+            <ng-template let-item="item" let-onItemChanged="onItemChanged">
+                <mat-checkbox
+                        color="primary"
+                        *ngIf="item.Value"
+                        [checked]="item.IsSelected"
+                        (change)="onItemChanged($event)"
+                        [value]="item">{{item.DisplayValue}}</mat-checkbox>
+            </ng-template>
+        </ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Status" filterType="Selector" filterOperator="In" dataType="Enum:Status" translateKey="lbStatus"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Date" filterType="Selector" filterOperator="Equals" dataType="Date" translateKey="lbCreationDate"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Equipment.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbEquipment" viewType="TreeVirtualLoad" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Room.Name" [canUpdateCheckedAll]="false" filterType="Selector" filterOperator="In" dataType="" translateKey="lbRoom"  viewType="TreeVirtualLoad" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true">
+            <ng-template let-item="item" let-offsetHeight="offsetHeight" let-indentLines="indentLines" let-onItemChanged="onItemChanged">
+                <div fxLayout="row" fxLayoutAlign=" center"  fxFlex style="width: 100%;">
+                    <mat-checkbox
+                        color="primary"
+                        *ngIf="item.Value"
+                        [disabled]="item.Disabled"
+                        [class.toolbar-filter-item-group-header]="item.Disabled"
+                        [checked]="item.IsSelected"
+                        (change)="onItemChanged($event)"
+                        [value]="item">
+                    </mat-checkbox>
+                    <ntk-tree-indent [offset-height]="offsetHeight" [indent-lines]="indentLines" [height]="48"></ntk-tree-indent>
+                    <span [ngStyle]="{'font-weight': item.Disabled ? '500' : '400'}" [style.font-size.px]="14" [style.margin-left.px]="8">
+                        {{item.DisplayValue}}
+                    </span>
+                    <span [style.font-size.px]="11" [style.margin-left.px]="5" *ngIf="item.OriginData?.Type"> ({{item.OriginData.Type}})</span>
+                </div>
+            </ng-template>
+        </ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="IsUrgent" filterType="Selector" filterOperator="In" dataType="Boolean"  translateKey="lbUrgent"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="WhereIAmMentioned" filterType="Boolean" translateKey="lbWhenMentioned"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="MyTicket" filterType="Boolean" filterOperator="ClearBefore" translateKey="btFilterByMyOpenedIncidents"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Month" filterType="Selector" filterOperator="Equals" dataType="Month" translateKey="lbPeriod"></ntk-toolbar-filters-item>
+        <ntk-toolbar-filters-item columnName="Custom" filterType="Selector" filterOperator="Equals" dataType="Custom" viewType="VirtualLoad" translateKey="lbCustom"></ntk-toolbar-filters-item>
+
+    </ntk-toolbar-filters>
+    <ntk-toolbar-sorts>
+        <ntk-toolbar-sorts-item columnName="Name" translateKey="lbName"></ntk-toolbar-sorts-item>
+        <ntk-toolbar-sorts-item columnName="Number" translateKey="lbNumber"></ntk-toolbar-sorts-item>
+        <ntk-toolbar-sorts-item columnName="Site.Name" translateKey="lbSite"></ntk-toolbar-sorts-item>
+    </ntk-toolbar-sorts>
+
+    <ng-template ntk-template="Status" let-item="item" let-onItemChanged="onItemChanged">
+        <mat-checkbox
+                color="primary"
+                *ngIf="item.Value"
+                [checked]="item.IsSelected"
+                (change)="onItemChanged($event)"
+                [value]="item">{{item.DisplayValue}}</mat-checkbox>
+    </ng-template>
+    <ng-template #userAccountTemplate>
+        <mat-divider [vertical]="true" class="divider-vertical" ></mat-divider>
+        <span>Name</span>
+        <ntk-user-menu #userMenu 
+                userName="abcd"
+                [showUserProfileItem]="false"
+                [showChangePasswordItem]="false"></ntk-user-menu>
+    </ng-template>
+
+</ntk-toolbar>
+
+<mat-divider style="margin: 10px 0"></mat-divider>
+<div style="margin: 20px">
+    <ntk-toolbar #toolbar2
+                          storageKey="toolbar2"
+                          [value]="currentFilter2"
+                          [title]="'Flexible Toolbar'"
+                          [canManageGlobalFilters]='true'
+                          (titleClicked)="onTittleClicked()"
+                          [currentViewMode]="currentViewMode2"
+                          (canCreateFilterChange)="canCreateFilter($event)"
+                          (getColumnFilterChange)="getColumnFilter($event)"
+                          (filtersChanged)="onFiltersChanged($event)"
+                          (getPredefineFiltersChange)="getPredefineFiltersChange($event)"
+                          [isForceDesktop]="false"
+                          [showMenuButton]="showMenuButton">
+        <ntk-toolbar-filters>
+            <ntk-toolbar-filters-item columnName="UnArchived" filterType="Action" translateKey="btFilterByActive"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Archived"   filterType="Action" translateKey="btFilterByArchived"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Name" filterType="Selector" filterOperator="Contains" dataType="" translateKey="lbName"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Integer" filterType="Selector" filterOperator="Equals" dataType="Integer" translateKey="lbInteger"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Decimal" filterType="Selector" filterOperator="Equals" dataType="Decimal" translateKey="lbDecimal"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Site.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbSite" viewType="VirtualLoad"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Status" filterType="Selector" filterOperator="Equals" dataType="Enum:Status" translateKey="lbStatus">
+            </ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Date" filterType="Selector" filterOperator="Equals" dataType="Date" translateKey="lbCreationDate"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Equipment.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbEquipment" viewType="TreeGroup" leafType="Eq" nodeType="EqT" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Room.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbRoom"  viewType="TreeVirtualLoad" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="IsUrgent" filterType="Selector" filterOperator="In" dataType="Boolean"  translateKey="lbUrgent"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="WhereIAmMentioned" filterType="Boolean" translateKey="lbWhenMentioned"></ntk-toolbar-filters-item>
+        </ntk-toolbar-filters>
+        <ntk-toolbar-sorts>
+            <ntk-toolbar-sorts-item columnName="Name" translateKey="lbName"></ntk-toolbar-sorts-item>
+            <ntk-toolbar-sorts-item columnName="Number" translateKey="lbNumber"></ntk-toolbar-sorts-item>
+            <ntk-toolbar-sorts-item columnName="Site.Name" translateKey="lbSite"></ntk-toolbar-sorts-item>
+        </ntk-toolbar-sorts>
+    </ntk-toolbar>
+</div>
+
+<mat-divider style="margin: 10px 0"></mat-divider>
+<div style="margin: 20px">
+    <ntk-history-toolbar #toolbar3
+                 storageKey="toolbar3"
+                 [value]="currentFilter3"
+                 [title]="'History Toolbar'"
+                 [canManageGlobalFilters]='true'
+                 (titleClicked)="onTittleClicked()"
+                 (canCreateFilterChange)="canCreateFilter($event)"
+                 (getColumnFilterChange)="getColumnFilter($event)"
+                 (filtersChanged)="onFiltersChanged($event)"
+                 (getPredefineFiltersChange)="getPredefineFiltersChange($event)">
+        <ntk-toolbar-filters>
+            <ntk-toolbar-filters-item columnName="UnArchived" filterType="Action" translateKey="btFilterByActive"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Archived"   filterType="Action" translateKey="btFilterByArchived"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Name" filterType="Selector" filterOperator="Contains" dataType="" translateKey="lbName"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Integer" filterType="Selector" filterOperator="Equals" dataType="Integer" translateKey="lbInteger"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Decimal" filterType="Selector" filterOperator="Equals" dataType="Decimal" translateKey="lbDecimal"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Site.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbSite" viewType="VirtualLoad"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Status" filterType="Selector" filterOperator="Equals" dataType="Enum:Status" translateKey="lbStatus">
+            </ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Date" filterType="Selector" filterOperator="Equals" dataType="Date" translateKey="lbCreationDate"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Equipment.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbEquipment" viewType="TreeGroup" leafType="Eq" nodeType="EqT" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="Room.Name" filterType="Selector" filterOperator="In" dataType="" translateKey="lbRoom"  viewType="TreeVirtualLoad" expectedFilterItem="Site.Name" [isExpectedSingleSelection]="true"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="IsUrgent" filterType="Selector" filterOperator="In" dataType="Boolean"  translateKey="lbUrgent"></ntk-toolbar-filters-item>
+            <ntk-toolbar-filters-item columnName="WhereIAmMentioned" filterType="Boolean" translateKey="lbWhenMentioned"></ntk-toolbar-filters-item>
+        </ntk-toolbar-filters>
+        <ntk-toolbar-sorts>
+            <ntk-toolbar-sorts-item columnName="Name" translateKey="lbName"></ntk-toolbar-sorts-item>
+            <ntk-toolbar-sorts-item columnName="Number" translateKey="lbNumber"></ntk-toolbar-sorts-item>
+            <ntk-toolbar-sorts-item columnName="Site.Name" translateKey="lbSite"></ntk-toolbar-sorts-item>
+        </ntk-toolbar-sorts>
+    </ntk-history-toolbar>
+</div>
+
+
+
+<!-- <button mat-button (click)="onReleaseClick()" [style.width.px]='100'>Release all calls</button> -->    
+<ng-template #customNotifTemplate let-item='item'>
+    <!--First line: icon, name, date, delete-->
+    <div fxLayout='row' fxLayoutAlign='start center'>
+        <mat-icon color="warn">notifications</mat-icon>
+        <div fxFlex>
+            <span class="notif-heaser mat-body-strong">{{item.Sender.Name}}</span><span
+                class="notif-heaser mat-body-strong">{{item.Sent | formatDate}}</span>
+        </div>
+        <button mat-icon-button class="default-mat-icon-button" fxFlex="none"
+            (click)="onDeleteMessageClick.emit(item)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <!--line of message-->
+    <!-- <ntk-middle-truncation maxLines="2" class="notif-message mat-caption">{{item.Message}}</ntk-middle-truncation> -->
+    <span>{{item.Message}}</span>
+</ng-template>
+
+<ng-template #customNotifHIstorySubjectTemplate let-item="item" let-maxLines="cellMaxLines">    
+    <!-- <div class='cell-center' *ngIf="item">
+        <ntk-middle-truncation maxLines="2" class="notif-message mat-caption">{{item.Message}}</ntk-middle-truncation>
+    </div> -->
+    
+
+    <!-- <div style="position:relative;height: 100%;">
+        <div style="position: absolute; top: 50%; transform: translate(0,-50%);">            
+            {{item.Message}}            
+        </div> 
+    </div> -->
+
+    <div style="position:relative;height: 100%;width: 100%;">
+        <div style="position: absolute; top: 50%; transform: translate(0,-50%);">          
+            <ntk-middle-truncation [maxLines]="maxLines" autoTooltip="true" lineHeight="17">{{item.Message}}</ntk-middle-truncation>
+        </div> 
+    </div>
+    
+</ng-template>

@@ -1,0 +1,34 @@
+<div style="position: relative;overflow: hidden; height: 100%;">
+    <div style="height: 100%;" #scrollbar>
+        <virtual-scroller #scroll [style.height.%]="100" [style.width.%]="100" [items]="items">
+            <div #container class="virtual-list-container" style="margin:0;padding:0;">
+                <!-- prevent error when first row change height, virtual scroller display not correctly -->
+                <div class='blank-row'>
+                </div>
+                <div *ngIf="hasHeader">
+                    <ng-container fxFlex *ngTemplateOutlet="_headerTemplate;">
+                    </ng-container>
+                </div>
+                <div *ngFor="let row of scroll.viewPortItems; let i = index;" style="border-bottom: 1px solid #E1E1E1;"
+                    [ngStyle]="{'cursor': preventExpand ? 'default' : 'pointer'}" (click)='onSelectRow(row)' class="virtual-scroller-expansion-row"
+                    fxLayout="row" fxLayoutAlign="start stretch">
+                    <ng-container *ngIf="!row.isHidden">
+                        <!-- check box -->
+                        <div fxFlex="none" style="height: 48px; width: 30px; margin-left: 4px;"
+                            fxLayoutAlign="start center" *ngIf="haveCheckbox">
+                            <mat-checkbox *ngIf="row.allowCheck" [(ngModel)]="row.isChecked"
+                                (change)="changeCheckedStatus(row, $event.checked)" (click)="$event.stopPropagation();"
+                                color="primary">
+                            </mat-checkbox>
+                        </div>
+
+                        <ng-container fxFlex *ngTemplateOutlet="_itemTemplate;context:{item: row}">
+                        </ng-container>
+                    </ng-container>
+
+                </div>
+            </div>
+        </virtual-scroller>
+
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' style='margin: 0;'>        
+        
+        <button fxFlex="none" mat-icon-button (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400">{{'lbUploadDocuments' | translator}}&nbsp;({{attachmentData.length}})</div>
+        
+        <button mat-button (click)="onSaveClick()" [disabled]='!canSave' >{{'btSave' | translator}}</button>
+    </mat-toolbar>
+    <!-- <mat-divider></mat-divider> -->    
+    
+    <!-- <mat-progress-bar mode="indeterminate"  [style.display]="busy?'inherit':'none'" class="loading-progress"></mat-progress-bar> -->
+
+    <div style="overflow: hidden;" fxLayout='column' fsLayoutAlign='start stretch' fxFlex>
+        <div fxFlex="none" style="padding: 16px;">
+          <ntk-file-drop (onFilesDrop)='onFilesAdded($event)' ></ntk-file-drop> 
+        </div>
+        <div style="overflow-y: auto;height: 100%;">
+          <ntk-file-item *ngFor="let item of attachmentData" [model]="item"
+                          [canRemove]="'true'"
+                          (statusChanged)="onImageThumbStatusChanged($event)"                          
+                          (removeImageThumb)="onRemoveImageThumb($event)"
+                          (imageThumbLoaded)="onImageThumbLoaded($event)"></ntk-file-item>
+        </div>
+    </div>
+</div>

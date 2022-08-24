@@ -1,0 +1,24 @@
+@import './module-bar-menu/module-bar-menu.component';
+@import './module-bar-item/module-bar-item.component';
+@import './module-bar/module-bar.component';
+
+@mixin module-bar-theme($theme) {
+  @include mat-core-theme($theme);
+  @include mat-toolbar-theme($theme);
+}
+
+@mixin module-bar($theme, $options: ()) {
+  $defaultValues: (
+          buttonHeight: 30px,
+          moduleBarHeaderHeight: 64px
+  );
+  $options: map-merge($defaultValues, $options);
+
+  ntk-module-bar {
+    @include module-bar-theme($theme);
+  }
+  @include module-bar-menu-component($theme, $options);
+  @include module-bar-item-component($theme, $options);
+  @include module-bar-component($theme, $options)
+}
+

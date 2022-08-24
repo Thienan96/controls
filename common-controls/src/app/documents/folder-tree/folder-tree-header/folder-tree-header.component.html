@@ -1,0 +1,29 @@
+<div fxLayout="row" style="width:100%;height:100%; float: left;" class="ntk-datatable-header">
+    <div class="aside aside-left">
+        <ntk-folder-tree-header-cell *ngFor="let column of columnsByPin.left" fxLayoutAlign="start center"
+            class="datatable-header-cell" 
+            [columnDef]="column" 
+            [template]="template" 
+            (resized)="onColumnResized($event)">
+        </ntk-folder-tree-header-cell>
+    </div>
+    <div class="aside aside-center" style=" overflow: hidden">
+        <div [style.transform]="'translateX(-' + scrollLeft + 'px)'" fxLayout="row" fxLayoutAlign="start center"
+            style="float:left; height:100%">
+            <ntk-folder-tree-header-cell *ngFor="let column of columnsByPin.center; let i = index" 
+            [columnDef]="column"
+            [template]="template" 
+            [isLastCol]="i === columnsByPin.center.length"
+            (resized)="onColumnResized($event)">
+            </ntk-folder-tree-header-cell>
+        </div>
+    </div>
+    <div class="aside aside-right" fxLayout="row">
+        <ntk-folder-tree-header-cell *ngFor="let column of columnsByPin.right" fxLayoutAlign="start center"
+            class="datatable-header-cell" 
+            [columnDef]="column" 
+            [template]="template" 
+            (resized)="onColumnResized($event)">
+        </ntk-folder-tree-header-cell>
+    </div>
+</div>

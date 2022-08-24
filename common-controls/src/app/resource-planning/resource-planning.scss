@@ -1,0 +1,15 @@
+@import "resource-planning-header/resource-planning-header.component";
+@import "resource-planning-tooltip/resource-planning-tooltip.component";
+@import "resource-planning-resource/resource-planning-resource.component";
+@import "resource-planning-event/resource-planning-event.component";
+@import "resource-planning-events/resource-planning-events.component";
+@import "resource-planning/resource-planning.component";
+
+@mixin resource-planning($theme, $options) {
+  @include resource-planning-tooltip-component($theme, $options);
+  @include resource-planning-header-component($theme, $options);
+  @include resource-planning-resource-component($theme, $options);
+  @include resource-planning-event-component($theme, $options);
+  @include resource-planning-events-component($theme, $options);
+  @include resource-planning-component($theme, $options);
+}

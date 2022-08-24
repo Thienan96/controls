@@ -1,0 +1,3 @@
+<div *ngFor="let hour of hours; trackBy:trackBy" [style.left.%]="hour.left" class="hour" fxLayoutAlign="start center">
+    <div class="hour-text">{{hour.label}}</div>
+</div>

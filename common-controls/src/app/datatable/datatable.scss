@@ -1,0 +1,64 @@
+@import './datatable/datatable.component.scss';
+@import './datatable-body/datatable-body.component.scss';
+@import './datatable-header/datatable-header.component.scss';
+@import './datatable-footer/datatable-footer.component.scss';
+@import './datatable-row/datatable-row.component.scss';
+@import './datatable-scroller-horizontal/datatable-scroller-horizontal.component.scss';
+@import './datatable-groupby/datatable-groupby.component.scss';
+@import './datatable-cell/datatable-cell.component';
+@import '../editable-controls/table-editable-cell-dropdown/table-editable-cell-dropdown.component';
+@import '../editable-controls/table-editable-cell-date/table-editable-cell-date.component';
+@import '../editable-controls/table-editable-cell-input/table-editable-cell-input.component';
+
+@mixin datatable($theme, $options:()) {
+  $defaultValues: (
+          borderColor: rgba(0, 0, 0, 0.12),
+          cellPadding: 0 8px,
+          alternateColor: rgba(225, 239, 255, 0.4),
+          hoverBackgroundColor: #f7f7f7,
+          selectedBackgroundColor: #ececec,
+          headerBackgroundColor: #fff,
+          headerHeight: 50px,
+          footerHeight: 32px,
+          footerBackgroundColor: #f1f1f1,
+          groupByBackgroundColor:#f1f1f1
+  );
+  $options: map-merge($defaultValues, $options);
+
+  @include datatable-component($theme, $options);
+  @include datatable-header($theme, $options);
+  @include datatable-body($theme, $options);
+  @include datatable-footer($theme, $options);
+  @include datatable-row($theme, $options);
+  @include datatable-scroller-horizontal($theme, $options);
+  @include datatable-groupby($theme, $options);
+  @include datatable-row-cell($theme, $options);
+
+  ntk-datatable {
+    @include table-editable-cell-dropdown($options);
+    @include table-editable-cell-input($options);
+    @include table-editable-cell-date($options);
+  }
+}
+
+.cell-data {
+  margin-top: 2px;
+}
+
+.col-header-left {
+  width: 100%;
+  text-align: left;
+  word-break: break-word;
+}
+
+.col-header-center {
+  width: 100%;
+  text-align: center;
+  word-break: break-word;
+}
+
+.col-header-right {
+  width: 100%;
+  text-align: end;
+  word-break: break-word;
+}

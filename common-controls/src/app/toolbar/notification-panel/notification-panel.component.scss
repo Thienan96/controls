@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+.notif-status-text {
+  font-size: mat-font-size($config, headline);
+  font-family: mat-font-family($config);
+  color: rgba($color: #000000, $alpha: 0.54);
+}
+
+
+.panel-container {
+  overflow: hidden;
+}
+
+.notif-item {
+  overflow: hidden;
+}

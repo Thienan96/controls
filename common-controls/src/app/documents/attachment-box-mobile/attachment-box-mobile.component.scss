@@ -1,0 +1,25 @@
+.ntk-list-image-thumb {
+  overflow: auto;
+  width: 100%;
+}
+
+::ng-deep {
+  ntk-attachment-box-mobile {
+    .thumb-img-mobile {
+      object-fit: cover !important;
+      width: 100% !important;
+    }
+
+    .ntk-list-image-vertical-thumb {
+      ntk-image-thumb {
+        display: block;
+      }
+
+      ntk-image-thumb,
+      .hs-image-container {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
+  }
+}

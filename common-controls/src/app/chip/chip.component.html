@@ -1,0 +1,49 @@
+<div class="mat-chip-list-wrapper" #matChipListWrapper>
+    <mat-chip *ngFor="let item of value"
+              [disableRipple]="true"
+              [class.readonly]="readonly"
+              [color]="color"
+              [removable]="removable && !readonly"
+              [selectable]="false"
+              [disabled]="disabled||item.Disabled">
+        <ng-template [ngTemplateOutlet]="chipTemplate" [ngTemplateOutletContext]="{item:item}"></ng-template>
+        <mat-icon (click)="onItemRemoved(item)" matChipRemove *ngIf="removable && !disabled && !readonly && !item.Disabled && !item.Readonly">clear</mat-icon>
+    </mat-chip>
+    <div fxFlex fxLayout="row" style="position: relative;height: 27px;" *ngIf="!isSmallScreen && !disabled && !readonly">
+        <div fxFlex>
+            <input matInput
+                   type="text"
+                   autocomplete="off"
+                   [disabled]="disabled"
+                   [readonly]="readonly"
+                   #inputChip
+                   [debounce]="debounce"
+                   (onDebounce)="onSearchChange()"
+                   [(ngModel)]="searchKeyword"
+                   [ntkAutocomplete]="chipDemo" />
+        </div>
+        <div fxFlex="none" *ngIf="showArrow" class="mat-chip-arrow-wrapper" (click)="toggle($event)">
+            <div class="mat-chip-arrow"></div>
+        </div>
+    </div>
+    <div fxFlex fxLayout="row" (click)="onShowPanel($event)" style="position: relative; height: 27px;" *ngIf="isSmallScreen && !disabled && !readonly">
+        <div style="margin: 0 3px;" fxLayoutAlign="start center">{{searchKeyword}}</div>
+        <div fxFlex   class="mat-chip-arrow-wrapper" >
+            <div class="mat-chip-arrow"></div>
+        </div>
+    </div>
+</div>
+<ntk-autocomplete #chipDemo
+                  [connectedTo]="matChipListWrapper"
+                  [color]="color"
+                  (selected)="onItemSelected($event)"
+                  [onGetData]="onGetData.bind(this)"
+                  [template]="listItemTemplate"
+                  [itemHeight]="itemHeight"
+                  [minHeight]="minHeight"
+                  [maxHeight]="maxHeight"
+                  [title]="title"
+                  [(searchKeyword)]="searchKeyword"
+                  [isSmallScreen]="isSmallScreen">
+</ntk-autocomplete>
+

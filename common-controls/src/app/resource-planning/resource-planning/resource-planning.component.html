@@ -1,0 +1,109 @@
+<div ntk-resize-sensor (onResizeSensor)="onResize()" fxLayout="column" style="height:100%">
+    <!--Header-->
+    <div fxFlex="none" class="resource-planning-header-wrapper">
+        <div fxLayout="row" style="position:relative;width:100%;overflow:hidden;box-sizing:border-box;" [style.paddingRight.px]="paddingRight">
+            <div fxFlex="none" class="spacing-user-information"></div>
+            <div fxFlex="none" class="spacing-prev-navigate" *ngIf="options.isShowPreNavigate"></div>
+            <ntk-resource-planning-header fxFlex
+                                          [viewMode]="viewMode"
+                                          [daysOfWeek]="daysOfWeek"
+                                          [dates]="dates"></ntk-resource-planning-header>
+            <div fxFlex="none" fxLayoutAlign="center center" class="text-on-right" *ngIf="options.isShowRightColumnOfResource" [innerHtml]="options.headerOnRight"></div>
+            <div fxFlex="none" class="spacing-next-navigate" *ngIf="options.isShowNextNavigate"></div>
+        </div>
+
+        <!-- Group header -->
+        <div *ngIf="showGroup" class="group-header">{{currentGroup?.Name}}</div>
+    </div>
+    <div class="hr-bottom"></div>
+    <div fxFlex style="position:relative">
+        <div class="fix-flex">
+            <virtual-scroller #virtualScroll
+                              [items]="items"
+                              [executeRefreshOutsideAngularZone]="true"
+                              [scrollDebounceTime]="100"
+                              (vsUpdate)="updateViewPortChanged($event)"
+                              (vsChange)="onRequestItemsLoad($event)"
+                              style="position: relative;width: 100%;height: 100%">
+                <div #container style="position: relative">
+                    <div *ngFor="let resource of viewPortItems;  let index = index"
+                         class="resource-item"
+                         [class.has-group]="showGroup && resource.Resource?.isFirstPersonInGroup"
+                         [style.min-height.px]="itemHeight-1"
+                         [attr.group-name]="resource?.Resource?.GroupName"
+                         [attr.group-id]="resource?.Resource?.GroupId">
+                        <div *ngIf="showGroup && resource.Resource?.isFirstPersonInGroup" class="group-header">{{resource.Resource?.GroupName}}</div>
+                        <ntk-resource-planning-resource
+                                *ngIf="resource.Id"
+                                [options]="options"
+                                [selected]="selected"
+                                [dates]="dates"
+                                [resource]="resource"
+                                (rendered)=onResourceRendered()
+                                [getEventTooltip]="getEventTooltip"
+                                [updateEvent]="onUpdateEvent.bind(this)"
+                                [moveEvent]="onMoveEvent.bind(this)"
+                                [buttonActionClick]="onButtonActionClick.bind(this)"
+                                [eventClick]="onEventClicked.bind(this)"
+                                [eventDblClick]="onEventDbClicked.bind(this)"
+                                [dayPlanningClick]="onDayPlanningClicked.bind(this)"
+                                [dayPlanningDblClick]="onDayPlanningDblClicked.bind(this)"
+                                [prevButtonClicked]="onPrevButtonClicked.bind(this)"
+                                [nextButtonClicked]="onNextButtonClicked.bind(this)"
+                                [resourceClicked]="onResourceClicked.bind(this)"
+                                [eventDragStarted]="onEventDragStarted.bind(this)"
+                                [eventDragStopped]="onEventDragStopped.bind(this)"
+                                [viewMode]="viewMode"
+                                [daysOfWeek]="daysOfWeek"
+                                [isCustomizeView]="isCustomizeView"
+                                [minHeight]="itemHeight"
+                                [isSmallIcon]="isSmallIcon"
+                        ></ntk-resource-planning-resource>
+                    </div>
+                    <ntk-resource-planning-lines
+                            [options]="options"
+                            [viewMode]="viewMode"
+                            [dates]="dates"
+                            [daysOfWeek]="daysOfWeek"
+                    ></ntk-resource-planning-lines>
+                </div>
+            </virtual-scroller>
+
+        </div>
+    </div>
+</div>
+
+
+<ng-template #eventHelperTemplate let-options>
+    <div class="ntk-resources-events-dragging-wrapper"
+         [ngClass]="options.className"
+         [ngStyle]="{'height.px':options.height, 'width.px':options.width}">
+        <div class="overlay"></div>
+        <div class="items">
+            <ntk-resource-planning-event
+                    *ngFor="let event of options.events;let $index= index"
+                    [ngStyle]="{'z-index': $index+1, 'height.px':options.options.eventDraggingHeight, 'top.px': $index*options.options.overlappingDistance}"
+                    [options]="options.options"
+                    [resource]="options.resource"
+                    [event]="event">
+            </ntk-resource-planning-event>
+        </div>
+        <mat-icon class="icon-copy">add_circle</mat-icon>
+    </div>
+</ng-template>
+
+<ng-template #eventHoverTemplate let-scope>
+    <mat-icon *ngIf="scope.item.canResize"
+              class="icon-resize ui-resizable-se"
+              [ngStyle]="{color:scope.textColor}"
+              (click)="scope.onResizableClicked($event)">signal_cellular_4_bar
+    </mat-icon>
+    <ntk-resource-planning-draggable
+            [options]="scope.draggableOptions"
+            [disabled]="scope.draggableOptions.disabled"
+            (dragStart)="scope.onDragStart($event)"
+            (dragStop)="scope.onDragStop($event)">
+    </ntk-resource-planning-draggable>
+    <ntk-resource-planning-tooltip [getContent]="scope.getEventTooltipCallback.bind(scope)"
+                                   [options]="scope.tooltipOptions"></ntk-resource-planning-tooltip>
+</ng-template>

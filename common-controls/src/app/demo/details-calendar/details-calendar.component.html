@@ -1,0 +1,100 @@
+<div fxLayout="column" fxFill>
+    <div fxFlex="none"  fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button (click)="gotoPrev()">
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="gotoCurrent()">
+            <mat-icon>fiber_manual_record</mat-icon>
+        </button>
+        <button mat-icon-button (click)="gotoNext()">
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+        <mat-select [(value)]="viewMode" (selectionChange)="onViewModeChanged($event)">
+            <mat-option *ngFor="let viewMode of viewModes" [value]="viewMode">{{viewMode.Name}}</mat-option>
+        </mat-select>
+    </div>
+    <div fxFlex>
+        <ntk-details-calendar [options]="options" [isSplit]="isSplit" [days]="days" cdkDropListGroup>
+            <ntk-details-calendar-day-header *ngFor="let day of days; index as index; trackBy: trackByDay" [index]="index">
+                <div [class.color-warn]="day.Date===now">
+                    <div class="text-center day-name full-day-name">{{day.Date|date:'EEEE'}}</div>
+                    <div class="text-center day-name short-day-name">{{day.Date|date:'EEE'}}</div>
+                    <div class="day-of-month-container">
+                        <mat-progress-spinner diameter="30"
+                                              [value]="day.CompletedPercentage"
+                                              [class.green]="day.CompletedPercentage>=80"
+                                              [color]="day.CompletedPercentage<80 ? 'warn':''"></mat-progress-spinner>
+                        <div class="day-of-month">{{day.Date|date:'d'}}</div>
+                    </div>
+                </div>
+                <div fxLayout="row">
+                    <div [style.width.%]="w1" class="header-col text-center">
+                        <div class="block-ellipsis">Planning</div>
+                        <div>{{day.Planning?.Duration}}&nbsp;</div>
+                    </div>
+                    <div [style.width.%]="w2" class="header-col text-center">
+                        <div class="block-ellipsis">Timesheets</div>
+                        <div>{{day.Timesheet?.Duration}}&nbsp;</div>
+                    </div>
+                </div>
+            </ntk-details-calendar-day-header>
+            <ntk-details-calendar-day *ngFor="let day of days; index as index; trackBy: trackByDay" [index]="index">
+                <ntk-details-calendar-day-column [style.width.%]="w1"
+                                                 [events]="day.Planning?.Events"
+                                                 detailsCalendarDropList
+                                                 [cdkDropListData]="day.Planning?.Events"
+                                                 [cdkDropListSortingDisabled]="true"
+                                                 [ntkCanDrop]="day.Planning.CanDrop"
+                                                 [ntkCanSort]="day.Planning.CanSort"
+                                                 [move]="onMove.bind(this)">
+                    <ntk-details-calendar-drag-duration-component *ngIf="day.Planning.CanAdd" (change)="onCreateTimesheet($event, day.Planning)"></ntk-details-calendar-drag-duration-component>
+                    <ntk-details-calendar-day-event *ngFor="let event of day.Planning?.Events; trackBy: trackByEvent"
+                                                    [event]="event"
+                                                    [style.color]="event.TextColor"
+                                                    [style.background-color]="event.BackgroundColor"
+                                                    ntkDrag
+                                                    [cdkDragDisabled]="!event.CanDrag"
+                                                    [cdkDragData]="event"
+                                                    detailsCalendarDrag
+                                                    detailsCalendarDragScroll
+                                                    detailsCalendarResizable
+                                                    [ntkCanResize]="event.CanResize"
+                                                    [resize]="onResize.bind(this)">
+                        <div ntkDragHandle [innerHTML]="event.Title|safeHtml"></div>
+                    </ntk-details-calendar-day-event>
+                </ntk-details-calendar-day-column>
+                <ntk-details-calendar-day-column [style.width.%]="w2"
+                                                 [events]="day.Timesheet?.Events"
+                                                 detailsCalendarDropList
+                                                 [cdkDropListData]="day.Timesheet?.Events"
+                                                 [cdkDropListSortingDisabled]="true"
+                                                 [ntkCanDrop]="day.Timesheet.CanDrop"
+                                                 [ntkCanSort]="day.Timesheet.CanSort"
+                                                 [move]="onMove.bind(this)">
+                    <ntk-details-calendar-drag-duration-component *ngIf="day.Planning.CanAdd" (change)="onCreateTimesheet($event, day.Timesheet)"></ntk-details-calendar-drag-duration-component>
+                    <ntk-details-calendar-day-event *ngFor="let event of day.Timesheet?.Events; trackBy: trackByEvent"
+                                                    [event]="event"
+                                                    [style.color]="event.TextColor"
+                                                    [style.background-color]="event.BackgroundColor"
+                                                    ntkDrag
+                                                    [cdkDragDisabled]="!event.CanDrag"
+                                                    [cdkDragData]="event"
+                                                    detailsCalendarDrag
+                                                    detailsCalendarDragScroll
+                                                    detailsCalendarResizable
+                                                    [ntkCanResize]="event.CanResize"
+                                                    [resize]="onResize.bind(this)">
+                        <div ntkDragHandle [innerHTML]="event.End|safeHtml"></div>
+                    </ntk-details-calendar-day-event>
+                </ntk-details-calendar-day-column>
+            </ntk-details-calendar-day>
+            <ntk-details-calendar-day-footer *ngFor="let day of days; index as index; trackBy: trackByDay" [index]="index">{{day.Date|date}}</ntk-details-calendar-day-footer>
+            <ntk-details-calendar-hours [startTime]="options.timeRange.startTime" [endTime]="options.timeRange.endTime"></ntk-details-calendar-hours>
+            <ntk-details-calendar-background>
+                <ntk-details-calendar-background-day [index]="index" class="details-calendar-day"  *ngFor="let day of days; index as index; trackBy: trackByDay">
+                    <ntk-details-calendar-background-day-event [event]="event" *ngFor="let event of day.BackgroundEvents"></ntk-details-calendar-background-day-event>
+                </ntk-details-calendar-background-day>
+            </ntk-details-calendar-background>
+        </ntk-details-calendar>
+    </div>
+</div>

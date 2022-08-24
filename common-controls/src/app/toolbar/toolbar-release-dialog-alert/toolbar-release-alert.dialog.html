@@ -1,0 +1,15 @@
+<div class="release-note">
+    <button mat-button mat-icon-button (click)="onClose()" class="button-close">
+        <mat-icon>close</mat-icon>
+    </button>
+    <div class="color-green">
+        <h2 style="text-align: center" ntk-translator="lbWhatNew"></h2>
+        <p>{{releaseAlertOnDate}}</p>
+        <p class="color-primary" target="_blank" href="#" (click)="onReleaseClicked()" style="cursor: pointer" ntk-translator="lbClickHereToViewReleaseNotes"></p>
+    </div>
+
+    <p style="text-align: right;margin-bottom: 0">
+        <mat-checkbox [checked]="isDontShowAnymore" (change)="onChangeShow($event)" color="primary">{{doNotShowAnymore}}</mat-checkbox>
+    </p>
+</div>
+

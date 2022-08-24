@@ -1,0 +1,199 @@
+/*this to allow overide default css of data table so that it can resize column easier*/
+.datatable-row-center {
+    width: auto !important;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .hs-table-cell-ellipsis {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .hs-table-cell-align-right .datatable-body-cell-label {
+    width: 100%;
+    text-align: end;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .hs-table-cell-align-center .datatable-body-cell-label {
+    width: 100%;
+    text-align: center;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .hs-table-cell-ellipsis .datatable-body-cell-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.ngx-datatable.material.single-selection .datatable-body-row.active {
+	background-color: #ECECEC !important;
+    color: rgba(0,0,0,0.87);
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group {
+    background-color: #ECECEC !important;
+    color: rgba(0,0,0,0.87);
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: #ECECEC;
+    color: rgba(0,0,0,0.87);
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .head-check {
+    display: none;
+}
+.ngx-datatable.material .datatable-body .datatable-body-row .head-check-force {
+    display: block !important;
+}
+
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group .head-check {
+    display: block !important;
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.ngx-datatable.material .datatable-header .sort-active {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.ngx-datatable.material .datatable-row-wrapper {
+    border-bottom: 1px rgba(0,0,0,.12) solid;
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+    padding: 0 16.8px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .row-action-cell {
+    padding: 0;
+    color: rgba(0, 0, 0, 0.64);
+}
+
+.ngx-datatable.material .datatable-header .hs-table-header-align-right .datatable-header-cell-wrapper {
+    margin: 0 auto;
+    display: table;
+    text-align: end;
+    width: 100%;
+}
+
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+	background-color: #eee;
+	transition-property: background;
+	transition-duration: .1s;
+	transition-timing-function: linear;
+}
+
+// NBSHD-3668
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+	padding: 0 1.2rem;
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner {
+	height: 100%;
+}
+
+.ngx-datatable .datatable-header .datatable-header-cell .datatable-header-cell-template-wrap {
+    display: flex;
+    align-items: center;
+    height: 100% !important;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell .datatable-body-cell-label {
+    overflow: hidden !important;
+    width: 100% !important;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell.hs-small-cell .datatable-body-cell-label {
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .hs-small-cell {
+	overflow: visible !important;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.row-alternate-color.datatable-row-odd {
+    background-color: rgba(225,239,255,0.4);
+}
+
+
+
+.ngx-datatable .column-right-align {
+    text-align: right;
+}
+
+.ngx-datatable .column-center-algin {
+    text-align: center;
+}
+.ngx-datatable.material .datatable-header {
+    // border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 0px !important;
+}
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+
+
+// .ngx-datatable.scroll-vertical .datatable-body {
+// 	overflow-y: scroll !important;
+// }
+
+.ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .tree-indent-cell {
+    overflow: visible !important;
+
+    .datatable-body-cell-label {
+        overflow: visible !important;
+    }
+}
+.empty-row {
+    min-width: 200px;
+}
+
+@mixin ngx-datatable($theme) {
+    $primary: map-get($theme, primary);
+    .ngx-datatable.material {
+         .datatable-body {     
+            datatable-selection {
+                width: inherit;
+                datatable-progress {
+                    width: inherit;
+                    .progress-linear {   
+                        position: fixed !important;
+                        width: inherit;
+                        .container {
+                            background-color: mat-color($primary, 50);
+        
+                            .bar {
+                                background-color: mat-color($primary, 500);
+                            }
+                        }
+                    }        
+                }
+            }            
+        }
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .fullscreen {        
+        height: auto !important;        
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;        
+    }
+}
+/////

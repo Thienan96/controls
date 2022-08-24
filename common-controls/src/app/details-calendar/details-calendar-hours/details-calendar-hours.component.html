@@ -1,0 +1,4 @@
+<div *ngFor="let item of hours" [style.height.px]="options.hourPerPixel" class="hour">
+    <div class="line"></div>
+    <div class="display-value">{{item.displayValue}}</div>
+</div>

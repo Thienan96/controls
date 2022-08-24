@@ -1,0 +1,57 @@
+@mixin ntk-toolbar-tree-component($theme,$options) {
+    $background: map_get($theme, background);
+    $background-hover: map_get($background, hover);
+    $filterItemWidth: map_get($options, filterItemWidth);
+    ntk-toolbar-tree {
+        float: left;
+        min-width: 100%;
+        &:after {
+            content: '';
+            clear: both;
+        }
+        mat-checkbox {
+            display: block;
+            padding-left: 40px;
+            width: auto;
+            .mat-checkbox-inner-container {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translate(0, -50%);
+                -webkit-transform: translate(0, -50%);
+            }
+        }
+        mat-tree {
+            .mat-tree-node {
+                position: relative;
+                overflow: visible;
+                word-wrap: normal;
+                padding-right: 16px;
+            }
+            mat-tree-node:hover, mat-tree-node:focus {
+                background: $background-hover;
+            }
+        }
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+        }
+        .groupName {
+            font-weight: 700;
+            padding-left: 40px;
+
+        }
+        .mat-checkbox-label, .groupName {
+            max-width: $filterItemWidth;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    }
+
+}

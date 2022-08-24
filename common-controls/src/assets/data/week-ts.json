@@ -1,0 +1,1278 @@
+[
+  {
+    "Date": "2021-10-11T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-12T00:00:00.000Z",
+    "BackgroundColor": "yellow",
+    "BackgroundEvents": [
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:00"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "0d8cf435-2beb-4ade-995f-fcbc743478e3",
+        "Job": {
+          "Id": "f9e83273-9a75-46a3-8612-09531ea21e9b",
+          "Code": "ACCCJA09472",
+          "Name": "GR TEST"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "o",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-12T00:00:00.000Z",
+        "Duration": 1.25,
+        "StartTime": "10:15",
+        "EndTime": "11:30",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1.5
+  },
+  {
+    "Date": "2021-10-13T00:00:00.000Z",
+    "BackgroundEvents": [
+      {
+        "StartTime": "08:00",
+        "EndTime": "09:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "20:00"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "e1957e7e-ecfc-4f52-8d70-2f0172904bf0",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab)"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "o",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 4.25,
+        "StartTime": "05:00",
+        "EndTime": "09:15",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "399d0763-cf75-4bb7-b90f-18c3d10aad6c",
+        "Job": {
+          "Id": "f9e83273-9a75-46a3-8612-09531ea21e9b",
+          "Code": "ACCCJA09472",
+          "Name": "GR TEST"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "y",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 0.5,
+        "StartTime": "12:45",
+        "EndTime": "13:15",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "e2986e09-c9cd-4a74-8034-ff5ddb1fcb87",
+        "Job": {
+          "Id": "f9e83273-9a75-46a3-8612-09531ea21e9b",
+          "Code": "ACCCJA09472",
+          "Name": "GR TEST"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "test",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 1.25,
+        "StartTime": "10:30",
+        "EndTime": "11:45",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 6
+  },
+  {
+    "Date": "2021-10-14T00:00:00.000Z",
+    "BackgroundEvents": [
+      {
+        "StartTime": "08:00",
+        "EndTime": "09:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "20:00"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "e1957e7e-ecfc-4f52-8d70-aaaswx",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab)"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "o",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-14T00:00:00.000Z",
+        "Duration": 4.25,
+        "StartTime": "19:00",
+        "EndTime": "21:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ]
+  },
+  {
+    "Date": "2021-10-15T00:00:00.000Z",
+    "BackgroundEvents": [
+      {
+        "StartTime": "00:00",
+        "EndTime": "24:00"
+      }
+    ],
+    "Events": []
+  },
+  {
+    "Date": "2021-10-16T00:00:00.000Z",
+    "BackgroundEvents": [
+      {
+        "StartTime": "00:00",
+        "EndTime": "24:00"
+      }
+    ],
+    "Events": []
+  },
+  {
+    "Date": "2021-10-17T00:00:00.000Z",
+    "BackgroundEvents": [
+      {
+        "StartTime": "00:00",
+        "EndTime": "24:00"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "qqq333435f9-bd19-44f4-832f-fe2ba3f28397",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) <script>alert(\"test\");</script>"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "iii",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 1.25,
+        "StartTime": "11:15",
+        "EndTime": "12:30",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "qqq37bca206-9195-4f79-839d-073662db7c23",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) <script>alert(\"test\");</script>"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "i",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 0.5,
+        "StartTime": "11:45",
+        "EndTime": "12:15",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "qqqc8297eff-067a-479d-ae85-21f4bed447b0",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) <script>alert(\"test\");</script>"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "o",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 1,
+        "StartTime": "11:00",
+        "EndTime": "12:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "qqqe1957e7e-ecfc-4f52-8d70-2f0172904bf0",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) <script>alert(\"test\");</script>"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "o",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 4.25,
+        "StartTime": "05:00",
+        "EndTime": "09:15",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "qqq399d0763-cf75-4bb7-b90f-18c3d10aad6c",
+        "Job": {
+          "Id": "f9e83273-9a75-46a3-8612-09531ea21e9b",
+          "Code": "ACCCJA09472",
+          "Name": "GR TEST"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "y",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 0.5,
+        "StartTime": "12:45",
+        "EndTime": "13:15",
+        "Status": "ToValidate",
+        "CanResize": true
+      },
+      {
+        "Id": "qqqe2986e09-c9cd-4a74-8034-ff5ddb1fcb87",
+        "Job": {
+          "Id": "f9e83273-9a75-46a3-8612-09531ea21e9b",
+          "Code": "ACCCJA09472",
+          "Name": "GR TEST"
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "test",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-13T00:00:00.000Z",
+        "Duration": 1.25,
+        "StartTime": "10:30",
+        "EndTime": "11:45",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ]
+  },
+  {
+    "Date": "2021-10-18T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-19T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-20T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-21T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-22T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-23T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-24T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-25T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-26T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-27T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-28T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  },
+  {
+    "Date": "2021-10-29T00:00:00.000Z",
+    "BackgroundEvents": [      
+      {
+        "StartTime": "00:00",
+        "EndTime": "08:00"
+      },
+      {
+        "StartTime": "13:00",
+        "EndTime": "14:00"
+      },
+      {
+        "StartTime": "18:00",
+        "EndTime": "23:59"
+      }
+    ],
+    "Events": [
+      {
+        "Id": "57e5b4a5-2625-4f24-ab23-5bd913cbe2e9",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "7",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "14:00",
+        "EndTime": "16:00",
+        "Status": "ToValidate",
+        "CanResize": false
+      },
+      {
+        "Id": "1df30fd3-6dd5-4335-a66e-9a2b850720ff",
+        "Job": {
+          "Id": "de76acac-3b95-43b7-a68a-ecb3b02aeb7a",
+          "Code": "ACC___09465",
+          "Name": "TEST CREATION DE JOB EN EJ4\t(after tab) "
+        },
+        "Task": null,
+        "WorkType": {
+          "Id": "e21ff00c-a899-4e80-9574-54c23573587e",
+          "Code": "DESIGN",
+          "Name": "DESIGN"
+        },
+        "Comment": "bv",
+        "Editable": true,
+        "ClientCode": "ACC",
+        "Color": "#81ffa9",
+        "ImportedIntoAPurchaseOrder": false,
+        "Date": "2021-10-11T00:00:00.000Z",
+        "Duration": 1.75,
+        "StartTime": "11:15",
+        "EndTime": "13:00",
+        "Status": "ToValidate",
+        "CanResize": true
+      }
+    ],
+    "Duration": 1
+  }
+]

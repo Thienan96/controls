@@ -1,0 +1,69 @@
+@mixin module-bar-item-component($theme, $options) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  ntk-module-item {
+    display: block;
+    cursor: pointer;
+    .modules-bar-item {
+      display: block;
+      position: relative;
+      height: 100%;
+      &.active {
+        color: mat-color($primary);
+
+        .mat-icon {
+          color: mat-color($primary) !important;
+        }
+      }
+
+      &:hover {
+        background-color: mat-color($background, 'hover');
+      }
+
+      .modules-bar-item-indent {
+        position: relative;
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+      }
+
+      .img-module {
+        width: 24px;
+        height: 24px;
+      }
+
+      .icon-module {
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+
+      .module-name-part {
+        overflow: hidden;
+        margin-left: 16px;
+
+        .module-name {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+
+      .expand-icon {
+        position: absolute;
+        left: -16px;
+        top: 50%;
+        font-size: 18px;
+        line-height: 24px;
+        transform: translateY(-50%);
+      }
+
+      .mat-icon {
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+
+    }
+  }
+}

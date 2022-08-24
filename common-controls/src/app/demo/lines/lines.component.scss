@@ -1,0 +1,110 @@
+::ng-deep {
+  .mat-tab-body-wrapper, .mat-tab-group, .ntk-demo-lines {
+    height: 100% !important;
+    display: block;
+  }
+}
+
+
+::ng-deep {
+  .expandable-details {
+
+    ntk-expandable-item {
+      border-top: 1px solid #E1E1E1;
+    }
+
+
+    // Line
+    .is-line-item {
+      .number {
+        font-weight: bold;
+        min-width: 24px;
+      }
+    }
+
+
+    // Section, Include
+    .is-section-item, .is-include-item {
+      .header {
+        color: #000;
+        background-color: #cee8fc;
+      }
+
+      .button-expand-collapse {
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        visibility: hidden;
+      }
+    }
+
+    // Item has children
+    .has-children {
+      .is-section-item, .is-include-item {
+        .button-expand-collapse {
+          visibility: visible;
+        }
+      }
+    }
+
+
+    // Include
+    .icon-link {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      line-height: 20px;
+      margin-left: -2px;
+      margin-right: 6px;
+    }
+
+
+    // Condition
+    .is-conditional-group-item {
+      .name {
+        color: blue;
+      }
+
+      .icon-condition {
+        fill: #3498DB;
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+    }
+
+
+    // Has-Children
+    .has-children {
+      // Show Expand, Collapse on Section, Include
+      .button-expand-collapse {
+        visibility: visible;
+      }
+    }
+
+
+    // Line at end of items
+    .last ntk-expandable-item:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid #E1E1E1;
+    }
+
+
+  }
+
+
+  // boundary-line
+  .boundary-line {
+    background: blue;
+
+    &.is-section-item,
+    &.is-include-item {
+      background-color: #cee8fc;
+    }
+  }
+}

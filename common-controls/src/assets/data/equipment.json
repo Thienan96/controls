@@ -1,0 +1,272 @@
+[
+  {
+    "Id": "f2cc2399-fa0e-43b9-b52d-d3d4f6e0c6ad",
+    "Name": "Electrical equipment",
+    "EntityType": "EqT",
+    "ParentId": null,
+    "DisplayOrder": 0,
+    "Level": 0,
+    "Tag": null
+  },
+  {
+    "Id": "94094238-ce06-434a-899c-d441e09135fa",
+    "Name": "Bulbs 260_04",
+    "EntityType": "EqT",
+    "ParentId": "f2cc2399-fa0e-43b9-b52d-d3d4f6e0c6ad",
+    "DisplayOrder": 2,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "52affdeb-0bbb-476b-a388-ee9dccea1d1f",
+    "Name": "  light bulb",
+    "EntityType": "Eq",
+    "ParentId": "94094238-ce06-434a-899c-d441e09135fa",
+    "DisplayOrder": 0,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "Name": "Furniture",
+    "EntityType": "EqT",
+    "ParentId": null,
+    "DisplayOrder": 4,
+    "Level": 0,
+    "Tag": null
+  },
+  {
+    "Id": "c87edd8b-7527-4fdc-9e8a-0167c125ee8b",
+    "Name": "bulkhead bulkhead bulkhead",
+    "EntityType": "Eq",
+    "ParentId": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "DisplayOrder": 4,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "39b5f853-c9c3-4c3b-bcb0-ee86ab28141c",
+    "Name": "Bath room",
+    "EntityType": "EqT",
+    "ParentId": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "DisplayOrder": 5,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "f21c70b5-26ee-4cdf-aca6-d171a20c18ae",
+    "Name": "bathtub",
+    "EntityType": "Eq",
+    "ParentId": "39b5f853-c9c3-4c3b-bcb0-ee86ab28141c",
+    "DisplayOrder": 3,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "Name": "Large Bath room",
+    "EntityType": "EqT",
+    "ParentId": "39b5f853-c9c3-4c3b-bcb0-ee86ab28141c",
+    "DisplayOrder": 6,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "3a2bd472-8c9f-40e2-b855-8f486147a936",
+    "Name": "basin",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 2,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "94d0819e-be1a-4cce-8cb9-7db39410a1b9",
+    "Name": "case",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 6,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "479c42f8-c1eb-4f7e-83d5-5a95e1334976",
+    "Name": "shampoo",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 14,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "cb8da378-4946-4c79-84ab-0d8498d2a58f",
+    "Name": "shower",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 15,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "aa232a55-4004-4b4b-b89e-50ee8947535a",
+    "Name": "soap",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 16,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "09cf16f3-a2b9-445f-a5f2-52a3b16285f3",
+    "Name": "switch",
+    "EntityType": "Eq",
+    "ParentId": "d777eaa6-a5ad-441d-8465-e7a86882c29d",
+    "DisplayOrder": 18,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "cc74f95d-11fb-4487-b93b-604c50a333f8",
+    "Name": "Small Bath room",
+    "EntityType": "EqT",
+    "ParentId": "39b5f853-c9c3-4c3b-bcb0-ee86ab28141c",
+    "DisplayOrder": 7,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "00dd852f-4f7b-47da-945f-900a1f577f87",
+    "Name": "Chair",
+    "EntityType": "Eq",
+    "ParentId": "cc74f95d-11fb-4487-b93b-604c50a333f8",
+    "DisplayOrder": 7,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "c339920c-917b-4610-8dda-091981ad1be2",
+    "Name": "mug",
+    "EntityType": "Eq",
+    "ParentId": "cc74f95d-11fb-4487-b93b-604c50a333f8",
+    "DisplayOrder": 12,
+    "Level": 3,
+    "Tag": null
+  },
+  {
+    "Id": "a850fc6b-df39-4bcf-9637-58b59ecb609d",
+    "Name": "Table",
+    "EntityType": "Eq",
+    "ParentId": "39b5f853-c9c3-4c3b-bcb0-ee86ab28141c",
+    "DisplayOrder": 19,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "421af4c7-de14-43e0-8421-ef6e6f51c8f1",
+    "Name": "Kitchen room",
+    "EntityType": "EqT",
+    "ParentId": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "DisplayOrder": 8,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "d35ba932-323f-480d-8534-0baa68559257",
+    "Name": "knife",
+    "EntityType": "Eq",
+    "ParentId": "421af4c7-de14-43e0-8421-ef6e6f51c8f1",
+    "DisplayOrder": 10,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "cfda5547-1023-4666-8e0f-18505e7038f1",
+    "Name": "spoon",
+    "EntityType": "Eq",
+    "ParentId": "421af4c7-de14-43e0-8421-ef6e6f51c8f1",
+    "DisplayOrder": 17,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "b765b6e0-5130-4827-9eb1-8fbe3157fc9d",
+    "Name": "Living room",
+    "EntityType": "EqT",
+    "ParentId": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "DisplayOrder": 9,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "a6f3587f-681b-45ae-b1b8-22f4caad4805",
+    "Name": "Cup",
+    "EntityType": "Eq",
+    "ParentId": "b765b6e0-5130-4827-9eb1-8fbe3157fc9d",
+    "DisplayOrder": 9,
+    "Level": 2,
+    "Tag": null
+  },
+  {
+    "Id": "f4fdb9b6-c48b-4a37-b4b7-18d8bb8d9d48",
+    "Name": "tivi",
+    "EntityType": "Eq",
+    "ParentId": "2fb4b070-23ef-4da1-8e83-dc7a1f572917",
+    "DisplayOrder": 20,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "Name": "IT Equipment",
+    "EntityType": "EqT",
+    "ParentId": null,
+    "DisplayOrder": 10,
+    "Level": 0,
+    "Tag": null
+  },
+  {
+    "Id": "68fc94c1-5450-42d3-a33e-1d5944e9b747",
+    "Name": "Adapteur",
+    "EntityType": "Eq",
+    "ParentId": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "DisplayOrder": 1,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "cb54cc82-d9e5-4f0c-a324-bc3885f74466",
+    "Name": "cable",
+    "EntityType": "Eq",
+    "ParentId": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "DisplayOrder": 5,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "5fe84e83-4992-4997-9b82-029b9275c9b7",
+    "Name": "CPU",
+    "EntityType": "Eq",
+    "ParentId": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "DisplayOrder": 8,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "56a36a57-51ac-4348-ac20-ce606e87e2ec",
+    "Name": "Line cable 1!",
+    "EntityType": "Eq",
+    "ParentId": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "DisplayOrder": 11,
+    "Level": 1,
+    "Tag": null
+  },
+  {
+    "Id": "3a193f92-2faa-471f-bc35-b6d6dae25ff9",
+    "Name": "radiator fan (Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim ipsum ut pulvinar laoreet. Maecenas laoreet fringilla eros at aliquet. Nulla nec turpis ac mauris sollicitudin viverra in et nulla. Sed vulputate arcu non scelerisque au",
+    "EntityType": "Eq",
+    "ParentId": "0bfa8ca5-4e87-41f5-b709-0699a64e2ae4",
+    "DisplayOrder": 13,
+    "Level": 1,
+    "Tag": null
+  }
+]

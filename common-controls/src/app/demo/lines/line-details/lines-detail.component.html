@@ -1,0 +1,43 @@
+<ntk-expandable style="height: 100%; display: block;"
+                class="expandable-details expandable-details-details-mode"
+                [lines]="items"
+                [itemHeight]="options.itemHeight"
+                [indent]="options.indent"
+                [parentCheckListBase]="parentCheckListBase">
+    <ntk-expandable-boundary-line [itemHeight]="options.itemHeight" [indent]="options.indent"></ntk-expandable-boundary-line>
+    <ng-template let-row='item' let-itemWrapper='item.itemWrapper'>
+        <div style="position: relative;"
+             [class.is-selected]="itemWrapper.isSelected"
+             [class.is-first-line-of-parent]="itemWrapper.isFirstLineOfParent"
+             [class.has-children]="itemWrapper.hasChildren"
+             [class.no-children]="!itemWrapper.hasChildren"
+             [class.is-line-item]="itemWrapper.isLineItem"
+             [class.is-section-item]="itemWrapper.isSectionItem"
+             [class.is-include-item]="itemWrapper.isIncludeItem"
+             [class.is-descendent-of-include-item]="itemWrapper.isDescendentOfIncludeItem"
+             [class.is-conditional-line-item]="itemWrapper.isConditionalLineItem"
+             [class.is-conditional-group-item]="itemWrapper.isConditionalGroupItem">
+            <ntk-expandable-item [indent]="options.indent"
+                                 [itemHeight]="options.itemHeight-1"
+                                 [attr.id]="itemWrapper.itemId"
+                                 [level]="itemWrapper.level"
+                                 [isSelected]="itemWrapper.isSelected"
+                                 [itemWrapper]="itemWrapper"
+                                 (click)="toggleSelectLine(itemWrapper)">
+                <ntk-expandable-item-header fxLayout="row" fxLayoutAlign="start center" style="width: 100%">
+                    <div fxFlex fxLayoutAlign="start center">
+                        <div *ngIf="itemWrapper.isLineItem" class="number" fxFlex="none">{{itemWrapper.itemNumber}}&nbsp;&nbsp;</div>
+                        <button  *ngIf="itemWrapper.isSectionItem || itemWrapper.isIncludeItem" mat-icon-button class="button-expand-collapse" (click)="onToggleButtonClick(itemWrapper, $event)">
+                            <mat-icon *ngIf="!itemWrapper.isCollapsed">arrow_drop_down</mat-icon>
+                            <mat-icon *ngIf="itemWrapper.isCollapsed">arrow_right</mat-icon>
+                        </button>
+                        <mat-icon *ngIf="itemWrapper.isIncludeItem" class="icon-link">link</mat-icon>
+                        <mat-icon *ngIf="itemWrapper.isConditionalGroupItem" svgIcon="condition" class="icon-condition"></mat-icon>
+                        <div class="name" fxFlex>{{row.item.Name}}</div>
+                    </div>
+                </ntk-expandable-item-header>
+                <ntk-expandable-item-content>{{row.item.Content}}</ntk-expandable-item-content>
+            </ntk-expandable-item>
+        </div>
+    </ng-template>
+</ntk-expandable>

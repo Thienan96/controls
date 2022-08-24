@@ -1,0 +1,8 @@
+@mixin languages-selection($theme) {
+  $primary: map-get($theme, primary);
+  .languages-selection-panel {
+    .mat-menu-item.active {
+      color: mat-color($primary);
+    }
+  }
+}

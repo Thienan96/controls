@@ -1,0 +1,39 @@
+<mat-toolbar  color="primary">
+  <mat-toolbar-row>    
+    <button fxFlex="none" mat-icon-button (click)="onCloseClick.emit()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <!--Title-->
+    <ntk-toolbar-title *ngIf="showTitle" [title]="title" [titleMinWidth]="titleMinWidth" [titlePrefixKey]="titlePrefixKey" (titleClicked)="onTitleClicked()"></ntk-toolbar-title>
+
+    <!--Search-->
+    <ntk-toolbar-search fxFlex  *ngIf="showSearch" [(searchText)]="searchText" (searchTextChange)="onSearchChanged()"></ntk-toolbar-search>
+
+    <!--copy data button-->
+    <button mat-button style="margin-top: 4px;"
+      *ngIf="showCopy" [disabled]="!canCopy" 
+      (click)="onCopyDataClick.emit()">
+        <mat-icon aria-label="copy data">arrow_back</mat-icon>
+        <span>{{'btCopyData' | translator}}</span>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="filter-bar-border">
+  <!-- Second bar -->
+  <ntk-filters-bar
+          [showSaveFilter]="false"
+          [showClearFilter]="false"
+          (getColumnFilterMultiSelectionValues)="filterMultiSelectionValues($event)"
+          (countDataChange)="countData($event)"
+          (canCreateFilterChange)="canCreateFilter($event)"
+          [customFilter]="selected"
+          [currentFilters]="currentFilterFields"
+          [availableFilters]="availableFilters"
+          [outDateFormat]="outDateFormat"
+          (fieldFiltersChanged)="onFieldFiltersChanged()"
+          (favoriteToggled)="onFavoriteToggled($event)"
+          (fieldFiltersSaved)="onFieldFiltersSaved($event)"
+          [shownFavorite]="false"
+  ></ntk-filters-bar>
+</div>           

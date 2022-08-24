@@ -1,0 +1,36 @@
+@mixin ntk-kanban-items-component($theme, $options) {
+  $availableColor: map_get($options, availableColor);
+  $activeColor: map_get($options, activeColor);
+
+  $columnBackground: map_get($options, columnBackground);
+  ntk-kanban-items {
+    background: $columnBackground;
+    position: relative;
+
+    .cdk-drop-list-dragging,
+    .cdk-drop-list-receiving {
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 2px dashed $availableColor;
+      }
+
+      &.cdk-drop-list-disabled-drop,
+      &.cdk-drop-list-disabled-sort {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    .cdk-drop-list-dragging {
+      &:after {
+        border-color: $activeColor;
+      }
+    }
+  }
+}

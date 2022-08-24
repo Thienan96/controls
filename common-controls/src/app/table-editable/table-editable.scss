@@ -1,0 +1,31 @@
+@import './table-editable/table-editable.component.scss';
+@import '../editable-controls/table-editable-cell-dropdown/table-editable-cell-dropdown.component.scss';
+@import '../editable-controls/table-editable-cell-input/table-editable-cell-input.component';
+@import '../editable-controls/table-editable-cell-date/table-editable-cell-date.component.scss';
+
+@mixin table-editable($theme, $options: ()) {
+  $defaultValues: (
+          borderColor: rgba(0, 0, 0, 0.12),
+          headerColor: #f1f1f1,
+          backgroundColor: #fff,
+          selectedColor: #ececec,
+          selectedBorderColor: #2376e5,
+          backgroundColorHover: #f7f7f7,
+          cellPadding: 0px 4px,
+          alternateColor: rgba(225, 239, 255, 0.4),
+          backgroundColorDisabled: whitesmoke,
+          backgroundColorNoneEditable: whitesmoke,
+          backgroundColorNoneEditableHover: whitesmoke,
+          backgroundColorNoneEditableActive: whitesmoke,
+          noneEditableColor: rgba(0, 0, 0, 0.3)
+  );
+  $options: map-merge($defaultValues, $options);
+
+  // Controls
+  .table-editable {
+    @include table-editable-cell-dropdown($options);
+    @include table-editable-cell-input($options);
+    @include table-editable-cell-date($options);
+  }
+  @include table-editable-component($theme, $options);
+}

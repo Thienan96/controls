@@ -1,0 +1,52 @@
+.first-part {
+  position: relative;
+  word-break: normal;
+  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10  */
+  -o-user-select: none;
+  user-select: none;
+}
+.middle-truncate-content{
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  display: -ms-grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+}
+
+
+::ng-deep ntk-text-truncation {
+  &.marquee {
+    .first-part {
+      text-overflow: initial;
+      overflow: initial;
+      position: relative;
+      animation: marquee 15s linear ;
+      animation-iteration-count: infinite;
+      animation-delay: 2s;
+    }
+  }
+
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0%, 0);
+    }
+    50% {
+      transform: translate(-100%, 0);
+    }
+    50.001% {
+      transform: translate(100%, 0);
+    }
+    100% {
+      transform: translate(0%, 0);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' style='margin: 0;'>
+
+        <button fxFlex="none" mat-icon-button (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400">{{titleKey | translator}}</div>
+
+        <button mat-button (click)="onSaveClick()"  [disabled]='!canSave' >{{'btSave' | translator}}</button>
+
+    </mat-toolbar>
+
+    <!-- <mat-progress-bar mode="indeterminate"  [style.display]="busy?'inherit':'none'" class="loading-progress"></mat-progress-bar> -->
+
+    <div style="padding: 16px 32px;overflow: auto;">
+      <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="formGroup">
+            <!--Parent folder-->
+            <ntk-data-field *ngIf="formGroup?.get('ParentFolder').value" captionKey='lbParentFolder' [value]="formGroup?.get('ParentFolder').value?.Name"></ntk-data-field>
+           <!--Name-->
+            <mat-form-field>
+                <input  matInput
+                  [placeholder]="'lbName' | translator" formControlName="Name" autoFocus required >
+                <mat-error>
+                    <span *ngIf="formGroup?.get('Name').errors?.required">{{'msgRequiredField' | translator}}</span>
+                    <span *ngIf="formGroup?.get('Name').errors?.unique">{{'msgExistingName' | translator:"lbFolder"}}</span>
+                </mat-error>
+            </mat-form-field>
+            <!--Role-->
+            <mat-form-field>
+              <mat-select  [placeholder]="'lbContactRole' | translator" formControlName="VisibleBy"
+                  required disableOptionCentering  panelClass="offset-down-panel">
+                  <mat-option *ngFor="let item of allRoles" [value]='item.Id'>
+                      {{item.Name}}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!--room-->
+            <mat-form-field *ngIf="showRoom">
+              <ntk-mat-tree-dropdown  [placeholder]="'lbRoom' | translator" formControlName="Room"
+                          [getData]='getRooms'>
+              </ntk-mat-tree-dropdown>
+            </mat-form-field>
+      </form>
+    </div>
+  </div>

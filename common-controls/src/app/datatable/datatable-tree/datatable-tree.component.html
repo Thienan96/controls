@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayoutAlign="start center" style="height:100%;" [style.paddingLeft.px]="row.level*treeNodePaddingIndent + (row.hasChildren ? 0 : 30)">
+    <button fxFlex="none" *ngIf="row.hasChildren && row.Id!==-1" mat-icon-button (click)="onToggleButtonClick()" style="position: relative;">
+        <mat-icon *ngIf="!row.expanded && !row.isExpanding">keyboard_arrow_right</mat-icon>
+        <mat-icon *ngIf="row.expanded && !row.isExpanding">keyboard_arrow_down</mat-icon>
+        <mat-spinner *ngIf="row.isExpanding"  diameter="20" style="margin: 0 auto;"></mat-spinner>
+    </button>
+    <!--in case not children, we should create a dummy space to have the text align with other-->    
+    <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{row:row}"></ng-template>
+</div>

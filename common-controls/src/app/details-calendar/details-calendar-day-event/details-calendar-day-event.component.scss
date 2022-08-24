@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  position: absolute;
+
+  &:not(.disables-selection) {
+    cursor: pointer;
+  }
+
+  &.details-calendar-resizable:hover,
+  &.resize-ghost-element {
+    .resize-handle-bottom {
+      display: block;
+    }
+  }
+
+  &.cdk-drag-placeholder {
+    background: rgba(235, 242, 249, 0.85) !important;
+    text-indent: -9999px;
+    white-space: nowrap;
+  }
+
+  &.cdk-drag-animating {
+    transition: transform 600ms cubic-bezier(0, 0, 0.2, 1), width 200ms;
+  }
+
+  &.selected:not(.cdk-drag-placeholder) {
+    border-style: dashed;
+    z-index: 21 !important;
+    opacity: 0.85;
+  }
+
+  &.event-selected-delay {
+    color: #000 !important;
+    background-color: #eaeaea !important
+  }
+
+
+  .resize-handle-bottom {
+    position: absolute;
+    height: 10px;
+    cursor: row-resize;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    display: none;
+
+    i {
+      font-size: 13px;
+      top: -1px;
+      position: relative;
+    }
+  }
+
+  .duration {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+
+    line-height: 18px;
+    padding: 0 2px;
+    color: #fff;
+    font-size: 0.9em;
+    background: darkgray;
+    box-sizing: border-box;
+  }
+
+  &.resize-ghost-element {
+    .duration-dragging {
+      display: block;
+    }
+  }
+
+  .event-content {
+    position: relative;
+    height: 100%;
+  }
+
+
+  &.resizing, &.resize-ghost-element {
+    z-index: 22 !important;
+  }
+
+
+}
+
+::ng-deep {
+  ntk-details-calendar-day-event {
+    .cdk-drag-handle {
+      height: 100%;
+    }
+  }
+}

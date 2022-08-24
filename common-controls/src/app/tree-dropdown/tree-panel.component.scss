@@ -1,0 +1,43 @@
+.panel-container {
+    // border: solid 1px lightgray;
+    background: white;
+    width: 100%;
+    min-width: 100px;
+    overflow: auto;
+
+    .group-node {
+        font-weight: bold;
+        padding-left: 16px;
+    }
+    // .tree-node {
+    //     display: block;
+    // }
+
+    .tree-node-selected {
+        background-color: lightgray;
+        .custom-node-btn {
+            z-index: 2;
+            background: lightgray;
+        }
+    }
+    .group-node:hover, .tree-node:hover {
+        background-color: lightgray;
+        .custom-node-btn {
+            z-index: 2;
+            background: lightgray;
+        }
+    }
+
+    .mat-tree-node {        
+	    overflow: visible;
+        padding-left: 8px;
+        .mat-icon-button {
+            margin-right: 4px;
+        }
+    }
+
+    .custom-node-btn {
+        z-index: 2;
+        background: #ffffff;
+    }
+}

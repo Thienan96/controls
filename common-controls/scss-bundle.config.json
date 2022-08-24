@@ -1,0 +1,9 @@
+{
+    "bundlerOptions": {
+        "entryFile": "./src/public_styles.scss",
+        "rootDir": "./src/",
+        "outFile": "./dist/ntk-common-controls.scss",
+        "ignoreImports": ["~@angular/.*"],
+        "logLevel": "info"
+    }
+}

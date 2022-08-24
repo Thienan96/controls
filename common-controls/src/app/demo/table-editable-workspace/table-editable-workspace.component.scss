@@ -1,0 +1,78 @@
+@mixin table-editable-workspace() {
+
+  .table-editable-buttons {
+    .button-small {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+
+  ntk-table-editable-workspace {
+    display: block;
+    height: 100%;
+    width: 100%;
+    .sub {
+      font-size: 10px;
+      font-style: italic;
+      width: 100%;
+      line-height: 8px;
+    }
+    mat-icon {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .col-UnitPrice,
+    .col-Quality,
+    .col-CostPrice,
+    .col-Fee,
+    .col-Discount,
+    .col-SalePrice,
+    .col-VatRate,
+    .col-SalePriceVAT,
+    .col-Option {
+      text-align: center;
+      input {
+        text-align: center !important;
+      }
+      .datatable-header-cell-template-wrap {
+        justify-content: center;
+      }
+    }
+    .col-Date{
+      text-align: right;
+      input {
+        text-align: right !important;
+      }
+      .datatable-header-cell-template-wrap {
+        justify-content: flex-end;
+      }
+    }
+
+  }
+
+  datatable-row-wrapper {
+    // Type is text
+    datatable-body-row {
+      &.is-type-text {
+        overflow: hidden;
+        .datatable-row-center {
+          flex: 1;
+          .datatable-body-cell {
+            display: none;
+          }
+          datatable-body-cell:nth-child(1),
+          datatable-body-cell:nth-child(2) {
+            display: block;
+          }
+          datatable-body-cell:nth-child(2) {
+            flex: 1;
+          }
+        }
+      }
+
+    }
+  }
+}
+

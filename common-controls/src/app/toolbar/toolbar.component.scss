@@ -1,0 +1,691 @@
+@import 'filters-bar/filters-bar.component.scss';
+@import 'filters-bar-item/filters-bar-item.component.scss';
+@import 'toolbar-virtual-scroll/toolbar-virtual-scroll.component';
+@import 'toolbar-tree/toolbar-tree.component';
+@import 'toolbar-tree-virtual-scroll/toolbar-tree-virtual-scroll.component';
+@import 'filters-dialog/filters-dialog-multi-choose/filters-dialog-multi-choose.component';
+@import 'custom-filters/custom-filters.component';
+@import 'custom-filter-item/custom-filter-item.component';
+@import 'history-toolbar/history-toolbar.component';
+@import 'toolbar-search/toolbar-search.component';
+@import 'notification-panel/notification-panel.public.scss';
+@import 'filters-dialog/filters-dialog-date-filter/filters-dialog-date-filter.component';
+@import 'custom-filter-dialog/custom-filter-dialog';
+@import '../search-icon/search-icon.component';
+
+@mixin toolbar-theme($theme, $theme2) {
+  @include mat-core-theme($theme);
+  @include mat-autocomplete-theme($theme);
+  @include mat-badge-theme($theme);
+  @include mat-bottom-sheet-theme($theme);
+  @include mat-button-theme($theme);
+  @include mat-button-toggle-theme($theme);
+  @include mat-card-theme($theme);
+  @include mat-checkbox-theme($theme);
+  @include mat-chips-theme($theme);
+  @include mat-table-theme($theme);
+  @include mat-datepicker-theme($theme);
+  @include mat-dialog-theme($theme);
+  @include mat-divider-theme($theme);
+  @include mat-expansion-panel-theme($theme);
+  @include mat-grid-list-theme($theme);
+  @include mat-icon-theme($theme);
+  @include mat-list-theme($theme);
+  @include mat-menu-theme($theme);
+  @include mat-paginator-theme($theme);
+  @include mat-progress-bar-theme($theme);
+  @include mat-progress-spinner-theme($theme);
+  @include mat-sidenav-theme($theme);
+  @include mat-slide-toggle-theme($theme);
+  @include mat-slider-theme($theme);
+  @include mat-stepper-theme($theme);
+  @include mat-sort-theme($theme);
+  @include mat-tabs-theme($theme);
+  @include mat-toolbar-theme($theme);
+  @include mat-tooltip-theme($theme);
+  @include mat-tree-theme($theme);
+  @include mat-snack-bar-theme($theme);
+
+  @if ($theme2) {
+    @include mat-form-field-theme($theme2);
+    @include mat-input-theme($theme2);
+    @include mat-select-theme($theme2);
+    @include mat-radio-theme($theme2);
+  } @else {
+    @include mat-form-field-theme($theme);
+    @include mat-input-theme($theme);
+    @include mat-select-theme($theme);
+    @include mat-radio-theme($theme);
+  }
+}
+
+@mixin ntk-toolbar-component($theme, $options) {
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $badgeBackColor: map-get($options, badge-background-color);
+  $badgeForeColor: map-get($options, badge-color);
+
+  .ntk-toolbar-theme {
+    @include toolbar-theme($theme, map-get($options, secondTheme));
+  }
+
+  // move here for separate second toolbar out main toolbar
+  ntk-scrollable {
+    display: block;
+    height: 100%;
+
+    .ntk-scrollable-container {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      .ntk-scrollable-wrapper {
+        display: flex;
+        height: 100%;
+
+        .ntk-scrollable-item {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+  ntk-custom-filters, ntk-filters-bar {
+    .mat-icon-button {
+      $icon-delete-size: 22px;
+      $icon-pin-size: 16px;
+      $icon-favorite-size: 21px;
+      $button-size: 30px;
+      $icon-favorite-color: map_get($options, favoriteColor);
+      $icon-pin-color: map_get($options, pinColor);
+
+      &:not(.button-normal) {
+        width: $button-size;
+        height: $button-size;
+        line-height: $button-size;
+      }
+
+      mat-icon {
+        color: rgba(0, 0, 0, 0.54);
+
+        &.mat-primary {
+          color: mat-color($primary);
+        }
+
+        &.icon-delete {
+          font-size: $icon-delete-size;
+          line-height: $icon-delete-size;
+          width: $icon-delete-size;
+          height: $icon-delete-size;
+        }
+
+        &.icon-pin {
+          font-size: $icon-pin-size;
+          line-height: $icon-pin-size;
+          width: $icon-pin-size;
+          height: $icon-pin-size;
+
+          &.icon-pin-active {
+            color: $icon-pin-color;
+          }
+        }
+
+        &.icon-favorite {
+          font-size: $icon-favorite-size;
+          line-height: $icon-favorite-size;
+          width: $icon-favorite-size;
+          height: $icon-favorite-size;
+
+          &.icon-favorite-active {
+            color: $icon-favorite-color;
+          }
+
+        }
+      }
+
+      &[disabled] {
+        mat-icon {
+          color: rgba(0, 0, 0, 0.26);
+        }
+      }
+    }
+
+    .btn-remove:hover {
+      mat-icon {
+        color: mat-color($warn);
+      }
+    }
+  }
+  ntk-toolbar, ntk-history-toolbar, ej4-toolbar, media-toolbar, .ntk-toolbar {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    overflow: hidden;
+
+    .mat-icon-button {
+      font-size: 0;
+    }
+
+    .btn-menu {
+      position: relative;
+      padding: 0 8px;
+      margin: 0;
+    }
+
+    mat-toolbar.ntk-app-toolbar {
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2), 0 0 0 0 rgba(0, 0, 0, .14), 0 2px 0px -5px rgba(0, 0, 0, .12);
+
+      .mat-toolbar-row {
+        // height: 64px !important;
+        padding-right: 8px;
+      }
+    }
+
+    .divider-vertical {
+      height: 50%;
+      border-color: white;
+      margin: 0 8px;
+    }
+
+    .button-expand-collapse {
+      svg {
+        width: 24px;
+        height: 24px;
+        transition: transform 500ms;
+      }
+
+      .is-expand {
+        transform: rotate(-180deg);
+      }
+
+      .is-collapsed {
+        transform: rotate(0deg);
+      }
+    }
+
+    .fix-flex-basis-ie {
+      flex-basis: auto !important;
+    }
+
+
+    // NBSHD-4407
+    .btn-search-back {
+      margin-left: -12px;
+      display: none;
+    }
+
+    .menu-button {
+      margin-left: -8px;
+      margin-right: 8px;
+    }
+
+  }
+
+  .ntk-toolbar .toolbar-badge-icon .mat-badge-content {
+    background-color: $badgeBackColor;
+    color: $badgeForeColor;
+  }
+
+
+  // NBSHD-4407: Style for isSmallScreen
+  .ntk-toolbar.is-small-screen {
+    ntk-toolbar-title {
+      flex: 1 1 0%;
+
+      .toolbar-title-wrapper {
+        min-width: initial !important;
+      }
+    }
+
+    ntk-filters-bar {
+      .btn-actions {
+        display: block;
+      }
+
+      .button-add-filter,
+      .btn-save-filter,
+      .btn-add-filter,
+      .btn-clear-filter{
+        display: none;
+      }
+    }
+
+    .btn-filters,
+    .btn-sorts,
+    .btn-view-mode,
+    ntk-toolbar-notification,
+    ntk-toolbar-release-alert,
+    ntk-user-menu,
+    .divider-vertical {
+      display: none !important;
+    }
+
+    // Search is Fullscreen
+    &.is-search-fullscreen {
+      //.btn-options,
+      ntk-toolbar-title {
+        display: none !important;
+      }
+
+      ntk-toolbar-search {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .btn-search-back {
+        display: block;
+      }
+    }
+  }
+
+  // NBSHD-4407: Search mode
+  ntk-toolbar.is-small-screen:not(.is-search-fullscreen) {
+    ntk-toolbar-search {
+      margin: 0;
+      min-width: auto;
+      width: 36px;
+      height: 36px;
+      flex: none !important;
+      background: transparent;
+
+      .btn-clear {
+        display: none;
+      }
+
+      .btn-search {
+        display: block;
+      }
+
+      input {
+        z-index: 1;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        text-indent: 40px;
+      }
+    }
+  }
+}
+
+@mixin ntk-toolbar-global($theme, $options) {
+  $paddingBottom: map-get($options, paddingBottom);
+  $menuMinWidth: map-get($options, menuMinWidth);
+  $toolbarHeight: map-get($options, toolbarHeight);
+  $warn: map-get($theme, warn);
+  $primary: map-get($theme, primary);
+  $favoriteColor: map-get($options, favoriteColor);
+  $pinColor: map-get($options, pinColor);
+
+  // Flex
+  .ntk-toolbar-layout-column, .ntk-toolbar-layout-row {
+    box-sizing: border-box;
+    display: flex;
+
+    &.ntk-toolbar-layout-column {
+      flex-direction: column;
+    }
+
+    &.ntk-toolbar-layout-row {
+      flex-direction: row;
+    }
+
+    .flex-none {
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    }
+
+    .flex-auto {
+      flex: 1 1 auto;
+      box-sizing: border-box;
+    }
+
+    .flex {
+      flex: 1 1 0%;
+      box-sizing: border-box;
+    }
+  }
+
+  // Filters dialog
+  .ntk-toolbar-filters-dialog-component {
+    mat-dialog-container {
+      background: transparent !important;
+      padding: 0;
+      box-shadow: none !important;
+
+      .header {
+        height: 48px;
+        margin: 0 8px;
+        overflow: hidden;
+      }
+
+      .display-value {
+        padding-left: 8px;
+        height: 48px;
+        line-height: 48px;
+        font-weight: 500;
+
+      }
+    }
+
+    .content-actions {
+      margin-top: 1px;
+      position: relative;
+      border: solid 1px lightgray;
+      background: #fff;
+    }
+
+    .check-all-container {
+      padding: 12px 16px;
+      border-bottom: 1px solid lightgray;
+
+    }
+
+    .mat-nav-list {
+      padding: 0;
+    }
+
+    mat-dialog-actions {
+      padding: 0 16px;
+      margin-bottom: 0;
+
+      button {
+        text-transform: uppercase;
+      }
+    }
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+    .field-search {
+      width: 100%;
+      margin-top: -3px;
+
+      input {
+        line-height: 20px;
+      }
+
+    }
+  }
+
+  // NBSHD-4407: Dialog in fullscreen mode
+  .ntk-toolbar-filters-dialog-component.ntk-toolbar-filters-dialog-component-fullscreen {
+    width: 100% !important;
+    height: 100%;
+    max-width: 100% !important;
+    background: #fff;
+
+    mat-dialog-content {
+      flex: 1 1 0%;
+      max-height: none !important;
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .content-actions {
+      height: 100%;
+      box-shadow: none !important;
+      border: none;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex !important;
+    }
+  }
+  .ntk-toolbar-filters-dialog-component-has-content {
+    mat-dialog-container {
+      overflow: initial;
+    }
+
+    mat-dialog-content {
+      margin: 0;
+      padding-top: 16px;
+    }
+  }
+  .ntk-toolbar-filters-dialog-component-has-multi-choose {
+
+    mat-dialog-content {
+      margin: 0;
+      padding: 0;
+      max-height: calc(100vh - #{$toolbarHeight} - 52px - 48px - #{$paddingBottom});
+    }
+  }
+
+  div.ntk-toolbar-filters-dialog-date-filter-panel {
+    width: 678px !important;
+
+    .mat-dialog-content {
+      padding: 0 16px;
+    }
+  }
+
+  div.ntk-toolbar-filters-dialog-number-panel {
+    .mat-dialog-content {
+      overflow: hidden;
+    }
+  }
+
+
+  // Menu of toolbar
+  .ntk-toolbar-menu.mat-menu-panel {
+    min-width: $menuMinWidth;
+    position: relative;
+
+    .ntk-toolbar-menu-title {
+      font-size: 20px;
+      font-weight: 500;
+      padding: 12px 16px;
+    }
+
+    &.ntk-toolbar-sorts-menu {
+      .ntk-toolbar-sort-direction-icon {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .ntk-toolbar-filters-menu {
+    $icon-size: 21px;
+    $icon-pin-size: 18px;
+
+    .block-ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      max-width: 100%;
+    }
+
+
+    .mat-menu-item {
+      button {
+        mat-icon {
+          margin-right: 0;
+          font-size: $icon-size;
+          line-height: $icon-size;
+          width: $icon-size;
+          height: $icon-size;
+          overflow: hidden;
+        }
+
+        mat-icon.icon-pin {
+          font-size: $icon-pin-size;
+          line-height: $icon-pin-size;
+          width: $icon-pin-size;
+          height: $icon-pin-size;
+
+          &.icon-pin-active {
+            color: $pinColor;
+          }
+        }
+      }
+
+      .aleft-icons {
+        button {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      .mat-radio-label-content {
+        padding-left: 12px;
+      }
+
+    }
+
+    .button-not-favorite, .button-unpin, .button-edit, .button-remove {
+      visibility: hidden;
+    }
+
+    .mat-menu-item:hover {
+      .button-not-favorite, .button-unpin, .button-edit, .button-remove {
+        visibility: visible;
+      }
+    }
+
+    .mat-menu-item.selected {
+      color: mat-color($primary);
+    }
+
+    .fix-flex-basis-ie {
+      flex-basis: auto !important;
+    }
+
+    .menu-item-filter {
+      padding-left: 6px;
+      padding-right: 4px;
+    }
+
+    .menu-item-filter-none-icon {
+      padding-left: 48px;
+    }
+
+    .no-more-filter-to-add {
+      text-align: center;
+      margin: 0;
+      padding: 8px 0;
+      opacity: 0.54;
+    }
+
+    .mat-menu-item {
+      .icon-favorite {
+        &.icon-favorite {
+          color: $favoriteColor;
+        }
+      }
+    }
+  }
+
+  .ntk-toolbar-menu-overlay {
+    .mat-menu-panel {
+      max-height: calc(100vh - 54px - #{$paddingBottom}) !important;
+    }
+  }
+  .ntk-toolbar-menu-overlay-align-right {
+    top: 0 !important;
+
+    &.cdk-overlay-connected-position-bounding-box {
+      left: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+
+    .cdk-overlay-pane {
+      top: 54px !important;
+      right: 8px !important;
+      position: absolute !important;
+    }
+  }
+
+  // NBSHD-4407: Show icon on FilterBy, CustomFilters, FieldsFilter  for Mobile
+  .ntk-toolbar-menu-overlay-view-mode-is-device {
+    .ntk-toolbar-filters-menu {
+      .button-not-favorite, .button-unpin, .button-edit, .button-remove {
+        visibility: visible;
+      }
+    }
+  }
+
+  // Combobox Operator
+  .mat-select-panel.toolbar-filter-dialog-select-date,
+  .mat-select-panel.toolbar-filter-dialog-select-number {
+    height: 300px;
+    max-height: none;
+  }
+
+  // Width of filter-item
+  .ntk-toolbar-filter-item-width,
+  .ntk-toolbar-filters-dialog-component {
+    width: map-get($options, filterItemWidth) !important;
+  }
+
+  ntk-toolbar-virtual-scroll, ntk-toolbar-list, ntk-toolbar-tree-virtual-scroll {
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    mat-checkbox, .mat-checkbox-layout {
+      width: 100%;
+    }
+
+    mat-checkbox {
+      .mat-checkbox-label {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: map-get($options, fontSize);
+      }
+    }
+  }
+
+  ntk-filters-dialog-multi-choose .toolbar-filter-item-group-header {
+    &.mat-checkbox-disabled {
+      .mat-checkbox-label {
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 500;
+      }
+
+      .mat-checkbox-inner-container {
+        visibility: hidden;
+      }
+    }
+  }
+
+
+}
+
+@mixin toolbar-component($theme, $options:()) {
+  $defaultValues: (
+          filterItemWidth: 350px,
+          fontSize: 14px,
+          minHeight:250px,
+          paddingBottom: 10vh,
+          menuMinWidth: 250px,
+          toolbarHeight: 160px,
+          badge-background-color: mat-color($mat-deep-orange, 600),
+          badge-color: #ffffff,
+          favoriteColor: mat-color(map-get($theme, primary)),
+          pinColor: mat-color(map-get($theme, primary))
+  );
+  $options: map-merge($defaultValues, $options);
+
+
+  @include ntk-toolbar-global($theme, $options);
+  @include ntk-toolbar-component($theme, $options);
+  @include ntk-filters-bar-component($theme, $options);
+  @include ntk-filters-bar-item-component($theme, $options);
+  @include ntk-toolbar-virtual-scroll-component($theme, $options);
+  @include ntk-toolbar-tree-component($theme, $options);
+  @include ntk-toolbar-tree-virtual-scroll-component($theme, $options);
+  @include ntk-filters-dialog-multi-choose($theme, $options);
+  @include ntk-custom-filters-component($theme, $options);
+  @include ntk-custom-filter-item-component($theme, $options);
+  @include ntk-history-toolbar($theme, $options);
+  @include ntk-toolbar-search-component($theme, $options);
+  @include ntk-notification-panel-component($theme, $options);
+  @include ntk-toolbar-filters-dialog-date-filter-component($theme, $options);
+  @include ntk-toolbar-custom-filter-dialog($theme, $options);
+  @include ntk-search-icon-component($theme);
+}

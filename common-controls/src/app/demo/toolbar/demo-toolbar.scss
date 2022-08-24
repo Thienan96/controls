@@ -1,0 +1,13 @@
+::ng-deep ntk-demo-toolbar{
+  .history-toolbar {
+    .filter-bar-border {
+      margin: 16px 16px 0 16px;
+      border: solid 1px red;
+      border-bottom: 0;
+    }
+
+    .ntk-filters-bar {
+      display: block !important;
+    }
+  }
+}

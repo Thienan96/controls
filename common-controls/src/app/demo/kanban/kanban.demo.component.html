@@ -1,0 +1,15 @@
+<div fxLayout="column" style="height: 100%">
+    <div fxFlex="none">
+        <button (click)="gotoItem()">gotoItem</button>
+    </div>
+    <ntk-kanban [groups]="groups" [moved]="onMove.bind(this)">
+        <ntk-kanban-column name="Planned" title="Planned"></ntk-kanban-column>
+        <ntk-kanban-column name="InProgress" title="In Progress"></ntk-kanban-column>
+        <ntk-kanban-column name="Completed" title="Completed"></ntk-kanban-column>
+        <ntk-kanban-column name="Cancelled" title="Cancelled"></ntk-kanban-column>
+        <ng-template ntk-template="item" let-item="item">
+            <div>{{item.Entity?.Task?.Name}}</div>
+            <div>{{item.Entity?.Job?.Name}}</div>
+        </ng-template>
+    </ntk-kanban>
+</div>

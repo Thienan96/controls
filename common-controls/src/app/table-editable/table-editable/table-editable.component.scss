@@ -1,0 +1,439 @@
+@mixin table-editable-component($theme, $options) {
+  $borderColor: map_get($options, 'borderColor');
+  $backgroundColor: map_get($options, 'backgroundColor');
+  $backgroundColorHover: map_get($options, 'backgroundColorHover');
+  $cellPadding: map_get($options, 'cellPadding');
+  $headerColor: map_get($options, 'headerColor');
+  $selectedColor: map_get($options, 'selectedColor');
+  $selectedBorderColor: map_get($options, 'selectedBorderColor');
+  $accentColor: map_get($theme, warn);
+  $alternateColor: map_get($options, 'alternateColor');
+  $backgroundColorDisabled: map_get($options, 'backgroundColorDisabled');
+  $backgroundColorNoneEditable: map_get($options, 'backgroundColorNoneEditable');
+  $backgroundColorNoneEditableHover: map_get($options, 'backgroundColorNoneEditableHover');
+  $backgroundColorNoneEditableActive: map_get($options, 'backgroundColorNoneEditableActive');
+  $noneEditableColor: map_get($options, 'noneEditableColor');
+
+  .ngx-datatable.table-editable {
+
+    *:focus {
+      outline: none;
+    }
+
+    datatable-selection {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .datatable-header {
+      .datatable-header-inner {
+        border-bottom: 2px solid $borderColor;
+        .datatable-row-left, .datatable-row-right, .datatable-row-center {
+          background: $headerColor;
+        }
+        .datatable-header-cell {
+          height: 100%;
+        }
+        .datatable-row-left {
+          .datatable-header-cell:last-child {
+            border-right: 1px solid $borderColor;
+          }
+        }
+        .datatable-row-right {
+          .datatable-header-cell:first-child {
+            border-left: 1px solid $borderColor;
+          }
+        }
+
+      }
+
+      // Icon
+      .datatable-icon-down,
+      .datatable-icon-up {
+        margin-left: 8px;
+        height: 24px;
+        &::before {
+          font-size: 24px;
+          font-family: "Material Icons" !important;
+          font-feature-settings: "liga";
+          -webkit-font-smoothing: antialiased;
+          line-height: 22px;
+        }
+      }
+      .datatable-icon-down::before {
+        content: "arrow_downward";
+      }
+      .datatable-icon-up::before {
+        content: "arrow_upward";
+      }
+    }
+
+    .datatable-body {
+      .datatable-body-cell {
+        vertical-align: top;
+        .datatable-body-cell-label {
+          height: 100%;
+        }
+      }
+
+      .datatable-row-left,
+      .datatable-row-center,
+      .datatable-row-right {
+        background: #fff;
+      }
+      .datatable-row-left {
+        .datatable-body-cell:last-child {
+          border-right: 1px solid $borderColor;
+        }
+      }
+      .datatable-row-right {
+        .datatable-body-cell:first-child {
+          border-left: 1px solid $borderColor;
+        }
+      }
+
+      .datatable-row-wrapper {
+        overflow: hidden;
+        .datatable-body-row {
+          background: transparent !important;
+          .datatable-row-left, .datatable-row-right, .datatable-row-center {
+            position: relative;
+            background: $backgroundColor;
+          }
+          &.active:not(.datatable-row-disabled):not(.datatable-row-none-editable) {
+            .datatable-row-left, .datatable-row-right, .datatable-row-center {
+              background: $selectedColor !important;
+            }
+            .non-editable:not(.disabled) {
+              background-color: $backgroundColorNoneEditableActive !important;
+            }
+          }
+          &.datatable-row-disabled {
+            .datatable-row-left, .datatable-row-center, .datatable-row-right {
+              background: $backgroundColorDisabled !important;
+            }
+
+          }
+          &.datatable-row-none-editable:not(.datatable-row-disabled) {
+            .datatable-row-left, .datatable-row-center, .datatable-row-right {
+              background: $backgroundColorNoneEditable !important;
+            }
+            &:hover {
+              .datatable-row-left, .datatable-row-center, .datatable-row-right {
+                background: $backgroundColorNoneEditableHover !important;
+              }
+              .datatable-row-left, .datatable-row-center, .datatable-row-right {
+                .cell-editable {
+                  background: $backgroundColorNoneEditableHover !important;
+                }
+              }
+            }
+            &.active {
+              .datatable-row-left, .datatable-row-center, .datatable-row-right {
+                background: $backgroundColorNoneEditableActive !important;
+              }
+              .datatable-row-left, .datatable-row-center, .datatable-row-right {
+                .cell-editable {
+                  background: $backgroundColorNoneEditableActive !important;
+                }
+              }
+            }
+          }
+
+          &:hover:not(.datatable-row-disabled):not(.datatable-row-none-editable) {
+            .datatable-row-left, .datatable-row-right, .datatable-row-center {
+              background-color: $backgroundColorHover !important;
+            }
+            .non-editable:not(.disabled) {
+              background-color: $backgroundColorNoneEditableHover !important;
+            }
+          }
+          &.row-alternate-color.datatable-row-odd {
+            .datatable-row-left, .datatable-row-right, .datatable-row-center {
+              background-color: $alternateColor;
+            }
+          }
+        }
+      }
+
+    }
+
+    .form-field-full-height {
+      display: block;
+      &,
+      .mat-form-field-wrapper,
+      .mat-form-field-flex,
+      .mat-form-field-infix {
+        width: 100%;
+        height: 100%;
+      }
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+      .mat-form-field-infix {
+        border: 0;
+        padding: 0;
+      }
+      input.mat-input-element {
+        margin-top: 0;
+      }
+      .mat-form-field-underline {
+        display: none;
+      }
+    }
+
+    // Red-line to indicate position
+    datatable-row-wrapper.table-editable-draggable-hover {
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-top: 1px solid mat-color($accentColor);
+        z-index: 20;
+      }
+    }
+    datatable-row-wrapper.table-editable-draggable-hover-bottom {
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid mat-color($accentColor);
+        z-index: 20;
+      }
+    }
+
+    .datatable-row-wrapper {
+      border-bottom: none;
+    }
+
+    // No scroll
+    &.no-horizontal.no-vertical {
+      datatable-row-wrapper,
+      datatable-body-row,
+      datatable-scroller {
+        width: 100% !important;
+      }
+      datatable-scroller, .datatable-header-inner {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+      }
+      datatable-header, datatable-body {
+        .datatable-row-right {
+          transform: none !important;
+        }
+      }
+
+      .datatable-row-center datatable-header-cell:last-child,
+      .datatable-row-center datatable-body-cell:last-child {
+        overflow: visible;
+      }
+      .datatable-row-center datatable-header-cell:last-child {
+        .resize-handle {
+          border-right: 1px solid transparent;
+          visibility: visible;
+          &:hover {
+            border-right-color: rgba(0, 0, 0, 0.12);
+          }
+        }
+      }
+
+    }
+
+    // vertical( thang dung)
+    &.has-vertical datatable-header .datatable-row-right {
+      box-sizing: content-box;
+    }
+  }
+
+  .ngx-datatable.bootstrap {
+    .datatable-row-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto; // flex=none
+    }
+
+    .datatable-row-center {
+      flex: 1 1 0%;
+    }
+
+    datatable-header {
+      .datatable-header-cell {
+        border-left: 1px solid $borderColor;
+        font-weight: 500;
+        height: 100%;
+        &:first-child {
+          border-left: 0;
+        }
+        .datatable-header-cell-wrapper {
+          display: block;
+          padding: $cellPadding;
+        }
+      }
+    }
+
+    datatable-body {
+      .datatable-body-cell {
+        border-left: 1px solid $borderColor;
+        .datatable-body-cell-label {
+          border-bottom: 1px solid $borderColor;
+        }
+        &.column-actions-button {
+          padding: 0;
+        }
+        &:first-child {
+          border-left-color: transparent;
+        }
+      }
+    }
+
+    datatable-scroller {
+      position: relative;
+    }
+
+  }
+
+  // Style L character
+  .table-editable-character {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 16px;
+    text-align: center;
+    line-height: 24px;
+    vertical-align: middle;
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  // Style row
+  .table-editable datatable-row-wrapper,
+  datatable-row-wrapper.table-editable-draggable-dragging {
+    .cell-editable {
+      position: relative;
+      box-sizing: border-box;
+      height: 100%;
+      border: 1px solid transparent;
+      .cell-value {
+        padding: $cellPadding;
+        height: 100%;
+        position: relative;
+        > * {
+          width: 100%;
+        }
+      }
+      .cell-input-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background: #fff;
+        display: none;
+      }
+      &.selected {
+        border-color: $selectedBorderColor;
+        .cell-input-container {
+          display: block;
+        }
+      }
+
+      &.invalid {
+        border: 1px solid mat-color($accentColor);
+        &.selected {
+          border: 2px solid mat-color($accentColor);
+        }
+      }
+      mat-checkbox {
+        width: 100%;
+        height: 100%;
+        display: table;
+        label {
+          text-align: center;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      .table-editable-selectable {
+        position: absolute;
+        left: 4px;
+        right: 0px;
+        width: auto;
+        height: 100%;
+        .table-editable-dropdown-arrow-wrapper {
+          height: 100%;
+          cursor: pointer;
+          position: relative;
+          width: 18px;
+          &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid;
+            margin: 0 4px;
+            color: rgba(0, 0, 0, 0.54);
+          }
+        }
+      }
+
+
+      &.non-editable {
+        background: $backgroundColorNoneEditable !important;
+        color: $noneEditableColor;
+        .table-editable-dropdown-arrow-wrapper {
+          display: none !important;
+        }
+      }
+      &.disabled {
+        background: $backgroundColorDisabled !important;
+      }
+    }
+  }
+
+  // Helper when drag
+  .table-editable-draggable-dragging {
+    position: absolute;
+    border: 1px solid $borderColor;
+    background: rgb(255, 255, 255, 0.80);
+    z-index: 1001;
+    .datatable-row-left {
+      datatable-body-cell:first-child {
+        border-left: 0;
+      }
+    }
+    .datatable-row-center {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+    datatable-body-cell {
+      display: inline-block;
+      vertical-align: top;
+    }
+    datatable-body-row {
+      display: flex;
+      flex-direction: row;
+      -o-flex-flow: row;
+      flex-flow: row;
+      width: auto !important;
+    }
+    .datatable-body-cell-label {
+      height: 100%;
+    }
+  }
+
+}

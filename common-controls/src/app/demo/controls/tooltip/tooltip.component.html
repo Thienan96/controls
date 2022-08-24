@@ -1,0 +1,54 @@
+<p>
+    <span matTooltip="The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.">
+        <a href="https://material.angular.io/components/tooltip/overview">Mat Tooltip</a>
+    </span>
+</p>
+
+<p>
+    <span style="display: inline-block;"
+       ntkTooltip="The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element."
+       [isCheckText]="false">ntkTooltip, text</span>
+</p>
+
+<p>
+    <ng-template #templateTooltip>The Angular Material tooltip provides a text label that is displayed when the user hovers over or longpresses an element.</ng-template>
+    <span style="display: inline-block;" ntkTooltip
+       [isCheckText]="false"
+       [template]="templateTooltip">ntkTooltip, template</span>
+</p>
+
+
+<div>
+    <ng-template #customTemplateTooltip>
+        <div>The Angular Material tooltip provides a text label that is displayed when the user hovers over or  longpresses an element.</div>
+        <button (click)="hideTooltip()">Click here to hide tooltip</button>
+    </ng-template>
+    <span style="display: inline-block;" ntkTooltip #customTooltip=ntkTooltip
+          [isCheckText]="false"
+          [keepOpenWhenMouseLeave]="true"
+          [template]="customTemplateTooltip">ntkTooltip with template and keep open when mouse leave</span>
+</div>
+
+<p>
+    <span ntkTooltip="How are you"
+       [isCheckText]="false"
+       [defaultPosition]="defaultPosition">ntkTooltip with custom default position</span>
+</p>
+
+<p>
+    <span [ntkTooltip]="XSS"
+       [isCheckText]="false"
+       [defaultPosition]="defaultPosition">ntkTooltip with XXS</span>
+</p>
+
+
+<p>
+    <ng-template #slidingTooltip>
+        <div>The Angular Material tooltip provides a text label that is displayed when the user hovers over or  longpresses an element.</div>
+    </ng-template>
+    <span ntkTooltip
+       [isCheckText]="false"
+       [sliding]="true"
+       [template]="slidingTooltip"
+       >ntkTooltip with sliding ntkTooltip with slidingntkTooltip with slidingntkTooltip with slidingntkTooltip with sliding</span>
+</p>

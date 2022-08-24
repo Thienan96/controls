@@ -1,0 +1,105 @@
+:host {
+  position: relative;
+  display: block;
+  width: 100%;
+  outline: none;
+  &.ntk-chip-big{
+    mat-chip{
+      height: 30px;
+      padding:1px 8px 1px 12px;
+      margin: 4px 8px 4px 0px;
+      mat-icon{
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+* {
+  outline: none;
+}
+
+.mat-chip-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0px -4px;
+}
+
+mat-chip {
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  display: flex;
+  align-items: center;
+  cursor: default;
+
+
+  margin: 2px 3px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: normal;
+  height: 20px;
+
+  &:active {
+    box-shadow: none !important;
+  }
+
+
+
+  mat-icon {
+    margin-right: -3px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+
+  &.readonly::after {
+    background: transparent;
+  }
+}
+
+input {
+  margin: 0 3px;
+  padding: 0;
+  height: 100%;
+  min-width: 35px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mat-chip-arrow-wrapper {
+  vertical-align: middle;
+  margin: 0 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  width: 18px;
+
+  .mat-chip-arrow {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    margin: 0 4px;
+    color: rgba(0, 0, 0, 0.54);
+    bottom: 10px;
+    right: 0;
+  }
+}
+
+::ng-deep {
+  .mat-form-field-type-ntk-chip {
+    .mat-form-field-flex {
+      display: flex;
+    }
+
+    .mat-form-field-infix {
+      padding: 0;
+      min-height: 39.06px;
+      box-sizing: border-box;
+    }
+  }
+}

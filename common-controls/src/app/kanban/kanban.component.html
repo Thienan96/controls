@@ -1,0 +1,22 @@
+<div (onResizeSensor)="onResize()" fxFill fxLayout="column" ntk-resize-sensor>
+    <ntk-kanban-header [columns]="columns"
+                       [currentGroup]="currentGroup"
+                       [showGroupTitle]="showGroupTitle"
+                       [style.paddingRight.px]="paddingRight"
+                       fxFlex="none"></ntk-kanban-header>
+    <div #scrollContainer cdkDropListGroup cdkScrollable class="scroll-viewport" fxFlex>
+        <div class="scroll-content-wrapper">
+            <ntk-kanban-group *ngFor="let group of groups; trackBy: trackByGroup"
+                              [availableDropColumns]="availableDropColumns"
+                              [columns]="columns"
+                              [dragEnd]="onDragEnd.bind(this)"
+                              [dragStart]="onDragStart.bind(this)"
+                              [group]="group"
+                              [itemClick]="onItemClick.bind(this)"
+                              [moved]="moved"
+                              [scrollContainer]="scrollContainer"
+                              [showGroupTitle]="showGroupTitle"></ntk-kanban-group>
+        </div>
+    </div>
+</div>
+<div class="blocked-content"></div>

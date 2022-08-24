@@ -1,0 +1,6 @@
+<div class="indent-container" [style.padding-left.px]='15 + buffer' [style.width.px]='((middleLines.length - 1) * (28 + buffer)) + (30 + buffer)' [style.height.px]="height" *ngIf="middleLines.length > 0">
+  <!-- <div class="lines-repeat" [style.width.px]='middleLines * 20' [style.height.px]="height + 2" [style.top.px]="height/2 * -1"></div> -->
+  <div *ngFor="let item of middleLines | slice:0:middleLines.length -1; index as i"  [ngClass]="{'level-indent-line': item}"
+      [style.width.px]='28 + buffer' [style.height.px]="height * 1.5" [style.margin-top.px]="height * 0.5 * -1"></div>  
+  <div fxFlex="none" class='level-indent-line-last' [style.height.px]="height + offsetHeight" [style.bottom.px]="height/2"></div>
+</div>

@@ -1,0 +1,12 @@
+<div class="slide-container" style="height: 100%"
+     [@translateSlide]="{
+        value: _position,
+        params: {animationDuration: animationDuration}
+     }"
+     (@translateSlide.start)="onTranslateTabStarted($event)"
+     (@translateSlide.done)="onTranslateCompleted($event)"
+
+>
+    <ng-template [cdkPortalOutlet]></ng-template>
+
+</div>

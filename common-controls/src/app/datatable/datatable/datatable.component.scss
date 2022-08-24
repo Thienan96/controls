@@ -1,0 +1,173 @@
+@mixin datatable-component($theme, $options) {
+  $borderColor: map_get($options, borderColor);
+  $cellPadding: map_get($options, cellPadding);
+  ntk-datatable {
+    height: 100%;
+    display: block;
+
+    &:focus {
+      outline: none;
+    }
+
+    // Global
+    .mat-icon-button {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .aside-left {
+      border-right: 1px solid $borderColor;
+      overflow: hidden;
+    }
+
+    .aside-right {
+      border-left: 1px solid $borderColor;
+    }
+
+    ntk-datatable-row {
+      border-top: 1px solid $borderColor;
+      &.first-item {
+        border-top: 0;
+      }
+    }
+
+    .datatable-header-cell {
+      .header-cell-container {
+        padding: $cellPadding;
+        box-sizing: border-box;
+        height: 100%;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+      }
+    }
+
+    .datatable-cell {
+      padding: $cellPadding;
+      box-sizing: border-box;
+      height: 100%;
+      position: relative;
+    }
+
+
+    ntk-datatable-header {
+      color: rgba(0, 0, 0, 0.54);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+
+    // Fix content if content is less than viewport
+    // this need to check if usefull
+    &.content-is-fit {
+      ntk-datatable-body {
+        flex: 0 0 auto !important;
+      }
+    }
+
+    // Show border of table
+    &.border {
+      ntk-datatable-header {
+        border-top: 1px solid $borderColor;
+      }
+
+      ntk-datatable-header, ntk-datatable-body, ntk-datatable-footer, ntk-datatable-scroller-horizontal {
+        border-left: 1px solid $borderColor;
+        border-right: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+      }
+    }
+
+    &.datatable-border {
+      ntk-datatable-body .datatable-cell,
+      ntk-datatable-footer .datatable-cell,
+      ntk-datatable-header .datatable-cell {
+        border-right-color: $borderColor;
+      }
+
+      ntk-datatable-body .aside-left .datatable-cell:last-child,
+      ntk-datatable-body .aside-right .datatable-cell:last-child,
+      ntk-datatable-footer .aside-left .datatable-cell:last-child,
+      ntk-datatable-footer .aside-right .datatable-cell:last-child,
+      ntk-datatable-header .aside-left ntk-datatable-header-cell:last-child .datatable-cell,
+      ntk-datatable-header .aside-right ntk-datatable-header-cell:last-child .datatable-cell {
+        border-right-color: transparent;
+      }
+
+      ntk-datatable-header .datatable-cell,
+      ntk-datatable-footer .datatable-cell{
+        border-right: 1px $borderColor solid;
+      }
+    }
+
+    &.datatable-editable {
+      ntk-datatable-body {
+        .datatable-cell {
+          padding: 0;
+        }
+
+        .cell-padding {
+          padding: $cellPadding;
+        }
+
+        .cell-padding-left {
+          padding: $cellPadding;
+          padding-right: 0;
+        }
+        .cell-padding-right {
+          padding: $cellPadding;
+          padding-left: 0;
+        }
+        .ntk-table-editable-cell-dropdown-button{
+          padding: $cellPadding;
+         }
+      }
+    }
+
+
+    &.full-width {
+      .scroller-horizontal-content {
+        width: 100% !important;
+      }
+
+      ntk-datatable-body {
+        ntk-datatable-cell.is-last-column {
+          width: auto !important;
+          // min-width: auto !important;
+          flex: 1 1 auto !important; // flex: auto
+          overflow: hidden;
+        }
+      }
+
+      ntk-datatable-header {
+        .is-last-column {
+          flex: 1 1 auto !important; // flex: auto
+          & > div,
+          & > div > div {
+            width: 100% !important;
+            // min-width: 100% !important;
+          }
+
+          .resize-hanlder {
+            display: none;
+          }
+        }
+      }
+
+      ntk-datatable-footer {
+        .is-last-column {
+          width: auto !important;
+          // min-width: auto !important;
+        }
+      }
+
+      ntk-datatable-scroller-horizontal {
+        .is-last-column {
+          width: auto !important;
+          // min-width: auto !important;
+        }
+      }
+
+    }
+
+  }
+}

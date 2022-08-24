@@ -1,0 +1,8 @@
+mat-list-item {
+    &.disabled:hover {
+        background: transparent !important;
+    }
+}
+.singleSelectionItem {
+    font-size: 14px;
+}

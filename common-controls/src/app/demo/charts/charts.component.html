@@ -1,0 +1,14 @@
+<div fxLayout="column" style="height:100%;overflow: hidden;padding: 10px;box-sizing: content-box;background-color: lightgray">
+
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <ntk-pie-chart [chartItems]="chartItems1" style="width:300px;height:300px;"></ntk-pie-chart>
+
+        <button (click)="onChangeData()" style="width:200px;height:50px;margin-left:100px;">Change data</button>
+    </div>
+    
+
+    <ntk-pie-chart [chartItems]="chartItems2" style="width:300px;height:300px;"></ntk-pie-chart>
+
+    <ntk-pie-chart [chartItems]="chartItems3" style="width:300px;height:300px;"></ntk-pie-chart>
+
+</div>

@@ -1,0 +1,14 @@
+@import './folder-tree-header/folder-tree-header.component.scss';
+
+
+@mixin folder-tree($theme, $options) {
+  @include folder-tree-header($theme, $options);
+  @include aside-left($theme, $options);
+}
+
+@mixin aside-left($them, $options) {
+  $borderColor: map_get($options, borderColor);
+  // .aside-left{
+  //   border-right: 1px solid $borderColor;
+  // }
+}

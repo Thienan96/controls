@@ -1,0 +1,59 @@
+<div fxLayout="column" [style.height.%]="100" >
+    <ntk-virtual-scroll fxFlex #virtualList 
+        (onGetData)="onGetData($event)" 
+        [itemHeight]="90"
+        [stickyHeight]="45"
+        [clickCollapse]='onClickCollapse'
+        scrollDebounceTime="100"
+        (itemClick)='onItemClick($event)'>
+        <ng-template let-item='item'>
+            <ntk-virtual-item [sticky]="item?.Level === 0">
+                <!-- keep using itemRow and stickyRow, these name defind in control to know which is sticky templte... -->
+                <ng-container itemRow
+                    *ngTemplateOutlet="itemTemplate;context:{item: item, itemHeight: virtualList.itemHeight}">
+                </ng-container>
+                <ng-container stickyRow
+                    *ngTemplateOutlet="stickyTemplate;context:{item: item, stickyHeight: virtualList.stickyHeight}">
+                </ng-container>
+            </ntk-virtual-item>
+        </ng-template>
+    </ntk-virtual-scroll>
+</div>
+
+<!-- defind template for normal item -->
+<ng-template let-item="item" let-itemHeight="itemHeight" #itemTemplate>
+    <div [style.height.px]="itemHeight" fxLayout="row" fxLayoutAlign="space-between" class='normal-item'>
+        <div fxFlex fxLayout="column" fxLayoutAlign="space-between"> 
+            <div fxLayout="row">
+                <div class='boder-1px plr-10px'>{{'taskstatus_' + item.Status | translator}}</div>
+                <div class="fw-500 ml-5px">{{item.Client}}</div>
+            </div>
+            <span class='fs-14px'>{{item.Title}}</span>
+            <div class='fs-14px'>
+                <span class="fw-500" *ngIf='item?.PlannedStartTime || item?.PlannedEndTime'>{{'lbSched.' | translator}}</span> 
+                {{item?.PlannedStartTime | formatDisplayDate : item?.PlannedEndTime}}
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between">
+            <span class="fw-500">TS/WL</span>
+            <div fxLayout="column" fxLayoutAlign=" center" class='boder-1px'>
+                <span class="fw-600">{{item.Timesheets | formatDuration : true}}</span>
+                <mat-divider [style.width.%]="100"></mat-divider>
+                <span class="fw-600 color-656565">{{item.PlannedWorkload | formatDuration : true}}</span>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<!-- defind template for sticky header -->
+<ng-template let-item="item" let-stickyHeight="stickyHeight" #stickyTemplate>
+    <div [style.height.px]="stickyHeight" class='sticky-header'
+        fxLayout="row" fxLayoutAlign="space-between center">
+        <span class='fw-500'> {{item.Name}} </span>
+        <div fxLayout="row" fxLayoutAlign=" center">
+            <span class='pr-5px'>({{item.TotalCount}})</span>
+            <button mat-icon-button (click)='collapse(item, $event)'>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+        </div>
+    </div>
+</ng-template>

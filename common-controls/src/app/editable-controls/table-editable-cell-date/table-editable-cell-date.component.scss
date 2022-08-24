@@ -1,0 +1,45 @@
+@mixin table-editable-cell-date($options) {
+  $dateButtonSize: 21px;
+  $cellPadding: map_get($options, 'cellPadding');
+  ntk-table-editable-cell-date {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    .mat-form-field-flex {
+      align-items: center;
+    }
+
+    input.mat-input-element {
+      padding: $cellPadding;
+      padding-right: 0;
+      margin-top: 0;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .mat-form-field-suffix,
+    mat-datepicker-toggle button {
+      height: 100% !important;
+    }
+
+    mat-datepicker-toggle {
+      button {
+        padding: $cellPadding !important;
+        box-sizing: content-box !important;
+      }
+    }
+
+    .mat-datepicker-toggle-default-icon {
+      font-size: $dateButtonSize;
+      width: $dateButtonSize;
+      height: $dateButtonSize;
+      line-height: $dateButtonSize;
+    }
+
+    .mat-button-ripple,
+    .mat-button-focus-overlay{
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.document-item {
+    min-height: 80px;
+    height: 80px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.document-item:hover .document-edit-icon {
+    /* display: block !important; */
+    visibility: visible;
+}
+.document-edit-icon {    
+    /* display: none; */
+    visibility: hidden;
+    cursor: pointer;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.head-check-force{
+    display: block !important;
+}

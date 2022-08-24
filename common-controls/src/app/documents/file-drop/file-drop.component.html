@@ -1,0 +1,23 @@
+<div class="attachments-container" style="display: block;">
+    <ngx-file-drop (onFileDrop)="dropped($event)" dropZoneClassName='custom-drop-zone'>
+        <ng-template ngx-file-drop-content-tmp>
+            <div fxFlex fxLayout="column" class="hs-browser-box" style="overflow: hidden;">
+                <div style="text-align: center;margin: 0 16px;">
+                    <label style="height: 24px;display: inline-block;vertical-align: bottom;">
+                        <input type="file" #inputCloudFiles (change)="onSelectFiles(inputCloudFiles.files)"
+                            accept=".pdf,.png,.jpeg,.jpg" style="display: none" multiple>
+                        <mat-icon color="primary" style="cursor: pointer;">cloud_upload</mat-icon>
+                    </label>
+                    <span>&nbsp;&nbsp;</span>
+                    <span>{{'lbDropFilesGuide' | translator}}</span>
+                    <span>&nbsp;</span>
+                    <label class="hs-browser-box-text" color="primary">
+                        <input type="file" #inputBrowseFiles (change)="onSelectFiles(inputBrowseFiles.files)"
+                            accept=".pdf,.png,.jpeg,.jpg" style="display: none" multiple>
+                        <a (click)="browseFiles()" ntk-translator="btBrowse">browse</a>
+                    </label>
+                </div>
+            </div>
+        </ng-template>
+    </ngx-file-drop>
+</div>

@@ -1,0 +1,16 @@
+<div fxLayout="row" class="row" fxLayoutAlign="start center">
+    <div class="month-name">
+        <div>{{monthName}}</div>
+    </div>
+    <div id="calendar-days" fxFlex fxLayout="row" style="height: 100%;" fxLayoutAlign="start center">
+        <ntk-year-calendar-day fxFlex="{{100/37}}" class="day-detail" 
+            [year]="year" [month]="month" [day]="day" 
+            [selectedInsertionsDates]="selectedInsertionsDates" 
+            [existingInsertionsPerDate]="existingInsertionsPerDate" 
+            [selectedDates]="selectedDates"
+            [highlightDateRange]="highlightDateRange"
+            [selectedDateRange]="selectedDateRange"
+            *ngFor="let day of days">            
+        </ntk-year-calendar-day>
+    </div>
+</div>

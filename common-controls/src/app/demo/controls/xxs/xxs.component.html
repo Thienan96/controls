@@ -1,0 +1,25 @@
+<div style="max-width: 400px;">
+<h3 style="margin-bottom: 0px;">Case 1: raw</h3>
+<div [innerHTML]="xssText"></div>
+
+<h3 style="margin-bottom: 0px;">Case 2: carriageReturn2HtmlBr</h3>
+<div [innerHTML]="xssText | carriageReturn2HtmlBr"></div>
+
+<h3 style="margin-bottom: 0px;">Case 3: safeHtml && carriageReturn2HtmlBr</h3>
+<div [innerHTML]="xssText | safeHtml | carriageReturn2HtmlBr"></div>
+
+<h3 style="margin-bottom: 0px;">Multilines field basic</h3>
+<ntk-multi-lines-field captionKey='Caption key' [value]="xssText"></ntk-multi-lines-field>
+
+<h3 style="margin-bottom: 0px;">Multilines field no translate</h3>
+<ntk-multi-lines-field captionKey='Caption key' skipTranslation="true" [value]="xssText"></ntk-multi-lines-field>
+
+<h3 style="margin-bottom: 0px;">Multilines field no caption</h3>
+<ntk-multi-lines-field [value]="xssText"></ntk-multi-lines-field>
+
+<h3 style="margin-bottom: 0px;">Multilines field custom class</h3>
+<ntk-multi-lines-field class="custom-class" captionKey='Caption key' textFieldClass="mat-caption my-class" [value]="xssText"></ntk-multi-lines-field>
+
+<h3 style="margin-bottom: 0px;">Multilines field styling</h3>
+<ntk-multi-lines-field style="color:green;margin-left:8px;" [value]="xssText"></ntk-multi-lines-field>
+</div>

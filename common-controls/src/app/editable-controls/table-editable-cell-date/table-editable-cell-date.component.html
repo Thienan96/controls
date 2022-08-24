@@ -1,0 +1,5 @@
+<mat-form-field class="form-field-full-height" (click)="preventDefault($event)">
+    <input matInput #input="matDatepickerInput" (dateChange)="onDateChange()"  [matDatepicker]="picker" [value]="value">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>

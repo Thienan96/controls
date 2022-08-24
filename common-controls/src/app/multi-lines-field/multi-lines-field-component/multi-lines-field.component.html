@@ -1,0 +1,6 @@
+<div fxLayout='column' class="multi-lines-wrapper" fxLayoutAlign='start stretch' *ngIf="!!captionKey">
+    <span *ngIf="!skipTranslation" class='field-label'>{{captionKey | translator}}</span>    
+    <span *ngIf="skipTranslation" class='field-label'>{{captionKey}}</span>    
+    <div class="field-data" [ngClass]="textFieldClass" [innerHTML]="value | safeHtml | carriageReturn2HtmlBr"></div>
+</div>
+<div *ngIf="!captionKey" class="field-data" [ngClass]="textFieldClass" [innerHTML]="value | safeHtml | carriageReturn2HtmlBr"></div>

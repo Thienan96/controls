@@ -1,0 +1,27 @@
+<div fxFlex="none" class="logo-circle" fxLayout="row" fxLayoutAlign="center stretch" class='boder-logo'>
+  <input type="file" #inputBrowseFiles [disabled]='!canUpload' (change)="onSelectFiles(inputBrowseFiles.files)"
+    accept=".png,.jpeg,.jpg" style="display: none">
+  <div *ngIf="!previewUrl && !logoUrl" [ngStyle]="{'pointer-events': canUpload? 'auto' : 'none'}">
+    <mat-icon *ngIf='!isIamge' (click)="openBrowser($event)"
+      class="default-mat-icon head-icon empty-icon ">
+      {{emptyDataIcon}}</mat-icon>
+    <div *ngIf="isIamge" (click)="openBrowser($event)">
+      <!-- <img [src]="emptyDataIcon" style="width: 55px; cursor: pointer;" /> -->
+      <img class='is-image' [src]="emptyDataIcon" />
+    </div>
+  </div>
+  <div *ngIf="previewUrl || logoUrl" [ngStyle]="{'pointer-events': canUpload? 'auto' : 'none'}"
+    [matMenuTriggerFor]="updateImage" fxFlex fxLayout="row" fxLayoutAlign="start center">
+    <img [src]="logoUrl ? logoUrl : previewUrl" class='display-logo' />
+  </div>
+  <mat-menu #updateImage="matMenu">
+    <button mat-menu-item (click)="openBrowser($event)">
+      <span>Upload photo</span>
+    </button>
+    <button mat-menu-item (click)="removeLogo()">Remove photo</button>
+
+  </mat-menu>
+  <mat-progress-spinner mode="indeterminate" diameter="80" strokeWidth="5" style="position: absolute;" *ngIf="uploading"
+    color="primary">
+  </mat-progress-spinner>
+</div>

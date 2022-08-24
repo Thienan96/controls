@@ -1,0 +1,55 @@
+body{
+    height: 40px;
+}
+
+.expand-button{
+    font-size: 30px;
+}
+button.button-expand-collapse {
+    width: 14px !important;
+}
+.head-check-force{
+    display: block;
+}
+
+.ntk-folder-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}
+button {
+    overflow: hidden !important;
+}
+
+button mat-icon{
+    margin-left: -16px;
+    margin-right: 13px;
+    width: 0px;
+}
+.folder-icon {
+    padding-left: 6px;
+}
+
+button mat-spinner {
+    margin-left: -10px !important;
+}
+.font-italic {
+    font-style: italic;
+}
+
+.folder-icon-link{
+    font-size: 13px;
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    color: white;
+}
+.folder-has-link{
+    position: relative;
+}
+.document-list-checkbox {
+    padding-left: 8px; 
+    width: 33px; 
+    height: 48px;
+}

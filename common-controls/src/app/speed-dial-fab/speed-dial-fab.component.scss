@@ -1,0 +1,43 @@
+@mixin speed-dialFab-component($theme) {
+  $primary: map-get($theme, primary);
+  .fab-container {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: flex-end;
+    .fab-toggler:disabled {
+      background-color: mat-color($primary);
+    }
+    .column-reverse {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      padding-right: 10px;
+      .tooltip {
+        opacity: 0.87;
+        font-size: 12px;
+        padding: 6px;
+        border-radius: 4px;
+        color: white;
+        background-color: gray;
+        white-space: nowrap;
+      }
+    }
+    .fab-toggler {
+      float: right;
+      z-index: 100;
+    }
+    #fab-dismiss {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99;
+    }
+    .fab {
+      background: #ffffff;
+      color: #212121;
+    }
+  }
+}

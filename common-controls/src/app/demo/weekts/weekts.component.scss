@@ -1,0 +1,15 @@
+.ntk-week-timesheet-body {
+    height: calc(100% - 30px);
+    overflow-y: scroll;
+}
+
+.ntk-week-timesheet-header {
+    overflow-y: scroll;
+}
+
+.background-lines {
+    position: absolute;
+    left: 0;
+	right: 0;
+}
+

@@ -1,0 +1,54 @@
+@import './details-calendar/details-calendar.component';
+
+@mixin details-calendar-border($theme,$options: ()) {
+  $defaultValues: (
+          dayBorder: #cacaca,
+          lineBorder: #eaeaea
+  );
+  $options: map-merge($defaultValues, $options);
+  $dayBorder: map_get($options, dayBorder);
+  $lineBorder: map_get($options, lineBorder);
+  $primary: map_get($theme, primary);
+  $warn: map_get($theme, warn);
+
+  ntk-details-calendar-day-event{
+    border: 1px solid #eaeaea;
+    &.selected:not(.cdk-drag-placeholder){
+      border-color: mat-color($warn);
+    }
+  }
+
+  ntk-details-calendar {
+    ntk-details-calendar-hours {
+      .line {
+        border-top: 1px solid $lineBorder;
+      }
+    }
+
+
+    .header-col {
+      border-top: 1px solid $dayBorder;
+    }
+
+    ntk-details-calendar-day-column, .header-col {
+      border-right: 1px solid $lineBorder;
+      border-bottom: 1px solid $dayBorder;
+      box-sizing: border-box;
+
+      &:first-child {
+        border-left: 1px solid $dayBorder;
+      }
+
+      &:last-child {
+        border-right: 1px solid $dayBorder;
+      }
+    }
+
+  }
+
+}
+
+
+@mixin details-calendar($theme,$options: ()) {
+  @include details-calendar-border($theme,$options);
+}

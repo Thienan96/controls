@@ -1,0 +1,37 @@
+﻿<!-- <div fxFill fxLayout="column">
+    <div fxFlex="none" fxLayout="column" mat-dialog-title class="hs-dialog-title hs-dialog-title-message-box">
+        {{dialogData.Data.title}}
+    </div>
+
+    <div fxFlex="100" fxLayout="column" mat-dialog-content class="hs-dialog-content" >
+        <p [innerHTML]="dialogData.Data.message | carriageReturn2HtmlBr"></p>
+    </div>
+
+    <div fxFlex="none" fxLayout="row" mat-dialog-actions 
+         style="margin: 8px 8px 8px 8px !important; padding: 0 !important">
+        <div class="custom-btn" fxFill fxLayoutAlign="end center">
+            <button mat-button mat-dialog-close *ngIf="dialogData.Data.button === 'btOK'">{{'btOk'| translator}}</button>
+
+            <button mat-button [mat-dialog-close]="false" *ngIf="dialogData.Data.button === 'btYesNo'">{{'btNo'| translator}}</button>
+            <button mat-button [mat-dialog-close]="true" *ngIf="dialogData.Data.button === 'btYesNo'" cdkFocusInitial>{{'btYes'| translator}}</button>
+        </div>
+
+    </div>
+</div> -->
+<div class="messageDialog">
+    <div mat-dialog-title>{{dialogData.Data.title}}</div>
+    <div mat-dialog-content>
+        <div [innerHTML]="dialogData.Data.message | carriageReturn2HtmlBr"></div>
+    </div>
+    <div mat-dialog-actions class="custom-btn">
+        <button #okButton="matButton" mat-button mat-dialog-close *ngIf="dialogData.Data.button === 'btOK'">{{dialogData.Data.confirmKey| translator}}</button>
+
+        <button #yesButton="matButton" mat-button [mat-dialog-close]="true"
+            *ngIf="dialogData.Data.button === 'btYesNo'">{{dialogData.Data.confirmKey| translator}}</button>
+
+        <button #noButton="matButton" mat-button [mat-dialog-close]="false" *ngIf="dialogData.Data.button === 'btYesNo'">
+            {{dialogData.Data.rejectKey | translator}}</button>
+
+        
+    </div>
+</div>

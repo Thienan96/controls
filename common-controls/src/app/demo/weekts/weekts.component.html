@@ -1,0 +1,64 @@
+<div style="height: 100px;">{{weekTsComponent?.selected?.Id}}</div>
+<div style="height: 500px; overflow: hidden;">
+    <ntk-week-timesheet  style="width: 100%; display: block; position: relative;height: 100%;"
+                [options]="options">
+        <div class="ntk-week-timesheet-header"  fxLayout="row" style="height: 30px;">
+            <div fxFlex="none" [style.width.px]="leftWidth" fxLayoutAlign="end center">
+                <mat-icon (click)="gotoPrev()" matRipple style="cursor: pointer;">arrow_back</mat-icon>
+            </div>
+            <div fxFlex style="position: relative; margin: 0 8px;">
+                <ntk-week-timesheet-header [startTime]="options.startTime" [endTime]="options.endTime"></ntk-week-timesheet-header>
+            </div>
+            <div fxFlex="none" [style.width.px]="rightWidth" fxLayoutAlign="start center">
+                <mat-icon (click)="gotoNext()" matRipple style="cursor: pointer;">arrow_forward</mat-icon>
+            </div>
+        </div>
+        <div class="ntk-week-timesheet-body">
+            <div class="ntk-week-timesheet-lines" fxLayout="row">
+                <div class="background-lines">
+                    <div  *ngFor="let dayPlanning of dayPlannings;trackBy:trackByDayPlanning" 
+                        style="height: 36px;" [style.background-color]="dayPlanning.BackgroundColor">
+                    </div>
+                </div>
+                <div fxFlex="none" [style.width.px]="leftWidth"></div>
+                <div fxFlex style="position: relative;margin: 0 8px;">
+                    <ntk-week-timesheet-lines hideQuaterLines="true"
+                        [style.height.px]='dayPlannings.length * 36'
+                        [startTime]="options.startTime" [endTime]="options.endTime"></ntk-week-timesheet-lines>
+                </div>
+                <div fxFlex="none" [style.width.px]="rightWidth"></div>
+            </div>
+            <div class="week-ts-day-plannings-container">
+                <ntk-week-timesheet-day-planning  *ngFor="let dayPlanning of dayPlannings;trackBy:trackByDayPlanning"
+                                        fxLayout="row"
+                                        style="height: 36px;"
+                                        [dayPlanning]="dayPlanning">
+                    <div fxFlex="none" fxLayoutAlign="start center" [style.width.px]="leftWidth" style="height:100%;">{{dayPlanning.Date|date}}</div>
+                    <div class="ntk-week-timesheet-day-plannings-body-container" fxFlex style="position: relative;margin: 0 8px; border-top: 1px solid #eaeaea;"
+                        [class.is-now]="dayPlanning.Date===now">
+                        <ntk-week-timesheet-duration-component (dragingCompleted)="onAddDurationChange(dayPlanning, $event)" 
+                            [allowDraging]="dayPlanning.allowDraging"
+                            [startTime]="options.startTime" [endTime]="options.endTime"></ntk-week-timesheet-duration-component>
+                        <div style="position: relative;height: 100%;width: 100%;overflow: hidden;">
+                            <ntk-week-timesheet-bg-event  *ngFor="let event of dayPlanning.BackgroundEvents"
+                                                [event]="event"
+                                                [ntkTooltip]="event.StartTime +' - '+ event.EndTime"
+                                                [isCheckText]="false"></ntk-week-timesheet-bg-event>
+                            <ntk-week-timesheet-event *ngFor="let event of dayPlanning.Events"
+                                            [event]="event"
+                                            [ntkTooltip]="event.Comment + ' (' + event.StartTime + ' - '+ event.EndTime + ')'"
+                                            [isCheckText]="false"
+                                            [style.background-color]="event.Color"
+                                            (remove)="onEventRemoved($event)"
+                                            (select)="onEventSelected($event)"
+                                            ntkWeekTsEventResizable
+                                            (resize)="onEventResized($event)"
+                                            [canResize]="event.CanResize">{{event.Title}}</ntk-week-timesheet-event>
+                        </div>
+                    </div>
+                    <div fxFlex="none" fxLayoutAlign="start center" [style.width.px]="rightWidth" style="height:100%;">{{dayPlanning.Date}}</div>
+                </ntk-week-timesheet-day-planning>
+            </div>
+        </div>
+    </ntk-week-timesheet>
+</div>

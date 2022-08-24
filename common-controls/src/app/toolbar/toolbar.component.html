@@ -1,0 +1,234 @@
+﻿<mat-toolbar class="ntk-app-toolbar" color="primary">
+    <mat-toolbar-row>
+        <button *ngIf="showMenuButton" class="menu-button" fxFlex="none" mat-icon-button (click)="onMenuClicked()"><mat-icon>menu</mat-icon></button>
+
+        <!--Title-->
+        <ntk-toolbar-title *ngIf="showTitle" [title]="title" [titleMinWidth]="titleMinWidth" [titlePrefixKey]="titlePrefixKey" (titleClicked)="onTitleClicked()"></ntk-toolbar-title>
+
+        <!--ExpandCollapseButton-->
+        <button *ngIf="showExpandCollapseButton" mat-icon-button (click)="onToggleClicked()" class="button-expand-collapse">
+            <svg viewBox="0 0 24 24" [class.is-collapsed]="isCollapsedButton" [class.is-expand]="!isCollapsedButton">
+                <path fill="white" d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" />
+            </svg>
+        </button>
+
+        <div fxFlex *ngIf="!showSearch"></div>
+
+        <!--Search-->
+        <button fxFlex="none" mat-icon-button  class="btn-search-back" (click)="onSearchBack()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <ntk-toolbar-search fxFlex  *ngIf="showSearch" [disableSearchText]="disableSearchText" [(searchText)]="searchText" (searchTextChange)="onSearchChanged()" (focused)="onSearchFocused($event)"></ntk-toolbar-search>
+
+        <!--Filter button-->
+        <button [matMenuTriggerFor]="menuFilters" [matMenuTriggerRestoreFocus]='false' class="btn-filters" #menuFiltersTrigger="matMenuTrigger" mat-icon-button *ngIf='showFilterMenu'   (menuOpened)="menuOpened()" id="ntk-toolbar-btn-filter" [title]="'lbFilterBy' | translator">
+          <mat-icon svgIcon="ntk-filter" ></mat-icon>
+        </button>
+        <mat-menu #menuFilters [overlapTrigger]='false' class="ntk-toolbar-menu ntk-toolbar-filters-menu ntk-toolbar-theme">
+          <ng-template matMenuContent>
+
+              <div *ngIf="filterBys.length>0">
+                  <div class="ntk-toolbar-menu-title">{{'lbFilterBy' | translator}}</div>
+                  <mat-radio-group>
+                      <div *ngFor="let item of filterBys">
+                          <div mat-menu-item (click)="onFilterByClicked(item)">
+                              <mat-radio-button [value]='item.Value' color='primary' [checked]="item.IsSelected">
+                                  <span>{{item.TranslateKey|translator}}</span>
+                              </mat-radio-button>
+                          </div>
+                      </div>
+                  </mat-radio-group>
+              </div>
+              <div *ngIf="customFilters.length>0">
+                  <mat-divider *ngIf="filterBys.length>0"></mat-divider>
+                  <div class="ntk-toolbar-menu-title">{{'lbCustomFilters'|translator}}</div>
+                  <div *ngFor="let item of customFilters | arraySortOrder: {property: 'Public', direction: -1}" >
+                      <div mat-menu-item class="menu-item-filter" (click)="onCustomFilterClicked(item)" [class.selected]="selected && item.Name === selected.Name" >
+                          <div fxLayout="row" style="width:100%">
+                              <div fxFlex="none" class="aleft-icons">
+                                  <button mat-icon-button class="button-unpin" *ngIf="!item.Pinned" (click)="onButtonTogglePinClicked(item, $event)">
+                                      <mat-icon class="icon-pin" svgIcon="ntk-pin">star_rate</mat-icon>
+                                  </button>
+                                  <button mat-icon-button class="button-pin" *ngIf="item.Pinned" (click)="onButtonTogglePinClicked(item, $event)">
+                                      <mat-icon class="icon-pin icon-pin-active" svgIcon="ntk-pin">star_rate</mat-icon>
+                                  </button>
+                              </div>
+                              <div fxFlex fxLayoutAlign="start center" style="overflow:hidden" class="fix-flex-basis-ie" >
+                                  <div [matTooltip]="item.Name" matTooltipClass="truncated-tip" ntk-tooltip-toggle class="block-ellipsis hs-block-ellipsis">{{item.Name}}</div>
+                                  <mat-icon *ngIf="item.Public" class="material-icons" style="margin-left:16px;">public</mat-icon>
+                              </div>
+
+                              <div fxFlex="none" *ngIf="!item.Public || canManageGlobalFilters">
+                                  <button mat-icon-button class="button-edit" (click)="onButtonEditCustomFilterClicked(item, $event)">
+                                      <mat-icon>edit</mat-icon>
+                                  </button>
+                                  <button mat-icon-button class="button-remove" (click)="onButtonRemoveCustomFilterClicked(item, $event)">
+                                      <mat-icon>delete</mat-icon>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div *ngIf="filterFields.length>0">
+                  <mat-divider *ngIf="filterBys.length>0"></mat-divider>
+                  <div class="ntk-toolbar-menu-title">{{'lbFieldsFilter'|translator}}</div>
+                  <div *ngFor="let item of filterFields">
+                      <mat-divider class="divider-filter-fields" *ngIf="item.FilterType === FilterType.Separator || item.FilterOperator === FilterOperator.ClearBefore"></mat-divider>
+                      <div *ngIf="item.FilterType !== FilterType.Separator" [ngClass]="{'menu-item-filter-none-icon': !showFavorite}" mat-menu-item (click)="onFieldFilterClicked(item)" class="ntk-toolbar-filter-button menu-item-filter">
+                          <div fxLayout="row">
+                              <div fxFlex="none" class="aleft-icons" *ngIf="showFavorite">
+                                  <button mat-icon-button *ngIf="!item.IsFavorite" class="button-not-favorite" (click)="onButtonFavoriteClicked(item, $event)">
+                                      <mat-icon>star_rate</mat-icon>
+                                  </button>
+                                  <button mat-icon-button *ngIf="item.IsFavorite" class="button-favorite" (click)="onButtonFavoriteClicked(item, $event)">
+                                      <mat-icon class="icon-favorite icon-favorite-active">star_rate</mat-icon>
+                                  </button>
+                              </div>
+                              <div fxFlex>{{item.TranslateKey|translator}}</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div *ngIf="filterBys.length===0 && customFilters.length===0 && filterFields.length===0" class="no-more-filter-to-add mat-title">{{'lbNoMoreFilterToAdd'|translator}}</div>
+
+          </ng-template>
+        </mat-menu>
+
+        <!--Sort button-->
+        <button [matMenuTriggerFor]="matMenuSorts" class="btn-sorts" mat-icon-button [disabled]="disabledSorted" *ngIf='showSortMenu'  (menuOpened)="menuOpened()" [title]="'lbSortBy' | translator">
+          <mat-icon svgIcon="ntk-sort" ></mat-icon>
+        </button>
+        <mat-menu #matMenuSorts [overlapTrigger]="false" class="ntk-toolbar-menu ntk-toolbar-sorts-menu ntk-toolbar-theme">
+          <ng-template matMenuContent>
+              <div class="ntk-toolbar-menu-title">{{'lbSortBy' | translator}}</div>
+              <mat-radio-group class="sort-radio-group" >
+                  <div mat-menu-item *ngFor="let item of availableSorts" (click)='onSortClicked(item)'>
+                      <mat-radio-button [value]="item.Name" color='primary' [checked]="item.IsSelected" >
+                          <span>{{item.TranslationKey|translator }}</span>
+                          <mat-icon *ngIf="item.IsSelected" class="ntk-toolbar-sort-direction-icon">{{item.Order==='asc' ? 'arrow_upward' : 'arrow_downward'}}</mat-icon>
+                      </mat-radio-button>
+                  </div>
+              </mat-radio-group>
+          </ng-template>
+        </mat-menu>
+
+        <!--View mode menu-->
+        <button [matMenuTriggerFor]="matMenuViewModes" class="btn-view-mode" mat-icon-button  *ngIf='showViewModeMenu'  (menuOpened)="menuOpened()" [title]="'lbLayout' | translator">
+          <mat-icon>view_list</mat-icon>
+        </button>
+        <mat-menu #matMenuViewModes [overlapTrigger]='false' class="ntk-toolbar-menu ntk-toolbar-viewmode-menu ntk-toolbar-theme">
+          <ng-template matMenuContent>
+              <div class="ntk-toolbar-menu-title">{{'lbLayout' | translator}}</div>
+              <mat-radio-group class="viewmode-radio-group" >
+                  <div mat-menu-item *ngFor="let viewMode of availableViewModes" (click)="onViewModeClicked(viewMode.Value)">
+                      <mat-radio-button [value]='viewMode.Value' color='primary' [checked]="viewMode.Value === currentViewMode" >
+                          {{viewMode.TranslationKey | translator}}
+                      </mat-radio-button>
+                  </div>
+              </mat-radio-group>
+          </ng-template>
+        </mat-menu>
+
+
+
+        <mat-divider vertical="true" class="divider-vertical"  *ngIf="(isShowNotification || isShowNewReleaseAlert) && (showFilterMenu || showSortMenu || showViewModeMenu)"></mat-divider>
+
+        <!--Notification setting-->
+        <ntk-toolbar-notification *ngIf="showNotification && !configHideNotification" 
+        [(showNotification)]="isShowNotification" 
+        [notificationPanelWidth]="'538px'" 
+        [hideNotificationSetting] = "hideNotificationSetting"
+        [hideNotificationHistory] = "hideNotificationHistory"
+        [showNotificationTooltip]="showNotificationTooltip"
+        ></ntk-toolbar-notification>
+
+        <!--New release-->
+        <ntk-toolbar-release-alert *ngIf="showNewReleaseAlert && !configHideNewReleaseAlert" [(showNewReleaseAlert)]="isShowNewReleaseAlert" ></ntk-toolbar-release-alert>
+
+        <!--Account button-->
+        <ng-container *ngTemplateOutlet="(userAccountTemplate || defaultAccountButtonTemplate);"></ng-container>
+
+        <!-- Option button -->
+        <button mat-icon-button *ngIf="isSmallScreen && showMoreOver" class="btn-options" [matMenuTriggerFor]="matMenuOptions" (menuOpened)="menuOpened()" ntk-stop-monitoring >
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <div #menuSortsTrigger="matMenuTrigger" [matMenuTriggerFor]="matMenuSorts" (menuOpened)="menuOpened()"></div>
+        <div #menuFiltersByTrigger="matMenuTrigger" [matMenuTriggerFor]="menuFilters" (menuOpened)="menuOpened()"></div>
+        <div #menuViewModeTrigger="matMenuTrigger" [matMenuTriggerFor]="matMenuViewModes" (menuOpened)="menuOpened()"></div>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<!-- First bar -->
+<ntk-custom-filters
+    [hidden]="!isShowFirstBar"
+    [customFilters]="pinnedFilters"
+    [selected]="selected"
+    [currentFieldsFilter]="currentFilterFields"
+    (customFilterSelected)="onCustomFilterSelected($event)"
+    (customFilterRemoved)="onCustomFilterRemoved($event)"
+    (customFilterPinToggled)="onCustomFilterPinToggled($event)"
+    (clearFilterClicked)="onClearFilterClicked()"
+    [showFavorite]="isShowFavorite"
+    [favorites]="favorites"
+    [canManageGlobalFilters]="canManageGlobalFilters"
+    (menuFavoriteClicked)="onMenuFavoriteClicked()"
+    (favoriteClicked)="onFavoriteClicked($event)"
+    [showCustomFiltersCount]="showCustomFiltersCount"
+></ntk-custom-filters>
+
+<mat-divider *ngIf="isShowSecondBar"></mat-divider>
+
+<!-- Second bar -->
+<ntk-filters-bar
+    [hidden]="!isShowSecondBar"
+    (getColumnFilterMultiSelectionValues)="filterMultiSelectionValues($event)"
+    (countDataChange)="countData($event)"
+    (canCreateFilterChange)="canCreateFilter($event)"
+    (getPredefineFilters)="getPredefineFilters($event)"
+    [customFilter]="selected"
+    [currentFilters]="currentFilterFields"
+    [availableFilters]="availableFilters"
+    [outDateFormat]="outDateFormat"
+    (fieldFiltersChanged)="onFieldFiltersChanged()"
+    (favoriteToggled)="onFavoriteToggled($event)"
+    (fieldFiltersSaved)="onFieldFiltersSaved($event)"
+    [shownFavorite]="shownFavoriteIcon"
+    [showSaveFilter]="showCustomFilter"
+    [showClearFilter]="showClearFilter"
+    [templates]= "templates"
+    [canManageGlobalFilters]="canManageGlobalFilters"
+></ntk-filters-bar>
+
+<!-- Options -->
+<mat-menu #matMenuOptions [overlapTrigger]='false' class="ntk-toolbar-menu ntk-toolbar-options-menu ntk-toolbar-theme">
+    <ng-template matMenuContent>
+        <ng-container *ngFor="let item of optionsItems" >
+            <ng-container [ngSwitch]="item.Value">
+                <mat-divider *ngSwitchCase= "'---'"></mat-divider>
+                <div mat-menu-item *ngSwitchCase= "'sortBy'" [disabled]="disabledSorted"  (click)="onOptionsMenuClicked(item.Value)">
+                    {{ item.TranslateKey | translator}}
+                </div>
+                <div mat-menu-item *ngSwitchDefault  (click)="onOptionsMenuClicked(item.Value)">
+                    {{ item.TranslateKey | translator}}
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-template>
+</mat-menu>
+
+<!--allow to customize user account template-->
+<ng-template #defaultAccountButtonTemplate>
+    <mat-divider [vertical]="true" class="divider-vertical" 
+         *ngIf="(isShowNotification || isShowNewReleaseAlert || showFilterMenu || showSortMenu || showViewModeMenu) && showUserMenu && !configHideUserMenu"></mat-divider>
+    <ntk-user-menu #userMenu *ngIf="showUserMenu && !configHideUserMenu"
+            [showUserProfileItem]="showUserProfileItem"
+            [showChangePasswordItem]="showChangePasswordItem"
+            [showChangeLangualeItem]="showChangeLangualeItem"
+            [showUserSettingItem]="showUserSettingItem"
+            [showNotificationMenu]="showNotificationMenu"
+            [showReleaseNotesItem]="showReleaseNotesItem"></ntk-user-menu>
+</ng-template>

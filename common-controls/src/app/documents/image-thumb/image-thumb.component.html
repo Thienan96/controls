@@ -1,0 +1,122 @@
+﻿<div #hsImageContainer class="hs-image-container"
+    [ngClass]="{'hs-image-container-selecting': isSelectToDisplay}" 
+    [ngStyle]="{'width': containerWidth + 'px', 'height': containerHeight + 'px'}"
+    fxLayout="row" fxLayoutAlign="center center">
+
+    <!-- Upload filed -->
+    <div style="position:absolute; top:0; bottom: 0px; left:0; right: 0; z-index:2; background-color:white; opacity:.8; overflow:hidden"
+         fxLayout="column" fxLayoutAlign="center center"
+         *ngIf="isUploadFailed">
+        <span style="color: red; text-align:center" ntk-translator="lbUploadingFailure"></span>              
+    </div>
+
+    <div fxFlex [style.height.%]='100' fxLayoutAlign="center center" [ngStyle]="{'cursor': (canViewDocument ? 'pointer' : 'default')}" (click)="onImageClick()" >
+        <!--[src]="urlImage | secure | async"-->
+        <!-- in apps like NF we dont need to secure thumb url-->
+        <img #imageThumb [src]="secureUrl ? (urlImage | secure | async) : (urlImage)"
+            [ngClass]="{'thumb-img-mobile': isMobile}" 
+            *ngIf="!isUploadFailed && urlImage"
+            [alt]="name"
+            (load)="onImageLoaded()" 
+            (error)="onImageError()" 
+             />    
+    </div>
+  
+    <!--Processing status only for Uploaded status-->
+    <div *ngIf="!urlImage && isDocumentUploaded" 
+         class="hs-error-thumb-panel"
+         fxLayoutAlign="center center"
+         (click)="onImageClick()">
+        <span>
+            {{
+                ((model.DocumentWrapper.Document.Status === 'ProcessingFailed' ? 'lbError' : 'lbMailProcessStatus_Processing') | translator)
+                + (model.DocumentWrapper.Document.Status === 'ProcessingFailed' ? '' : '...')
+            }}            
+        </span>
+    </div>
+    
+    <!--EJ4: Not show Processing status but show the file ext. for word/excel-->
+    <div *ngIf="!urlImage && model && model.DocumentWrapper && !isDocumentUploaded" 
+         (click)="onImageClick()"
+         [ngStyle]="{'cursor': (handlerClickOnImage || canSelect ? 'pointer' : 'default')}"
+         class="hs-error-thumb-panel"
+         fxLayoutAlign="center center">
+         <mat-icon class="file-type-icon"  [svgIcon]="svgFileTypeKey">text_snippet</mat-icon>
+    </div>
+
+    <!--this is a case that uploading but not yet saved-->
+    <!--If not image, dispay the file extension svg-->
+    <!--By default display the picture_as_pdf icon-->
+    <div *ngIf="!isImage && model && model.File" 
+         class="hs-error-thumb-panel"
+         fxLayoutAlign="center center">
+         <mat-icon class="file-type-icon" [svgIcon]="svgFileTypeKey">text_snippet</mat-icon>
+    </div>
+    <!-- [hidden]="!!canSelect" -->
+    <div *ngIf='((!isLogo && !hideTittle) && !canSelect) || showBothCheckSelectedAndTitle' fxLayout="row" fxLayoutAlign="start end" class="hs-image-title" 
+        [style.width.px]="containerWidth" style="z-index:3;">
+        <span fxFlex class="hs-block-ellipsis" style="margin: auto 0">{{name}}</span>
+        <button mat-icon-button color='warn' *ngIf="isNew" (click)="onRemoveImageThumb()" tabindex="-1">
+            <mat-icon>clear</mat-icon>
+        </button>        
+        <button mat-icon-button *ngIf="!isNew && showMenu" [matMenuTriggerFor]="matMenuImageThumbnail" tabindex="-1">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #matMenuImageThumbnail>
+            <button mat-menu-item (click)="showDocumentInfo()">
+                <mat-icon aria-label="Information">info</mat-icon>
+                <span ntk-translator="lbInformation">Information</span>
+            </button>
+            <button mat-menu-item (click)="downloadDocument()">
+                <mat-icon aria-label="FileDownload">file_download</mat-icon>
+                <span ntk-translator="btDownload">Download</span>
+            </button>
+            <button mat-menu-item (click)="onRemoveImageThumb()" *ngIf="canRemove">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+                <span ntk-translator="btDelete">Delete</span>
+            </button>
+        </mat-menu>
+    </div>
+    
+    <!-- {{isUploading? 'uploading' : 'not'}} -->
+    <!--<mat-progress-bar class="hs-progress-bar hs-progress-bar_completed" mode="determinate" value="{{progress}}" *ngIf="model?.File"></mat-progress-bar>-->
+    <mat-progress-bar  class="hs-progress-bar"
+        [ngStyle]="{'width': realImageWidth > 0 ? realImageWidth + 'px': '150px'}" 
+         mode="determinate" value="{{model.progress}}" *ngIf="isUploading" style="z-index:3;"></mat-progress-bar>
+    <div class="hs-progress-bar" [ngStyle]="{'width': realImageWidth > 0 ? realImageWidth + 'px': '150px'}" 
+        style="height: 5px; background-color: forestgreen;z-index:3;" *ngIf="isUploaded"></div>
+    <div class="hs-progress-bar" [ngStyle]="{'width': realImageWidth > 0 ? realImageWidth + 'px': '150px'}"  
+        style="height: 5px; background-color: red;z-index:3;" *ngIf="isUploadFailed || isSaveFailed"></div>
+
+
+    <!-- Select icon -->
+    <button  mat-icon-button *ngIf="canSelect"
+        class="button-checked" 
+        [ngStyle]="{'bottom.px': showBothCheckSelectedAndTitle ? 35 : 0}"  
+        (click)="revertSelectState()">
+        <svg height="26px" width="26px">
+            <circle cx="13px" cy="13px" r="11"  stroke-width="2" style="fill: currentColor;stroke: rgba(0,0,0,0.45);" />
+        </svg>
+        <mat-icon class="icon-check" *ngIf="isSelected">check</mat-icon>
+    </button>
+
+
+
+
+    <!--Display when has drawing-->
+    <svg version="1.1" width="16" height="16"
+         style="position:absolute; right:0; top:0;"
+         *ngIf="model?.DocumentWrapper?.HasDrawing">
+        <path d="M0 0 L20 0 L20 20 Z" style="fill:red; stroke:red;" />
+    </svg>
+
+    <div class="unread-circle" style="position:absolute; left: 0; top: 0; z-index:1" *ngIf="model?.DocumentWrapper?.IsUnread"></div>
+
+    <!--Close button-->
+    <button mat-icon-button color="primary" *ngIf="showRemoveBtnAtTopLeft && canRemove" (click)="onRemoveImageThumb()"  class="btn-close">
+        <svg height="24px" width="24px">
+            <rect width="24px" height="24px"  stroke-width="2" style="fill: currentColor;stroke: #fff;" />
+        </svg>
+        <mat-icon class='icon-close'>close</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,186 @@
+<mat-toolbar *ngIf="isSmallScreen"  fxLayout="row" fxLayoutAlign="start center" color='primary' >
+    <button fxFlex="none" mat-icon-button  (click)="onCancel()" >
+        <mat-icon>close</mat-icon>
+    </button>
+    <div fxFlex  class="hs-block-ellipsis"  style="margin-left: 8px;">
+        <span style="text-transform:capitalize;">{{filter.DisplayValue}}</span>
+    </div>
+    <button mat-button  (click)="onSubmit()" style="text-transform: uppercase;">{{'btOk' | translator}}</button>
+</mat-toolbar>
+
+<div class="header" *ngIf="!isSmallScreen">
+    <form>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxFlex="none" class="display-value">{{filter.TranslateKey|translator}}:&nbsp;</div>
+            <div fxFlex>
+                {{title}}
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="content-actions"  fxLayout="column" [class.mat-elevation-z4]='true' >
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" >
+        <mat-dialog-content >
+            <h3 class="mat-title title" style="margin-top: 10px;margin-bottom:21px;">{{'lbQuickDateSelection'|translator}}</h3>
+            <div class="quick-date-selection-container" [class.selected]="dateSelection===DateSelection.QuickDate">
+                <div *ngIf="!isSmallScreen" fxLayout="column" fxLayoutGap="8px">
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isYesterday?'primary':''" (click)="onYesterdayButtonClicked()">{{'lbYesterday'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isToday?'primary':''" (click)="onTodayButtonClicked()">{{'lbToday'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isTomorrow?'primary':''" (click)="onTomorrowButtonClicked()">{{'lbTomorrow'|translator}}</button>
+                        <div fxFlex>&nbsp;</div>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isLastWeek?'primary':''" (click)="onLastWeekButtonClicked()">{{'lbLastWeek'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisWeek?'primary':''" (click)="onThisWeekButtonClicked()">{{'lbThisWeek'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isNextWeek?'primary':''" (click)="onNextWeekButtonClicked()">{{'lbNextWeek'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisQuarter?'primary':''" (click)="onThisQuarterButtonClicked()">{{'lbThisQuarter'|translator}}</button>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isLastMonth?'primary':''" (click)="onLastMonthButtonClicked()">{{'lbLastMonth'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisMonth?'primary':''" (click)="onThisMonthButtonClicked()">{{'lbThisMonth'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isNextMonth?'primary':''" (click)="onNextMonthButtonClicked()">{{'lbNextMonth'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisYear?'primary':''" (click)="onThisYearButtonClicked()">{{'lbThisYear'|translator}}</button>
+                    </div>
+                </div>
+                <div *ngIf="isSmallScreen" fxLayout="column" fxLayoutGap="8px">
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isYesterday?'primary':''" (click)="onYesterdayButtonClicked()">{{'lbYesterday'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isToday?'primary':''" (click)="onTodayButtonClicked()">{{'lbToday'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isTomorrow?'primary':''" (click)="onTomorrowButtonClicked()">{{'lbTomorrow'|translator}}</button>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isLastWeek?'primary':''" (click)="onLastWeekButtonClicked()">{{'lbLastWeek'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisWeek?'primary':''" (click)="onThisWeekButtonClicked()">{{'lbThisWeek'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isNextWeek?'primary':''" (click)="onNextWeekButtonClicked()">{{'lbNextWeek'|translator}}</button>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisQuarter?'primary':''" (click)="onThisQuarterButtonClicked()">{{'lbThisQuarter'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isLastMonth?'primary':''" (click)="onLastMonthButtonClicked()">{{'lbLastMonth'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisMonth?'primary':''" (click)="onThisMonthButtonClicked()">{{'lbThisMonth'|translator}}</button>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="8px">
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isNextMonth?'primary':''" (click)="onNextMonthButtonClicked()">{{'lbNextMonth'|translator}}</button>
+                        <button fxFlex type="button" mat-stroked-button [color]="dateType === DateType.isThisYear?'primary':''" (click)="onThisYearButtonClicked()">{{'lbThisYear'|translator}}</button>
+                        <div fxFlex>&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mat-title title" style="margin-top:26px;">{{'lbAbsoluteDateSelection'|translator}}</h3>
+            <div fxLayout="row" class="absolute-date-selection-container" [class.selected]="dateSelection===DateSelection.AbsoluteDate">
+                <div fxFlex style="overflow: hidden;">
+                    <mat-form-field>
+                        <mat-label>{{'lbFrom'|translator}}</mat-label>
+                        <div fxLayout="row">
+                            <input matInput placeholder="{{outDateFormat}}" [matDatepicker]="absoluteDateFromPicker" formControlName="absoluteDateFrom"   (dateChange)="onFromAbsoluteDateChange($event)"/>
+                            <button type="button" *ngIf="form.controls.absoluteDateFrom.value || form.controls.absoluteDateFrom.invalid" (click)="onClearAbsoluteDateFromButtonClicked($event)"  mat-icon-button color="warn" class="icon-button-small">
+                                <mat-icon>backspace</mat-icon>
+                            </button>
+                            <button type="button" (click)="onOpenDateButtonClicked(absoluteDateFromPicker, $event)" style="margin-left: 4px;" mat-icon-button class="icon-button-small">
+                                <mat-icon>today</mat-icon>
+                            </button>
+                        </div>
+                        <mat-datepicker [touchUi]="isSmallScreen" #absoluteDateFromPicker="matDatepicker" (opened)="onDatePickerOpened()" panelClass="ntk-filters-dialog-date-filter-panel"></mat-datepicker>
+                        <mat-error *ngIf="form.controls.absoluteDateFrom.invalid">{{'lbInvalidValue'|translator}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="none" style="width:16px;"></div>
+                <div fxFlex style="overflow: hidden;">
+                    <mat-form-field>
+                        <mat-label>{{'lbTo'|translator}}</mat-label>
+                        <div fxLayout="row">
+                            <input matInput placeholder="{{outDateFormat}}"  [matDatepicker]="absoluteDateToPicker" formControlName="absoluteDateTo"  (dateChange)="onToAbsoluteDateChange($event)"  />
+                            <button type="button" *ngIf="form.controls.absoluteDateTo.value || form.controls.absoluteDateTo.invalid" (click)="onClearAbsoluteDateToButtonClicked($event)" mat-icon-button color="warn" class="icon-button-small">
+                                <mat-icon>backspace</mat-icon>
+                            </button>
+                            <button type="button" (click)="onOpenDateButtonClicked(absoluteDateToPicker, $event)" style="margin-left: 4px;" mat-icon-button class="icon-button-small">
+                                <mat-icon>today</mat-icon>
+                            </button>
+                        </div>
+                        <mat-datepicker [touchUi]="isSmallScreen" #absoluteDateToPicker (opened)="onDatePickerOpened()" panelClass="ntk-filters-dialog-date-filter-panel"></mat-datepicker>
+                        <mat-error *ngIf="form.controls.absoluteDateTo.hasError('matDatepickerParse')">{{'lbInvalidValue'|translator}}</mat-error>
+                        <mat-error *ngIf="form.controls.absoluteDateTo.hasError('min-date')">{{'msgInvalidSelectionDate'|translator}}</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <h3 class="mat-title title">{{'lbRelativeDateSelection'|translator}}</h3>
+            <div  class="relative-date-selection-container" [class.selected]="dateSelection===DateSelection.RelativeDate"  >
+                <div fxLayout="row" style="overflow: hidden">
+                    <div fxFlex  [fxLayout]="isSmallScreen?'column':'row'" [fxLayoutAlign]="isSmallScreen? 'start top':'start center'"  [class.is-small-screen]="isSmallScreen" [class.is-normal-screen]="!isSmallScreen"   class="relative-date-selection-container-row">
+                        <div fxFlex fxLayout="row" fxLayoutGap="8px"  fxLayoutAlign="start center" class="relative-date-selection-container-col-1" >
+                            <div fxFlex="none" class="mat-form-field-text lb-from-to" >
+                                <div>{{'lbStart'|translator}}</div>
+                                <div *ngIf="isSmallScreen" style="visibility: hidden; height: 0; overflow: hidden">{{'lbEnd'|translator}}</div>
+                            </div>
+                            <mat-form-field fxFlex="none" class="mat-form-field-input">
+                                <input matInput type="number"  [ntk-only-number]="true" [decimal]="false" formControlName="fromPeriodNumber"  (change)="onFromNumberChange()"  />
+                            </mat-form-field>
+                            <mat-form-field fxFlex class="mat-form-field-select select-period">
+                                <mat-select [(value)]="fromPeriod" (selectionChange)="onFromDateChange()">
+                                    <mat-option value="day">{{'lbDay'|translator}}</mat-option>
+                                    <mat-option value="week">{{'lbWeek'|translator}}</mat-option>
+                                    <mat-option value="month">{{'lbMonth'|translator}}</mat-option>
+                                    <mat-option value="year">{{'lbYear'|translator}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field fxFlex  class="mat-form-field-select select-last-next">
+                                <mat-select [(value)]="fromLastNext" (selectionChange)="onFromLastNextChange()" >
+                                    <mat-option value="last">{{'lbPast'|translator}}</mat-option>
+                                    <mat-option value="next">{{'lbFuture'|translator}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center" class="relative-date-selection-container-col-2"  >
+                            <div class="mat-form-field-text lb-from-to" style="text-transform: lowercase;" >
+                                <div>{{'lbEnd'|translator}}</div>
+                                <div *ngIf="isSmallScreen" style="visibility: hidden; height: 0; overflow: hidden">{{'lbStart'|translator}}</div>
+                            </div>
+                            <mat-form-field fxFlex="none"  class="mat-form-field-input">
+                                <input matInput type="number" [ntk-only-number]="true" [decimal]="false" formControlName="toPeriodNumber"  (change)="onToNumberChange()" />
+                            </mat-form-field>
+                            <mat-form-field fxFlex class="mat-form-field-select select-period">
+                                <mat-select [(value)]="toPeriod" (selectionChange)="onToDateChange()">
+                                    <mat-option value="day">{{'lbDay'|translator}}</mat-option>
+                                    <mat-option value="week">{{'lbWeek'|translator}}</mat-option>
+                                    <mat-option value="month">{{'lbMonth'|translator}}</mat-option>
+                                    <mat-option value="year">{{'lbYear'|translator}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field  fxFlex  class="mat-form-field-select select-last-next">
+                                <mat-select [(value)]="toLastNext" (selectionChange)="onToLastNextChange()">
+                                    <mat-option value="last">{{'lbPast'|translator}}</mat-option>
+                                    <mat-option value="next">{{'lbFuture'|translator}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div>
+                                <button type="button" mat-icon-button color="warn" class="icon-button-small" (click)="onClearRelativeDateClicked()">
+                                    <mat-icon>backspace</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="isSmallScreen" fxLayoutAlign="start center" style="margin-left: 4px;padding-top: 20px;">
+                        <button type="button" mat-icon-button color="warn" class="icon-button-small" (click)="onClearRelativeDateClicked()">
+                            <mat-icon>backspace</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <mat-error class="mat-error-invalid-from-to"  *ngIf="form.hasError('relative-min')">{{'msgInvalidSelectionDate'|translator}}</mat-error>
+                <div style="height: 16px;"></div>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions *ngIf="!isSmallScreen" align="end" style="min-height: initial;padding-bottom: 16px;">
+            <div class="preview">{{preview}}</div>
+            <button type="button" mat-button (click)="onCancel()">{{'btCancel'|translator}}</button>
+            <button type="submit" mat-button  color="primary">{{'btApply'|translator}}</button>
+        </mat-dialog-actions>
+    </form>
+</div>
+
+<div class="preview" *ngIf="isSmallScreen" style="background: #fff;margin: 0;padding: 0;">
+    <mat-divider></mat-divider>
+    <div style="padding: 8px 16px 8px 16px;text-align: right">{{preview}}&nbsp;</div>
+</div>

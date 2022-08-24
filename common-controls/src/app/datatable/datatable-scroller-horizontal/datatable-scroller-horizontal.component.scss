@@ -1,0 +1,36 @@
+@mixin datatable-scroller-horizontal($theme, $options) {
+  ntk-datatable-scroller-horizontal {
+    .fixed-table-horizontal-thumb:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      clear: both;
+      font-size: 0;
+      min-width: 16px;
+      width: 16px; // litle space allow the last columns can resize easily
+    }
+
+    .aside-center {
+      margin-top: -1px;
+    }
+
+    &.is-float {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+
+      .aside-left, .aside-right {
+        border-left-color: transparent;
+        border-right-color: transparent;
+      }
+
+      &.is-scrolling,
+      &.mouseenter {
+        height: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="duration-scroller">
+    <div class="hours">
+        <div class="duraion-content" style="position: relative" >
+            <ul>
+                <li class="hour" [style.height.px]="height" *ngFor="let hour of hours">
+                    <span class="hour-text">{{hour.text}}</span>
+                    <span class="line-top"></span>
+                </li>
+            </ul>
+            <div class="handle" [style.top.px]="rect.top" [style.height.px]="rect.height" >
+                <div class="btn btn-up ui-resizable-n">
+                    <mat-icon>expand_less</mat-icon>
+                </div>
+                <div class="btn-drag" >
+                    <span class="text-duration durationStr">{{durationStr}}</span>
+                </div>
+                <div class="btn btn-down  ui-resizable-s" >
+                    <mat-icon>expand_more</mat-icon>
+                </div>
+                <div class="tooltip-container position-top" >
+                    <span>Start time</span>
+                    <div class="duration startTimeStr">{{startTimeStr}}</div>
+                    <mat-divider></mat-divider>
+                    <span>End time</span>
+                    <div class="duration endTimeStr">{{endTimeStr}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

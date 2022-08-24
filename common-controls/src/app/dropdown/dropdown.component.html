@@ -1,0 +1,26 @@
+<div  ntk-resize-sensor (onResizeSensor)="onResizeSensor()" class="mat-dropdown-container" cdkOverlayOrigin #dropdownButton='cdkOverlayOrigin' style="position: relative;" [ngClass]="{'disabled-search': !canSearch}">
+    <mat-progress-bar *ngIf='!isSmallScreen' mode="indeterminate"  [style.visibility]="isLoading?'visible':'hidden'" style="position: absolute;z-index: 1;bottom: -5px;"></mat-progress-bar>
+
+    <!--Allow display the icon-->
+    <!--Intervention icon at the moment-->
+    <mat-icon class="mat-dropdown-icon" *ngIf="iconName">{{iconName}}</mat-icon>
+
+    <div class="mat-dropdown-value" (click)="onInputClick()">
+        <input type="text" [placeholder]='placeholder' class='mat-input-element'
+            [(ngModel)]='displayText' 
+            [disabled]='disabled' 
+            [readonly]="readonly"
+            [attr.tabindex]="tabIndex"
+            [attr.maxLength]="allowInputNonExistValue ? maxLengthNonExistValue : undefined"
+            (ngModelChange)='onDisplayTextChanged($event)'
+            (keydown)='onInputKeyDown($event)' (blur)="onBlur($event)" #inputRef />
+    </div>
+
+    <div  *ngIf='!disabled && !(displayText && isSmallScreen)' class="mat-dropdown-arrow-wrapper" (click)='onDropdownButtonClick()'>
+        <div class="mat-dropdown-arrow"></div>
+    </div>
+    <div  *ngIf='!disabled && (displayText && isSmallScreen)' class="mat-dropdown-arrow-wrapper" (click)='clearText()'>
+        <div class="mat-dropdown-clear"></div>
+    </div>
+    
+</div>

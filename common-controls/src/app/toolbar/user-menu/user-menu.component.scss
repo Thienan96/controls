@@ -1,0 +1,25 @@
+:host {
+  font-size: 0;
+  line-height: 0;
+  display: block;  
+}
+
+.new-release-alert {
+  background-color: #e6efdf;
+  color: #478715;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+  }
+}

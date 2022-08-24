@@ -1,0 +1,40 @@
+﻿<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-form-field>
+        <div fxFlex fxLayout="column">
+            <mat-chip-list #chipList>
+                <mat-chip *ngFor="let item of selectedUsers"
+                          [selectable]="!readOnly"
+                          [removable]="!readOnly"
+                          (removed)="remove(item)">
+                    <span *ngIf="item.EntityDiscriminator !== 'DistributionList'">{{item.Name}}</span>
+                    <span *ngIf="item.EntityDiscriminator === 'DistributionList'" style="font-weight: bold">{{item.Name}}</span>
+                    <mat-icon matChipRemove *ngIf="!readOnly">cancel</mat-icon>
+                </mat-chip>
+                <input #userInput fxFlex
+                       placeholder="{{placeholder | translator}} {{(!isMandatory ? '' : ' *')}}"
+                       [formControl]="userCtrl"
+                       [matAutocomplete]="auto"
+                       [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </div>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selected($event)" class="user-selection">
+            <mat-option *ngFor="let item of filteredUsers | async" [value]="item" [disabled]="item.IsGrouping">
+                <div layout="column" style="min-height: 24px; box-sizing: border-box;">
+                    <div style="line-height: 2;"
+                         *ngIf="item.EntityDiscriminator !== 'DistributionList'">
+                        
+                        <span style="font-size: 14px;" [ngStyle]="{'font-weight': item.IsGrouping ? 'bold' : 'normal'}" >{{item.Name + '&nbsp;'}}</span>
+                        <span *ngIf="item.Email" style="font-size: 12px; color:rgba(0, 0, 0, 0.54)">({{item.Email || '&nbsp;'}})</span>
+                    </div>
+                    <div style="line-height: 2; font-size: 14px; font-weight: bold"
+                         *ngIf="item.EntityDiscriminator === 'DistributionList'">
+                        {{item.Name}}
+                    </div>
+                </div>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>

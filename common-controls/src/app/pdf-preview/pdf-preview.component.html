@@ -1,0 +1,40 @@
+<div fxLayout="column" style="width:100%;height:100%;">
+    <div style="width:100%;" fxLayout="row" fxLayoutAlign="start center" *ngIf="documentWrapper">
+        <span fxFlex></span>
+        <div fxLayout="row" fxLayoutAlign="start-center" style="margin-right:16px;">
+            <span *ngIf="canShowFullReport">
+                <button fxFlex="none" mat-icon-button *ngIf="isShowFullReport" class="icon-button" (click)="expandPreview()">
+                    <mat-icon class='icon-button' svgIcon="zoom-out"></mat-icon>
+                </button>
+    
+                <button fxFlex="none" mat-icon-button *ngIf="!isShowFullReport" class="icon-button" (click)="expandPreview()">
+                    <mat-icon class='icon-button' svgIcon="zoom-in"></mat-icon>
+                </button>
+            </span>
+           
+            <button matTooltipPosition="left" matTooltip="{{'lbZoomOut' | translator}}" [disabled] = "zoomLevel < 0.1" mat-icon-button class="icon-button" (click)="zoomOut()">
+                <mat-icon aria-label="zoom out">zoom_out</mat-icon>
+            </button>
+            <button matTooltipPosition="left" matTooltip="{{'lbZoomIn' | translator}}" mat-icon-button class="icon-button" (click)="zoomIn()">
+                <mat-icon aria-label="zoom in">zoom_in</mat-icon>
+            </button>
+            <button *ngIf="canDownloadFile" matTooltipPosition="left" matTooltip="{{'lbDownload' | translator}}" mat-icon-button class="icon-button" (click)='downloadPdfFile()'>
+                <mat-icon aria-label="zoom in">file_download</mat-icon>
+            </button>
+            
+        </div>
+    </div>
+    <div fxFlex fxLayout="column" style="overflow:hidden;position:relative;background-color:white;"
+        class="pdfViewerContainer" *ngIf="documentWrapper">
+        <pdf-viewer [src]="pdfObj" [original-size]="false" [autoresize] = "true"
+            [render-text]="false"
+            [zoom] = "zoomLevel"
+            (after-load-complete)="afterPdfLoaded($event)"
+            (page-rendered)="pageRendered($event)"
+            (on-progress)="onLoadingProgress($event)">
+        </pdf-viewer>    
+        <span *ngIf="isLoadingPdf"
+            style="margin: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);font-style:italic;"
+            class="mat-headline">{{'lbGeneratingPreview' | translator}}</span>
+    </div>
+</div>

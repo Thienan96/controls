@@ -1,0 +1,10 @@
+@mixin datatable-footer($theme, $options) {
+  $footerBackgroundColor: map_get($options, footerBackgroundColor);
+  $borderColor: map_get($options, borderColor);
+  $footerHeight: map_get($options, footerHeight);
+  ntk-datatable-footer {
+    height: $footerHeight;
+    border-bottom: 1px solid $borderColor;
+    background: $footerBackgroundColor;
+  }
+}

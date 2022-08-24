@@ -1,0 +1,102 @@
+<div fxFlex fxLayout='column' class='mat-elevation-z2 panel-container'> 
+    <!-- using for mobile mode -->
+    <div *ngIf='isSmallScreen' fxLayout="column">
+        <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>        
+            <button fxFlex="none" mat-icon-button (click)="close()" *ngIf="!isShowSearch">
+                    <mat-icon>close</mat-icon>
+            </button>
+            <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400" 
+                [hidden]="isShowSearch">
+                {{titleKey}}
+            </div>
+    
+            <button fxFlex="none" mat-icon-button (click)="enableSearch()" [hidden]="isShowSearch">
+                <mat-icon>search</mat-icon>
+            </button>
+    
+            <button mat-icon-button style="margin-left:-8px; color:inherit;"
+                    (click)="disableSearch()"
+                    [hidden]="!isShowSearch">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <div *ngIf="isShowSearch" [style.width.%]='100'>
+                <input fxFlex #inputQuery
+                    style="color:inherit;"
+                    type="text"
+                    autocomplete='off'
+                    (ngModelChange)="this.onSearchTextChange.next($event)"
+                    [(ngModel)]="searchText" 
+                    class="hs-input-filter-search custom-placeholder"
+                    placeholder="{{'lbSearch' | translator}}" />
+            </div>
+    
+            <button mat-icon-button [hidden]="!(isShowSearch && searchText)" (click)="clearQuery()">
+                <mat-icon>clear</mat-icon>
+            </button>
+    
+        </mat-toolbar>
+    </div>
+<!--  -->
+    <div cdkScrollable style='overflow: auto;width: 100%;height: 100%;'>
+        <div class="mat-caption" *ngIf="noData">{{noDataText}}</div>
+        <div style="min-width: 100%;float: left;">
+            <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+                <mat-tree-node *matTreeNodeDef="let node" class="tree-node"
+                    (click)='onNodeClick(node)' [ngClass]="{'tree-node-selected': node.index == selectedIndex}">
+                    <div fxLayout="row" fxLayoutAlign=" center" fxFlex style="width: 100%;">
+                        <ntk-tree-indent 
+                        [offset-height]=" isFirstItemInLevel(node.index) ? -10 : 0" 
+                        [indent-lines]="calculateIndentLines(node.index)" 
+                        [height]="48"
+                        [buffer]="10"></ntk-tree-indent>
+                        <button mat-icon-button style='width: 20px' disabled></button>                        
+                        <ng-container *ngTemplateOutlet="(itemTemplate ? itemTemplate : defaultItemTemplate);context:{item: node.item}">
+                        </ng-container>
+                    </div>
+                    <!-- <div class='hs-block-ellipsis' [matTooltip]="node.item.Name" matTooltipClass="truncated-tip" ntk-tooltip-toggle>
+                        {{node.item.Name}}</div> -->
+                </mat-tree-node>
+                <mat-tree-node *matTreeNodeDef="let node; when: isGroup" class="group-node"
+                    [ngClass]="{'tree-node-selected': node.index == selectedIndex}">                
+                    <ng-container *ngTemplateOutlet="(groupItemTemplate ? groupItemTemplate : defaultGroupTemplate);context:{item: node.item}">
+                    </ng-container>
+
+                    <!--NBSHD-4116: as this control only use for room selector so we hardcode in this case, we also have plan to use other control-->
+                    <!-- {{'SiteGroup_' + node.item.Name | translator}} -->
+                </mat-tree-node>
+                <mat-tree-node *matTreeNodeDef="let node; when: hasChild;"
+                    class="tree-node"
+                    (click)='onNodeClick(node)' [ngClass]="{'tree-node-selected': node.index == selectedIndex}"> 
+                    <div fxLayout="row" fxLayoutAlign=" center" fxFlex style="width: 100%;">   
+                        <ntk-tree-indent style='z-index: 1;'
+                            [offset-height]="isFirstItemInLevel(node.index) ? -10 : 0" 
+                            [indent-lines]="calculateIndentLines(node.index)" 
+                            [height]="48"
+                            [buffer]="10">
+                        </ntk-tree-indent>                         
+                        <button [disableRipple]='true' style='width: 20px' fxFlex="none" mat-icon-button [attr.aria-label]="'toggle ' + node.filename" matTreeNodeToggle>
+                            <mat-icon class="mat-icon-rtl-mirror">
+                                {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                            </mat-icon>
+                        </button>
+                        <ng-container fxFlex *ngTemplateOutlet="(itemTemplate ? itemTemplate : defaultItemTemplate);context:{item: node.item}">
+                        </ng-container>                        
+                    <!-- <div class='hs-block-ellipsis' [matTooltip]="node.item.Name" matTooltipClass="truncated-tip" ntk-tooltip-toggle>
+                        {{node.item.Name}}
+                    </div> -->
+                        <mat-progress-bar *ngIf="node.isLoading" mode="indeterminate"></mat-progress-bar>
+                    </div>
+                </mat-tree-node>
+            </mat-tree>
+        </div>
+    </div>
+
+    <ng-template #defaultItemTemplate let-item='item'>
+        <div style="white-space: nowrap;">{{item.Name}}</div>
+    </ng-template>
+    <!-- default header template -->
+    <ng-template #defaultGroupTemplate let-item='item'>
+        <!--NBSHD-4116: as this control only use for room selector so we hardcode in this case, we also have plan to use other control-->
+        <div>{{item.Name | translator}}</div>
+    </ng-template>
+</div>

@@ -1,0 +1,60 @@
+<mat-toolbar *ngIf="isSmallScreen" class="flex-none" fxLayout="row" fxLayoutAlign="start center" color='primary' >
+    <button fxFlex="none" mat-icon-button *ngIf="!isShowSearch" (click)="onCancel()" >
+        <mat-icon>close</mat-icon>
+    </button>
+    <div fxFlex *ngIf="!isShowSearch" class="hs-block-ellipsis"  style="margin-left: 8px;">
+        <span style="text-transform:capitalize">{{filterItem.DisplayValue}}</span>
+    </div>
+    <ntk-search-icon [(value)]="searchKeyword"
+                     (valueChange)="onSearchChanged()"
+                     [(isShowSearch)]="isShowSearch"
+                     [delay]="500"
+                     [isShowBackground]="true"></ntk-search-icon>
+    <button mat-button (click)="onOk()" style="text-transform: uppercase;">{{'btOk' | translator}}</button>
+</mat-toolbar>
+
+<div class="header" *ngIf="!isSmallScreen">
+    <form (ngSubmit)="onSubmit()">
+        <div fxLayout="row">
+            <div fxFlex="none" class="display-value">{{filterItem.TranslateKey|translator}}:&nbsp;</div>
+            <div fxFlex >
+                <mat-form-field floatLabel="never" class="field-search">
+                    <input matInput autocomplete="off" [autoFocus]="autoFocus"  [(ngModel)]="searchKeyword" name="searchKeyWord" debounce="500" (onDebounce)="onSearchChanged()">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="content-actions" fxLayout="column" [class.mat-elevation-z4]='true' [class.has-virtual-load]="filterItem.ViewType === 'VirtualLoad' || filterItem.ViewType === 'TreeVirtualLoad' " >
+    <!-- predefine -->
+    <div class="predefine-filters-container" *ngIf="predefineFilters.length>0">
+        <mat-nav-list>
+            <mat-list-item *ngFor="let item of predefineFilters" (click)="onPredefineFilterClicked(item)">
+                {{item.TranslateKey|translator}}
+            </mat-list-item>
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div class="check-all-container" *ngIf="!isSingleSelectionMode">
+        <mat-checkbox color="primary" (change)="onSelectAllChange($event)" [(ngModel)]="isCheckAll" name="checkAll">
+            {{lbSelectAll}}
+        </mat-checkbox>
+    </div>
+    <mat-dialog-content [style.height.px]="height" >
+        <div *ngIf="loaded" style="height: 100%">
+            <ntk-toolbar-list #listComponent [items]="items" *ngIf="filterItem.ViewType === 'NormalList'" [selected]="selected" [deselected]="deselected"  [isExclude]="isExclude" (itemChanged)="onItemChanged()" [filterItem]="filterItem" [template]="template"></ntk-toolbar-list>
+            <ntk-toolbar-virtual-scroll #virtualScrollComponent  *ngIf="filterItem.ViewType === 'VirtualLoad'" [selected]="selected" [deselected]="deselected" [isExclude]="isExclude" (itemChanged)="onItemChanged()" [filterItem]="filterItem" itemSize="48" [loadDataCallback]="loadData" [template]="template"></ntk-toolbar-virtual-scroll>
+            <ntk-toolbar-tree #treeComponent [items]="items"  *ngIf="filterItem.ViewType === 'NormalTree' || filterItem.ViewType === 'TreeGroup'" [selected]="selected" [deselected]="deselected" [isExclude]="isExclude"  (itemChanged)="onItemChanged()" [filterItem]="filterItem" [viewType]="filterItem.ViewType"></ntk-toolbar-tree>
+            <ntk-toolbar-tree-virtual-scroll #treeVirtualScrollComponent  *ngIf="filterItem.ViewType === 'TreeVirtualLoad'" [selected]="selected" [deselected]="deselected" [isExclude]="isExclude" (itemChanged)="onItemChanged()"  itemSize="48" [loadDataCallback]="loadData" (itemCounted)="onItemCounted($event)" [template]="template"></ntk-toolbar-tree-virtual-scroll>
+        </div>
+        <div class="filters-dialog-multi-choose-loading" [hidden]="!showLoading">
+            <mat-spinner [diameter]="40" ></mat-spinner>
+        </div>
+        <div class="text-list-empty md-subhead" *ngIf="isEmptyList">{{lbItemsMatchTheFilters}}</div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end" *ngIf="!isSingleSelectionMode && !isSmallScreen">
+        <button mat-button (click)="onCancel()" >{{'btCancel'|translator}}</button>
+        <button mat-button (click)="onOk()" color="primary">{{'btOk'|translator}}</button>
+    </mat-dialog-actions>
+</div>

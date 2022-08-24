@@ -1,0 +1,76 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'
+        class='dialog-toolbar' cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="body" cdkDragHandle>        
+        <button fxFlex="none" mat-icon-button (click)="close()" *ngIf="!isShowSearch">
+                <mat-icon>close</mat-icon>
+        </button>
+        <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400" 
+             *ngIf="!isShowSearch">
+            {{titleKey | translator}}
+        </div>
+
+        <button fxFlex="none" mat-icon-button (click)="enableSearch()" *ngIf="!isShowSearch">
+            <mat-icon>search</mat-icon>
+        </button>
+
+        <button mat-icon-button style="margin-left:-8px; color:inherit;"
+                (click)="disableSearch()"
+                *ngIf="isShowSearch">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <input fxFlex #inputQuery
+               style="color:inherit;"
+               type="text"
+               autocomplete='off'
+               *ngIf="isShowSearch"
+               [(ngModel)]="query" 
+               class="hs-input-filter-search custom-placeholder"
+               placeholder="{{'lbSearch' | translator}}" />
+
+        <button mat-icon-button
+                *ngIf="isShowSearch && query"
+                (click)="clearQuery()">
+            <mat-icon>clear</mat-icon>
+        </button>
+
+    </mat-toolbar>
+    <!-- <mat-divider></mat-divider> -->
+    <div fxFlex fxLayout="column" mat-dialog-content style="margin: 0 !important; padding: 0 !important;height: 100%;">      
+        <div cdkDropList (cdkDropListDropped)="onColumnDrop($event)">
+            <div *ngFor="let item of checkedItems | hsFilterText:[query, 'displayValue']; index as i"
+                cdkDrag
+                [ngClass]="{'moveable-item': item.showing && !isShowSearch && allowReorderingColumns}"
+                [cdkDragDisabled]="!item.showing || isShowSearch || !allowReorderingColumns"
+                class="column-item"
+                style="display:flex;height: 50px;" fxLayout='row' fxLayoutAlign='start center'>
+                <!--dummy check for mandatory columns which is cannot uncheked-->
+                <div *ngIf='item.mandatory' fxLayout='row' fxLayoutAlign='start center'>
+                    <mat-icon style="margin-left:-3px;margin-right:2px;">checked</mat-icon>
+                    <span>{{i + 1}} -  {{item.displayValue}}</span>
+                </div>   
+                <mat-checkbox  *ngIf='!item.mandatory' [(ngModel)]="item.showing" color='primary' (change)="onshowingChanged(item)" 
+                    style="cursor: pointer" >{{i + 1}} - {{item.displayValue}}</mat-checkbox>
+                <div class="drag-placeholder"  *cdkDragPlaceholder fxLayout="column" fxLayoutAlign='center start'>               
+                    <span>{{item.displayValue}}</span>
+                </div>
+            </div>
+            <mat-divider *ngIf='unCheckedItems.length > 0'></mat-divider>
+            <div *ngFor="let item of unCheckedItems | hsFilterText:[query, 'displayValue']; index as i"
+                class="column-item"
+                style="display: flex;height: 50px;" fxLayout='row' fxLayoutAlign='start center'>
+                <mat-checkbox  [(ngModel)]="item.showing" color='primary' (change)="onshowingChanged(item)" [disabled]="item.mandatory"
+                    style="cursor: pointer" >{{item.displayValue}}</mat-checkbox>                
+            </div>
+        </div>       
+    </div>
+
+    <div fxFlex="none" fxLayout="row" mat-dialog-actions style="margin: 16px 16px 16px 16px !important; padding: 0 !important">
+        <div fxFill fxLayoutAlign="end center" fxLayoutGap='4px'>            
+            <!-- <div fxFlex></div> -->
+            <!-- <button mat-flat-button (click)="close()">{{'btCancel' | translator | uppercase}}</button> -->
+            <button mat-button (click)="restoreDefaults()">{{'btRestoreDefaults' | translator | uppercase}}</button>
+            <button mat-button color="primary"  (click)="ok()">{{'btOk' | translator | uppercase}}</button>
+        </div>
+    </div>
+</div>

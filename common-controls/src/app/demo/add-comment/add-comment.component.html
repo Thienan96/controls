@@ -1,0 +1,44 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <div [style.height.px]="400" fxLayout="column" class="add-comment-demo-">
+        <div fxFlex></div>
+        <ntk-add-comment fxFlex="none"
+                [shouldShowPrivate]='true'
+                [getData]='getContact()'
+                [mentionTemplate]='mentionListTemplate'
+                (onSaveComment)="onSaveComment($event)"></ntk-add-comment>
+        <ng-template #mentionListTemplate let-item="item">
+            <div *ngIf="!item.Id" class="dropdown-group-title">{{'lb' + item.Name | translator}}</div>
+            <div *ngIf="item.Id" class="dropdown-child-item" [style.marginLeft.px]="item.Level * 24">{{item.Name}}</div>
+        </ng-template>
+    </div>
+
+    <h3>Mobile comment</h3>
+    <div fxFlex="none">
+        <ntk-add-comment-mobile
+                [isOffline]='true'
+                [getData]='getContact()'
+                [canDraw]="true"
+                [shouldShowPrivate]='true'
+                (onSaveComment)="onSaveComment($event)"
+                #addComment>
+        </ntk-add-comment-mobile>
+    </div>
+
+    <h3>Mobile attachments box</h3>
+    <ntk-attachment-box-mobile [isOffline]='true'
+                               [autoCreateAttachment]="false"
+                               [attachments]="issueAttachments"
+                               [canRemove]="true"
+                               [canDraw]='true'
+                               [imageWidth]="200"
+                               [imageHeight]="150">
+    </ntk-attachment-box-mobile>
+
+    <h3>Mobile attachments box (vertical)</h3>
+    <ntk-attachment-box-mobile [attachments]="issueAttachments"
+                               [imageWidth]="200"
+                               [imageHeight]="150"
+                               viewMode="vertical"
+                               [canSelect]="true">
+    </ntk-attachment-box-mobile>
+</div>

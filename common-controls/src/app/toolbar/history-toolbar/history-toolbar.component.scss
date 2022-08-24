@@ -1,0 +1,11 @@
+@mixin ntk-history-toolbar($theme, $options) {
+  $primary: map-get($theme, primary);
+  ntk-history-toolbar {
+    border-bottom: 0;
+    .filter-bar-border {
+      margin: 16px 16px 0 16px;
+      border: solid 1px mat-color($primary, 500);
+      border-bottom: 1px solid lightgrey;
+    }
+  }
+}

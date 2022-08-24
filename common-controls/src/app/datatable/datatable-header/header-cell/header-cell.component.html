@@ -1,0 +1,15 @@
+<div [style.width.px]="width" [style.min-width.px]="width" style="height: 100%;padding: 0;" class="datatable-cell">
+  <div [style.width.px]="columnDef.width" style="height: inherit;position:relative;">
+    <div fxFlex class="header-cell-container" fxLayoutAlign="center center" style="height: 100%;" >
+      <div [ngStyle]="{'cursor': columnDef.sortable ? 'pointer': 'auto'}" fxLayout="row" fxLayoutAlign="center center" fxFlex (click)='onSortClick()'>
+        <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{column:columnDef, directionSort:directionSort}"></ng-template>
+      </div>
+    </div>
+    <div *ngIf= 'columnDef.resizeable' class="resize-handler" cdkDrag cdkDragLockAxis="x" (cdkDragMoved)='onResizing($event)'
+              #dragHandler=cdkDrag
+              (cdkDragReleased)="onResizeFinish()"
+              [cdkDragFreeDragPosition]="defaultDragPoint"
+              [cdkDragConstrainPosition]="onConstrainPosition.bind(this)">
+    </div>
+  </div>
+</div>

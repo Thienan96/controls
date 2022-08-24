@@ -1,0 +1,15 @@
+mat-dialog-content {
+  max-height: initial !important;
+  margin: 0 !important;
+  padding: 16px 32px !important;
+  .mat-list-base {
+    padding-top: 0px;
+  }
+}
+
+
+::ng-deep ntk-languages-dialog {
+  .mat-radio-label-content {
+    overflow: hidden;
+  }
+}

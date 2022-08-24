@@ -1,0 +1,410 @@
+<mat-tab-group style="height: 100%" fxLayout="column" [selectedIndex]="0">
+    <mat-tab label="XXS">
+        <div style="margin: 10px;">
+            <ntk-demo-xxs></ntk-demo-xxs>
+        </div>
+    </mat-tab>
+    <mat-tab label="Truncation">
+       <div style="margin: 10px;">
+          <ntk-demo-truncation></ntk-demo-truncation>
+       </div>
+    </mat-tab>
+    <mat-tab label="Tooltip">
+        <div style="margin: 10px;">
+            <ntk-demo-tooltip></ntk-demo-tooltip>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Dropdown">
+        <div style="margin: 10px;">
+            <ntk-demo-dropdown></ntk-demo-dropdown>
+        </div>
+    </mat-tab>
+    <mat-tab label="Second">
+    <!--The content below is only a placeholder and can be replaced.-->
+            <div fxFill fxLayout="column" fxLayout-align="start stretch" style="height:100%">
+                <div fxLayout="row">
+                    <button mat-button (click)="switchTestControlsTo('standard')">Standard controls</button>
+                    <button mat-button (click)="switchTestControlsTo('pipes')">Pipes</button>
+                    <button mat-button (click)="switchTestControlsTo('equipment-type-grid')">Equipment type grid</button>
+                    <button mat-button (click)="testMessageYN()">Test message Y/N</button>
+                    <button mat-button (click)="testMessageOK()">Test message OK</button>
+                    <button mat-button (click)="testMessageCustom()">Test message custom</button>
+                    <button mat-button (click)="onTestClick()">Show toast error</button>
+                    <button mat-button (click)="onWaitClick()" [style.width.px]='100'>Get data wait</button>
+                    <button mat-button (click)="onGUIIDClick()" [style.width.px]='100'>Get GUIID</button>
+                    <button mat-button (click)="onUtilClick()" [style.width.px]='100'>Test Util</button>
+                </div>
+
+                <!-- <ntk-upload-logo fxLayoutAlign="center center" #Uploadlogo style="width: 100%" fxLayout="column"
+                    [attachmentData]="">
+                </ntk-upload-logo> -->
+                <!-- <speed-dial-fab class="speed-dial-container mat-fab-bottom" (fabClick)="onSpeedDialFabClicked($event)"
+                    [buttons]="speedDialFabButtons"
+                    (defaultClick)="ondefaultClick()"></speed-dial-fab> -->
+                <div fxFlex fxLayout="column" fxLayout-align="start stretch" *ngIf="showStandardControls" style="overflow: auto;">
+                    UTC full: {{fixedDate | date: 'dd/MM/yyyy H:mm:ss z': 'UTC' }}
+                    <br/>
+                    GMT full: {{fixedDate | date: 'dd/MM/yyyy H:mm:ss z' }}
+                    <br/>
+                    formatDate: {{fixedDate | formatDate: 'utc'}}
+                    <br/>
+                    formatDateTime: {{fixedDate | formatDateTime}}
+                    <div [style.width.px]='500'>
+                        <mat-form-field fxFlex>
+                            <input matInput [matDatepicker]="fixedDate1" [placeholder]="'Date with time'" [ntk-min-date]
+                                   [(ngModel)]="fixedDate">
+                            <mat-datepicker-toggle matSuffix [for]="fixedDate1"></mat-datepicker-toggle>
+                            <mat-datepicker #fixedDate1 touchUi="false"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div>Only date</div>
+                    UTC full: {{fixedDate2 | date: 'dd/MM/yyyy H:mm:ss z': 'UTC' }}
+                    <br/>
+                    GMT full: {{fixedDate2 | date: 'dd/MM/yyyy H:mm:ss z' }}
+                    <br/>
+                    formatDate: {{fixedDate2 | formatDate}}
+                    <br/>
+                    formatDateTime: {{fixedDate2 | formatDateTime}}
+                    <div [style.width.px]='500'>
+                        <mat-form-field fxFlex ntkOnlyDatePicker>
+                            <input matInput [matDatepicker]="fixedDate22" [placeholder]="'Only Date'" [ntk-min-date]
+                                   [(ngModel)]="fixedDate2">
+                            <mat-datepicker-toggle matSuffix [for]="fixedDate22"></mat-datepicker-toggle>
+                            <mat-datepicker #fixedDate22 touchUi="false"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div>detect  2020-12-18T17:48:08.56Z = {{'2020-12-18T17:48:08.56Z' | formatDate}}</div>
+                    <div>detect 2020-12-18T00:00:00Z = {{'2020-12-18T00:00:00Z' | formatDate}}</div>
+                    <div>detect invalid = {{'invalid' | formatDate}}</div>
+
+                    <div>{{status}}</div>
+                    <!-- <ntk-middle-truncation fxFlex="none" [style.width.px]='400'>A map of external dependencies and their
+                        correspondent UMD module identifiers. Map keys are TypeScript / EcmaScript module identifiers. Map values
+                        are UMD module ids. The purpose of this map is to correctly bundle an UMD module file (with `rollup`). By
+                        default, `rxjs`, `tslib` and `@angular/*` dependency symbols are supported.
+                    </ntk-middle-truncation>
+                     -->
+
+                    <ntk-data-field captionKey='lbField' value="Simple text xxx"
+                                    toolTip="i am a tooltip">
+                    </ntk-data-field>
+
+                    <ntk-data-field captionKey='lbField' value="Simple text with icon" [showIconButton]="true" iconName="domain"
+                                    (onFieldIconClick)="onFieldIconClick()" [showIconButton]="true" iconName="contacts">
+                    </ntk-data-field>
+
+                    <div style="max-width: 200px;background-color: pink;">
+                        <ntk-data-field captionKey='lbLongField' toolTip="i am a tooltip"
+                                        value="Truncation 1 line Truncation 1 line Truncation 1 line Truncation 1 line Truncation 1 line"
+                                        [maxLines]="1" [showIconButton]="true" iconName="contacts" [valueSufix]="'(sufix)'"
+                                        [withTruncation]="true" (onFieldIconClick)="onFieldIconClick()">
+                        </ntk-data-field>
+                    </div>
+
+                    <div style="max-width: 200px;background-color: red;">
+                        <ntk-data-field captionKey='lbLongField'
+                                        value="Truncation 2 lines Truncation 2 lines Truncation 2 lines Truncation 2 lines Truncation 2 lines "
+                                        [maxLines]="2" [showIconButton]="true" iconName="contacts" [valueSufix]="'(sufix)'"
+                                        [withTruncation]="true" (onFieldIconClick)="onFieldIconClick()">
+                        </ntk-data-field>
+                    </div>
+
+                    <div fxFlex="none" style="max-width: 300px;background-color: yellow;width: 300px;">
+                        <ntk-data-field captionKey='lbLongField'
+                                        [value]="longText"
+                                        [maxLines]="1" [showIconButton]="true" iconName="contacts" [withTruncation]="false"
+                                        [valueSufix]="'(sufix)'" (onFieldIconClick)="onFieldIconClick()">
+                        </ntk-data-field>
+                    </div>
+
+
+                    <div [style.height.px]='50'>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="32px">
+                        <div fxFlex>
+                            <!-- <input type="text" [value]="testNumber"  [ntk-only-number]="true" [decimal]="true"
+                                    ntkNumericInput numberDecimals="5" minDecimals="2"
+                                    #numberField=ntkNumericInput/> -->
+
+                            <mat-form-field fxFlex>
+                                <input matInput [ntk-required]="isRequired" type="text" [placeholder]="'Test Number'"
+                                       [ntk-only-number]="true" [decimal]="true" ntkNumericInput numberDecimals="5" minDecimals="2"
+                                       [(ngModel)]="testNumber" #numberField=ntkNumericInput />
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex>Number:{{testNumber}}</div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="32px">
+
+                        <div fxFlex="20">
+                            <mat-form-field fxFlex>
+                                <input matInput type="text" [placeholder]="'Test Number with percentage'" [ntk-only-number]="true"
+                                       [decimal]="true" [allowPercentage]="true" [allowNegative]="true" ntkNumericPercentInput
+                                       [(ngModel)]="testNumberWithPercentage" />
+                            </mat-form-field>
+                        </div>
+                        <div fxFlex>Number with percent:{{testNumberWithPercentage}}</div>
+
+                        <div fxFlex="20">
+                            <!-- <mat-form-field fxFlex>
+                                <input matInput type="text" [placeholder]="'Test Number with drop disable'" [ntk-only-number]="true" [decimal]="true"
+                                    [allowNegative]="true" ntkNumericInput [(ngModel)]="testNumber" ntkDropDisable/>
+                            </mat-form-field> -->
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" [formGroup]="taskAssignmentForm">
+                        <!--Timeinpt-->
+                        <div fxLayout="row" fxLayoutGap="32px">
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-time-input [placeholder]="'Time input string'" [dataType]="'string'" [disabled] = "testDisabled"
+                                                    formControlName="PlannedStartTime" required>
+                                    </ntk-time-input>
+                                    <mat-error>
+                                <span
+                                        *ngIf="taskAssignmentForm?.get('PlannedStartTime').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex>Time input result:{{taskAssignmentForm?.get('PlannedStartTime').value}}</div>
+
+                        </div>
+
+                        <div fxLayout="row" fxLayoutGap="32px">
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-time-input [placeholder]="'Time input decimal'" formControlName="PlannedStartTimeNumber"
+                                                    required>
+                                    </ntk-time-input>
+                                    <mat-error>
+                                <span
+                                        *ngIf="taskAssignmentForm?.get('PlannedStartTimeNumber').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex>Time input result:{{taskAssignmentForm?.get('PlannedStartTimeNumber').value}}</div>
+
+                        </div>
+
+
+                        <!--Duration input-->
+                        <div fxLayout="row" fxLayoutGap="32px">
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-duration-input [placeholder]="'Duration input'" formControlName="Workload" [maxValue]="24" [minValue]="0">
+                                    </ntk-duration-input>
+                                </mat-form-field>
+                                <mat-error>
+                                    <span *ngIf="taskAssignmentForm?.get('Workload').errors?.required">{{'msgRequiredField' | translator}}</span>
+                                    <span *ngIf="taskAssignmentForm?.get('Workload').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    <span *ngIf="taskAssignmentForm?.get('Workload').errors?.max">{{'msgMaxValue' | translator}}</span>
+                                    <span *ngIf="taskAssignmentForm?.get('Workload').errors?.min">{{'msgMinValue' | translator}}</span>
+                                </mat-error>
+                            </div>
+
+                            <div fxFlex>Duration input result:{{taskAssignmentForm?.get('Workload').value}}</div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <span style="font-weight:bold;">Test ntk-number-input in form</span>
+                    <div fxLayout="column" [formGroup]="saleForm">
+                        <div fxLayout="row" fxLayoutGap="32px">
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'Unit price'"
+                                                      formControlName="UnitPrice" [numberDecimals]="5" [minDecimals]="2">
+                                    </ntk-number-input>
+                                    <mat-error>
+                                        <span *ngIf="saleForm?.get('UnitPrice').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-percent-input [placeholder]="'Discount'"
+                                                       formControlName="DiscountValue" [numberDecimals]="5" [minDecimals]="2">
+                                    </ntk-percent-input>
+                                    <mat-error>
+                                        <span *ngIf="saleForm?.get('DiscountValue').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'Unit sales price'"
+                                                      formControlName="UnitSalesPrice" [allowInputNegative]="true" [numberDecimals]="5" [minDecimals]="2">
+                                    </ntk-number-input>
+                                    <mat-error>
+                                        <span *ngIf="saleForm?.get('UnitSalesPrice').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'Quantity'"
+                                                      formControlName="Quantity" [numberDecimals]="5" [minDecimals]="2" [allowInputNegative]="true" [notAllowZero]="true">
+                                    </ntk-number-input>
+                                    <mat-error>
+                                        <span *ngIf="saleForm?.get('Quantity').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                        <span *ngIf="saleForm?.get('Quantity').errors?.zero">{{'msgQuantityZero' | translator}}</span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'SalesPrice'"
+                                                      formControlName="SalesPrice" [allowInputNegative]="true" [numberDecimals]="2" [minDecimals]="2" [minValue]="100" [maxValue]="1000">
+                                    </ntk-number-input>
+                                    <mat-error>
+                                        <span *ngIf="saleForm?.get('SalesPrice').errors?.invalid">{{'msgInvalidValue' | translator}}</span>
+                                        <span *ngIf="saleForm?.get('SalesPrice').errors?.min">{{'msgMinValue' | translator}}</span>
+                                        <span *ngIf="saleForm?.get('SalesPrice').errors?.max">{{'msgMaxValue' | translator}}</span>
+
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <span style="font-weight:bold;">Test ntk-number-input by NgModel</span>
+
+                    <div fxLayout="column">
+                        <div fxLayout="row" fxLayoutGap="32px">
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'Unit sales price'"
+                                                      [(ngModel)]="UnitSalesPrice" [allowInputNegative]="true" [minValue]="1" [numberDecimals]="5" [minDecimals]="2"
+                                                      (valueChanged)="onUnitSalesPriceValueChanged($event)">
+                                    </ntk-number-input>
+
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'Quantity'"
+                                                      [(ngModel)]="Quantity" [numberDecimals]="5" [minDecimals]="2" [allowInputNegative]="true" [notAllowZero]="true"
+                                                      (valueChanged)="onQuantityValueChanged($event)">
+                                    </ntk-number-input>
+
+                                </mat-form-field>
+                            </div>
+
+                            <div fxFlex="20">
+                                <mat-form-field fxFlex>
+                                    <ntk-number-input [placeholder]="'SalesPrice'"
+                                                      [(ngModel)]="SalesPrice" [allowInputNegative]="true" [numberDecimals]="2" [minDecimals]="2" [minValue]="100" [maxValue]="1000"
+                                                      (valueChanged)="onSalesPriceValueChanged($event)">
+                                    </ntk-number-input>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <button mat-button (click)="isRequired = !isRequired">Change required</button>
+
+
+                    <div [style.width.px]='500' style="margin-top: 20px;">
+
+                    </div>
+
+                    <div [style.height.px]='50'></div>
+
+                    {{dateField.value | formatDateTime}}
+                    <!-- <div [style.width.px]='500'>
+                        <mat-form-field fxFlex>
+                            <input matInput [matDatepicker]="plannedDate" [placeholder]="'PlannedDate'" [ntk-min-date]
+                                [formControl]="dateField">
+                            <mat-datepicker-toggle matSuffix [for]="plannedDate"></mat-datepicker-toggle>
+                            <mat-datepicker #plannedDate touchUi="false"></mat-datepicker>
+                            <mat-error *ngIf="dateField.invalid">{{getErrorMessage()}}</mat-error>
+                        </mat-form-field>
+                    </div> -->
+
+                    {{dateField.errors}}
+
+                    <div>
+                        <mat-form-field fxFlex [style.width.px]='500'>
+                            <input matInput name="login" type="email" ntk-translator="lbLogin" [(ngModel)]="selectedRoom" required
+                                   autocomplete="on">
+                        </mat-form-field>
+                    </div>
+                    {{datetimePickerValue.value}}
+                    <div fxLayout='row' fxLayoutGap='32px' [style.width.px]='500'>
+                        <mat-form-field fxFlex >
+                            <input matInput [ngxMatDatetimePicker]="resolvingPicker"  [formControl]="datetimePickerValue" [max]="maxDate"
+                                   [placeholder]="'lbResolvingDate' | translator">
+                            <mat-datepicker-toggle matSuffix [for]="resolvingPicker"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #resolvingPicker stepMinute="15" >
+                            </ngx-mat-datetime-picker>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- <div fxFlex="none" fxLayout="column" style="padding-bottom: 32px;">
+                    <ntk-attachment-box >
+                    </ntk-attachment-box>
+                    </div> -->
+
+                    <!-- year calendar -->
+                    <!-- <div>Year calendar</div>
+                    <ntk-year-calendar [year]="yearCalendar" [selectedInsertionsDates]="selectedInsertionsDates"
+                        [existingInsertionsPerDate]="existingInsertionsPerDate" [selectedDates]="selectedDates">
+                    </ntk-year-calendar>
+                    <button (click)="okClick()">OK</button> -->
+
+                </div>
+
+                <div *ngIf="showEquipmentTypeGrid" fxLayout="column" fxLayout-align="start stretch" fxFlex>
+                </div>
+
+                <div *ngIf="showPipes" fxLayout="column" fxLayout-align="start stretch" fxFlex>
+                    <span style="font-weight: bold;" >All items</span>
+                    <span *ngFor="let x of allItems">{{x}}</span>
+
+                    <span style="font-weight: bold;" >Exingting items</span>
+                    <span *ngFor="let x of existingItems">{{x}}</span>
+
+                    <span style="font-weight: bold;" >Available items</span>
+                    <span *ngFor="let x of allItems | arrayFilter: existingItems">{{x}}</span>
+                </div>
+                <div fx='100'>
+                    <ntk-add-comment
+                            [shouldShowPrivate]='false'
+                            [getData] = 'getContact()'
+                            [mentionTemplate] = 'mentionListTemplate'
+                    ></ntk-add-comment>
+                    <ng-template #mentionListTemplate let-item="item">
+                        <div *ngIf="!item.Id" class="dropdown-group-title">{{'lb' + item.Name | translator}}</div>
+                        <div *ngIf="item.Id" class="dropdown-child-item"  [style.marginLeft.px]="item.Level * 24">{{item.Name}}</div>
+                    </ng-template>
+                </div>
+            </div>
+
+        </mat-tab>
+</mat-tab-group>

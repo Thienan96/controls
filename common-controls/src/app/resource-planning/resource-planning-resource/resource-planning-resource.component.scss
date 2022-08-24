@@ -1,0 +1,113 @@
+@mixin resource-planning-resource-component($theme, $options) {
+  $borderColor: map_get($options, borderColor);
+  $borderBoldColor: map_get($options, borderBoldColor);
+
+  ntk-resource-planning {
+    // Small Resource
+    &.is-small-icon {
+      ntk-resource-planning-resource {
+        .user-information {
+          .user-thumbnail, .user-icon {
+            height: 25px;
+            width: 25px;
+            margin: 4px;
+          }
+
+          .user-icon {
+            font-size: 25px;
+          }
+
+          .name {
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    // ViewMode: Month
+    &.view-mode-month {
+      .summary-content { // Content of summary
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+
+      .draggable-placeholder {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        z-index: 2;
+        display: none;
+
+        &:after {
+          content: '';
+          position: absolute;
+          border: solid 1px red;
+          left: 2px;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+
+    }
+  }
+
+
+  ntk-resource-planning-resource {
+    display: block;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    .user-information { // big-icon
+      position: relative;
+
+      .avatar {
+        .user-thumbnail {
+          height: 85px;
+          width: 85px;
+          border: 1px solid $borderColor;
+          border-radius: 50%;
+          position: relative;
+          overflow: hidden;
+          margin: 0 auto 4px auto;
+          box-sizing: border-box;
+
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+
+        .user-icon {
+          font-size: 64px;
+          width: 64px;
+          height: 64px;
+          display: block;
+        }
+      }
+
+      .name {
+        line-height: 16px;
+        text-align: center;
+      }
+
+    }
+
+    .display-events {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+
+    .ntk-ts-day-planning {
+      position: absolute;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}
+

@@ -1,0 +1,30 @@
+:host {
+  height: 100%;
+}
+.resize-hanlder {
+  width: 5px;
+  height: inherit;    
+  cursor: col-resize;
+  border: 1px solid white;
+  background-color: red($color: #000000);
+}
+
+.resize-hanlder:hover {
+  border: 1px solid lightgray;
+  border-top: white;
+  border-bottom: white;
+}
+
+.resize-hanlder:active {
+  border: 1px solid gray;
+  border-top: white;
+  border-bottom: white;
+  background-color: lightgray;
+}
+
+.ntk-folder-name{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}

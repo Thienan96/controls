@@ -1,0 +1,19 @@
+<div fxLayout="column" fxFill>
+    <mat-toolbar *ngIf="isSmallScreen" fxFlex="none" fxLayout="row" color="primary" style="padding: 0 8px;">
+        <button fxFlex="none" mat-icon-button *ngIf="!isShowSearch" (click)="close()" >
+            <mat-icon>close</mat-icon>
+        </button>
+        <div fxFlex *ngIf="!isShowSearch">{{title}}</div>
+        <ntk-search-icon [(value)]="searchKeyword"
+                         [(isShowSearch)]="isShowSearch"
+                         (valueChange)="onSearchKeywordChange($event)"></ntk-search-icon>
+    </mat-toolbar>
+    <div fxFlex="none" style="padding: 12px;" *ngIf="virtualListComponent.itemCount===0 && dataLoaded && !loading">{{noDataText}}</div>
+    <ntk-virtual-list fxFlex
+                      (itemClick)="onSelected($event)"
+                      (onGetData)="onGetData($event)"
+                      [template]="template"
+                      [itemHeight]="itemHeight"
+                      (totalItem)="onTotalItemChange($event)"></ntk-virtual-list>
+
+</div>

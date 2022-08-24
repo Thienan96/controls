@@ -1,0 +1,19 @@
+<div fxLayout="row" style="width:100%; height: 100%;">
+    <div class="aside aside-left" fxFlex="none">
+        <div *ngFor="let column of columnsByPin.left" [style.width.px]="column.width" [style.minWidth.px]="column.width" fxFlex="none" fxLayoutAlign="start center" class="datatable-cell" [class.is-last-column]="column.isLastColumn">
+            <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{column:column}"></ng-template>
+        </div>
+    </div>
+    <div class="aside aside-center" fxFlex style="overflow: hidden;">
+        <div fxLayout="row" style="float:left;height:100%;" class="scroller-horizontal-content" [ngStyle]="{'transform': 'translate(-' + scrollLeft + 'px, 0px)'}">
+            <div *ngFor="let column of columnsByPin.center" [style.width.px]="column.width" [style.minWidth.px]="column.width" fxLayoutAlign="start center" class="datatable-cell" [class.is-last-column]="column.isLastColumn">
+                <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{column:column}"></ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="aside aside-right" fxFlex="none" fxLayout="row">
+        <div *ngFor="let column of columnsByPin.right" [style.width.px]="column.width" [style.minWidth.px]="column.width" fxFlex="none" fxLayoutAlign="start center" class="datatable-cell" [class.is-last-column]="column.isLastColumn">
+            <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{column:column}"></ng-template>
+        </div>
+    </div>
+</div>

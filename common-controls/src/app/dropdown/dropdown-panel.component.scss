@@ -1,0 +1,56 @@
+@mixin ntk-mat-dropdown-panel($theme) {
+  $primary: map-get($theme, primary);
+  .panel-container {
+    
+    // border: solid 1px lightgray;
+
+    // using for mobile
+    // this mkawe white border on phone very urly
+    // @media (max-width: 450px) {
+    //   border: 0px !important
+    // }
+    
+    background: white;
+
+    .dropdown-item, .dropdown-action {
+      background-color: white;
+      padding: 0 16px;
+      min-height: 48px;
+      height: 48px;      
+    }    
+
+    .dropdown-item-selected {
+      background-color: lightgray;
+    }
+
+    .dropdown-item:hover {
+      background-color: lightgray;
+    }
+
+    .action-text {
+        font-size: 15px;
+        color: mat-color($primary);
+    }
+
+    .header-scroll {
+      padding-right: 33px;
+    }
+  }
+
+  .ntk-dropdown-overlay-connected-position-bounding-box {
+    &.is-fullscreen,
+    &.is-fullscreen .cdk-overlay-pane {
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+      min-width: 100% !important;
+      min-height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      transform: translate(0px, 0px) !important;
+    }
+  }
+}

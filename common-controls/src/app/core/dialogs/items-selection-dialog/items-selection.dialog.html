@@ -1,0 +1,63 @@
+﻿<div fxFill fxLayout="column">
+    <div fxFlex="none" fxLayout="row" mat-dialog-title fxLayoutAlign="start center"
+         style="margin: 0 !important; padding: 12px 8px 12px 16px !important">
+        
+        <div fxFlex style="margin-left: 0; font-size: 20px; font-weight: 400" 
+             *ngIf="!isShowSearch">
+            {{titleKey | translator}}
+        </div>
+
+        <button fxFlex="none" mat-icon-button (click)="enableSearch()" *ngIf="!isShowSearch">
+            <mat-icon>search</mat-icon>
+        </button>
+
+        <button mat-icon-button style="margin-left:-8px; color:inherit;"
+                (click)="disableSearch()"
+                *ngIf="isShowSearch">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <input fxFlex #inputQuery
+               type="text" 
+               *ngIf="isShowSearch"
+               [(ngModel)]="query" 
+               class="hs-input-filter-search"
+               placeholder="{{'lbSearch' | translator}}" />
+
+        <button mat-icon-button
+                *ngIf="isShowSearch && query"
+                (click)="clearQuery()">
+            <mat-icon>clear</mat-icon>
+        </button>
+
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div fxFlex="none" fxLayout="row" mat-dialog-actions
+         style="margin: 0 !important; padding: 0 !important">
+        <button fxFlex mat-button class="hs-toolbar-filter-button" (click)="updateStateItems(true)">{{'btSelectAll' | translator}}</button>
+        <mat-divider [vertical]="true"></mat-divider>
+        <button fxFlex mat-button class="hs-toolbar-filter-button" (click)="updateStateItems(false)">{{'btClearFilter' | translator}}</button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div fxFlex="100" fxLayout="column" mat-dialog-content
+         style="margin: 0 !important; padding: 0 !important">
+        <mat-list>
+            <mat-list-item *ngFor="let item of items | hsFilterText:[query, 'DisplayValue']" class="hs-items-selection" style="cursor: pointer" (click)="itemClicked(item)">
+                <mat-icon matListIcon style="position: relative; top: -3px" [style.visibility]="item.IsSelected ? 'visible' : 'hidden'">checked</mat-icon>
+                <span matLine>{{item.TranslationKey ? (item.TranslationKey | translator) : item.DisplayValue}}</span>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <div fxFlex="none" fxLayout="row" mat-dialog-actions 
+         style="margin: 8px 8px 8px 0 !important; padding: 0 !important">
+        <div fxFill fxLayoutAlign="end center">
+            <button mat-button class="hs-toolbar-filter-button" (click)="close()">{{'btCancel' | translator | uppercase}}</button>
+            <button mat-button class="hs-toolbar-filter-button" (click)="ok()">{{'btOk' | translator | uppercase}}</button>
+        </div>
+    </div>
+</div>

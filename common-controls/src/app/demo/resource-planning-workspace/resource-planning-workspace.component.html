@@ -1,0 +1,84 @@
+<div fxLayout="column" style="height:100%">
+  <div fxFlex="none" style="background:lightgrey">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <mat-form-field>
+        <mat-label>View Mode</mat-label>
+        <mat-select [value]="currentView" (selectionChange)="onViewModeChange($event)">
+          <mat-option value="ONEWEEK">1 week</mat-option>
+          <mat-option value="TWOWEEKS">2 week</mat-option>
+          <mat-option value="SUMMARY">Month summary</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-button-toggle-group>
+        <mat-button-toggle (click)="onDateGo('navigate_before')">
+          <mat-icon>navigate_before</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle (click)="onDateGo('navigate_current')">
+          <mat-icon>lens</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle (click)="onDateGo('navigate_next')">
+          <mat-icon>navigate_next</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <mat-slide-toggle [checked]="showWeekend" (change)="onWeekendsButtonChange($event)">Show week-ends</mat-slide-toggle>
+      <mat-slide-toggle [checked]="showGroup" (change)="onGroupButtonChange($event)">Show group</mat-slide-toggle>
+      <mat-slide-toggle [checked]="isCustomizeView" (change)="onCustomizeViewChange($event)">Show customize view</mat-slide-toggle>
+    </div>
+  </div>
+  <div fxFlex fxLayout="row" style="overflow: hidden">
+    <div fxFlex="20">
+      <ntk-resource-planning-droppable
+        class="left-droppable"
+        (drop)="onDrop($event)"
+        [options]="droppableOptions">
+        <ntk-resource-planning-draggable
+          class="ntk-res-event event-on-right"
+          *ngFor="let event of events"
+          (dragStart)="onDragStart($event)"
+          (dragStop)="onDragStop()"
+          [options]="draggableOptions"
+          [data]="[event]"
+          [style.backgroundColor]="event.Color">
+          {{event.Title}} ({{event.Duration}}h)
+        </ntk-resource-planning-draggable>
+      </ntk-resource-planning-droppable>
+    </div>
+    <div fxFlex="80">
+      <ntk-resource-planning
+        #resourcePlanning
+        [dates]="dates"
+        [options]="options"
+        [selected]="selected"
+        [viewMode]="viewMode"
+        [daysOfWeek]="daysOfWeek"
+        (getResources)="onDataLoad($event)"
+        (resourceClick)="onResourceClicked($event)"
+        (prevButtonClick)="onPrevButtonClicked($event)"
+        (nextButtonClick)="onNextButtonClicked($event)"
+        [getEventTooltip]="getEventTooltip"
+        [showGroup]="showGroup"
+        [isCustomizeView]="isCustomizeView"
+        (updateEvent)="onEventUpdated($event)"
+        (moveEvent)="onEventMoved($event)"
+        (buttonActionClick)="onButtonActionClick($event)"
+        (eventClick)="onEventClicked($event)"
+        (eventDblClick)="onEventDbClicked($event)"
+        (dayPlanningClick)="onDayPlanningClicked($event)"
+        (dayPlanningDblClick)="onDayPlanningDblClicked($event)"
+        (eventDragStart)="onEventDragStarted($event)"
+        (eventDragStop)="onEventDragStopped($event)">
+      </ntk-resource-planning>
+    </div>
+  </div>
+</div>
+
+
+<ntk-resource-planning-droppable
+  *ngIf="shownTrash"
+  class="trash-droppable"
+  style="position: absolute;right: 16px;bottom: 16px; z-index: 99"
+  [options]="droppableTrashOption"
+  (drop)="onTrashDrop($event)"
+>
+  <mat-icon class="trash-icon">delete</mat-icon>
+</ntk-resource-planning-droppable>

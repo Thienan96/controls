@@ -1,0 +1,9 @@
+::ng-deep {
+  ntk-week-timesheet-day-planning {
+    position: relative;
+    display: block;
+    .is-now {
+      border: 1px solid red !important;
+    }
+  }
+}

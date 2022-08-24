@@ -1,0 +1,955 @@
+[
+  {"DocumentCount": 1,
+    "HasChildren": true,
+    "Connectors": 1,
+    "Id": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "IsGeneratedDocumentFolder": false,
+    "IsPhotoFolder": false,
+    "Name": "Test",
+    "Room": null,
+    "VisibleBy": "Manager",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "Name": "Equipment Type",
+    "Room": {
+      "Id": "2505958e-0358-4a66-b2cf-994e76b3b1fe",
+      "Name": "SubRooooooom"
+    },
+    "IsManagedExternally": true,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "Id": "c605ffe2-8235-4a38-a149-18c66c49ddd2",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "Name": "test3",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "IsManagedExternally": true,
+    "HasChildren": true,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "Name": "test2",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "IsManagedExternally": true,
+    "HasChildren": true,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "44578734-407e-4d7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "44578734-407e-4d7a-a816-d7a850efd0d8",
+    "Name": "test4",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "44578734-407e-4d7a-16-d7aefd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "44578734-407e-4d7a-a816-d7a850efd0d8",
+    "Name": "test20",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "44578734-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "Name": "Documents",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "Id": "6314bb47-db16-4e73-9340-512dc7e45853",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "Name": "Icon 48x48",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": true,
+    "VisibleBy": "Admin",
+    "Id": "69c4cadd-8484-4212-93dd-eafef87f990d",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "69c4cadd-8484-4212-93dd-eafef87f990d",
+    "Name": "test200",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test300",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-d7a850efd0d8",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  },
+  {
+    "ParentFolderId": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e",
+    "Name": "test3001",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "4457898934-407e-7a-a816-00",
+    "AccessRights": {
+      "CanAddDocuments": true,
+      "CanAddSubFolder": true,
+      "CanArchive": true,
+      "CanEdit": true,
+      "CanEditDocuments": true
+    }
+  }
+]

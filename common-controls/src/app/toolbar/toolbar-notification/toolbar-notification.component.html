@@ -1,0 +1,6 @@
+<button #notifButton='cdkOverlayOrigin' mat-icon-button fxFlex="none"
+        (click)="onNotificationClick()"        
+        title="{{showNotificationTooltip ? ('lbNotifications'|translator) : ''}}"
+        cdkOverlayOrigin>
+    <mat-icon [matBadge]="notificationCount | protectBadge" class="toolbar-badge-icon">notifications</mat-icon>
+</button>

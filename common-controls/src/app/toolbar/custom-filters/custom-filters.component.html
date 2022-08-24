@@ -1,0 +1,41 @@
+<div fxLayout="row"  fxLayoutAlign="start center" style="height: 100%" >
+    <div fxFlex style="position: relative;overflow: hidden">
+        <ntk-scrollable #customFilterScroller >
+            <div class="ntk-scrollable-item" *ngIf="showFavorite">
+                <div fxLayout="row" fxLayoutAlign="start center" style="height: 100%;margin: 0 8px 0 16px;">
+                    <div [matMenuTriggerFor]="favoriteMenu" class="fix-flex-basis-ie" fxFlex  fxLayout="row" fxLayoutAlign="start center" (menuOpened)="onMenuFavoriteClicked()" style="cursor: pointer">
+                        <div class="name">{{'lbFavoriteFilters'|translator}}</div>
+                        <button fxFlex="none" mat-icon-button [disableRipple]="true">
+                            <mat-icon>arrow_drop_down</mat-icon>
+                        </button>
+                    </div>
+                    <mat-menu #favoriteMenu="matMenu" [overlapTrigger]='false' class="ntk-toolbar-menu  ntk-toolbar-favorite-menu">
+                        <ng-template matMenuContent>
+                            <button *ngFor="let favorite of favorites" mat-menu-item [disabled]="favorite.IsSelected" (click)="onFavoriteClicked(favorite)">{{favorite.DisplayValue}}</button>
+                        </ng-template>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="ntk-scrollable-item custom-filter-item" *ngFor="let item of customFilters">
+                <ntk-custom-filter-item
+                        [item]="item"
+                        [canManageGlobalFilters]="canManageGlobalFilters"
+                        (loaded)="onCustomFilterLoaded()"
+                        (removed)="onCustomFilterRemoved($event)"
+                        (destroy)="onCustomFilterDestroy()"
+                        (clicked)="onCustomFilterClicked($event)"
+                        (pinToggled)="onCustomFilterPinToggled(item)"
+                        [class.selected]="selected && item.Id===selected.Id"
+                        [showCustomFiltersCount]="showCustomFiltersCount"
+                ></ntk-custom-filter-item>
+            </div>
+        </ntk-scrollable>
+    </div>
+    <div fxFlex="none" >
+        <button [disabled]="isClearCustomFiltersDisabled" ntk-stop-monitoring mat-icon-button  (click)="onClearFiltersClicked()" class="button-normal" style="margin-right: 8px" matTooltip="{{'btClearFilter'|translator}}" matTooltipClass="truncated-tip">
+            <mat-icon svgIcon="ntk-filter-remove">filter-remove</mat-icon>
+        </button>
+    </div>
+</div>
+
+

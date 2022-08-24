@@ -1,0 +1,12 @@
+:host{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+button{
+  $expandIconSize:30px;
+  width: $expandIconSize;
+  height: $expandIconSize;
+  line-height: $expandIconSize;
+
+}

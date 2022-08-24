@@ -1,0 +1,1548 @@
+[
+  {
+    "Name": "late",
+    "Title": "Late (33)",
+    "Columns": [     
+      {
+        "Name": "Planned",
+        "CanDrop": false,
+        "CanSort": false,
+        "Items": [
+          {
+            "Id": "2d612f03-9528-447f-9a00-13596c65ccfe",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "73d72014-f0cc-43d9-ab13-b7d1dfbc573c",
+                "Code": "ABV_/§§§§§/0001",
+                "Name": "ABV_/§§§§§/0001",
+                "Color": "#FF0000"
+              },
+              "Task": {
+                "Id": "6d004968-7136-4f3b-b7c1-35d88d9e0629",
+                "Name": "BBB",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "ab08c2c0-6eaf-4ba4-b483-2af41ea4cb30",
+                "Name": "BAT ( Bon à tirer)"
+              },
+              "PlannedDate": "2017-10-29T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 6.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "ABV",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "2d612f03-9528-447f-9a00-13596c65ccfe"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 6,
+            "$$hashKey": "object:183"
+          },
+          {
+            "Id": "0a51fc9e-b99e-424b-baed-f14c34257891",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": null,
+              "Task": {
+                "Id": "912ef2a8-2fdc-452e-a73b-b0479597b400",
+                "Name": "Task 6 color",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "52726cc5-3995-4290-83f6-88a0cbefae2e",
+                "Name": "Demo"
+              },
+              "PlannedDate": "2017-10-28T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 7,
+              "Status": "Planned",
+              "DisplayOrder": 2,
+              "ClientCode": null,
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "0a51fc9e-b99e-424b-baed-f14c34257891"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 7,
+            "$$hashKey": "object:184"
+          },
+          {
+            "Id": "1512004a-b3c5-43d8-88d7-eb8d7927ae2d",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "73d72014-f0cc-43d9-ab13-b7d1dfbc573c",
+                "Code": "ABV_/§§§§§/0001",
+                "Name": "ABV_/§§§§§/0001",
+                "Color": "#FF0000"
+              },
+              "Task": {
+                "Id": "6d004968-7136-4f3b-b7c1-35d88d9e0629",
+                "Name": "BBB",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "ab08c2c0-6eaf-4ba4-b483-2af41ea4cb30",
+                "Name": "BAT ( Bon à tirer)"
+              },
+              "PlannedDate": "2017-10-28T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 6.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "ABV",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "1512004a-b3c5-43d8-88d7-eb8d7927ae2d"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 8,
+            "$$hashKey": "object:185"
+          },
+          {
+            "Id": "c3f7cab1-9557-469d-8868-652d5e10693b",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "c3862d25-ac85-41c6-8f55-8bb5f3b4f16d",
+                "Name": "Test merger 1",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "b4a2cf09-85d7-4525-927a-0b985b33673c",
+                "Name": "Conception & Brainstorming"
+              },
+              "PlannedDate": "2017-10-27T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 0.25,
+              "Status": "Planned",
+              "DisplayOrder": 1,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "c3f7cab1-9557-469d-8868-652d5e10693b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 9,
+            "$$hashKey": "object:186"
+          },
+          {
+            "Id": "3894ac0e-4f9c-4e76-ba53-32a93e230fa5",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "ff33f50d-8df1-4d97-bf6d-19e7cbe8be16",
+                "Name": "V14",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "3b5d5755-bae4-4e60-b4b8-51adda1687c3",
+                "Name": "Divers"
+              },
+              "PlannedDate": "2017-10-24T00:00:00.000Z",
+              "PlannedStartTime": "09:00",
+              "PlannedWorkload": 1,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "3894ac0e-4f9c-4e76-ba53-32a93e230fa5"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "10:00",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 10,
+            "$$hashKey": "object:187"
+          },
+          {
+            "Id": "17f1cbed-3ee5-443a-b1ae-cfd4b867b852",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": null,
+              "Task": {
+                "Id": "912ef2a8-2fdc-452e-a73b-b0479597b400",
+                "Name": "Task 6 color",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "52726cc5-3995-4290-83f6-88a0cbefae2e",
+                "Name": "Demo"
+              },
+              "PlannedDate": "2017-10-24T00:00:00.000Z",
+              "PlannedStartTime": "09:00",
+              "PlannedWorkload": 2,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": null,
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "17f1cbed-3ee5-443a-b1ae-cfd4b867b852"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "11:00",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 11,
+            "$$hashKey": "object:188"
+          },
+          {
+            "Id": "fb52ba40-2d59-4e65-b287-fcc64ca39b32",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "bdd14315-7f9a-446d-898a-e10a07a8f414",
+                "Code": "A_F14282_V1",
+                "Name": "Test feature 14282",
+                "Color": "#0000FF"
+              },
+              "Task": {
+                "Id": "1ed5546e-ea27-40e3-9083-53da394aa4b1",
+                "Name": "T2",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": null,
+              "PlannedDate": "2017-10-18T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4,
+              "Status": "Planned",
+              "DisplayOrder": 1,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "fb52ba40-2d59-4e65-b287-fcc64ca39b32"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 12,
+            "$$hashKey": "object:189"
+          },
+          {
+            "Id": "edf9df88-2e06-4ead-856b-57c61dc8576b",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "705c5281-3fdb-4f1a-b459-a5fa3271d45b",
+                "Code": "CHEE/XLSDE/0016",
+                "Name": "XLS Cure Declination - Spain",
+                "Color": "#DD472F"
+              },
+              "Task": {
+                "Id": "a107cadc-7a1d-49f7-bf5a-31cb7cf7758d",
+                "Name": "T7",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "ab08c2c0-6eaf-4ba4-b483-2af41ea4cb30",
+                "Name": "BAT ( Bon à tirer)"
+              },
+              "PlannedDate": "2017-10-15T00:00:00.000Z",
+              "PlannedStartTime": "09:45",
+              "PlannedWorkload": 2.25,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "CHEE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "edf9df88-2e06-4ead-856b-57c61dc8576b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "12:00",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 13,
+            "$$hashKey": "object:190"
+          },
+          {
+            "Id": "d32b7ce0-455d-45fe-927a-7b2b8237798d",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "705c5281-3fdb-4f1a-b459-a5fa3271d45b",
+                "Code": "CHEE/XLSDE/0016",
+                "Name": "XLS Cure Declination - Spain",
+                "Color": "#DD472F"
+              },
+              "Task": {
+                "Id": "a107cadc-7a1d-49f7-bf5a-31cb7cf7758d",
+                "Name": "T7",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "ab08c2c0-6eaf-4ba4-b483-2af41ea4cb30",
+                "Name": "BAT ( Bon à tirer)"
+              },
+              "PlannedDate": "2017-10-14T00:00:00.000Z",
+              "PlannedStartTime": "17:30",
+              "PlannedWorkload": 3,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "CHEE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "d32b7ce0-455d-45fe-927a-7b2b8237798d"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "20:30",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 14,
+            "$$hashKey": "object:191"
+          },
+          {
+            "Id": "3ea7c137-6392-474c-b46c-e251959a5dc8",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": null,
+              "Task": {
+                "Id": "37bde259-e0da-4047-bc7a-0f831d6bd3d5",
+                "Name": "No Resource",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "baf99726-6d89-4a41-86e7-3b57e0c0372c",
+                "Name": "ARTWORK"
+              },
+              "PlannedDate": "2017-10-12T00:00:00.000Z",
+              "PlannedStartTime": "12:45",
+              "PlannedWorkload": 3.25,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": null,
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "3ea7c137-6392-474c-b46c-e251959a5dc8"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "16:00",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 15,
+            "$$hashKey": "object:192"
+          },
+          {
+            "Id": "cb7be43c-cdb3-4676-bcd0-473c75081536",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "1f372f8e-5f62-4f6e-8573-529b566d6936",
+                "Code": "BEL_/MOCKP/0065",
+                "Name": "Maredsous Fagotin Mock Up & Print Out",
+                "Color": "#12EFC4"
+              },
+              "Task": {
+                "Id": "3a8a976b-e7be-4161-88b5-31c0a2ea2512",
+                "Name": "Task 255123",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "01bb82d4-bf5e-4685-b8bf-0869a3c89482",
+                "Name": "Account handling"
+              },
+              "PlannedDate": "2017-10-01T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 5,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "BEL",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "cb7be43c-cdb3-4676-bcd0-473c75081536"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 17,
+            "$$hashKey": "object:193"
+          },
+          {
+            "Id": "b6e621f2-967a-4f7e-a749-d879007a4527",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "3b8b2fb1-9ef5-423f-bc0a-210f89f65009",
+                "Code": "24C/HAGEN/0003",
+                "Name": "HAAGEN DAZS",
+                "Color": "#245E0D"
+              },
+              "Task": {
+                "Id": "ff80bcc2-5c92-487e-b8ae-bfeb25f9d824",
+                "Name": "EJ4-19 test 2",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": null,
+              "PlannedDate": "2017-05-30T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "b6e621f2-967a-4f7e-a749-d879007a4527"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 20,
+            "$$hashKey": "object:194"
+          },
+          {
+            "Id": "95028312-1563-4821-a60a-cb533b696901",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "3b8b2fb1-9ef5-423f-bc0a-210f89f65009",
+                "Code": "24C/HAGEN/0003",
+                "Name": "HAAGEN DAZS",
+                "Color": "#245E0D"
+              },
+              "Task": {
+                "Id": "13e685ec-161f-4cdb-895d-cab462e5c85f",
+                "Name": "tentative 3",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-05-24T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2.5,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "95028312-1563-4821-a60a-cb533b696901"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 21,
+            "$$hashKey": "object:195"
+          },
+          {
+            "Id": "676d4d8f-74d6-4399-90d7-44968d3d01c6",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "3b8b2fb1-9ef5-423f-bc0a-210f89f65009",
+                "Code": "24C/HAGEN/0003",
+                "Name": "HAAGEN DAZS",
+                "Color": "#245E0D"
+              },
+              "Task": {
+                "Id": "8edf8c59-83e2-4576-a77c-11d37e00ac46",
+                "Name": "New 1",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "b4a2cf09-85d7-4525-927a-0b985b33673c",
+                "Name": "Conception & Brainstorming"
+              },
+              "PlannedDate": "2017-05-23T00:00:00.000Z",
+              "PlannedStartTime": "09:30",
+              "PlannedWorkload": 1.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "676d4d8f-74d6-4399-90d7-44968d3d01c6"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "11:00",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 22,
+            "$$hashKey": "object:196"
+          },
+          {
+            "Id": "282d895b-7a18-41e7-8199-dd400e7b1f7d",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "4a47f66c-ca04-446d-8016-f65f5806c79a",
+                "Code": "24C/MESTD/0002",
+                "Name": "100 ANS MESTDAGH",
+                "Color": "#0C3E99"
+              },
+              "Task": {
+                "Id": "f0069795-ef2f-467b-b395-317d2553d335",
+                "Name": "CCCC",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-05-21T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 0.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "282d895b-7a18-41e7-8199-dd400e7b1f7d"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 23,
+            "$$hashKey": "object:197"
+          },
+          {
+            "Id": "232a8dd2-c4ed-4ff7-8927-eeb782568dd7",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "4e145a44-8f28-4364-ad9c-60527c96ad6d",
+                "Code": "INBE/ROSEH/0005",
+                "Name": "Hoegaarden Rosé France - Packaging Design",
+                "Color": "#51A2A2"
+              },
+              "Task": {
+                "Id": "79001c90-23de-4af0-9f70-595dc75c69f7",
+                "Name": "D3",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": null,
+              "PlannedDate": "2017-05-21T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4,
+              "Status": "Planned",
+              "DisplayOrder": 1,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "232a8dd2-c4ed-4ff7-8927-eeb782568dd7"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 24,
+            "$$hashKey": "object:198"
+          },
+          {
+            "Id": "c3cd45c2-f810-462c-9c6f-adb07a41a6ae",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "4e145a44-8f28-4364-ad9c-60527c96ad6d",
+                "Code": "INBE/ROSEH/0005",
+                "Name": "Hoegaarden Rosé France - Packaging Design",
+                "Color": "#51A2A2"
+              },
+              "Task": {
+                "Id": "dcda74fc-b87d-4082-8150-a6d2c9aeddfb",
+                "Name": "D2",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": null,
+              "PlannedDate": "2017-05-19T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 3,
+              "Status": "Planned",
+              "DisplayOrder": 1,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "c3cd45c2-f810-462c-9c6f-adb07a41a6ae"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 25,
+            "$$hashKey": "object:199"
+          },
+          {
+            "Id": "42534422-a15c-4b57-9144-b02d2dfeb0e5",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "51c19821-ee42-4835-bc2c-bcf55e8402e1",
+                "Code": "24C_/20SAT/0010",
+                "Name": "20 stan Unilever",
+                "Color": "#41DE7E"
+              },
+              "Task": {
+                "Id": "15a65206-d6df-41e5-90b0-435b97be1f23",
+                "Name": "sadsada",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "01bb82d4-bf5e-4685-b8bf-0869a3c89482",
+                "Name": "Account handling"
+              },
+              "PlannedDate": "2017-05-01T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "42534422-a15c-4b57-9144-b02d2dfeb0e5"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 27,
+            "$$hashKey": "object:200"
+          },
+          {
+            "Id": "e881fe3d-013c-49c3-b7a4-683d603c9d4c",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "120c69d3-fa9c-41f5-ac06-b31f92f174c9",
+                "Code": "SUMO_AZI",
+                "Name": "SUMO_AZI",
+                "Color": "#897B95"
+              },
+              "Task": {
+                "Id": "f2b6205e-9a60-4c17-a254-9a5830f19fd0",
+                "Name": "Test EJ4-96 1",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-04-26T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 3.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "e881fe3d-013c-49c3-b7a4-683d603c9d4c"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 28,
+            "$$hashKey": "object:201"
+          },
+          {
+            "Id": "ceba86dc-9869-40dc-9595-0a235eb9b035",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "78354254-c3c5-4654-be35-4700589464bd",
+                "Code": "INBE/LEFFE/0008",
+                "Name": "Leffe 9° - Packaging Design",
+                "Color": "#7BC987"
+              },
+              "Task": {
+                "Id": "a7e7852d-9c0b-477e-b86b-187bb7360dc1",
+                "Name": "Test assign resource filter",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-04-25T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 3.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "ceba86dc-9869-40dc-9595-0a235eb9b035"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 29,
+            "$$hashKey": "object:202"
+          },
+          {
+            "Id": "ed8444f9-bc9a-4845-8948-a53d622924ea",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "a8937b8a-4334-4ba1-a89a-6a1db9fc4229",
+                "Code": "INBE/BRAND/0002",
+                "Name": "Hoegaarden - New Brand Block 2012",
+                "Color": "#D74529"
+              },
+              "Task": {
+                "Id": "78a6c540-0072-40e9-93c1-a7ade3d7fab6",
+                "Name": "Task 5 color",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "3b5d5755-bae4-4e60-b4b8-51adda1687c3",
+                "Name": "Divers"
+              },
+              "PlannedDate": "2017-04-16T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2.75,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "ed8444f9-bc9a-4845-8948-a53d622924ea"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 30,
+            "$$hashKey": "object:203"
+          },
+          {
+            "Id": "4a4caec1-2a68-450e-8263-0ca1fb25a408",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "a8937b8a-4334-4ba1-a89a-6a1db9fc4229",
+                "Code": "INBE/BRAND/0002",
+                "Name": "Hoegaarden - New Brand Block 2012",
+                "Color": "#D74529"
+              },
+              "Task": {
+                "Id": "78a6c540-0072-40e9-93c1-a7ade3d7fab6",
+                "Name": "Task 5 color",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "3b5d5755-bae4-4e60-b4b8-51adda1687c3",
+                "Name": "Divers"
+              },
+              "PlannedDate": "2017-04-15T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2.75,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "4a4caec1-2a68-450e-8263-0ca1fb25a408"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 31,
+            "$$hashKey": "object:204"
+          },
+          {
+            "Id": "402c611b-4e94-4178-9eb5-9a18888ce503",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "78354254-c3c5-4654-be35-4700589464bd",
+                "Code": "INBE/LEFFE/0008",
+                "Name": "Leffe 9° - Packaging Design",
+                "Color": "#7BC987"
+              },
+              "Task": {
+                "Id": "3fea49d5-be1d-4157-b87e-183c1cc20b27",
+                "Name": "T5",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "52726cc5-3995-4290-83f6-88a0cbefae2e",
+                "Name": "Demo"
+              },
+              "PlannedDate": "2017-04-12T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 3,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "402c611b-4e94-4178-9eb5-9a18888ce503"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 32,
+            "$$hashKey": "object:205"
+          },
+          {
+            "Id": "a93b07eb-4e9e-4ecd-81a3-2c8c31a087ea",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "3b8b2fb1-9ef5-423f-bc0a-210f89f65009",
+                "Code": "24C/HAGEN/0003",
+                "Name": "HAAGEN DAZS",
+                "Color": "#245E0D"
+              },
+              "Task": {
+                "Id": "47c948ae-0ce5-4694-b3bd-985331d2d0cf",
+                "Name": "Here is long title name task and must be truntcate to lalal",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-04-11T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 5.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "a93b07eb-4e9e-4ecd-81a3-2c8c31a087ea"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 33,
+            "$$hashKey": "object:206"
+          },
+          {
+            "Id": "404825e4-ebe3-46a1-bf66-fea0350c244b",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": null,
+              "Task": {
+                "Id": "96d3c364-7fe6-4837-ad05-cfcfa8c0edde",
+                "Name": "Task for Hoang",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-04-03T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": null,
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "404825e4-ebe3-46a1-bf66-fea0350c244b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 34,
+            "$$hashKey": "object:207"
+          },
+          {
+            "Id": "1ba969fa-ba1f-4bed-8091-578b9c01f4c7",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "339a7747-ac1d-4143-a8d9-ceaa9962b361",
+                "Code": "JOHN/NASAS/0072",
+                "Name": "NasaSinutab Sprays - Range design",
+                "Color": "#81E4BD"
+              },
+              "Task": {
+                "Id": "954255bf-41ff-43c7-816b-3b4fc7b25b92",
+                "Name": "Task on 14/03",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-03-17T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4.25,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "JOHNS",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "1ba969fa-ba1f-4bed-8091-578b9c01f4c7"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 35,
+            "$$hashKey": "object:208"
+          },
+          {
+            "Id": "a16c2a7d-87c7-483a-8cbb-5470b59f5946",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "339a7747-ac1d-4143-a8d9-ceaa9962b361",
+                "Code": "JOHN/NASAS/0072",
+                "Name": "NasaSinutab Sprays - Range design",
+                "Color": "#81E4BD"
+              },
+              "Task": {
+                "Id": "954255bf-41ff-43c7-816b-3b4fc7b25b92",
+                "Name": "Task on 14/03",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-03-16T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 6.75,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "JOHNS",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "a16c2a7d-87c7-483a-8cbb-5470b59f5946"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 36,
+            "$$hashKey": "object:209"
+          },
+          {
+            "Id": "0d1aea7c-b64c-4836-830c-dc71c61f3f7f",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "339a7747-ac1d-4143-a8d9-ceaa9962b361",
+                "Code": "JOHN/NASAS/0072",
+                "Name": "NasaSinutab Sprays - Range design",
+                "Color": "#81E4BD"
+              },
+              "Task": {
+                "Id": "954255bf-41ff-43c7-816b-3b4fc7b25b92",
+                "Name": "Task on 14/03",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-03-15T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4.25,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "JOHNS",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "0d1aea7c-b64c-4836-830c-dc71c61f3f7f"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 37,
+            "$$hashKey": "object:210"
+          },
+          {
+            "Id": "bde0cc9b-1c29-415d-8631-dcab0988fd4b",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "339a7747-ac1d-4143-a8d9-ceaa9962b361",
+                "Code": "JOHN/NASAS/0072",
+                "Name": "NasaSinutab Sprays - Range design",
+                "Color": "#81E4BD"
+              },
+              "Task": {
+                "Id": "954255bf-41ff-43c7-816b-3b4fc7b25b92",
+                "Name": "Task on 14/03",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "11bad477-111e-4f7f-8028-e59e87634792",
+                "Name": "Analysis"
+              },
+              "PlannedDate": "2017-03-14T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4.25,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "JOHNS",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "bde0cc9b-1c29-415d-8631-dcab0988fd4b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 38,
+            "$$hashKey": "object:211"
+          }
+        ]
+      },
+      {
+        "Name": "InProgress",
+        "CanDrop": true,
+        "CanSort": true,
+        "Items": [
+          {
+            "Id": "b863aa68-2301-45ff-a469-7f9020ac5b8b",
+            "Column": "InProgress",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "3b8b2fb1-9ef5-423f-bc0a-210f89f65009",
+                "Code": "24C/HAGEN/0003",
+                "Name": "HAAGEN DAZS",
+                "Color": "#245E0D"
+              },
+              "Task": {
+                "Id": "ff80bcc2-5c92-487e-b8ae-bfeb25f9d824",
+                "Name": "EJ4-19 test 2",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": null,
+              "PlannedDate": "2017-05-31T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 3.25,
+              "Status": "InProgress",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "b863aa68-2301-45ff-a469-7f9020ac5b8b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 19,
+            "$$hashKey": "object:300"
+          },
+          {
+            "Id": "856f24be-8fc7-45b8-91bd-852ebbd22897",
+            "Column": "InProgress",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "5a560130-ace4-44e0-94ca-74ef3541fdd4",
+                "Code": "INBE/NEWBO/0001",
+                "Name": "Leffe - New Proprietary Bottle",
+                "Color": "#776978"
+              },
+              "Task": {
+                "Id": "3f4d5a1d-7896-4a72-8393-985c6ab40802",
+                "Name": "C3",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "8b0c342d-225d-4586-8d30-230fe389c949",
+                "Name": "CREATION"
+              },
+              "PlannedDate": "2017-05-18T00:00:00.000Z",
+              "PlannedStartTime": "08:00",
+              "PlannedWorkload": 1.75,
+              "Status": "InProgress",
+              "DisplayOrder": null,
+              "ClientCode": "INBE",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "856f24be-8fc7-45b8-91bd-852ebbd22897"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "09:45",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 26,
+            "$$hashKey": "object:301"
+          }
+        ]
+      },
+      {
+        "Name": "Completed",
+        "CanDrop": true,
+        "CanSort": true,
+        "Items": [
+          {
+            "Id": "a20b8a4f-7cad-4ca1-baac-b891b7dcbc08",
+            "Column": "Completed",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "1f372f8e-5f62-4f6e-8573-529b566d6936",
+                "Code": "BEL_/MOCKP/0065",
+                "Name": "Maredsous Fagotin Mock Up & Print Out",
+                "Color": "#12EFC4"
+              },
+              "Task": {
+                "Id": "3a8a976b-e7be-4161-88b5-31c0a2ea2512",
+                "Name": "Task 255123",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "01bb82d4-bf5e-4685-b8bf-0869a3c89482",
+                "Name": "Account handling"
+              },
+              "PlannedDate": "2017-10-05T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 5,
+              "Status": "InProgress",
+              "DisplayOrder": 0,
+              "ClientCode": "BEL",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "a20b8a4f-7cad-4ca1-baac-b891b7dcbc08"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 16,
+            "$$hashKey": "object:299"
+          }
+        ]
+      },
+      {
+        "Name": "Cancelled",
+        "CanDrop": true,
+        "CanSort": true,
+        "Items":[]
+      }
+    ]
+  },
+  {
+    "Name": "thisweek",
+    "Title": "This week (4)",
+    "Columns": [
+      {
+        "Name": "Planned",
+        "Items": [
+          {
+            "Id": "acf464b9-3a5b-4345-a609-4ee4c33250f5",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "08526008-1ec9-41f2-9256-9c4e8973ffc8",
+                "Code": "BEL_/BLOCF/0063",
+                "Name": "Maredsous Blocs et Fagotin - Packaging Design",
+                "Color": "#A79A3E"
+              },
+              "Task": {
+                "Id": "207c5d2e-3e83-4c68-b071-3f0250aede4c",
+                "Name": "Due next 3 days",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "01bb82d4-bf5e-4685-b8bf-0869a3c89482",
+                "Name": "Account handling"
+              },
+              "PlannedDate": "2017-11-01T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2,
+              "Status": "Planned",
+              "DisplayOrder": 1,
+              "ClientCode": "BEL",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "acf464b9-3a5b-4345-a609-4ee4c33250f5"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 2,
+            "$$hashKey": "object:323"
+          },
+          {
+            "Id": "f05f0392-c0f8-4400-a4bc-ede32c98af9a",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "51c19821-ee42-4835-bc2c-bcf55e8402e1",
+                "Code": "24C_/20SAT/0010",
+                "Name": "20 stan Unilever",
+                "Color": "#41DE7E"
+              },
+              "Task": {
+                "Id": "8669bff2-f444-42ed-828c-8735f99b7064",
+                "Name": "Test milestone",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "a83bc660-b26d-4b05-b501-943973ebcda0",
+                "Name": "COMPTABILITE"
+              },
+              "PlannedDate": "2017-10-31T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 2,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "f05f0392-c0f8-4400-a4bc-ede32c98af9a"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 3,
+            "$$hashKey": "object:324"
+          },
+          {
+            "Id": "9f38b486-9114-4828-bf7b-8c1182941352",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "ff33f50d-8df1-4d97-bf6d-19e7cbe8be16",
+                "Name": "V14",
+                "IsTentative": true,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "3b5d5755-bae4-4e60-b4b8-51adda1687c3",
+                "Name": "Divers"
+              },
+              "PlannedDate": "2017-10-30T00:00:00.000Z",
+              "PlannedStartTime": "09:00",
+              "PlannedWorkload": 3.5,
+              "Status": "Planned",
+              "DisplayOrder": null,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "9f38b486-9114-4828-bf7b-8c1182941352"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "12:30",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 5,
+            "$$hashKey": "object:325"
+          }
+        ],
+        "CanDrop": true,
+        "CanSort": true,
+        "$$hashKey": "object:311"
+      },
+      {
+        "Name": "InProgress",
+        "Items": [],
+        "CanDrop": true,
+        "CanSort": true,
+        "$$hashKey": "object:312"
+      },
+      {
+        "Name": "Completed",
+        "Items": [
+          {
+            "Id": "0d4db561-0cc0-4d74-84c1-fe99b2fa43f3",
+            "Column": "Completed",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "c3862d25-ac85-41c6-8f55-8bb5f3b4f16d",
+                "Name": "Test merger 1",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "b4a2cf09-85d7-4525-927a-0b985b33673c",
+                "Name": "Conception & Brainstorming"
+              },
+              "PlannedDate": "2017-10-30T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 4.25,
+              "Status": "Completed",
+              "DisplayOrder": 1,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "0d4db561-0cc0-4d74-84c1-fe99b2fa43f3"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 4,
+            "$$hashKey": "object:335"
+          }
+        ],
+        "CanDrop": true,
+        "CanSort": true,
+        "$$hashKey": "object:313"
+      },
+      {
+        "Name": "Cancelled",
+        "CanDrop": true,
+        "CanSort": true,
+        "Items":[]
+      }
+    ]
+  },
+  {
+    "Name": "future",
+    "Title": "Future (2)",
+    "Columns": [
+      {
+        "Items": [
+          {
+            "Id": "20c2d730-286c-4ac3-8c4d-5f979325f93b",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "50739ffe-007d-4cea-aef3-9081a75deb24",
+                "Name": "New method",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "a83bc660-b26d-4b05-b501-943973ebcda0",
+                "Name": "COMPTABILITE"
+              },
+              "PlannedDate": "2017-11-08T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 0.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "20c2d730-286c-4ac3-8c4d-5f979325f93b"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 0,
+            "$$hashKey": "object:351"
+          },
+          {
+            "Id": "4b86eb0f-2822-4b84-8419-df1698e27e83",
+            "Column": "Planned",
+            "Entity": {
+              "Type": null,
+              "Job": {
+                "Id": "d64781d1-cd10-4677-bb83-d5777d3bf490",
+                "Code": "24C_/§§§§§/0001",
+                "Name": "24C_/§§§§§/0001",
+                "Color": "#0d8f39"
+              },
+              "Task": {
+                "Id": "c3862d25-ac85-41c6-8f55-8bb5f3b4f16d",
+                "Name": "Test merger 1",
+                "IsTentative": false,
+                "DueDate": null,
+                "EstimatedWorkload": null,
+                "Description": null
+              },
+              "WorkType": {
+                "Id": "b4a2cf09-85d7-4525-927a-0b985b33673c",
+                "Name": "Conception & Brainstorming"
+              },
+              "PlannedDate": "2017-11-06T00:00:00.000Z",
+              "PlannedStartTime": null,
+              "PlannedWorkload": 0.25,
+              "Status": "Planned",
+              "DisplayOrder": 0,
+              "ClientCode": "24C",
+              "ResourceLogoUrl": "logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+              "Id": "4b86eb0f-2822-4b84-8419-df1698e27e83"
+            },
+            "CanDrag": true,
+            "PlannedEntime": "",
+            "ResourceLogoUrl": "http://192.168.45.7/ejm-65/logo/fdc31ec6-99b9-49c3-ba19-f95a833e8248/dea9cbdd-6c32-45e8-a0fb-0f983e7b1dec.jpg",
+            "ClassName": "Test-kanban-item",
+            "DisplayOrder": 1,
+            "$$hashKey": "object:352"
+          }
+        ],
+        "CanDrop": true,
+        "CanSort": true,
+        "Name": "Planned"
+      },
+      {
+        "Items": [],
+        "CanDrop": true,
+        "CanSort": true,
+        "Name": "InProgress"
+      },
+      {
+        "Items": [],
+        "CanDrop": true,
+        "CanSort": true,
+        "Name": "Completed"
+      },
+      {
+        "Name": "Cancelled",
+        "CanDrop": true,
+        "CanSort": true,
+        "Items":[]
+      }
+    ]
+  }
+]

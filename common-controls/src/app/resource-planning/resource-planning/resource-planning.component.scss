@@ -1,0 +1,235 @@
+@mixin resource-planning-component($theme, $options) {
+  $navigationButtonWith: map_get($options, navigationButtonWith);
+  $userInformationWidth: map_get($options, userInformationWidth);
+  $borderColor: map_get($options, borderColor);
+  $borderBoldColor: map_get($options, borderBoldColor);
+  $iconColor: map_get($options, iconColor);
+  $fontSize: map_get($options, fontSize);
+  $warmColor: map_get($options, warmColor);
+
+  ntk-resource-planning {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: $fontSize;
+
+    .fix-flex, .abs-stretch {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .cursor_pointer {
+      cursor: pointer;
+    }
+
+    mat-icon {
+      color: $iconColor;
+    }
+
+    .resource-item{
+      border-bottom: 1px solid $borderBoldColor;
+    }
+
+    ntk-resource-planning-tooltip {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    virtual-scroller {
+      overflow-x: hidden !important;
+    }
+
+    //  Header
+    .hr-bottom {
+      border-bottom: 1px solid $borderBoldColor;
+    }
+
+    .spacing-next-navigate, .spacing-prev-navigate {
+      width: $navigationButtonWith;
+      overflow: hidden;
+      position: relative;
+
+      button {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .spacing-next-navigate {
+      border-left: 1px solid $borderColor;
+    }
+
+    .spacing-user-information {
+      width: $userInformationWidth;
+    }
+
+    .total-padding {
+      position: relative;
+      width: 100% !important;
+      opacity: 1 !important;
+    }
+
+    .res-vertical-line {
+      position: relative;
+      height: 100%;
+      float: left;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        border-left: 1px solid $borderColor;
+      }
+
+
+    }
+
+    .res-summary-vertical-line {
+      position: absolute;
+      height: 100%;
+
+      &:after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        border-left: 1px solid $borderColor;
+        z-index: 2;
+      }
+
+      &.current:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        border-left: 1px solid $warmColor;
+        z-index: 2;
+      }
+    }
+
+
+    .text-on-right {
+      border-left: 1px solid #e1e1e1;
+    }
+
+    &.view-mode-week {
+      .resource-planning-header {
+        .text-on-right {
+          border-left: 0;
+        }
+      }
+    }
+
+
+    .spacing {
+      width: 1%;
+      position: relative;
+      height: 100%;
+      float: left;
+      z-index: 2;
+
+      &:after {
+        content: "";
+        background: #fff;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        height: 100%;
+        position: absolute;
+        border-left: 1px solid $borderBoldColor;
+        border-right: 1px solid $borderBoldColor;
+      }
+    }
+
+    .hidden-safari {
+      display: block;
+    }
+
+    .browser-safari {
+      .hidden-safari {
+        display: none;
+      }
+
+      .res-table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        height: 100%;
+        border: 0;
+        border-collapse: collapse;
+
+        .table-row {
+          display: table-row;
+        }
+
+        .table-cell {
+          height: 100%;
+          float: none;
+          display: table-cell;
+          vertical-align: top;
+
+        }
+
+        .table-cell-spacing {
+          border-top: 0;
+          border-bottom: 0;
+          position: relative;
+          overflow: hidden;
+
+          &:after {
+            content: "";
+            position: absolute;
+            background: #fff;
+            left: 0;
+            right: 0;
+            top: -1px;
+            bottom: -1px;
+          }
+        }
+      }
+
+    }
+
+    // disable group ( remove border line)
+    &.undroppable {
+      ntk-resource-planning-events .events:before,
+      ntk-resource-planning-event .ui-draggable-line-top:before,
+      ntk-resource-planning-event .ui-draggable-line-bottom:before {
+        display: none !important;
+      }
+    }
+
+
+    &.has-group { // Group
+      .resource-planning-header-wrapper {
+        .group-header {
+          border-top: 1px solid #cacaca;
+          border-bottom: 0;
+        }
+      }
+
+      .group-header {
+        display: block;
+        background: #f1f1f1;
+        padding: 0 10px;
+        font-weight: bold;
+        position: relative;
+        height: 24px;
+        line-height: 24px;
+        z-index: 3;
+        border-bottom: 1px solid #cacaca;
+      }
+    }
+  }
+}

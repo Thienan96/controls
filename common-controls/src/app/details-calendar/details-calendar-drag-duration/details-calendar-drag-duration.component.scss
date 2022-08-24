@@ -1,0 +1,63 @@
+
+
+.timesheet-added-handle {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.tooltiptext {
+  white-space: nowrap;
+  background: #ff0000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  font-size: 1.2em;
+  top: 0;
+  line-height: 20px;
+  right: 100%;
+  margin-right: 15px;
+  &:after {
+    border-top: solid #ff0000 0;
+    border-bottom: solid transparent 20px;
+    border-left: solid #ff0000 15px;
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    left: 100%;
+    top: 10px;
+    transform: translate(0px, -50%);
+  }
+  &.position-top {
+    top: -100%;
+    margin-top: 15px;
+    bottom: auto;
+    &:after {
+      border-left: solid #ff0000 15px;
+      bottom: -10px;
+      top: auto;
+    }
+  }
+}
+
+.duration {
+  margin-top: 5px;
+  font-size: 1.5em;
+}
+
+.background {
+  background: rgba(128, 128, 128, 0.54);
+  height: 100%;
+  width: 100%;
+}
+
+::ng-deep {
+  .timesheet-added-handle.cdk-drag-placeholder,
+  .timesheet-added-handle.cdk-drag-dragging {
+    display: none !important;
+  }
+}

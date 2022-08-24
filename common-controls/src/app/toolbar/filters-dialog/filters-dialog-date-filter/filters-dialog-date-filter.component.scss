@@ -1,0 +1,138 @@
+@mixin ntk-toolbar-filters-dialog-date-filter-component($theme, $options) {
+  ntk-filters-dialog-date-filter {
+    $primary: map-get($theme, primary);
+    $labelActiveColor: $primary;
+    @if (map_get($options, secondTheme)) {
+      $labelActiveColor: map-get(map_get($options, secondTheme), primary);
+    }
+    height: 100%;
+
+    .title {
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+
+    .buttons {
+      margin: 8px 0;
+
+      button {
+        margin: 0 8px;
+      }
+    }
+
+    .quick-date-selection-container {
+      button {
+        font-weight: normal;
+        padding: 0;
+      }
+    }
+
+    .absolute-date-selection-container {
+      &.selected {
+        mat-form-field {
+          .mat-form-field-label {
+            color: mat-color($labelActiveColor);
+          }
+        }
+      }
+
+      mat-form-field {
+        .mat-form-field-label {
+          color: rgba(0, 0, 0, 0.87);
+        }
+      }
+    }
+
+    .relative-date-selection-container {
+      position: relative;
+      padding-bottom: 8px;
+
+      &.selected {
+        .lb-from-to {
+          color: mat-color($labelActiveColor);
+        }
+      }
+
+      .mat-form-field-input {
+        overflow: hidden;
+        width: 18px;
+      }
+
+      .mat-form-field-select {
+        text-transform: lowercase;
+        overflow: hidden;
+      }
+
+      .mat-form-field-select, .mat-form-field-input {
+
+      }
+
+      .lb-from-to {
+        margin-top: 9px;
+      }
+
+      .mat-error-invalid-from-to {
+        font-size: 75%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .relative-date-selection-container-row{
+        overflow: hidden;
+        position: relative;
+        .mat-form-field-subscript-wrapper{
+          display: none;
+        }
+        &.is-normal-screen{
+          .relative-date-selection-container-col-1,
+          .relative-date-selection-container-col-2{
+            overflow: hidden;
+          }
+          .relative-date-selection-container-col-1{
+            margin-right: 8px;
+          }
+        }
+        &.is-small-screen{
+          .icon-button-small{
+            display: none;
+          }
+          .select-last-next{
+            margin-right: 0 !important;
+          }
+        }
+      }
+
+    }
+
+    .quick-date-selection-container {
+    }
+
+    button.icon-button-small {
+      $button-small-size: 18px;
+      width: $button-small-size;
+      height: $button-small-size;
+      line-height: $button-small-size;
+
+      mat-icon {
+        $icon-small-size: 16px;
+        width: $icon-small-size;
+        height: $icon-small-size;
+        font-size: $icon-small-size;
+        line-height: $icon-small-size !important;
+      }
+    }
+
+    .preview {
+      font-style: italic;
+      color: rgba(0, 0, 0, 0.54);
+      margin-right: 8px;
+    }
+  }
+
+  // Fix date-picker
+  .ntk-filters-dialog-date-filter-dialog-container.mat-dialog-container {
+    padding: 24px !important;
+    overflow: auto !important;
+  }
+}

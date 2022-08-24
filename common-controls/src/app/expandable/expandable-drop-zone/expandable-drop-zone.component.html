@@ -1,0 +1,18 @@
+<div class="timeline-droppable-top"
+     expandableDropList
+     [droppableData]="itemWrapper"
+     [position]="DropPosition.Top">
+    <div class="indicate-line" [style.left.px]="level*indent"></div>
+</div>
+<div class="timeline-droppable-middle"
+     expandableDropList
+     [droppableData]="itemWrapper"
+     [position]="DropPosition.Middle">
+    <div class="indicate-line" [style.left.px]="level*indent"></div>
+</div>
+<div class="timeline-droppable-bottom"
+     expandableDropList
+     [droppableData]="itemWrapper"
+     [position]="DropPosition.Bottom">
+    <div class="indicate-line" [style.left.px]="level*indent"></div>
+</div>

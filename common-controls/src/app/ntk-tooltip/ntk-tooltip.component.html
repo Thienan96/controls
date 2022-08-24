@@ -1,0 +1,8 @@
+<ng-container *ngIf='template; else default'>
+    <div class='ntk-tooltip' @tooltip style="padding-bottom: 3px;">
+        <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{content: text}"></ng-container>
+    </div>
+</ng-container>
+<ng-template #default>
+    <div class='ntk-tooltip' @tooltip [innerHTML]="text | safeHtml | carriageReturn2HtmlBr"></div>
+</ng-template>

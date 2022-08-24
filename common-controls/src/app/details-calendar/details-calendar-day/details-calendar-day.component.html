@@ -1,0 +1,6 @@
+<div (onResizeSensor)="onResize()" ntk-resize-sensor style="width: 100%;height: 100%">
+    <div [style.width.px]="paddingRight" class="white-line"></div>
+    <div fxFill fxLayout="row">
+        <ng-content select="ntk-details-calendar-day-column"></ng-content>
+    </div>
+</div>

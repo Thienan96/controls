@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+body, html{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    font-size: 14px;
+    position: relative;
+    color:rgba(0, 0, 0, 0.87);
+}
+
+.default-mat-icon-button {
+    color: rgba(0,0,0,0.54) !important;
+}
+
+.default-mat-icon-button[disabled] {
+    color: rgba(0,0,0,0.26) !important;
+}
+
+
+.cdk-overlay-container .status-history-panel hs-status-history ,
+.cdk-overlay-container .status-history-panel hs-intervention-status-history {
+    width: 100%;
+    height: 100%;
+}
+
+.hs-block-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
+
+.block-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
+
+.hs-item-list .head-check{
+    display: none;
+}
+.hs-item-list:hover {
+    background-color: #ECECEC;
+}
+
+.hs-item-list:hover .head-check{
+    display: block;
+}
+
+.hs-item-list-selected {
+    background-color: #ECECEC;
+}
+
+.hs-item-list-selected .head-check{
+    display: block;
+}
+
+.hs-block-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
+
+.cdk-overlay-container hscl-mat-dropdown-panel .cdk-virtual-scroll-content-wrapper {
+    max-width: 100%;    
+    height: 100%;
+}
+
+
+[hidden] {
+    display: none !important;
+}
+
+.mat-dialog-container {
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+.content-dialog {
+    padding: 24px;
+    height: 100%;
+    width: 100%;
+    -webkit-box-flex: 1;
+    flex: 1 1 0%;
+    background: #fff;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.title-dialog {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 16px;
+}
+
+
+.panel-container .dropdown-item div {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.resourceLogo {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.im-circle {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	display: inherit;
+	margin-right: 8px;
+    margin-left: 4px;
+}
+
+.filter-item-custom {
+    display: flex;
+    /* flex-direction: row; */
+    /* place-content: center flex-start; */
+    align-items: center;
+}
+
+.month-picker .mat-calendar-header, .mat-calendar-body-label {
+	display: none;
+}
+
+.month-picker.mat-calendar {
+	height: auto !important;
+}

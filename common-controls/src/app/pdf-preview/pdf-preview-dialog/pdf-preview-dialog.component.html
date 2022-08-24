@@ -1,0 +1,25 @@
+<div fxFill fxLayout="column">
+    <mat-toolbar color="primary" fxFlex="none" fxLayout="row" fxLayoutAlign="start center">
+        <mat-toolbar-row fxLayout="row">
+            <button *ngIf="!showBackButton" mat-icon-button (click)="close()" tabindex="-1">
+                <mat-icon>clear</mat-icon>
+            </button>
+            <button *ngIf="showBackButton" mat-icon-button (click)="close()" tabindex="-1">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <!-- <span style="padding-left:8px;" class="hs-block-ellipsis">{{documentWrapper?.Document?.Name}}</span> -->
+            <ntk-middle-truncation fxFlex style="padding-left:8px;" >{{documentWrapper?.Document?.Name}}</ntk-middle-truncation>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div fxFlex="100" fxLayout="column" mat-dialog-content
+         class="hs-dialog-content" style="padding: 0 0 !important;margin: 0 0 0 0 !important;">
+        <ntk-pdf-preview
+        #pdfPreview style="width:100%;height:100%"
+        [documentWrapper]="documentWrapper"
+        [canShowFullReport]="false"
+        [canDownloadFile]="false"
+        >
+        </ntk-pdf-preview>
+    </div>
+</div>

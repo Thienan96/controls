@@ -1,0 +1,18 @@
+<div *ngIf="showGroupTitle" [innerHTML]="group.Title" class="group-title mat-subheading-2"></div>
+<div fxLayout="row" style="width: 100%;margin-top: 1px">
+    <ntk-kanban-items *ngFor="let column of columns; let i = index; trackBy: trackByColumn"
+                      [availableDropColumns]="availableDropColumns"
+                      [column]="group.Columns[i]"
+                      [dragEnd]="dragEnd"
+                      [dragStart]="dragStart"
+                      [group]="group"
+                      [itemClick]="itemClick"
+                      [itemTemplate]="column.ItemTemplate"
+                      [moved]="moved"
+                      [ngClass]="column.ClassName"
+                      [scrollContainer]="scrollContainer"
+                      fxFlex="{{100/columns.length}}" 
+                      [style.min-width.px]='0'
+    ></ntk-kanban-items>
+    <!-- fxFlex="{{100/columns.length}}": using for css  text-overflow: ellipsis; -->
+</div>

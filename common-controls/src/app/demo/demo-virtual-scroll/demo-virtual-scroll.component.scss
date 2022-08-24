@@ -1,0 +1,52 @@
+.normal-item {
+    padding: 7px 18px;
+    border-bottom: solid 1px lightgrey;
+    box-sizing: border-box;
+    background-color: #ffffff;
+
+    .opacity-item {
+        color: gray;
+    }
+}
+
+.sticky-header {
+    background-color: #ededed;
+    padding: 0px 18px;
+    padding-right: 8px;
+    color: #656565;
+    font-size: 14px;
+    border-bottom: solid 1px lightgrey;
+    box-sizing: border-box;
+}
+
+.color-656565 {
+    color: lightgray;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.pr-5px {
+    padding-right: 5px;
+}
+
+.ml-5px {
+    margin-left: 5px;
+}
+
+.plr-10px {
+    padding: 0px 10px;
+}
+
+.fs-14px {
+    font-size: 15px;
+}
+
+.boder-1px {
+    border: 1px solid lightgray;
+}

@@ -1,0 +1,51 @@
+<div *ngIf="viewMode === ViewMode.Week" style="height: 100%">
+  <ng-container *ngFor="let dateObj of headerDates;let $index = index">
+    <div class="date" fxLayout="row" fxLayoutAlign="center center"
+         [ngClass]="{'current':dateObj.isToday, 'is-weekend': dateObj.isWeekend}"
+         [ngStyle]="{'width.%':dateObj.width}">
+      <div class="date-title" *ngIf="isShowFullDate">{{dateObj.fullDay +" "+dateObj.dayOfMonth}}</div>
+      <div class="date-title" *ngIf="!isShowFullDate && !isLineBreak">{{dateObj.shortDay +" "+dateObj.dayOfMonth}}</div>
+      <div class="date-title" *ngIf="!isShowFullDate && isLineBreak">{{dateObj.shortDay}}<br/>{{dateObj.dayOfMonth}}
+      </div>
+    </div>
+    <div *ngIf="viewMode === ViewMode.Week && (($index+1) % daysOfWeek === 0 && $index<dates.length-1)"
+         style="position: relative;height: 100%;width: 1%;float: left;background: #fff"></div>
+  </ng-container>
+</div>
+
+<div *ngIf="viewMode === ViewMode.Month" style="height: 100%">
+  <div class="left-border"></div>
+
+  <div fxLayout="column" style="height: 100%">
+    <div fxFlex="none">
+      <div class="months-title">
+        <div class="month-title" [ngStyle]="{'width.%':(month.dates.length+1)*(100/dates.length)}"
+             style="position: relative;float: left" *ngFor="let month of months">
+          <div class="month-text">{{month.monthTitle}}</div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="none">
+      <div class="weeks-title">
+        <div class="week-title" [ngStyle]="{'left.%':week.left,'width.%':week.width}" style="position: absolute;"
+             *ngFor="let week of weeks">
+          <div class="week-text" style="height: 100%">{{week.title}}</div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex style="position:relative">
+      <div style="position: absolute;top:0;bottom: 0;width: 100%">
+        <div class="date" *ngFor="let dateObj of headerDates;let index = index"
+             [ngStyle]="{'left.%': index*(100/headerDates.length),'width.%': 100/dates.length}"
+             [ngClass]="{'current': dateObj.isToday,'is-weekend': dateObj.isWeekend}">
+          <div fxLayout="row" fxLayoutAlign="center center" style="height: 100%">
+            <div>
+              {{dateObj.shortDay}}
+              <div>{{dateObj.dayOfMonth}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

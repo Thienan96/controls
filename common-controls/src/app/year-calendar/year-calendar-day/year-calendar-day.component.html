@@ -1,0 +1,7 @@
+<div id="day-container" fxLayout="column" fxLayoutAlign="center center" class="not-selectable" style="height: 100%;"
+    [ngClass]="getClass()"
+    matTooltip="{{tooltip}}" matTooltipClass="hs-standard-tip"
+    (click)="onClick($event)">
+    <div id="day-number">{{day}}</div>
+    <div id="day-count">{{isSelectedDate ? (selectedCount > 0 ? selectedCount : '') : (isExistingInsertions ? (existingInsertionsCount > 0 ? existingInsertionsCount : '') : '')}}</div>
+</div>

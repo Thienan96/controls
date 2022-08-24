@@ -1,0 +1,103 @@
+<div fxFill fxLayoutAlign="center center" style="background-color:#D5D5D5; min-height:550px">
+  <div class='loginWhiteFramePanel'>
+    <div fxFill  fxLayout='column' style="position: relative">
+      <button fxFlex="none" mat-icon-button  class="button-back" (click)="onSlideTo('LoginScreen')" *ngIf="stepper.selectedIndex!==0">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div fxFlex="none" class="logoPanel">
+        <img [src]="logo" />
+      </div>
+      <ntk-login-stepper #stepper fxFlex>
+        <cdk-step>
+          <div fxFlex fxLayout="column" fxLayoutAlign="start stretch" style="width: 100%" class="step-container">
+            <form fxFlex="none" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="loginForm" (ngSubmit)="checkLogin()" >
+              <div fxLayoutAlign="center center">
+                <span style="display:block" class="mat-headline" [ntk-translator]='title'></span>
+              </div>
+              <!--login-->
+              <mat-form-field>
+                <input matInput name="login" type="email" ntk-translator-attribute="placeholder:{{titleLogin}}" formControlName="Login" required autoFocus autocomplete="on" />
+                <mat-error *ngIf="loginForm.get('Login').hasError('required')" ntk-translator='msgPropertyMandatory:{{titleLogin}}'>
+                </mat-error>
+              </mat-form-field>
+
+              <!--password-->
+              <mat-form-field>
+                <input matInput name="password" type="password" ntk-translator-attribute="placeholder:lbPassword" formControlName="Password" required autocomplete="on" />
+                <mat-error *ngIf="loginForm.get('Password').hasError('required')" ntk-translator="msgPropertyMandatory:lbPassword">                  
+                </mat-error>
+              </mat-form-field>
+
+              <!--error-->
+              <div class="mat-caption color-warn"  style="margin:0px; height: 30px; margin-top: -10px" *ngIf="isLoginError">
+                <!--error-->
+                <div *ngIf="errorMessage">{{errorMessage}}</div>
+
+                <!--sso-->
+                <div *ngIf="ssoErrorMessage">{{ssoErrorMessage}}</div>
+              </div>
+
+              <div style="height: 20px;" *ngIf="!isLoginError && !errorMessage"></div>
+
+              <!--keep signedin-->
+              <div *ngIf='showKeepMeSignIn' fxLayout="row" fxLayoutAlign="start center">
+                <mat-checkbox color="primary" formControlName="IsKeepSignedIn">
+                  <span ntk-translator="lbKeepMeSignedIn"></span>
+                </mat-checkbox>
+              </div>
+
+              <button mat-raised-button color="primary" type="submit"  style="margin: 12px 0 0 0; height:40px;"  ntk-translator="btLogIn" ntk-translator-uppercase="true" ></button>
+              <p *ngIf='showFogotPassWord'><a ntk-translator="btForgotYouPassword" (click)="onSlideTo('ForgotScreen')"></a></p>
+
+            </form>
+          </div>
+        </cdk-step>
+        <cdk-step>
+          <div fxLayout="column" fxLayoutAlign="start stretch" style="width: 100%" class="step-container">
+            <div class="mat-h3" style="margin-top: 30px;font-weight: 500;" ntk-translator="lbChooseCompanyAndRole"></div>
+            <mat-nav-list>
+              <mat-list-item *ngFor="let company of companies" (click)="onCompanyClick(company)">
+                 <ng-container [ngTemplateOutletContext]="{item:company}" [ngTemplateOutlet]="companyTemplate"></ng-container>
+              </mat-list-item>
+            </mat-nav-list>
+            
+            <!-- padding space -->
+            <div fxFlex></div>
+            <!--error-->            
+            <div class="mat-caption color-warn" style="margin:0px; height: 30px; margin-top: 10px;" *ngIf="isLoginError">
+              <!--error-->
+              <div *ngIf="errorMessage">{{errorMessage}}</div>
+              <!--sso-->
+              <div *ngIf="ssoErrorMessage">{{ssoErrorMessage}}</div>
+            </div>
+          </div>
+        </cdk-step>
+        <cdk-step>
+          <div fxLayout="column" fxLayoutAlign="start stretch" style="width: 100%" class="step-container">
+            <span style="margin-bottom: 20px" ntk-translator="msgResetPassword"></span>
+            <form fxFlex="none" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="resetForm" (ngSubmit)="sendMail()">
+              <!--Email-->
+              <mat-form-field style="margin: 20px 0 0 0">
+                <input matInput name="login" type="email" ntk-translator-attribute="placeholder:lbEmail" formControlName="login"  autocomplete="on">
+                <mat-error *ngIf="resetForm.get('login').hasError('required')" ntk-translator="msgPropertyMandatory:lbEmail"></mat-error>
+                <mat-error *ngIf="resetForm.get('login').hasError('email')" ntk-translator="msgInvalidEmailFormat"></mat-error>
+              </mat-form-field>
+              <mat-error *ngIf="resetForm.get('login').hasError('InvalidUser')" style="margin-top: -10px;" ntk-translator="errorInvalidUser"></mat-error>
+              <button mat-raised-button color="primary" style="margin: 20px 0 0 0; height:40px; color: white;text-transform: uppercase" type="submit" ntk-translator="btSend"></button>
+            </form>
+          </div>
+        </cdk-step>
+      </ntk-login-stepper>
+
+      <div fxLayout fxLayoutAlign="center center">
+        <a [href]="netikaUrl" target="_blank" style="display: inline-block; width:auto; height:auto">
+          <img [src]="netikaLogo | secure | async" hidefocus="true" style="height: 50px; width: auto;" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #companyTemplateDefault  let-item="item">
+  {{item.Name}}
+</ng-template>

@@ -1,0 +1,19 @@
+<mat-nav-list>
+    <mat-list-item  *ngFor="let item of items" (click)="onItemClicked(item)" [disableRipple]="item.Disabled" [class.disabled]="item.Disabled">
+        <ng-template [ngTemplateOutlet]="template || itemTemplate" [ngTemplateOutletContext]="{item:item,onItemChanged: onItemChanged.bind(this)}"></ng-template>
+        <div class="mask"></div>
+    </mat-list-item>
+</mat-nav-list>
+
+<ng-template #itemTemplate let-item="item" let-onItemChanged="onItemChanged">
+    <mat-checkbox color="primary"
+                  *ngIf="item.Value && isMultiSelectionMode"
+                  [disabled]="item.Disabled"
+                  [class.toolbar-filter-item-group-header]="item.Disabled"
+                  [checked]="item.IsSelected"
+                  (change)="onItemChanged($event)"
+                  [value]="item">{{item.DisplayValue}}</mat-checkbox>
+
+    <span class="singleSelectionItem" *ngIf="item.Value && !isMultiSelectionMode">{{item.DisplayValue}}</span>
+
+</ng-template>

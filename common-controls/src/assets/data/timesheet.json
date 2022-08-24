@@ -1,0 +1,389 @@
+[
+  {
+    "Date": "2017-04-17",
+    "CompletedPercentage": "80",
+    "Planning": {
+      "Duration": "4h",
+      "CanDrop": false,
+      "CanSort": false,
+      "Events": [
+        {
+          "Id": "2017-04-17-planning-0",
+          "Title": "<div style='color:red'>Drop:0 <br/> Sort:0</div>",
+          "TextColor": "#000",
+          "BackgroundColor": "#cacaca",
+          "Start": "6:00",
+          "End": "7:00",
+          "CanDrag": false,
+          "DisablesSelection": true
+        },
+        {
+          "Id": "2017-04-17-1",
+          "Title": "enable",
+          "TextColor": "#000",
+          "BackgroundColor": "yellow",
+          "Start": "8:00",
+          "End": "11:00",
+          "CanDrag": true,
+          "CanResize": true
+        },
+        {
+          "Id": "2017-04-17-3",
+          "Title": "enable",
+          "TextColor": "#000",
+          "BackgroundColor": "orange",
+          "Start": "11:00",
+          "End": "14:00",
+          "CanDrag": true,
+          "CanResize": true
+        },
+        {
+          "Id": "2017-04-17-2",
+          "Title": "enable",
+          "TextColor": "#000",
+          "BackgroundColor": "green",
+          "Start": "10:00",
+          "End": "12:00",
+          "CanDrag": true,
+          "CanResize": true
+        }
+
+      ]
+    },
+    "Timesheet": {
+      "Duration": "2h30",
+      "CanDrop": true,
+      "CanSort": false,
+      "Events": [
+        {
+          "Id": "2017-04-17-timesheet-0",
+          "Title": "<div style='color:red'>Drop:1 <br/> Sort:0</div>",
+          "TextColor": "#000",
+          "BackgroundColor": "#cacaca",
+          "Start": "6:00",
+          "End": "7:00",
+          "CanDrag": false,
+          "DisablesSelection": true
+        },
+        {
+          "Id": "2017-04-17-timesheet-1",
+          "Title": "task 1",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "8:00",
+          "End": "9:30",
+          "CanDrag": true
+        },
+        {
+          "Id": "2017-04-17-timesheet-2",
+          "Title": "task 1",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "9:00",
+          "End": "11:30",
+          "CanDrag": true
+        }
+      ]
+    }
+  },
+  {
+    "Date": "2017-04-18",
+    "CompletedPercentage": "90",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "4h",
+      "CanDrop": false,
+      "CanSort": true,
+      "CanCreate": true,
+      "Events": [
+        {
+          "Id": "2017-04-18-planning-0",
+          "Title": "<div style='color:red'>Drop:0 <br/> Sort:1</div>",
+          "TextColor": "#000",
+          "BackgroundColor": "#cacaca",
+          "Start": "6:00",
+          "End": "7:00",
+          "CanDrag": false,
+          "DisablesSelection": true
+        },
+        {
+          "Id": "2017-04-18-planning-1",
+          "Title": "task 2",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "8:00",
+          "End": "9:30",
+          "CanDrag": true
+        }
+      ]
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanCreate": true,
+      "Events": []
+    },
+    "BackgroundEvents": [
+      {
+        "Id": "2017-04-17-1",
+        "Start": "5:00",
+        "End": "24:00"
+      }
+    ]
+  },
+  {
+    "Date": "2017-04-19",
+    "CompletedPercentage": "70",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": [
+        {
+          "Id": "2017-04-19-planning-0",
+          "Title": "task 1",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "8:00",
+          "End": "10:00",
+          "CanDrag": true
+        },
+        {
+          "Id": "2017-04-19-planning-1",
+          "Title": "task 2",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "9:00",
+          "End": "11:00",
+          "CanDrag": true
+        }
+      ]
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-20",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-21",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-22",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": [
+        {
+          "Id": "2017-04-30-planning-0",
+          "Title": "task 1",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "8:00",
+          "End": "10:00",
+          "CanDrag": true
+        },
+        {
+          "Id": "2017-04-30-planning-1",
+          "Title": "Disable drag",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "9:00",
+          "End": "11:00",
+          "CanDrag": false
+        },
+        {
+          "Id": "2017-04-30-planning-1",
+          "Title": "Disable drag, Disable select",
+          "TextColor": "#fff",
+          "BackgroundColor": "#a1a2a3",
+          "Start": "10:00",
+          "End": "13:00",
+          "CanDrag": false,
+          "DisablesSelection": true
+        }
+      ]
+    }
+  },
+  {
+    "Date": "2017-04-23",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-24",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-25",
+    "CanAdd": true,
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-26",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+
+  {
+    "Date": "2017-04-27",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-28",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-29",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  },
+  {
+    "Date": "2017-04-30",
+    "Planning": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    },
+    "Timesheet": {
+      "Duration": "0h",
+      "CanDrop": true,
+      "CanSort": true,
+      "CanAdd": true,
+      "Events": []
+    }
+  }
+]

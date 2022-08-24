@@ -1,0 +1,101 @@
+<div fxFlex fxLayout='column' class='mat-elevation-z2 panel-container' style="position: relative;"
+    [style.visibility]="ready ? 'visible' : 'hidden' " (focus)="onFocus()" (blur)="onLostFocus()">
+    <!-- <mat-progress-bar mode="indeterminate"  [style.visibility]="loading?'visible':'hidden'" style="position: absolute;z-index: 1;"></mat-progress-bar>     -->
+    <div *ngIf='hasSelectItem' fxLayout="row" fxLayoutAlign=" center" class="dropdown-action"
+        style="border-bottom:1px solid lightgray">
+        <mat-checkbox fxFlex [(ngModel)]="isSelectAll" [(ngModel)]="isSelectAll" (change)="selectedAllChanged()" color="primary">
+            <span style="padding-left: 3px;" *ngIf="checkedCount === 0">{{'btSelectAll' | translator}}</span>
+            <span style="padding-left: 3px;" *ngIf="checkedCount > 0">{{checkedCount}} {{'lbItemsSelected' | translator}}</span>
+        </mat-checkbox>
+    </div>
+
+      <!-- header toolbar when on small screen -->
+    <div *ngIf='isSmallScreen' fxLayout="column">
+        <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>        
+            <button fxFlex="none" mat-icon-button (click)="close()" *ngIf="!isShowSearch">
+                    <mat-icon>close</mat-icon>
+            </button>
+            <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400" 
+                [hidden]="isShowSearch">
+                {{titleKey}}
+            </div>
+    
+            <button fxFlex="none" *ngIf="canSearch" mat-icon-button (click)="enableSearch()" [hidden]="isShowSearch">
+                <mat-icon>search</mat-icon>
+            </button>
+    
+            <button mat-icon-button style="margin-left:-8px; color:inherit;"
+                    (click)="disableSearch()"
+                    [hidden]="!isShowSearch">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <div *ngIf="isShowSearch" [style.width.%]='100' (click)="onInputClick()">
+                <input fxFlex #inputQuery
+                    style="color:inherit;"
+                    type="text"
+                    autocomplete='off'
+                    (ngModelChange)="this.onSearchTextChange.next($event)"
+                    [(ngModel)]="searchText" 
+                    class="hs-input-filter-search custom-placeholder"
+                    placeholder="{{'lbSearch' | translator}}" />
+            </div>
+    
+            <button mat-icon-button [hidden]="!(isShowSearch && searchText)" (click)="clearQuery()">
+                <mat-icon>clear</mat-icon>
+            </button>
+    
+        </mat-toolbar>
+        <mat-progress-bar mode="indeterminate" [hidden]="!loading"></mat-progress-bar>
+    </div>
+
+    <!-- header -->
+    <div *ngIf='allowHeader && !noData' fxLayout="row" fxLayoutAlign='start center' class="dropdown-item"
+         style="font-weight: 700;" [ngClass]="{'header-scroll': hasScroll}">
+        <div fxFlex fxLayout="row">
+            <ng-container *ngTemplateOutlet="(headerTemplate ? headerTemplate : defaultHeaderTemplate)">
+            </ng-container>
+        </div>
+    </div>
+
+    <mat-divider *ngIf='allowHeader && !noData'></mat-divider>
+
+    <span style="margin: 8px;" class="mat-caption" *ngIf="noData">{{noDataText}}</span>
+    <cdk-virtual-scroll-viewport itemSize="48" fxFlex #scrollViewPort class="virtual-viewport">
+        <div *cdkVirtualFor="let item of dataSource; let index = index; trackBy: dataSource.trackByFn"
+            (click)='itemClick(item, index)'>
+            <div [ngClass]="{'dropdown-item-selected': index == selectedIndex}" class="dropdown-item" fxLayout='row'
+                fxLayoutAlign='start center'>
+                <div *ngIf='hasSelectItem' style="margin-right: 10px;" fxLayoutAlign="center center">
+                    <mat-checkbox color="primary" [(ngModel)]='item.isChecked' (change)="stateChanged($event)" [value]="item">
+                    </mat-checkbox>
+                </div>
+                <ng-container *ngTemplateOutlet="(itemTemplate ? itemTemplate : defaultTemplate);
+                    context:{item: item,
+                            index: index,
+                            indentLines: calculateIndentLines(index),
+                            offsetHeight: isFirstItemInLevel(index) ? -10 : 0
+                    }">
+                </ng-container>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+    <!-- <button *ngIf='actionButtonText' (click)='refresh()'>{{actionButtonText}}</button> -->
+    <div *ngIf='allowAddItem' fxLayout="row" fxLayoutAlign=" center" class="dropdown-item"
+        style="border-top:1px solid lightgray" (click)='_onClickAction.emit()'>
+        <button mat-mini-fab color="primary" style="margin-right: 10px">
+            <mat-icon style="line-height:22px;">add</mat-icon>
+        </button>
+        <span class="action-text" *ngIf='addItemText'>{{addItemText | uppercase}}</span>
+    </div>
+    <div *ngIf='hasSelectItem' fxLayout="row" fxLayoutAlign="end center" class="dropdown-action">
+        <button mat-button (click)='appliedMultipleSelect()'>{{'btOk' | translator | uppercase}}</button>
+    </div>
+    <!-- <button (click)='refresh()'>r``efresh</button>     -->
+    <ng-template #defaultTemplate let-item='item' let-indentLines="indentLines">
+        <div>{{item.Name}}</div>
+    </ng-template>
+    <!-- default header template -->
+    <ng-template #defaultHeaderTemplate>
+        <div>{{'lbName' | translator}}</div>
+    </ng-template>
+</div>

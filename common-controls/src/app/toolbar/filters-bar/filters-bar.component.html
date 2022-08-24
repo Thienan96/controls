@@ -1,0 +1,42 @@
+<div fxLayout="row"  fxLayoutAlign="start center" style="height: 100%" >
+    <ntk-scrollable (onResized)="onScrollResized()" #scroller fxFlex style="overflow: hidden;">
+        <div class="ntk-scrollable-item" *ngFor="let item of currentFilters" fxLayoutAlign="start center">
+            <ntk-filters-bar-item
+                [class.is-date-type-date]="item.DataType ==='Date'"
+                fxLayout="row"
+                fxLayoutAlign="start center"
+                [item]="item"
+                (loaded)="onFilterItemLoaded($event)"
+                (remove)="onRemoveClicked($event)"
+                (destroy)="onFieldFilterDestroy()"
+                (clicked)="onFilterItemClicked($event)"
+                [shownFavorite]="shownFavorite"
+                (favoriteToggled)="onFavoriteToggled($event)"
+                [outDateFormat]="outDateFormat"
+            ></ntk-filters-bar-item>
+        </div>
+        <div class="ntk-scrollable-item" fxLayout="row" fxLayoutAlign="start center" *ngIf="showAddFilter">
+            <button ntk-stop-monitoring mat-button [matMenuTriggerRestoreFocus]="false" [matMenuTriggerFor]="filtersMenu" color="primary" (menuOpened)="onAddFilterClicked()" class="text-uppercase button-add-filter">{{'btAddFilter'|translator}}</button>
+        </div>
+    </ntk-scrollable>
+    <button *ngIf="showSaveFilter && (!customFilter || !customFilter.Public || canManageGlobalFilters)" ntk-stop-monitoring [disabled]="!isDirty || isEmpty" mat-button color="primary" fxFlex="none"  (click)="onSaveCustomFilterClicked()" class="text-uppercase btn-save-filter">{{'btSaveFilter'|translator}}</button>
+    <button *ngIf="showClearFilter" ntk-stop-monitoring  mat-icon-button fxFlex="none"  (click)="onClearFieldFiltersClicked()" class="text-uppercase button-normal btn-clear-filter" style="margin-right: 8px" matTooltip="{{'btClearFilter'|translator}}" matTooltipClass="truncated-tip">
+        <mat-icon svgIcon="ntk-filter-remove">filter-remove</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="showAddFilter || isShowSaveFilter || showClearFilter" [matMenuTriggerRestoreFocus]="false" [matMenuTriggerFor]="actionsFilterMenu" class="button-normal btn-actions" style="margin-right: 8px">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <div #addFilterTrigger="matMenuTrigger" [matMenuTriggerRestoreFocus]="false" [matMenuTriggerFor]="filtersMenu"  class="add-filter-hidden-trigger" style="height: 80%;"></div>
+</div>
+<mat-menu #filtersMenu="matMenu" [overlapTrigger]='false' yPosition="above"  class="ntk-toolbar-menu ntk-toolbar-available-menu-items">
+    <ng-template matMenuContent>
+        <button mat-menu-item *ngFor="let filter of availableMenuItems" (click)="onMenuIemClicked(filter)">{{filter.DisplayValue}}</button>
+    </ng-template>
+</mat-menu>
+<mat-menu #actionsFilterMenu="matMenu" [overlapTrigger]='false'  class="ntk-toolbar-menu ntk-toolbar-actions-filter-menu-items">
+    <ng-template matMenuContent>
+        <button mat-menu-item *ngIf="showAddFilter" (click)="onSubMenuAddFilterClicked()">{{'btAddFilter'|translator}}</button>
+        <button mat-menu-item *ngIf="isShowSaveFilter" (click)="onSaveCustomFilterClicked()">{{'btSaveFilter'|translator}}</button>
+        <button mat-menu-item *ngIf="showClearFilter" (click)="onClearFieldFiltersClicked()">{{'btClearFilter'|translator}}</button>
+    </ng-template>
+</mat-menu>

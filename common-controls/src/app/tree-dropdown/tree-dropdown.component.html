@@ -1,0 +1,15 @@
+<div class="mat-dropdown-container" cdkOverlayOrigin #dropdownButton='cdkOverlayOrigin'>    
+    <div class="mat-dropdown-value" (click)="onInputClick()">
+        <input type="input" class='mat-input-element' 
+        [(ngModel)]='displayText' #textBox
+        [readonly]="disableSearch"   
+        (onDebounce)="displayTextChanged($event)" debounce='300' (keydown)='onInputKeyDown($event)' />
+    </div>    
+    <div *ngIf='(!displayText && isSmallScreen) || !isSmallScreen' class="mat-dropdown-arrow-wrapper" (click)='onDropdownButtonClick()'>
+        <div class="mat-dropdown-arrow"></div>
+    </div>    
+    <div *ngIf='displayText && isSmallScreen' class="mat-dropdown-arrow-wrapper" (click)='clearText();$event.preventDefault()'>
+        <div class="mat-dropdown-clear"></div>
+    </div>
+</div>
+ 

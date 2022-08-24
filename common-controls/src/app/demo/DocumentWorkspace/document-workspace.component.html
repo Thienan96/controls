@@ -1,0 +1,63 @@
+<div fxLayout="column" style="height: 100%;">
+    <button (click)="showPendding()">Show pendding upload</button>
+    <div>All components of document module</div>
+    <ntk-attachment-box
+            fxLayout="column"
+            autoCreateAttachment="true"
+            [attachments]="attachments"
+            [disabled]="false"
+            [isBackgroundMode]="true"
+            [issueId]="12345676"
+            [showMenu]="false"
+            [canSelect]="false"
+            (selectedChanged)="onSelectedAttachmentChanged($event)"
+            acceptExtensions=".pdf,.png,.jpeg,.jpg,.docx,.xlsx">
+    </ntk-attachment-box>
+
+
+    <button (click)="addFolderClick()">Add Folder</button>
+
+    <div fxFlex fxLayout="row" style="overflow: hidden;">
+        <div fxFlex="33">
+            <mat-form-field style="width: 50%; padding-left: 8px;">
+                <ntk-mat-dropdown
+                        [getData]="getFolder"
+                        [(ngModel)]="currentSite"
+                        #siteSelector>
+                    <ng-template let-item="item">
+                        <div *ngIf="item.Id" class="dropdown-child-item">{{ item.Name }}</div>
+                    </ng-template>
+                </ntk-mat-dropdown>
+            </mat-form-field>
+            <ntk-folder-tree
+                #folderTree
+                [getData]="getFolderByPage.bind(this)"
+                [functionTemplate]="defaultFunctionTemplate"
+                [queryCondition]="queryCondition"
+                (foldersChecked)="changeStatusFolder($event)">
+                <ng-template #defaultFunctionTemplate>
+                    <button
+                            mat-icon-button
+                            #tooltip="matTooltip"
+                            matTooltip="Edit Folder"
+                            matTooltipPosition="left"
+                            (click)="openDialog()">
+                        <mat-icon>create</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </ng-template>
+            </ntk-folder-tree>
+        </div>
+        <div fxFlex="33" fxLayout="column">
+            <ntk-documents-list fxFlex></ntk-documents-list>
+            <button (click)="onRefresh($event)">Refresh</button>
+        </div>
+
+        <div fxFlex="34">
+            <ntk-drawing-board [imageUrl]='imgUrl' [canDraw]='false'></ntk-drawing-board>
+        </div>
+    </div>
+</div>
+

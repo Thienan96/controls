@@ -1,0 +1,93 @@
+::ng-deep {
+  .expandable-details-edit-mode { // Edit mode
+    ntk-expandable-item {
+      .actions {
+        display: none;
+      }
+
+      &:hover {
+        .actions {
+          display: block;
+        }
+      }
+
+      &:hover {
+        // Background when hover on item
+        &:before {
+          content: '';
+          background: #FAFAFA;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          height: 100%;
+        }
+      }
+
+      // Color for NEW button
+      .button-new {
+        color: rgba(0, 0, 0, 0.54);
+      }
+
+      .error {
+        color: rgb(221, 44, 0);
+      }
+
+    }
+    .is-selected {
+      ntk-expandable-item:before {
+        content: '';
+        background: #ECECEC;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+      }
+
+      &.is-section-item,
+      &.is-include-item {
+        .header {
+          background-color: #B9D3E7;
+        }
+      }
+    }
+  }
+
+
+  // Helper for drag
+  ntk-expandable-item {
+    &.ui-draggable-dragging {
+      opacity: 0.75;
+      background-color: #ECECEC;
+      width: 500px;
+      z-index: 80;
+
+      .header {
+        background: transparent;
+      }
+
+      .actions {
+        display: none;
+      }
+    }
+  }
+
+
+  // Add line menu
+  .add-line-menu-panel {
+    mat-icon,
+    .icon-text {
+      color: #056DD0 !important;
+      margin: 0 16px 0 0 !important;
+    }
+
+    .icon-text {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      text-align: center;
+    }
+  }
+
+}

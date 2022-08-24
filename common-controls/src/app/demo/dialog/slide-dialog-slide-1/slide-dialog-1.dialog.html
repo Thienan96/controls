@@ -1,0 +1,40 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxFlex fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+        <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>
+            <button *ngIf="!dialogData.ShowBackButton" fxFlex="none" mat-icon-button (click)="onClose()" >
+                <mat-icon>close</mat-icon>
+            </button>
+            <button *ngIf="dialogData.ShowBackButton" fxFlex="none" mat-icon-button (click)="onBack()" >
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <div fxFlex class='title-dialog'>Slide 1</div>
+            <button fxFlex="none" mat-button  (click)="onSave()">Save</button>
+            <button fxFlex="none" mat-button  (click)="onSaveAndClose()">Save And Close</button>
+        </mat-toolbar>
+        <div fxFlex class="content-dialog">
+            Slide 1
+            <div fxLayoutAlign="center start">
+                <button mat-raised-button (click)="onNextDialog()">Next Dialog</button>
+            </div>
+            <div>
+                <mat-form-field fxFlex>
+                <input matInput [matDatepicker]="fixedDate1" [placeholder]="'Date with time'" [ntk-min-date]
+                       [(ngModel)]="fixedDate">
+                <mat-datepicker-toggle matSuffix [for]="fixedDate1" ></mat-datepicker-toggle>
+                <mat-datepicker #fixedDate1 touchUi="true" ></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field fxFlex>
+                    <ntk-mat-dropdown [placeholder]="'Test'" (onGetData)='onGetDropdownData($event)'
+                                      [(ngModel)]="dropdownValue">
+                        <ng-template let-item="item">
+                            <!-- <ntk-text-truncation [autoResize]="false" >{{item.Name}}</ntk-text-truncation> -->
+                            <div>{{item.Name}}</div>
+                        </ng-template>
+                    </ntk-mat-dropdown>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

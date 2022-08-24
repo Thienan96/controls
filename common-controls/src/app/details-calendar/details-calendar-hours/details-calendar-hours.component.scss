@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.hour {
+  position: relative;
+
+  &:first-child {
+    .line {
+      border: 0;
+    }
+
+    .display-value {
+      top: 0;
+    }
+  }
+
+  &:last-child {
+    height: 0 !important;
+
+    .line {
+      display: none;
+    }
+
+    .display-value {
+      top: -19px;
+    }
+  }
+}
+
+.display-value {
+  position: absolute;
+  top: -9px;
+  width: 50px;
+  text-align: center;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 50px;
+}
+

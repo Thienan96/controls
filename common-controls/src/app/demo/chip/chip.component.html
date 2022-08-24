@@ -1,0 +1,83 @@
+<div style="margin: 40px;padding-top: 100px">
+    <form #form (ngSubmit)="onSubmit(form)">
+        <div style="margin-bottom: 24px;">
+            <button type="submit" >Save</button>
+            <mat-slide-toggle style="margin-left: 10px" [checked]="disabled" (change)="onChangeDisable($event)">Disable Input</mat-slide-toggle>
+            <mat-slide-toggle style="margin-left: 10px" [checked]="readonly" (change)="onChangeReadOnly($event)">ReadOnly Input</mat-slide-toggle>
+            <mat-slide-toggle style="margin-left: 10px" [checked]="nounderline" (change)="onChangeUnderline($event)">Hide Underline</mat-slide-toggle>
+            <mat-slide-toggle style="margin-left: 10px" [checked]="mini" (change)="onChangeMini($event)">Mini</mat-slide-toggle>
+        </div>
+
+        <mat-form-field [appearance]="nounderline?'none':'legacy'">
+            <mat-label>List</mat-label>
+            <ntk-chip [required]="true"
+                      [formControl]="chipFormControl"
+                      [disabled]="disabled"
+                      [readonly]="readonly"
+                      (changed)="onItemChanged($event)"
+                      [onGetData]="onGetData.bind(this)"
+                      [value]="selected"
+                      title="Room"
+                      [class.ntk-chip-big]="!mini">
+                <ng-template ntk-template="chipTemplate" let-item='item'>{{item.Name}}</ng-template>
+                <ng-template ntk-template="listItemTemplate" let-item='item'>
+                    <mat-option [class.active]="item.isChecked">{{item.Name}}</mat-option>
+                </ng-template>
+            </ntk-chip>
+            <mat-error *ngIf="chipFormControl.hasError('required')">
+                Room is required
+            </mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field [appearance]="nounderline?'none':'legacy'">
+            <mat-label>List level</mat-label>
+            <ntk-chip [required]="true"
+                      [formControl]="chipFormControl"
+                      [disabled]="disabled"
+                      [readonly]="readonly"
+                      (changed)="onItemChanged($event)"
+                      [onGetData]="onGetData.bind(this)"
+                      [isItemDisabled]="isItemDisabled.bind(this)"
+                      [value]="selected"
+                      title="My Site"
+                      [class.ntk-chip-big]="!mini">
+                <ng-template ntk-template="chipTemplate" let-item='item'>{{item.Name}}</ng-template>
+                <ng-template ntk-template="listItemTemplate" let-item='item'>
+                    <mat-option [style.paddingLeft.px]="item.Level === 0 ? 16:16+(item.Level*24)" [disabled]="item.Level===0" [class.active]="item.isChecked">{{item.Name}}</mat-option>
+                </ng-template>
+            </ntk-chip>
+            <mat-error *ngIf="chipFormControl.hasError('required')">
+                Room is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Tree</mat-label>
+            <ntk-chip [required]="true"
+                      [formControl]="chipFormControl"
+                      [disabled]="disabled"
+                      [readonly]="readonly"
+                      (changed)="onItemChanged($event)"
+                      [onGetData]="onGetData.bind(this)"
+                      [isItemDisabled]="isItemDisabled.bind(this)"
+                      [value]="selected"
+                      title="My Site"
+                      [class.ntk-chip-big]="!mini">
+                <ng-template ntk-template="chipTemplate" let-item='item'>{{item.Name}}</ng-template>
+                <ng-template ntk-template="listItemTemplate" let-item='item'>
+                    <mat-option [class.active]="item.isChecked">
+                        <div fxLayout="row">
+                            <ntk-tree-indent *ngIf="item.indentLines" [offset-height]="item.offsetHeight" [indent-lines]="item.indentLines" [height]="48" [buffer]="10"></ntk-tree-indent>
+                            <span>{{item.Name}}</span>
+                        </div>
+                    </mat-option>
+                </ng-template>
+            </ntk-chip>
+            <mat-error *ngIf="chipFormControl.hasError('required')">
+                Room is required
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>

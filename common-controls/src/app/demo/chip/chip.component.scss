@@ -1,0 +1,12 @@
+:host {
+  ::ng-deep mat-form-field {
+    width: 100%;
+  }
+}
+
+::ng-deep ntk-autocomplete-panel{
+  .mat-option-disabled{
+    color: rgba(0, 0, 0, 0.87) !important;
+    font-weight: 500;
+  }
+}

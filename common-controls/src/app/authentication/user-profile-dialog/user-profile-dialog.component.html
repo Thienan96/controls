@@ -1,0 +1,17 @@
+<div fxFill fxLayout="column">
+    <mat-toolbar mat-dialog-title fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>
+        <button fxFlex="none" mat-icon-button (click)="closeDialog()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <span fxFlex class="dialog-title">{{'btShowProfile' | translator}}</span>
+    </mat-toolbar>
+    <div class="content-dialog" mat-dialog-content fxLayout.lt-sm="column" fxLayout="row"  fxLayoutGap="16px">
+        <img width="120px" height="120px" [src]="logoUrl | secure | async" />
+        <div>
+            <ntk-data-field captionKey='lbName' [value]="userName"></ntk-data-field>
+            <ntk-data-field captionKey='lbLogin' [value]="login"></ntk-data-field>
+            <ntk-data-field captionKey='lbContactRole' [value]="role"></ntk-data-field>
+            <ntk-data-field captionKey='lbCompany' [value]="companyName"></ntk-data-field>
+        </div>
+    </div>
+</div>

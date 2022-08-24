@@ -1,0 +1,24 @@
+@mixin ntk-toolbar-virtual-scroll-component($theme, $options) {
+    ntk-toolbar-virtual-scroll {
+        position: relative;
+        display: block;
+        height: 100%;
+
+        cdk-virtual-scroll-viewport {
+            width: 100%;
+            height: 100%;
+            position: absolute !important;
+
+            .cdk-virtual-scroll-content-wrapper {
+                width: 100%;
+            }
+        }
+
+        mat-list-item {
+            &.disabled:hover {
+                background: transparent !important;
+            }
+        }
+    }
+
+}

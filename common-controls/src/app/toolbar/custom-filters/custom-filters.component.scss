@@ -1,0 +1,6 @@
+@mixin ntk-custom-filters-component($theme, $options) {
+  ntk-custom-filters {
+    height: 48px;
+    display: block;
+  }
+}

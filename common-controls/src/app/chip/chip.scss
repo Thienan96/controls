@@ -1,0 +1,32 @@
+@mixin chip($theme) {
+  $primary: map_get($theme, primary);
+  $accent: map_get($theme, accent);
+  $warn: map_get($theme, warn);
+
+  // Dropdown icon when hover on control
+  .mat-form-field-type-ntk-chip.mat-focused {
+    .mat-primary {
+      .mat-chip-arrow {
+        color: mat-color($primary) !important;
+      }
+    }
+    .mat-warn {
+      .mat-chip-arrow {
+        color: mat-color($accent) !important;
+      }
+    }
+    .mat-accent {
+      .mat-chip-arrow {
+        color: mat-color($warn) !important;
+      }
+    }
+  }
+
+
+  ntk-chip.ntk-chip-invalid{
+    .mat-chip-arrow{
+      color:  mat-color($warn) !important;
+    }
+  }
+}
+

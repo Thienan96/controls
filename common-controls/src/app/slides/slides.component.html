@@ -1,0 +1,3 @@
+<div class="slides">
+    <ntk-slide-body (loaded)="onLoaded(slide)" (translateCompleted)="onTranslateCompleted($event)" [class.slide-active]="selectedIndex === i" [animationDuration]="animationDuration" [position]="slide.position" [isActive]="slide.isActive" [slide]="slide" class="slide" *ngFor="let slide of slides;let i= index"></ntk-slide-body>
+</div>

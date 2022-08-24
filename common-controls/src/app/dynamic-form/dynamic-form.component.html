@@ -1,0 +1,70 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+  <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' style='margin: 0;'>
+
+      <button fxFlex="none" mat-icon-button (click)="close()">
+          <mat-icon>close</mat-icon>
+      </button>
+
+      <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400">{{titleKey | translator}}</div>
+
+      <div *ngIf="dialogData.Data?.cantDoubleClick else normalButton">
+        <button mat-button  elementDebounceClick (debounceClick)="onSaveClick()"  [debounceTime]="500" [disabled]='!canSave' >{{saveKey | translator}}</button>
+      </div>
+      <ng-template #normalButton>
+        <button mat-button (click)="onSaveClick()" [disabled]='!canSave' >{{saveKey | translator}}</button>
+      </ng-template>
+
+  </mat-toolbar>
+
+  <!-- <mat-progress-bar mode="indeterminate"  [style.display]="busy?'inherit':'none'" class="loading-progress"></mat-progress-bar> -->
+
+  <div style="padding: 16px 32px;overflow: auto;">
+    <form fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="form">
+      <div *ngFor="let field of formDefinition.fields" [ngSwitch]="field.type">
+
+          <!--read-only-->
+          <ntk-data-field [fxFlex]='field.flex' *ngSwitchCase="'read-only'" [captionKey]='field.placeHolderKey' [value]='form?.get(field.name).value'></ntk-data-field>
+         <!--text-->
+          <mat-form-field [fxFlex]='field.flex' *ngSwitchCase="'text'">
+              <input [id]="field.name"  matInput
+                [placeholder]="field.placeHolderKey | translator" [formControlName]="field.name" [required]='field.required'>
+              <mat-error>
+                  <span *ngIf="form?.get(field.name).errors?.required">{{'msgRequiredField' | translator}}</span>
+              </mat-error>
+          </mat-form-field>
+
+          <!--select-->
+          <mat-form-field [fxFlex]='field.flex' *ngSwitchCase="'select'" >
+            <mat-select  [id]="field.name" [placeholder]="field.placeHolderKey | translator" [formControlName]="field.name"
+                [required]='field.required' disableOptionCentering  panelClass="offset-down-panel">
+                <mat-option *ngFor="let item of field.values" [value]='item.Id'>
+                    {{item.Name}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!--date-->
+          <mat-form-field [fxFlex]='field.flex' *ngSwitchCase="'date'" >
+            <input matInput [id]="field.name" [matDatepicker]="myDatePicker"
+                        [placeholder]="field.placeHolderKey | translator" [formControlName]="field.name" [required]='field.required' >
+                <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+          </mat-form-field>
+          <mat-datepicker #myDatePicker ></mat-datepicker>
+
+          <!--room-->
+          <mat-form-field [fxFlex]='field.flex' *ngSwitchCase="'room'" >
+            <ntk-mat-tree-dropdown  *ngSwitchCase="'room'" [placeholder]="field.placeHolderKey | translator" [formControlName]="field.name"
+                        [getData]='getRooms' [context]="field.name" [required]='field.required' >
+            </ntk-mat-tree-dropdown>
+          </mat-form-field>
+
+          <!--divider-->
+          <mat-divider *ngSwitchCase="'devider'" style='margin: 16px 0;' ></mat-divider>
+
+          <!--check-->
+          <mat-checkbox [id]="field.name" *ngSwitchCase="'check'"  color="primary" [formControlName]="field.name" >{{field.placeHolderKey | translator}}</mat-checkbox>
+      </div>
+      <!-- {{form.value | json}} -->
+    </form>
+  </div>
+</div>

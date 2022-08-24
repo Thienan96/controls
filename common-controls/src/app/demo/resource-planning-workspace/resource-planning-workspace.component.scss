@@ -1,0 +1,142 @@
+
+.event-on-right, .left-droppable {
+  display: block;
+}
+
+.event-on-right {
+  margin: 2px;
+  padding: 4px;
+}
+
+.left-droppable {
+  margin-right: 10px;
+  height: 100%;
+  background: lightgrey;
+  position: relative;
+}
+
+.trash-droppable {
+  border: 1px transparent solid;
+
+  &.ui-droppable-hover {
+    border-color: red;
+  }
+
+  .trash-icon {
+    width: 32px;
+    font-size: 32px;
+    height: 32px;
+    display: block;
+
+  }
+}
+
+::ng-deep ntk-resource-planning {
+  .overload-header {
+    background-color: red;
+    color: white;
+  }
+
+  .notworkingtime {
+    background-color: #f2f2f2;
+  }
+
+  .monthcalendar-holiday-morning {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    display: block;
+  }
+
+  .monthcalendar-holiday-afternoon {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    display: block;
+    top: 50%;
+  }
+
+  .monthcalendar-holiday-full-pending {
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 1px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px dashed black;
+    }
+  }
+
+
+  .text-on-right {
+    width: 15%;
+  }
+
+
+  .summary-content-holiday {
+    background: repeating-linear-gradient(45deg, #cacaca, #cacaca 1.7px, white 1.7px, white 5px) !important;
+  }
+
+  .summary-content-color-1 {
+    background: #000;
+  }
+
+  .summary-content-color-2 {
+    background-color: #b3b3b3;
+  }
+
+  ntk-resource-planning-event {
+    .resource-planning-icon-clock {
+      display: none;
+    }
+
+    &:hover {
+      .resource-planning-icon-clock {
+        display: block;
+      }
+    }
+
+    .resources-calendar-event-content {
+      &.unMoveInside.ui-draggable-line-top:before {
+        display: none;
+      }
+
+      &.resources-calendar-event-type-holiday {
+        .event-content {
+          background: repeating-linear-gradient(45deg, #cacaca, #cacaca 1.7px, white 1.7px, white 10px) !important;
+        }
+      }
+
+      &.resource-planning-task-assign-requested {
+        opacity: 0.5;
+
+        .hour {
+          color: #ff0000;
+        }
+      }
+
+      &.resource-planning-dummy-block,
+      &.resource-planning-no-duration-block {
+        .hour {
+          display: none;
+        }
+      }
+
+      &.resource-planning-tentative-assign:after {
+        content: "";
+        border-width: 2px;
+        border-style: dashed;
+        position: absolute;
+        right: 1px;
+        bottom: 1px;
+        left: 1px;
+        top: 0;
+        z-index: 1;
+      }
+    }
+
+  }
+}
+

@@ -1,0 +1,46 @@
+@mixin datatable-row($theme, $options) {
+  $hoverBackgroundColor: map_get($options, hoverBackgroundColor);
+  $selectedBackgroundColor: map_get($options, selectedBackgroundColor);
+  $borderColor: map_get($options, borderColor);
+  ntk-datatable-row {
+    display: block;
+
+    &:hover:not(.disabled) {
+      background: $hoverBackgroundColor !important;
+
+      .head-check {
+        display: table;
+      }
+    }
+
+    &.active {
+      background: $selectedBackgroundColor !important;
+
+      .head-check {
+        display: table;
+      }
+    }
+
+    &.datatable-row-alternate-color.datatable-row-odd:not(.datatable-row-disabled) {
+      background: rgba(225, 239, 255, 0.4);
+    }
+
+    &.datatable-row-disabled{
+      background: whitesmoke;
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    .head-check {
+      display: none;
+    }
+
+    .head-check-force {
+      display: table !important;
+    }
+
+
+    &.last-item{
+      border-bottom: 1px solid $borderColor;
+    }
+  }
+}

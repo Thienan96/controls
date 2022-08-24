@@ -1,0 +1,13 @@
+<div class="header-content">
+    <div class="header-columns" fxLayout="row" fxLayoutAlign="start center">
+        <div *ngFor="let column of columns; trackBy:trackByColumn"
+             [ngClass]="column.ClassName"
+             class="column column-header"
+             fxFlex="{{100/columns.length}}">
+            <div [innerHTML]="column.Title" class="mat-title header-title"></div>
+        </div>
+    </div>
+    <div *ngIf="showGroupTitle"
+         [innerHTML]="currentGroup && currentGroup.Title ? currentGroup.Title:'&nbsp;'"
+         class="group-title mat-subheading-2"></div>
+</div>

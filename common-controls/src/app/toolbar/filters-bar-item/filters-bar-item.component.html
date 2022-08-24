@@ -1,0 +1,15 @@
+<div class="ntk-toolbar-filter-item-small-width" [style.cursor]="item.canEdit ? 'pointer': 'initial'" fxLayoutAlign="start center">
+    <div class="hover-line"></div>
+    <button mat-icon-button *ngIf="shownFavorite && item && item.FilterType !=='QuickFilter'" (click)="onTogglePinClicked(item,$event)"  style="overflow: hidden">
+        <mat-icon class="icon-favorite" [class.icon-favorite-active]="item.IsFavorite">star_rate</mat-icon>
+    </button>
+    <span *ngIf="item.FilterType !=='Boolean' && item.FilterType !=='QuickFilter'" class="display-value" [class.without-favorite]="!shownFavorite">{{item.TranslateKey|translator}}:&nbsp;</span>
+    <span *ngIf="item.FilterType !=='Boolean' && item.FilterType !=='QuickFilter'" [class.message-invaid]="!item.IsValid" [innerHTML]="displayValue | carriageReturn2HtmlBr" ></span>
+    <span *ngIf="item.FilterType ==='Boolean'" class="display-value-boolean" [class.without-favorite]="!shownFavorite" >{{item.TranslateKey|translator}}</span>
+    <span *ngIf="item.FilterType ==='QuickFilter'" class="display-value-boolean" [class.without-favorite]="!shownFavorite" >{{item.DisplayValue}}</span>
+
+    <button mat-icon-button (click)="onRemoveClicked($event)" class="btn-remove" *ngIf="item.canRemove" >
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="ntk-toolbar-filter-item-width"></div>

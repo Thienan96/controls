@@ -1,0 +1,21 @@
+<virtual-scroller #scroll
+    [parentScroll]="parentScroll"
+    [style.height.%]="100" 
+    [style.width.%]="100" 
+    [items]="items"
+    [executeRefreshOutsideAngularZone]="true"
+    [scrollDebounceTime]="scrollDebounceTime"
+    (vsUpdate)="onUpdate($event)" 
+    (vsChange)="onChange($event)">
+    <ng-content></ng-content>
+    <div #container class="virtual-list-container" style="margin:0;padding:0;">
+        <div *ngFor="let row of viewPortItems; trackBy:trackByFunction; let i = index;"
+            (click)='onItemClick(row)' (dblclick)='onItemDbClick(row)'>
+            <ng-container *ngTemplateOutlet="(_itemTemplate ? _itemTemplate : (template?template: defaultTemplate));context:{item: row, index: scroll.viewPortInfo.startIndex + i}">
+            </ng-container>
+        </div>        
+    </div>
+    <ng-template #defaultTemplate let-item='item'>
+        <div>{{item.Name || item.Id}}</div>
+    </ng-template>
+</virtual-scroller>

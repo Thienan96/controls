@@ -1,0 +1,24 @@
+<div (kanbanDropListMoved)="onMove($event)"
+     [cdkDropListData]="column"
+     [cdkDropListEnterPredicate]="onDropListEnterPredicate.bind(this)"
+     [cdkDropListSortingDisabled]="!canSort"
+     [kanbanCanDrop]="canDrop"
+     [kanbanCanSort]="canSort"
+     [kanbanGroup]="group"
+     id='{{column.Name}}'
+     kanbanDropList
+     style="height: 100%;">
+    <ntk-kanban-item (cdkDragEnded)="onDragEnd($event)"
+                     *ngFor="let item of column.Items; trackBy: trackByItem"
+                     [attr.itemId]="item.Id"
+                     [cdkDragData]="item"
+                     [dragStart]="dragStart"
+                     [itemClick]="itemClick"
+                     [item]="item"
+                     [template]="itemTemplate"
+                     [vsDragScrollContainer]="scrollContainer"
+                     #drag="kanbanDrag"
+                     kanbanDrag
+                     [drag]="drag"
+                     vsDragScroll></ntk-kanban-item>
+</div>

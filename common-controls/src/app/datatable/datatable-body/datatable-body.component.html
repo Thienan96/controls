@@ -1,0 +1,31 @@
+<div fxLayout="column" style="width: 100%;">
+    <div *ngIf='items.length === 0' style="padding-left: 17px; padding-top: 10px;">{{noDataText}}</div>
+    <ntk-virtual-scroll fxFlex #scroll [items]="items"
+                    [executeRefreshOutsideAngularZone]="true"
+                    [scrollDebounceTime]="100"
+                    (vsUpdate)="onUpdate($event)"
+                    (vsChange)="onChange($event)">
+        <div *ngFor="let row of viewPortItems;  let i = index;" [style.height.px]="itemHeight" class="ntk-datatable-row-wrapper">
+            <ntk-datatable-row
+                    *ngIf="row.Id!==-1"
+                    [style.height.px]="itemHeight"
+                    [row]="row"
+                    [index]="getViewPortInfor().startIndex + i"
+                    [columns]="columns"
+                    [scrollLeft]="scrollLeft"
+                    [ngClass]="rowClass && rowClass(row)"
+                    [dataChanged]="dataChanged"
+                    [class.active]="isSelectedItem(row)"
+                    [class.datatable-row-odd]="(getViewPortInfor().startIndex + i)%2===1"
+                    [class.datatable-row-even]="(getViewPortInfor().startIndex + i)%2===0"
+                    [class.datatable-row-alternate-color]="hasAlternate"
+                    [class.last-item]="getViewPortInfor().startIndex + i === items.length-1"
+                    [class.first-item]="getViewPortInfor().startIndex + i === 0"
+                    (click)="onRowClick(row)"
+                    (dblclick)="onRowDbClick(row)"
+                    [template]="rowTemplate"
+                    id="datatable-row-id-{{row.UniqueKey}}">
+            </ntk-datatable-row>
+        </div>
+    </ntk-virtual-scroll>
+</div>

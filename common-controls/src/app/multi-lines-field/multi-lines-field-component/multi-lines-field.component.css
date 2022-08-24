@@ -1,0 +1,14 @@
+span.field-label {
+	display: block;
+	color: rgba(0,0,0,0.54);
+	font-size: 11px;
+	letter-spacing: 0.020em;
+	margin: 2px 0;
+}
+.field-data {	
+	line-height: 20px;	
+	-webkit-user-select: text;  /* Chrome 49+ */
+    -moz-user-select: text;     /* Firefox 43+ */
+    -ms-user-select: text;      /* No support yet */
+    user-select: text;          /* Likely future */
+}

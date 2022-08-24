@@ -1,0 +1,5 @@
+<div *ngIf="title||titlePrefixKey" class="toolbar-title-wrapper" (click)="onTitleClicked()" [style.min-width.px]="titleMinWidth" fxLayout="row" fxLayoutAlign="start center">
+  <span *ngIf='titlePrefixKey'>{{titlePrefixKey|translator}}</span>
+  <mat-icon *ngIf='titlePrefixKey'>chevron_right</mat-icon>
+  <span>{{title}}</span>
+</div>

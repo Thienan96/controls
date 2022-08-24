@@ -1,0 +1,309 @@
+<div fxLayout="column" style="height:100%;overflow: hidden;padding: 10px;box-sizing: content-box">
+    <div fxFlex="none" >
+        <button (click)="onSave()" mat-button >Save</button>
+        <button (click)="onToggleHeight()" mat-button >Toggle height</button>
+        <button (click)="onRefresh()" mat-button >Refresh</button>
+        <div style="height:100px;width: 100%;" *ngIf="shownToggleHeight"></div>
+    </div>
+    <div fxFlex fxLayout="row">
+        <div fxFlex style="position: relative; overflow: hidden">
+            <ngx-datatable fxFlex style="position: absolute;border:1px solid rgba(0, 0, 0, 0.12)"
+                           #dataTable
+                           class="bootstrap table-editable fullscreen"
+                           [rows]="rows"
+                           [columnMode]="'force'"
+                           [headerHeight]="'50'"
+                           [scrollbarV]="true"
+                           [scrollbarH]="true"
+                           [footerHeight]="false"
+                           [rowHeight]="rowHeight"
+                           [selectionType]="'single'"
+                           [virtualization]="true"
+                           [sorts]="sorts"
+                           [externalPaging]="true"
+                           [selected]='selectedRows'
+                           (sort)="onSort($event)"
+                           (resize)="onColumnResize($event)"
+                           (reorder)="onColumnReOrder($event)"
+                           [loadingIndicator]="loading"
+                           [count]="page.totalElements"
+                           [offset]="page.pageNumber"
+                           (page)='setPage($event)'
+                           (scroll)="onTableScroll($event)"
+                           [rowClass]="getRowClass.bind(this)"
+                           ntkTableEditableFixHeader
+                           [datatable]="this"
+                           ngx-resize-watcher
+                           (onResizeSensor)="onResize()"
+                           (select)="onSelect($event)"
+                           emptyRow>
+
+                <!-- Center column -->
+                <ngx-datatable-column *ngFor="let col of columns; index as i"
+                                      name="{{col.translationKey}}{{col.required ? '*':''}}"
+                                      [prop]='col.property'
+                                      [width]='getColumnWidth(col.name)'
+                                      [canAutoResize]='true'
+                                      [headerClass]="getHeaderClass"
+                                      [resizeable]="true"
+                                      [sortable]="false"
+                                      [minWidth]='col.minWidth || 100'
+                                      [maxWidth]='col.maxWidth'>
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        <div class="cell-editable" tabindex="0" (dblclick)="onCellDblClick(rowIndex, i)" (click)="onCellClick(rowIndex, i, $event)" [ngSwitch]="col.property"
+                             [ngClass]="getCellClass(rowIndex, i)" >
+                            <div class="cell-value" fxLayoutAlign="start center">
+                                <div *ngSwitchCase="'Type'"  class="table-editable-selectable" fxLayout="row" fxLayoutAlign="start center">
+                                    <div fxFlex>{{row.Type?.Name}}</div>
+                                    <div fxFlex="none" class="table-editable-dropdown-arrow-wrapper" (click)="showDropdown(rowIndex, i, $event)"></div>
+                                </div>
+                                <div *ngSwitchCase="'UnitPrice'">{{row.UnitPrice}}</div>
+                                <div *ngSwitchCase="'Quality'">{{row.Quality}}</div>
+                                <div *ngSwitchCase="'CostPrice'">{{row.CostPrice !== null ? (row.CostPrice|formatDecimal): ''}}</div>
+                                <div *ngSwitchCase="'SalePrice'">{{row.SalePrice?(row.SalePrice|formatDecimal):''}}</div>
+                                <div *ngSwitchCase="'SalePriceVAT'">{{row.SalePriceVAT?(row.SalePriceVAT|formatDecimal):''}}</div>
+                                <div *ngSwitchCase="'Discount'">{{row[col.property]}}</div>
+                                <div *ngSwitchCase="'Fee'" >{{row.Fee !== null ? (row.Fee)+'%': ''}}</div>
+                                <div *ngSwitchCase="'VatRate'">{{row.VatRate?row.VatRate+'%':''}}</div>
+                                <div *ngSwitchCase="'Option'" style="height: 100%">
+                                    <ntk-table-editable-cell-checkbox
+                                            class="cell-control"
+                                            [selected]="cellSelected"
+                                            [rowIndex]="rowIndex"
+                                            [colIndex]="i"
+                                            [value]="row.Option"
+                                            [datatable]="this"
+                                            (valueChanged)="onCheckboxValueChanged(rowIndex, i, $event)"
+                                            (enter)="onCheckboxEnter($event)">
+                                        <mat-checkbox color="primary" [checked]="row.Option"></mat-checkbox>
+                                    </ntk-table-editable-cell-checkbox>
+                                </div>
+                                <div *ngSwitchCase="'Date'">{{row.Date|formatDate}}</div>
+                                <div *ngSwitchDefault class='hs-block-ellipsis'>{{row[col.property]}}</div>
+                            </div>
+                            <div *ngIf="cellSelected && cellSelected.row===rowIndex && cellSelected.col===i">
+                                <ntk-table-editable-cell-selected (load)="onSelectedCellLoad($event)" (destroy)="onSelectedCellDestroy($event)"></ntk-table-editable-cell-selected>
+                                <ng-template [cdkPortalOutlet]="templatePortal"></ng-template>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <!-- Left column -->
+                <ngx-datatable-column name="Id" prop='Id'  [sortable]="false" [width]="76" [minWidth]="76" [maxWidth]="76" [frozenLeft]="true" [headerClass]="getHeaderClass">
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        <div class="cell-editable" >
+                            <div class="cell-value" fxLayoutAlign="center center">{{row['Id']}}</div>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+
+                <!-- Right column -->
+                <ngx-datatable-column *ngIf="!readonly" name="" prop='Action' [sortable]="false"  [width]="60"  [minWidth]="60"  [maxWidth]="60" [frozenRight]="true" [headerClass]="getHeaderClass">
+                    <ng-template let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        <div ntkTableEditableFixHeader   [datatable]="this" class="table-editable-buttons" fxLayoutAlign="center center" style="height:100%; width:100%">
+                            <button #button mat-icon-button tabindex="-1" class="button-small" #menuTrigger="matMenuTrigger"   [matMenuTriggerFor]="actionMenu" [matMenuTriggerData]="{row: row, rowIndex: rowIndex, trigger: menuTrigger}" >
+                                <mat-icon>playlist_add</mat-icon>
+                            </button>
+                            <mat-icon ntkTableEditableDragHandle [datatable]="this" [rowIndex]="rowIndex" [columnIndex]="2"   style="cursor: move;">drag_handle</mat-icon>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+
+            </ngx-datatable>
+        </div>
+        <div fxFlex="none" style="height:100%;width: 100px;" *ngIf="shownToggleHeight"></div>
+    </div>
+</div>
+
+<!--- Context menu -->
+<mat-menu #actionMenu="matMenu" direction="down" yPosition="below" xPosition="before" >
+    <ng-template matMenuContent  let-rowIndex="rowIndex" let-row="row" let-trigger="trigger">
+        <button mat-menu-item (click)="onRowCreated(rowIndex)"><span class="table-editable-character">L</span>New line</button>
+        <button mat-menu-item (click)="onRowDeleted(row)"><mat-icon>delete</mat-icon>Delete line</button>
+        <button mat-menu-item (click)="onRowCopy(rowIndex,row)"><mat-icon>content_copy</mat-icon>Copy line</button>
+    </ng-template>
+</mat-menu>
+
+
+
+<!-- Textarea -->
+<ng-template #textareaTemplate let-scope>
+    <div class="cell-input-container" >
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter()"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <textarea matInput  (click)="scope.preventDefault($event)" [(ngModel)]="scope.value"></textarea>
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Input -->
+<ng-template #inputTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <input matInput type="text" (click)="scope.preventDefault($event)" [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Number -->
+<ng-template #numberTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <input  matInput type="text" (click)="scope.preventDefault($event)"  [ntk-only-number]="true" [decimal]="false" [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Decimal -->
+<ng-template #decimalTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <input matInput type="text"  (click)="scope.preventDefault($event)"  [ntk-only-number]="true" [decimal]="true" [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- DecimalNegative-->
+<ng-template #decimalNegativeTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control align-end"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter()"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur()">
+            <input matInput type="text" (click)="scope.preventDefault($event)" maxlength="14"  [ntk-only-number]="true" [decimal]="true" [allowNegative]="true" [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Percentage -->
+<ng-template #percentTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <!-- <input matInput ntk-only-number="true" maxlength="14" [decimal]="true" [allowPercentage]="true" 
+                ntkNumericPercentInput [(ngModel)]="scope.value"> -->
+
+            <input matInput type="text"  (click)="scope.preventDefault($event)"  [ntk-only-number]="true" [decimal]="true" [allowPercentage]="true" [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Currency -->
+<ng-template #currencyTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-input
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                (valueChanged)="scope.onValueChanged($event)"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <input  matInput type="text" (click)="scope.preventDefault($event)" [ntk-only-number]="true" [decimal]="true"  [(ngModel)]="scope.value" />
+        </ntk-table-editable-cell-input>
+    </div>
+</ng-template>
+
+<!-- Date -->
+<ng-template #dateTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-date
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                [showDropDown]="scope.showDropDown"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (valueChanged)="scope.onValueChanged($event)"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)"></ntk-table-editable-cell-date>
+    </div>
+</ng-template>
+
+<!-- Select -->
+<ng-template #selectTemplate let-scope>
+    <div class="cell-input-container">
+        <ntk-table-editable-cell-dropdown
+                class="cell-control"
+                [value]="scope.value"
+                [prevValue]="scope.prevValue"
+                [autoFocus]="scope.autoFocus"
+                [isShowDropDown]="scope.showDropDown"
+                [canSearch]="scope.canSearchDropDown"
+                [searchText]="scope.searchText"
+                [onGetDropdownData]="scope.onGetDropdownData"
+                [getDisplayText]="scope.getDisplayText"
+                (enter)="scope.onEnter($event)"
+                (escape)="scope.onEscape()"
+                (valueChanged)="scope.onValueChanged($event)"
+                (load)="scope.onLoad($event)"
+                (destroy)="scope.onDestroy($event)"
+                (blur)="scope.onBlur($event)">
+            <ng-template let-item="item">
+                <div class='hs-block-ellipsis' [matTooltip]="item.Name" ntk-tooltip-toggle>{{item.Name}}</div>
+            </ng-template>
+        </ntk-table-editable-cell-dropdown>
+    </div>
+</ng-template>
+

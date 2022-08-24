@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="menu" class="btn-select">
+    <mat-icon style="margin-right: 4px">language</mat-icon>
+    <span [ntk-translator]="currentLanguageTranslationKey"></span>
+    <mat-icon>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="languages-selection-panel">
+    <button mat-menu-item [class.color-primary]="language.Value === currentLanguage?.Value" [class.active]="language.Value === currentLanguage?.Value" *ngFor="let language of languages"  (click)="onLanguageClick(language)">{{language.DisplayValue}}</button>
+</mat-menu>

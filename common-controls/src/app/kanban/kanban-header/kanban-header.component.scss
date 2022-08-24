@@ -1,0 +1,19 @@
+@mixin kanban-header-component($theme, $options) {
+  $headerBorderBottom: map_get(map_get($options, header), borderBottom);
+  $headerHeight: map_get(map_get($options, header), height);
+
+  ntk-kanban-header {
+    .header-title {
+      margin-bottom: 0;
+    }
+
+    .column-header {
+      border-bottom: $headerBorderBottom;
+    }
+
+    .header-columns {
+      height: $headerHeight;
+    }
+  }
+
+}

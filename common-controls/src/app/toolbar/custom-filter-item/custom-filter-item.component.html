@@ -1,0 +1,20 @@
+<div class="indicate-line"></div>
+<div class="hover-line"></div>
+<div fxLayout="row" fxLayoutAlign="start center" style="height: 100%"  class="item-content type-custom-filter">
+    <button  fxFlex="none" mat-icon-button (click)="onButtonTogglePinClicked($event)">
+        <mat-icon class="icon-pin" svgIcon="ntk-pin" [ngClass]="{'icon-pin-active': item.Pinned}"></mat-icon>
+    </button>
+    <div fxFlex fxLayout="row" fxLayoutAlign="center center" style="height:100%" class="fix-flex-basis-ie title" (click)="onCustomFilterClicked()">
+        <div [matTooltip]="item.Name" matTooltipClass="truncated-tip" ntk-tooltip-toggle class="name hs-block-ellipsis" >{{item.Name}}</div>
+        <div fxFlex="none" *ngIf="showCustomFiltersCount">&nbsp;</div>
+        <div class="count-wrapper" *ngIf="showCustomFiltersCount">
+            <div class="loading" *ngIf="item.Count===undefined">
+                <mat-spinner diameter="20"></mat-spinner>
+            </div>
+            <div *ngIf="item.Count!==undefined" class="count">(<span *ngIf="item.Count<=99">{{item.Count}}</span><span *ngIf="item.Count>99">99+</span>)</div>
+        </div>
+    </div>
+    <button fxFlex="none" *ngIf="!item.Public || !item.MustPinned" mat-icon-button (click)="onButtonRemoveClicked($event)" class="btn-remove">
+        <mat-icon class="icon-delete">close</mat-icon>
+    </button>
+</div>

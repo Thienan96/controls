@@ -1,0 +1,153 @@
+<div [ngClass]="resource.ClassName" [attr.resource-id]="resource?.Resource?.Id" fxLayout="row" fxLayoutAlign="stretch"
+     style="height: 100%;position:relative">
+  <div class="spacing-user-information user-information"
+       [style.minHeight.px]="minHeight-1"
+       (click)="onResourceClicked()">
+    <div fxLayoutAlign="center center" style="height: 100%">
+        <div [fxLayout]="!isSmallIcon?'column':'row'" fxLayoutAlign="center center"
+             style="position: relative;width: 100%">
+          <div fxFlex="none" class="avatar">
+            <div *ngIf="resource.Resource?.LogoUrl" class="user-thumbnail">
+              <img [src]="resource.Resource.LogoUrl"/>
+            </div>
+            <mat-icon *ngIf="!resource.Resource?.LogoUrl" class="user-icon">person</mat-icon>
+          </div>
+          <div fxFlex class="name" [innerHTML]="resource.Resource?.Name"></div>
+          <ntk-resource-planning-tooltip *ngIf="resource.Resource?.resourceIconTooltip"
+                                         [ngClass]="resource.Resource.resourceIconClass"
+                                         [content]="resource.Resource.resourceIconTooltip"
+                                         [options]="options.tooltip"></ntk-resource-planning-tooltip>
+        </div>
+    </div>
+
+  </div>
+
+
+  <!-- Prev button -->
+  <div *ngIf="options.isShowPreNavigate" fxFlex="none"  class="spacing-prev-navigate btn-prev-navigate">
+    <button *ngIf="resource.ShowPreNavigate" mat-icon-button [disableRipple]="true" (click)="onPrevButtonClicked()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+  </div>
+
+  <!-- DaysPlanning -->
+  <div fxFlex style="position: relative">
+    <ng-container *ngIf="!isCustomizeView">
+      <div *ngIf="viewMode==ViewMode.Month" class="fix-flex ntk-ts-days-planning">
+        <ntk-resource-planning-droppable [options]="droppableOptions" (drop)="onDrop($event)" class="droppable" style="display: block;height: 100%">
+          <div *ngFor="let column of columns"
+               class="ntk-ts-day-planning"
+               [ngStyle]="{'left.%':column.left, 'width.%':column.width}"
+               [ngClass]="column.availability.ClassName"
+               (click)="onDayPlanningClicked(column)"
+               (dblclick)="onDayPlanningDblClicked(column)">
+            <ntk-resource-planning-tooltip
+                    *ngIf="column.availability[options.tooltip.eventProperty]"
+                    handle="parent"
+                    [content]="column.availability[options.tooltip.eventProperty]"
+                    [options]="options.tooltip"
+                    [canMouseEnterContent]="column.availability.HasTooltipDetails"></ntk-resource-planning-tooltip>
+            <div *ngIf="column.availability.Content" class="summary-content" [innerHtml]="column.availability.Content"></div>
+            <div *ngIf="column.availability.Events.length>0" class="display-events">
+              <div class="summary-event" *ngFor="let event of column.availability.Events"
+                   [style.background-color]="event.Color"
+                   [style.height]="event.TitleHeight"
+                   [ngClass]="event.ClassName"
+                   (click)="onEventClicked($event, event)"
+                   (dblclick)="onEventDblClicked($event, event)">
+                <ntk-resource-planning-tooltip
+                        *ngIf="event.Tooltip"
+                        handle="parent"
+                        [content]="event.Tooltip"
+                        [options]="options.tooltip"
+                        [canMouseEnterContent]="event.HasTooltipDetails"></ntk-resource-planning-tooltip>
+                <div *ngIf="event.Title" style="position: relative" [innerHtml]="event.Title"></div>
+              </div>
+            </div>
+          </div>
+          <div class="draggable-placeholder" *ngIf="columns.length>0" [ngStyle]="{'width.%': columns[0].width}"></div>
+        </ntk-resource-planning-droppable>
+      </div>
+      <div *ngIf="viewMode===ViewMode.Week" style="height: 100%" class="res-table">
+        <ng-container *ngFor="let column of columns;let $index = index">
+          <ntk-resource-planning-events
+                  class="timesheet-in-day table-cell"
+                  [ngStyle]="{'width.%':column.width}"
+                  [ngClass]="{'unDroppable':!column.availability?.canDrop}"
+                  [viewMode]="viewMode"
+                  [selected]="selected"
+                  [resource]="resource"
+                  [dayPlanning]="column.availability"
+                  [date]="column.availability.Date"
+                  [events]="column.availability.Events"
+                  [options]="options"
+                  [attr.attr-date]="column.availability.Date"
+                  [getEventTooltip]="getEventTooltip"
+                  [updateEvent]="updateEvent"
+                  [moveEvent]="moveEvent"
+                  [buttonActionClick]="buttonActionClick"
+                  [eventClick]="eventClick"
+                  [eventDblClick]="eventDblClick"
+                  [dayPlanningClick]="dayPlanningClick"
+                  [dayPlanningDblClick]="dayPlanningDblClick"
+                  [eventDragStarted]="eventDragStarted"
+                  [eventDragStopped]="eventDragStopped">
+          </ntk-resource-planning-events>
+          <div *ngIf="viewMode===ViewMode.Week && ( ($index+1) % daysOfWeek === 0 && $index<columns.length-1)"
+               style="position: relative;height: 100%;width: 1%;float: left;"></div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <div *ngIf="isCustomizeView" class="fix-flex ntk-ts-days-planning">
+      <ng-container *ngFor="let column of columns">
+        <div *ngIf="column.availability.Content||column.availability.ClassName||column.availability.Tooltip||column.availability.Events.length>0"
+             class="ntk-ts-day-planning"
+             [ngStyle]="{left:column.left+'%',width:column.width+'%'}"
+             [ngClass]="column.availability.ClassName"
+             (click)="onDayPlanningClicked(column)"
+             (dblclick)="onDayPlanningDblClicked(column)">
+          <ntk-resource-planning-tooltip
+                  *ngIf="column.availability.Tooltip"
+                  handle="parent"
+                  [content]="column.availability.Tooltip"
+                  [options]="options.tooltip"
+                  [canMouseEnterContent]="true"></ntk-resource-planning-tooltip>
+          <div fxFill
+               fxLayoutAlign="center center"
+               class="summary-content"
+               *ngIf="column.availability.Content" [innerHtml]="column.availability.Content"></div>
+          <div *ngIf="column.availability.Events.length>0" class="display-events">
+            <div class="event" *ngFor="let event of column.availability.Events"
+                 [style.background-color]="event.Color"
+                 [ngClass]="event.ClassName"
+                 (click)="onEventClicked($event, event)"
+                 (dblclick)="onEventDblClicked($event, event)">
+              <ntk-resource-planning-tooltip
+                      *ngIf="event.Tooltip"
+                      handle="parent"
+                      [content]="event.Tooltip"
+                      [options]="options.tooltip"
+                      [canMouseEnterContent]="event.HasTooltipDetails"></ntk-resource-planning-tooltip>
+              <div *ngIf="event.Title" style="position: relative" [innerHtml]="event.Title"></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+
+
+  <!-- Right column -->
+  <div fxFlex="none" fxLayoutAlign="center center"  class="text-on-right" *ngIf="options.isShowRightColumnOfResource" [innerHtml]="resource.Right"></div>
+
+
+  <!-- Next button -->
+  <div *ngIf="options.isShowNextNavigate" fxFlex="none" fxLayout="row" fxLayoutAlign="center center"
+       class="spacing-next-navigate btn-next-navigate">
+    <button *ngIf="resource.ShowNextNavigate" mat-icon-button [disableRipple]="true" (click)="onNextButtonClicked()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div fxFill fxLayout="column">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' style="margin:0">
+
+        <button fxFlex="none" mat-icon-button (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400">{{'lbChooseMailTemplateToSend' | translator}}</div>
+
+        <button mat-button class="md-button" [disabled]="!canSave" (click)="onOk()">{{'btOk'| translator}}</button>
+
+    </mat-toolbar>
+
+    <div fxFlex="100" fxLayout="column" mat-dialog-content
+         style="margin:0; padding:10px 16px 16px;">
+         <div fxFlex style="margin-top:8px;" *ngIf="mailTemplates">
+            <div *ngFor="let template of mailTemplates" style="height:40px;cursor: pointer;" fxLayout="row" fxLayoutAlign="start center"  
+            [ngClass]="{'hs-item-list-selected': selectedTemplate !== null && template.Id === selectedTemplate.Id, 'hs-item-list': template.Id}"
+            (click)="onTemplateClick(template)" (dblclick)="onTemplateDblClick(template)" >
+                <div fxFlex class="mat-body-strong" style="margin-left:8px;" [ngStyle]="template.IsDisabled ? {'color': 'rgba(0, 0, 0, 0.4)'}: {'color': 'rgba(0, 0, 0, 0.87)'}">{{template.Name}}</div>
+            </div>
+        </div>
+
+        <!-- NBSHD-4410 -->
+        <div style="font-weight: bold; line-height: 20px !important; margin: 8px 0; font-size: 16px;" *ngIf="intervenerMailTemplates">{{'lbIntervener' | translator }}</div>
+        <div *ngIf="intervenerMailTemplates">
+            <div *ngFor="let template of intervenerMailTemplates" style="height:40px;cursor: pointer;" fxLayout="row" fxLayoutAlign="start center"  
+            [ngClass]="{'hs-item-list-selected': selectedTemplate !== null && template.Id === selectedTemplate.Id, 'hs-item-list': template.Id}"
+            (click)="onTemplateClick(template)" (dblclick)="onTemplateDblClick(template)" >
+                <div fxFlex class="mat-body-strong" style="margin-left:16px;" [ngStyle]="template.IsDisabled ? {'color': 'rgba(0, 0, 0, 0.4)'}: {'color': 'rgba(0, 0, 0, 0.87)'}">{{template.Name}}</div>
+            </div>
+        </div>
+
+        <div style="font-weight: bold; line-height: 20px !important; margin: 8px 0; font-size: 16px;" *ngIf="requesterMailTemplates">{{'lbRequester' | translator }}</div>
+        <div *ngIf="requesterMailTemplates">
+            <div *ngFor="let template of requesterMailTemplates" style="height:40px;cursor: pointer;" fxLayout="row" fxLayoutAlign="start center"  
+            [ngClass]="{'hs-item-list-selected': selectedTemplate !== null && template.Id === selectedTemplate.Id, 'hs-item-list': template.Id}"
+            (click)="onTemplateClick(template)" (dblclick)="onTemplateDblClick(template)" >
+                <div fxFlex class="mat-body-strong" style="margin-left:16px;" [ngStyle]="template.IsDisabled ? {'color': 'rgba(0, 0, 0, 0.4)'}: {'color': 'rgba(0, 0, 0, 0.87)'}">{{template.Name}}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div fxFlex="none" fxLayout="row" mat-dialog-actions 
+         style="margin: 8px 8px 8px 8px !important; padding: 0 !important">
+        <div fxFill fxLayoutAlign="end center">
+            
+            <button mat-button class="md-button" color='primary' [disabled]="!canSave" (click)="onOk()">{{'btOk'| translator}}</button>
+            <button mat-button class="md-button" (click)="close()">{{'btCancel'| translator}}</button>
+        </div>
+        
+    </div> -->
+
+    
+</div>
+

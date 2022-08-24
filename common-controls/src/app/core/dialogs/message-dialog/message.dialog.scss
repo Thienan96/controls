@@ -1,0 +1,24 @@
+
+@mixin message-dialog($theme) {
+    $primary: map-get($theme, primary);
+    .messageDialog {
+        overflow: hidden;
+        padding: 16px 24px;
+
+        .custom-btn {
+            color: mat-color($primary, 500);
+            float: right;
+            justify-content: flex-end;
+            margin-bottom: -8px;
+            // max-width: 50%;
+
+            .mat-button {
+                min-width: initial !important;
+            }
+        }
+
+        .mat-dialog-content {
+            line-height: 30px;
+        }
+    }
+}

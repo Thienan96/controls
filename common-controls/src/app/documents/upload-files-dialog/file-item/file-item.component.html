@@ -1,0 +1,55 @@
+<div #hsImageContainer fxLayout="column" fxLayoutAlign="start stretch" style="min-height: 95px;" >
+    <div fxLayout="row" fxLayoutAlign="start stretch"style="padding:0 16px;position: relative; flex-basis: auto !important;"  fxFlex>
+      <!-- Upload filed -->
+      <div style="position:absolute; top:0; bottom: 0px; left:0; right: 0; z-index:2; background-color:white; opacity:.8; overflow:hidden"
+      fxLayout="column" fxLayoutAlign="center center"
+      *ngIf="isUploadFailed">
+      <span style="color: red; text-align:center" ntk-translator="lbUploadingFailure"></span>
+      </div>
+
+      <img #imageThumb [src]="urlImage" style="width: 80px; height: 80px;" [style.visibility]="urlImage ? 'visible': 'hidden'" fxFlex="none" />
+
+      <div *ngIf="!urlImage && model && model.DocumentWrapper"
+      class="hs-error-thumb-panel" style="left: 16px !important; position: absolute; top:0; text-align: center; border: 1px solid #C0C0C0; box-sizing: border-box">
+      <span style="position: relative; top: 40%">
+        {{
+            ((model.DocumentWrapper.Document.Status === 'ProcessingFailed' ? 'lbError' : 'lbMailProcessStatus_Processing') | translator)
+            + (model.DocumentWrapper.Document.Status === 'ProcessingFailed' ? '' : '...')
+        }}
+      </span>
+      </div>
+
+      <!-- <div *ngIf="isPdfFile"  class="hs-error-thumb-panel" style="position: absolute; top:0; width: 80px; height: 80px; text-align: center; border: 1px solid #C0C0C0; box-sizing: border-box">
+          <mat-icon class="icon-48" style="position: relative; top: calc(50% /2);">picture_as_pdf</mat-icon>
+          <span style="position: relative; top: 40%">
+          PDF
+        </span>
+      </div> -->
+
+      <!--If not image, dispay the file extension svg-->
+      <!--By default display the picture_as_pdf icon-->
+      <div *ngIf="!isImage && model && model.File" 
+        class="hs-error-thumb-panel" style="position: absolute; top:0; width: 80px; height: 80px; text-align: center; border: 1px solid #C0C0C0; box-sizing: border-box">
+        <mat-icon class="icon-48" style="position: relative; top: calc(50% /2);" [svgIcon]="svgFileTypeKey">picture_as_pdf</mat-icon>
+      </div>
+
+
+      <div fxLayout="column" fxFlex style="margin-left: 16px;width: 100%;overflow: hidden;">
+        <div fxLayout="column" fxFlex>
+          <div fxLayout="row" fxLayoutAlign="start start" class="hs-image-title" style="z-index:3;">
+            <ntk-middle-truncation class="mat-body-2" fxFlex style="max-width: 100%;margin-top: 11px;">{{name}}</ntk-middle-truncation>
+            <button mat-icon-button *ngIf="canRemove" (click)="onRemoveImageThumb()">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </div>
+          <span class="mat-body-1">{{fileType}} - {{fileSize}}</span>
+        </div>
+
+        <!--<mat-progress-bar class="hs-progress-bar hs-progress-bar_completed" mode="determinate" value="{{progress}}" *ngIf="model?.File"></mat-progress-bar>-->
+        <mat-progress-bar class="hs-progress-bar" mode="determinate" value="{{model.progress}}" *ngIf="isUploading" style="z-index:3;"></mat-progress-bar>
+        <div style="height: 5px; background-color: forestgreen;z-index:3;" *ngIf="isUploaded"></div>
+        <div style="height: 5px; background-color: red;z-index:3;" *ngIf="isUploadFailed || isSaveFailed"></div>
+      </div>
+    </div>
+    <mat-divider style='margin: 8px 16px;'></mat-divider>
+</div>

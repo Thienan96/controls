@@ -1,0 +1,38 @@
+@mixin ntk-filters-dialog-multi-choose($theme, $options) {
+  ntk-filters-dialog-multi-choose {
+    height: 100%;
+    mat-dialog-content {
+      position: relative;
+      min-height: 96px; // the height of 2 items
+    }
+
+    .filters-dialog-multi-choose-loading {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .text-list-empty {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    .has-virtual-load {
+      mat-dialog-content {
+        overflow: hidden;
+        height: 384px;
+      }
+    }
+
+    .predefine-filters-container {
+      .mat-list-item {
+        font-size: map-get($options, fontSize);
+        font-weight: 700;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,65 @@
+.row {
+    height: 36px;
+    margin: 1px;
+}
+
+.month-name {
+    width: 100px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.day-detail {
+    text-align: center;
+    font-size: 12px;
+    height: 100%;
+    margin-right: 1px;
+    line-height: 14px;
+}
+
+#day-count {
+    font-size: 11px;
+}
+
+.normal-day {
+    background-color: #f0f0f0;
+}
+
+.weekend-day {
+    background-color: #dcdcdc;
+}
+
+.selected-day {
+    background-color: #70c156;
+}
+
+.selected-insertions {
+    font-weight: 700;
+    border: solid 1px #0014ff;
+}
+
+.existing-insertions {
+    border: solid 1px #ff5200;
+}
+
+.highlight {
+    background-color: #999;
+}
+
+.icon-calendar-style {
+    cursor: pointer;
+}
+
+.invalid-day {
+    color: transparent;
+}
+
+/* .not-selectable {
+    user-select: none;
+} */

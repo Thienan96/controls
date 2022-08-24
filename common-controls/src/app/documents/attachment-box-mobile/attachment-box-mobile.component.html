@@ -1,0 +1,50 @@
+<form enctype="multipart/form-data" method="post" class="attachments-container">
+    <input type="file" #inputBrowseFiles (change)="onSelectFiles(inputBrowseFiles.files)" [accept]="acceptExtensions" style="display: none" [multiple]="allowMultipleFile">
+
+    <!-- horizontal -->
+    <div *ngIf="viewMode==='horizontal'" fxLayout="row"  class="ntk-list-image-thumb">
+                    <ntk-image-thumb *ngFor="let item of attachmentData" [model]="item"
+                        [canDraw]='canDraw && !disabled' [canRemove]="canRemove"
+                        (statusChanged)="onImageThumbStatusChanged($event)"
+                        (removeImageThumb)="onRemoveImageThumb($event)"
+                        (imageThumbLoaded)="onImageThumbLoaded($event)"
+                        [canSelect]="canSelect" [isSelected]="true"
+                        (selectedChanged)="onSelectedChanged($event)"
+                        [containerWidth]="imageWidth ? imageWidth : canSelect ? 75 : 150"
+                        [containerHeight]="imageHeight ? imageHeight : canSelect ? 75 : 180"
+                        (showedDocument)="onShowDocument($event)" (drawingChanged)="onDrawingChanged($event)"
+                        (onImageClicked)="onImageClick($event)"
+                        [showRemoveBtnAtTopLeft]="'true'"
+                        [hideTittle]="'true'"
+                        [isMobile]="true"
+                        [isOffline]='isOffline'>
+                    </ntk-image-thumb>
+   </div>
+
+    <!-- vertical -->
+   <div *ngIf="viewMode==='vertical'" class="ntk-list-image-vertical-thumb" fxLayout="row wrap"  style="overflow: hidden;position: relative;left: -2px;top: -2px; width: calc(100% + 4px);">
+        <div fxFlex="25" fxFlex.xs="50%" fxFlex.sm="33.3%" style="padding: 2px;"   *ngFor="let item of attachmentData">
+            <div class="aspect-ratio-container">
+                <div class="aspect-ratio-content">
+                    <ntk-image-thumb [model]="item"
+                                     [canDraw]='canDraw && !disabled' [canRemove]="canRemove"
+                                     (statusChanged)="onImageThumbStatusChanged($event)"
+                                     (removeImageThumb)="onRemoveImageThumb($event)"
+                                     (imageThumbLoaded)="onImageThumbLoaded($event)"
+                                     [canSelect]="canSelect"
+                                     [isSelected]="true"
+                                     (selectedChanged)="onSelectedChanged($event)"
+                                     [containerWidth]="imageWidth ? imageWidth : canSelect ? 75 : 150"
+                                     [containerHeight]="imageHeight ? imageHeight : canSelect ? 75 : 180"
+                                     (showedDocument)="onShowDocument($event)" (drawingChanged)="onDrawingChanged($event)"
+                                     (onImageClicked)="onImageClick($event)"
+                                     [showRemoveBtnAtTopLeft]="'true'"
+                                     [hideTittle]="'true'"
+                                     [isMobile]="true"
+                                     [isOffline]='isOffline'>
+                    </ntk-image-thumb>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  mat-divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}

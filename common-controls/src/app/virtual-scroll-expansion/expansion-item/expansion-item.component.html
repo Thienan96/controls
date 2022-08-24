@@ -1,0 +1,10 @@
+
+<div  (click)="onHeaderClick()">
+    <ng-template [ngTemplateOutlet]="headerPanelTemplate" [ngTemplateOutletContext]="{item:line}">
+    </ng-template>
+    <div [@slideInOut]="preventExpand ? 'hide' : expansionPanel">
+        <ng-template [ngTemplateOutlet]="panelTemplate" [ngTemplateOutletContext]="{item:line}">
+        </ng-template>
+    </div>
+    
+</div>

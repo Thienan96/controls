@@ -1,0 +1,21 @@
+<cdk-virtual-scroll-viewport [itemSize]="itemSize" #scrollViewPort>
+    <mat-nav-list>
+        <mat-list-item *cdkVirtualFor="let item of dataSource" (click)="onItemClicked(item)" [disableRipple]="item.Disabled" [class.disabled]="item.Disabled">
+            <ng-template  [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{item:item,onItemChanged: onItemChanged.bind(this)}"></ng-template>
+            <div class="mask"></div>
+        </mat-list-item>
+    </mat-nav-list>
+</cdk-virtual-scroll-viewport>
+
+<ng-template #itemTemplate let-item="item" let-onItemChanged="onItemChanged">
+    <mat-checkbox  color="primary"
+                   *ngIf="item.Value && isMultiSelectionMode"
+                   [disabled]="item.Disabled"
+                   [class.toolbar-filter-item-group-header]="item.Disabled"
+                   [checked]="item.IsSelected"
+                   [value]="item"
+                   (change)="onItemChanged($event)">{{item.DisplayValue}}</mat-checkbox>
+
+    <span class="singleSelectionItem" *ngIf="item.Value && !isMultiSelectionMode">{{item.DisplayValue}}</span>
+
+</ng-template>

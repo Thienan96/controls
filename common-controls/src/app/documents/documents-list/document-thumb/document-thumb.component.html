@@ -1,0 +1,11 @@
+<div class="thumb-containter">
+  <div fxFlex='none' *ngIf="!isProcessing" fxLayout="row" fxLayoutAlign='center center' style="width: 100%; height: 100%;">
+    <img [src]="getDocumentThumbUrl()" style="width: 100%; height: 100%; object-fit: cover;"/>
+  </div>
+  <div *ngIf="isProcessing && !isFail" class="processing-label" fxLayout="row" fxLayoutAlign='center center'>
+      <span>{{'lbMailProcessStatus_Processing' | translator}}</span>
+  </div>
+  <div *ngIf="isFail" class="error-label" fxLayout="row" fxLayoutAlign='center center'>
+    <span>{{'lbError' | translator}}</span>
+</div>  
+</div>

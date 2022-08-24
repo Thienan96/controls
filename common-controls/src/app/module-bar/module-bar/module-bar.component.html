@@ -1,0 +1,45 @@
+<div fxFlex class="module-bar" fxLayout="column" [ngClass]="{'module-bar-collapsed': isCollapsed}" [style.width.px]="width">
+    <div fxLayout="row"
+         fxLayoutAlign="start center"
+         class="title-bar show-logo"
+         *ngIf="showHeader"
+         [class.hide-title]="!title"
+         [class.show-title]="title">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row fxLayout fxLayoutAlign="center center">
+                <div fxFlex fxLayout fxLayoutAlign="center center" *ngIf="logo || title" class="logo-title">
+                    <div fxFlex="none" *ngIf="logo; else menu" fxLayout fxLayoutAlign="center center">
+                        <img class="logo" [src]="logo| secure| async" (click)="onLogoClicked()" />
+                    </div>
+                    <ng-template #menu>
+                        <button class="logo" mat-icon-button (click)="onMenuButtonClicked()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </ng-template>
+                    <div fxFlex class="title mat-title" *ngIf="title">{{title}}</div>
+                </div>
+                <button *ngIf="showCollapseButton" fxFlex="none" mat-icon-button class="collapsed-button" (click)="onCollapseButton()">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z"/>
+                    </svg>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div>
+    <ng-content select=".header"></ng-content>
+    <div fxFlex class="wrapper" fxLayout="column">
+        <ntk-module-bar-menu
+                [value]="value"
+                [isCollapsed]="isCollapsed"
+                [itemHeight]="itemHeight"
+                [indent]="indent"
+                [openedAtOnce]="true"
+                [hasAccess]="hasAccess"
+                [isModuleActive]="isModuleActive"
+                [showScrollerBar]="showScrollerBar"
+                (moduleItemClick)="moduleItemClick.emit($event)"
+                (groupItemClick)="groupItemClick.emit($event)"
+        ></ntk-module-bar-menu>
+    </div>
+    <ng-content select=".footer"></ng-content>
+</div>

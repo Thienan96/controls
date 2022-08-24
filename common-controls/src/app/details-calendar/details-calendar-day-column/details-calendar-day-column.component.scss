@@ -1,0 +1,19 @@
+:host {
+  position: relative;
+  box-sizing: border-box;
+}
+
+::ng-deep {
+  ntk-details-calendar-day-column.is-small-screen {
+    ntk-details-calendar-day-event {
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+
+  ntk-details-calendar-day:first-child {
+    ntk-details-calendar-day-column:first-child {
+      border-left: 0;
+    }
+  }
+}

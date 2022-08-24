@@ -1,0 +1,99 @@
+@mixin ntk-custom-filter-item-component($theme, $options) {
+  $warn: map-get($theme, warn);
+  $primary: map-get($theme, primary);
+  $paddingBottom: map-get($options, paddingBottom);
+
+  ntk-custom-filter-item {
+    display: block;
+    height: 48px;
+    cursor: pointer;
+    position: relative;
+    margin: 0 8px;
+
+    
+    .indicate-line {
+      position: absolute;
+      height: 2px;
+      border-bottom: 2px solid mat-color($primary);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+    }
+    .hover-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8px;
+      top: 8px;
+      background: rgba(0, 0, 0, 0.05);
+      display: none;
+    }
+    &.selected {
+      .indicate-line {
+        display: block;
+      }
+    }
+    &:hover {
+      .hover-line {
+        display: block;
+      }
+    }
+
+    .title{
+      text-transform: none;
+      text-align: center;
+      min-width: 50px;
+      max-width: 300px;
+    }
+
+
+    .count-wrapper{
+      min-width: 18px;
+      position: relative;
+      .count{
+        text-align: left;
+        color: mat-color($primary);
+      }
+      .loading{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+      }
+    }
+
+
+    .type-favorite {
+      .name {
+        padding: 0 8px;
+      }
+    }
+    .item-content {
+      position: relative;
+    }
+
+    .fix-flex-basis-ie {
+      flex-basis: auto !important;
+    }
+  }
+
+  .ntk-toolbar-favorite-menu {
+    min-width: 200px !important;
+  }
+  .ntk-toolbar-favorite-menu-overlay {
+    $top: 112px;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    .cdk-overlay-pane {
+      top: $top !important;
+      position: absolute !important;
+    }
+    .mat-menu-panel {
+      max-height: calc(100vh - #{$top} - #{$paddingBottom}) !important;
+    }
+  }
+
+}

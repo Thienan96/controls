@@ -1,0 +1,46 @@
+@mixin ntk-notification-panel-component($theme, $options) {
+    ntk-notification-panel {
+      width: 100%;
+      height: 100%;
+      .panel-container {
+        border: solid 1px lightgray;
+        background: white;
+      }
+      .notif-item {
+        height: 80px;
+        background-color: white;
+        padding: 8px 16px;
+        box-sizing: border-box;
+        &:hover {
+          background-color: lightgray;
+        }
+        .notif-header {
+          margin-left: 8px;
+        }
+        .sent {
+          margin-left: 8px;
+        }
+        .notif-message {
+          padding-left: 4px;
+        }
+      }
+  
+      virtual-scroller {
+        width: 100%;
+        height: 100%;
+        position: absolute !important;
+      }
+  
+      ntk-middle-truncation {
+        display: block;
+      }
+  
+      .button-remove {
+        margin-right: -8px;
+        margin-top: -8px;
+      }
+    }
+  
+  }
+  
+  

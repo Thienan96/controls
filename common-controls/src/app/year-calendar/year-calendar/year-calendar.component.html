@@ -1,0 +1,27 @@
+<div fxFlex fxLayout="column">
+    <div id="calendar-header" fxLayout="row" class="row" fxLayoutAlign="start center">
+        <div fxLayout="row" fxLayoutAlign="center center" class="month-name">
+            <div fxLayoutAlign="center center">
+                <mat-icon (click)="goPrevYear()" class="icon-calendar-style" color="primary">navigate_before</mat-icon>
+            </div>
+            <div fxLayoutAlign="center center">{{year}}</div>
+            <div fxLayoutAlign="center center">
+                <mat-icon (click)="goNextYear()" class="icon-calendar-style" color="primary">navigate_next</mat-icon>
+            </div>
+        </div>
+        <div fxFlex fxLayout="row">
+            <div fxFlex="{{100/MAX_COLS}}" class="day-header" *ngFor="let header of headers">{{header}}</div>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxFlex id="calendar-detail">
+        <ntk-year-calendar-month [year]="year" [month]="month" 
+            [selectedInsertionsDates]="selectedInsertionsDates"
+            [existingInsertionsPerDate]="existingInsertionsPerDate" 
+            [selectedDates]="selectedDates" 
+            [highlightDateRange]="highlightDateRange"
+            [selectedDateRange]="selectedDateRange"
+            *ngFor="let month of months">
+        </ntk-year-calendar-month>
+    </div>
+</div>

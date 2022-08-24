@@ -1,0 +1,9 @@
+<div style="width: 100%; height:100%;position: relative" fxLayout="row">
+    <div fxFlex>
+        <mat-slide-toggle [checked]="disabled" (change)="onChangeDisable($event)">disabled</mat-slide-toggle>
+        <div>{{start}} - {{end}}</div>
+    </div>
+    <div fxFlex style="position: relative">
+        <ntk-duration [(start)]="start" [(end)]="end" [disabled]="disabled"></ntk-duration>
+    </div>
+</div>

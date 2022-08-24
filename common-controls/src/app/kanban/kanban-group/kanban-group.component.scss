@@ -1,0 +1,21 @@
+@mixin kanban-group-component($theme, $options) {
+  $padding: map_get($options, padding);
+  ntk-kanban-group {
+    display: block;
+    padding-top: 16px;
+
+    &:first-child {
+      padding-top: 0;
+
+      .group-title {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: $padding;
+    }
+  }
+
+
+}

@@ -1,0 +1,68 @@
+<div fxLayout="column" style="height: 100%">
+    <mat-toolbar color='primary'>    
+        <button fxFlex="none" mat-icon-button (click)="close($event)" ntk-stop-monitoring>
+            <mat-icon>close</mat-icon>
+        </button>
+        <div fxFlex style="margin-left: 8px;">{{'lbNotificationHistory' | translator}}</div>
+    </mat-toolbar>
+    <div fxFlex fxLayout="column" >
+        <ntk-datatable fxFlex #datatable                    
+                    [itemHeight]="rowHeight"
+                    [hasAlternate]="isAlternateColor"
+                    [pageSize]="20"
+                    fxLayout="row"
+                    [loadData]="loadData.bind(this)"                    
+                    (rowClick)="onRowClick($event)"                   
+                    [showHeader]="true"
+                    [showFooter]="false">
+            <ng-template #headerTemplate let-column="column">
+                <span class="col-header-left">{{column.translationKey | translator}}</span>        
+            </ng-template>
+            <!--sender-->
+            <ntk-datatable-column property="Sender"
+                                translationKey="lbSender"
+                                displayValue="User"                                                        
+                                [width]="200"
+                                [minWidth]="100">
+                <ng-template let-cell="cell" let-row="row" let-rowIndex="rowIndex">
+                    <div fxLayoutAlign="start center" style="height:100%" *ngIf="row.Id==-1">
+                        {{'lbLoadingData' | translator}}
+                    </div>
+                    <div class='cell-center' *ngIf="cell.value">
+                        <!-- <p class="hs-block-ellipsis" [ntkTooltip]="cell.value?.Name">{{cell.value?.Name}}</p> -->
+                        <span class="hs-block-ellipsis" [ntkTooltip]="cell.value?.Name">{{cell.value?.Name}}</span>
+                    </div>
+                </ng-template>
+            </ntk-datatable-column>
+            <!--Date-->
+            <ntk-datatable-column property="Sent"
+                                translationKey="lbNotificationDate"
+                                displayValue="Notification Date"
+                                [width]="150"
+                                [minWidth]="120">
+                <ng-template let-cell="cell" let-row="row" let-rowIndex="rowIndex">                
+                    <div class='cell-center' [ntkTooltip]="cell.value?.Name" *ngIf="cell.value">
+                        <span>{{cell.value | formatDate}}</span>
+                    </div>                    
+                </ng-template>
+            </ntk-datatable-column>
+            <!--Subject-->
+            <ntk-datatable-column property="Message"
+                                translationKey="lbSubject"
+                                displayValue="Subject"
+                                [width]="410"
+                                [minWidth]="200">
+                <ng-template let-cell="cell" let-row="row" let-rowIndex="rowIndex">                
+                    <ng-container *ngTemplateOutlet="(subjectTemplate ? subjectTemplate : defaultSubjectTemplate);context:{item: row, cellMaxLines: cellMaxLines}"></ng-container>
+                </ng-template>
+            </ntk-datatable-column>
+        </ntk-datatable>
+    </div>
+</div>
+
+<!--item in this case is notification  history line-->
+<ng-template #defaultSubjectTemplate let-item='item'>
+    <div class='cell-center' *ngIf="item">
+        <div class='hs-block-ellipsis cell-data' [ntkTooltip]="item?.Message" *ngIf="item?.Message">{{item?.Message}}</div>
+    </div>    
+</ng-template>

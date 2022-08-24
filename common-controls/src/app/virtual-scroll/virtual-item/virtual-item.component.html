@@ -1,0 +1,4 @@
+<ng-content *ngIf="sticky; else item" select="[stickyRow]"></ng-content>
+<ng-template #item>
+    <ng-content select="[itemRow]"></ng-content>
+</ng-template>

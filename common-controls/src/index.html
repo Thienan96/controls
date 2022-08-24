@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Common2</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <script>
+        // Config application
+        var appConfig = {
+            apiUrl: 'https://devx.netika.com/alpha/',
+            appVersion: '1.50.0 build 20190610',
+            major_release_date: '20200202',
+            connectionInfor: 'thienan@vn.netika.com/netikanetika'
+        };
+
+        window.APP_PARAMS = appConfig;
+
+        // Config ngx-store
+        var NGXSTORE_CONFIG = {
+          prefix: 'ngStorage-',      // default: 'ngx_'
+          clearType: 'prefix', // default: 'prefix'
+          mutateObjects: true, // default: true
+          debugMode: false,    // you can enable debug logs if you ever meet any bug to localize its source
+          cookiesScope: '',    // what you pass here will actually prepend base domain
+          cookiesCheckInterval: 0, // number in ms describing how often cookies should be checked for changes
+          previousPrefix: 'angular2ws_', // you have to set it only if you were using custom prefix in old version ('angular2ws_' is a default value)
+        };
+      </script>
+  <ntk-root></ntk-root>
+</body>
+</html>

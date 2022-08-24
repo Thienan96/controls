@@ -1,0 +1,14 @@
+<div [style.width.px]="width" [style.min-width.px]="width" style="height: 100%;">
+  <div [style.width.px]="columnDef.width" style="height: inherit;">
+    <div fxFlex class="ntk-folder-name" fxLayoutAlign="start center" style="height: 100%;  padding-left: 8px;">
+      <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{column:columnDef}"></ng-template>
+    </div>
+    <div *ngIf="columnDef.resizeable && !isLastCol" class="resize-hanlder" cdkDrag cdkDragLockAxis="x"
+      #dragHandler=cdkDrag 
+      (cdkDragReleased)="onResizeFinish($event)"
+      (cdkDragMoved)='onResizing($event)'
+      [cdkDragFreeDragPosition]="defaultDragPoint" 
+      [cdkDragConstrainPosition]="onConstrainPosition.bind(this)">
+    </div>
+  </div>
+</div>

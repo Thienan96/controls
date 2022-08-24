@@ -1,0 +1,135 @@
+@mixin resource-planning-header-component($theme, $options) {
+  $warmColor: map_get($options, warmColor);
+  $weekendColor: map_get($options, weekendColor);
+  $borderColor: map_get($options, borderColor);
+  $borderBoldColor: map_get($options, borderBoldColor);
+
+  ntk-resource-planning-header {
+    display: block;
+    position: relative;
+
+    .date {
+      &.current {
+        color: $warmColor;
+      }
+
+      &.is-weekend {
+        color: $weekendColor;
+      }
+    }
+
+    // Week
+    &.ntk-resource-planning-header-view-mode-week {
+      height: 35px;
+      .ntk-resource-planning-header-week {
+        display: block;
+        height: 35px;
+      }
+
+      .date {
+        position: relative;
+        float: left;
+        height: 100%;
+
+        .date-title {
+          text-align: center;
+        }
+      }
+
+
+    }
+
+    // Month
+    &.ntk-resource-planning-header-view-mode-month {
+      height: 80px;
+
+      .left-border {
+        position: absolute;
+        width: 1px;
+        border-left: 1px solid $borderColor;
+        top: 0;
+        bottom: 0;
+      }
+
+      .date {
+        position: absolute;
+        left: 0;
+        text-align: center;
+        bottom: 0;
+        top: 0;
+
+        line-height: 16px;
+
+        &:after {
+          content: "";
+          border-left: 1px solid $borderColor;
+          width: 1px;
+          height: 100%;
+          top: 0;
+          position: absolute;
+          left: 0;
+        }
+      }
+
+      .months-title {
+        background: #fff;
+        position: relative;
+        z-index: 3;
+
+        &:after {
+          content: '';
+          clear: both;
+        }
+
+        .month-title:first-child {
+          .month-text {
+            margin-left: 0;
+          }
+        }
+
+        .month-title:last-child {
+          .month-text {
+            margin-right: 0;
+          }
+        }
+
+        .month-text {
+          background: #399bf0;
+          padding: 3px 0;
+          text-transform: uppercase;
+          color: #fff;
+          text-align: center;
+          margin: 0 2px;
+          font-weight: bold;
+          height: 17px;
+          line-height: 18px;
+        }
+
+      }
+
+      .weeks-title {
+        height: 17px;
+        line-height: 18px;
+
+        border-bottom: 1px solid $borderColor;
+
+        .week-title {
+          &:after {
+            content: "";
+            border-left: 1px solid $borderColor;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            left: 0;
+          }
+        }
+
+        .week-text {
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}

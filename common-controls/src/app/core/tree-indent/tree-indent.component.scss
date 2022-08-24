@@ -1,0 +1,27 @@
+// :host {
+//     top: -15px;
+// }
+.indent-container{
+    // background-color: pink;
+    position: relative;    
+    // padding-left: 15px;
+    
+    .level-indent-line-last {
+        position: absolute;
+        width: 15px;
+        border-left: 1px solid #d3d3d3;
+        border-bottom: 1px solid #d3d3d3;
+        right: 0;        
+    }
+
+    .level-indent-line {
+        border-left: 1px solid #d3d3d3;       
+        box-sizing: border-box; 
+    }
+
+    // .lines-repeat {
+    //     background: repeating-linear-gradient(90deg, #d3d3d3, #d3d3d3 1px, transparent 1px, transparent 20px) !important;
+    //     position: absolute;
+    //     bottom: 15px;
+    // }
+}

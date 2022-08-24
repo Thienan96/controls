@@ -1,0 +1,75 @@
+<div fxLayout="column" class="add-comment-container" fxFill 
+    [ngClass]="{'add-comment-container-expanded': isExpanded}">
+    <div [hidden]= "isDevice && attachmentsBox.attachmentData.length === 0" 
+        fxFlex="none" fxLayout="column">
+        <!--set hidden so that is not losing the files to display-->
+        <ntk-attachment-box fxLayout="column" #attachmentsBox [hidden]="isExpanded"     
+                            [siteId]="siteId"
+                            [autoCreateAttachment]="autoCreateAttachment"
+                            (image-thumb-status-changed)='onFileStatusChanged($event)' 
+                            (collection-changed)="onAttachmentsChanged($event)"
+                            [attachments]="initialDocuments"
+                            [disabled]="!canAddDocuments" 
+                            [canDraw]='canDraw'
+                            [acceptExtensions]='acceptExtensions'
+                            [dropFilesGuideKey]='dropFilesGuideKey'
+                            [filesNotSupportedMessageKey]="filesNotSupportedMessageKey"
+                            [secureUrl]="secureUrl"
+                            [showMenu]="showMenu"
+                            [additionalFileKey]="additionalFileKey"
+                            (additionalFileClicked)="onAdditionalFileClicked()"
+                            >
+        </ntk-attachment-box>
+    </div>
+    <div #commentArea fxFlex fxLayout="row" style="background-color:rgb(250,250,250);" fxLayoutAlign="start stretch">
+        <div fxFlex layout="row" class="text-area-box">
+                <textarea
+                    #textarea
+                    class='textarea-comment'
+                    [ngClass]="{'textarea-comment-expanded': isExpanded}"
+                    placeholder="{{commentDescription}}" 
+                    (focus)="beginAddComment($event)" 
+                    [(ngModel)]="commentText" 
+                    (ngModelChange)="onCommentChanged($event)" 
+                    [mentionListTemplate]="mentionTemplate || defaulMentionListTemplate"
+                    maxlength="4000" 
+                    (opened)='opened()'
+                    [mention]="contacts"
+                    [mentionConfig]="mentionConfig">
+                </textarea>
+        </div>
+        <div fxFlex="none" fxLayout="column">
+                <button class="icon-button" mat-icon-button (click)="isExpanded = !isExpanded">
+                    <mat-icon *ngIf="!isExpanded">open_in_full</mat-icon>
+                    <mat-icon *ngIf="isExpanded">close_fullscreen</mat-icon>
+                </button>
+                <div fxFlex></div>
+                <ng-container *ngIf='shouldShowPrivate'>
+                    <button class="icon-button" color='accent' mat-icon-button (click)="onClickPrivateComment()" *ngIf="isPrivateMode">
+                        <mat-icon>lock</mat-icon>
+                    </button>
+                    <button class="icon-button" color='accent' mat-icon-button (click)="onClickPrivateComment()" *ngIf="!isPrivateMode">
+                        <mat-icon>lock_open</mat-icon>
+                    </button>
+                </ng-container>
+                <input type="file" #inputBrowseFiles [accept]="acceptExtensions"
+                (change)="onSelectFiles(inputBrowseFiles.files)" style="display: none" multiple>
+                <button *ngIf='isDevice' class="icon-button" color='primary' mat-icon-button (click)="openBrowser()" style="margin-left:2px;">
+                    <mat-icon>attachment</mat-icon>
+                </button>
+                <button class="icon-button" color='primary' mat-icon-button (click)="saveComment()" [disabled]="!canSaveComment" style="margin-left:2px;">
+                    <mat-icon>send</mat-icon>
+                </button>
+
+                <button class="icon-button" mat-icon-button style="margin-top:-2px;"
+                            (click)="cancelAddComment()">
+                    <mat-icon>clear</mat-icon>
+                </button>
+        </div>
+
+    </div>
+</div>
+<ng-template #defaulMentionListTemplate let-item="item">
+    <div *ngIf="item.Id" >{{item.Name}}</div>
+</ng-template>
+

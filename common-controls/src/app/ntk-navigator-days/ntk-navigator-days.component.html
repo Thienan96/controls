@@ -1,0 +1,26 @@
+<div fxLayout='row' class='unselectable'>
+    <ng-container *ngIf='showNavigator'>
+        <button mat-icon-button (click)='goToPast()'>
+            <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)='goToToday()'>
+            <mat-icon class='fs_17'>fiber_manual_record</mat-icon>
+        </button>
+        <button mat-icon-button (click)='goToFuture()'>
+            <mat-icon>chevron_right</mat-icon>
+        </button>
+    </ng-container>
+    <input class='visibility-hidden' [matDatepicker]="picker" [(ngModel)]='fromDate' (dateChange)='onDateChange($event)'>
+    <ng-container>
+        <span (click)="picker.open()" class='cursor-pointer'>{{fromDate | date:'dd/MM/yyyy'}}</span>
+        <span *ngIf="!(duration[0] === 1 && duration[1] === 'days')" class='cursor-pointer' (click)="picker.open()"> - {{toDate | date:'dd/MM/yyyy'}}</span>
+    </ng-container>
+
+    <ng-container *ngIf='showWeek'>
+        <button (click)="picker.open()" onclick="this.blur()" mat-icon-button>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+        <span>{{'W' | weekNumber: fromDate : toDate}}</span>
+    </ng-container>
+    <mat-datepicker color='primary' #picker></mat-datepicker>
+</div>

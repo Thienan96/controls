@@ -1,0 +1,14 @@
+.hs-browser-box-text {
+  text-decoration: underline;
+  cursor: pointer;
+  outline: none;
+}
+
+::ng-deep .custom-drop-zone {
+  height: 100%;
+  border: 1px dashed rgba(0, 0, 0, 0.28);
+  border-radius: 0px;
+  .ngx-file-drop__content {
+    color: #000000 !important;
+  }
+}

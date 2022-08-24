@@ -1,0 +1,88 @@
+<div fxLayout="column" fxFill fxLayoutAlign="start stretch" 
+    style="background-color:rgb(250,250,250);padding: 5px 0px;">
+    <div fxFlex fxLayout="column" style="background-color: #ffffff; border-radius: 16px;" fxLayoutAlign="start stretch" >
+        <div [hidden]="attachmentsBox.attachmentData.length === 0"
+            style="overflow: hiden; padding-top: 10px;margin: 0 5px;">
+            <ntk-attachment-box-mobile fxLayout="column" #attachmentsBox [siteId]="siteId"
+                [autoCreateAttachment]="autoCreateAttachment" [isOffline]='isOffline' (image-thumb-status-changed)='onFileStatusChanged($event)'
+                (collection-changed)="onAttachmentsChanged($event)" [attachments]="initialDocuments" [disabled]="false"
+                [canRemove]="canRemove" [imageWidth]="'90'" [imageHeight]="'90'" [canDraw]='canDraw'>
+            </ntk-attachment-box-mobile>
+        </div>       
+    </div>
+    <div fxLayout="row" fxFlex="none">
+        <input type="file" #inputBrowseFiles [accept]="acceptExtensions"
+            (change)="onSelectFiles(inputBrowseFiles.files)" style="display: none" multiple>
+
+        <input type="file" #inputCameraFile accept="image/*" capture="environment" style="display: none"
+            (change)="onSelectFiles(inputCameraFile.files)" multiple>
+        <ng-container *ngIf='showAction; else toggle'>
+            <button class="icon-button fab-toggle-button" (touchstart)="openCamera($event)" color='primary' mat-icon-button>
+                <mat-icon>camera_alt</mat-icon>
+            </button>
+            <button class="icon-button fab-toggle-button" (touchstart)="openBrowser($event)" color='primary' mat-icon-button>
+                <mat-icon>{{cordovaReady ? 'camera_roll' : 'folder'}}</mat-icon>
+            </button>
+            <!-- <button class="icon-button" color='accent' mat-icon-button (click)="isPrivateMode = !isPrivateMode"
+                *ngIf="isPrivateMode">
+                <mat-icon>lock</mat-icon>
+            </button> -->
+            <ng-container *ngIf='shouldShowPrivate'>
+                <button class="icon-button" color='accent' mat-icon-button (touchstart)="isPrivateMode = !isPrivateMode; $event.preventDefault();"
+                    *ngIf="isPrivateMode">
+                    <mat-icon>lock</mat-icon>
+                </button>
+                <button class="icon-button" color='accent' mat-icon-button (touchstart)="isPrivateMode = !isPrivateMode; $event.preventDefault();"
+                    *ngIf="!isPrivateMode">
+                    <mat-icon>lock_open</mat-icon>
+                </button>
+            </ng-container>
+        </ng-container>
+        <ng-template #toggle>
+            <button #showActions class="icon-button" color='primary' mat-icon-button (touchstart)="onShowActionsClick($event)" (focus)="beginAddComment($event)">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </ng-template>
+
+        <!--Text area-->
+        <div fxFlex fxLayout="row" fxLayoutAlign="start start">
+            <textarea fxFlex placeholder="{{commentDescription}}" (blur)='onBlur($event)' (touchstart)="textAreaTouchStart($event)"
+                #textArea
+                class='textarea-comment-mobile' [cdkAutosizeMaxRows]="5" [(ngModel)]="commentText"
+                (ngModelChange)="onCommentChanged($event)" maxlength="4000" [mention]="contacts"
+                [mentionConfig]="mentionConfig" [cdkTextareaAutosize]='true' cdkAutosizeMaxRows="4"
+                (opened)='opened()'></textarea>
+            <button class="icon-button clean-button" [disabled]="commentText?.length <= 0" mat-icon-button (touchstart)="cancelAddComment(); $event.preventDefault();">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+
+        <!--send button-->
+        <button class="icon-button" color='primary' mat-icon-button (touchstart)="saveComment($event)" [disabled]="!canSaveComment">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+
+   
+   
+    <!-- <div fxFlex="none" fxLayout="row" fxLayoutAlign='start center' style="position: absolute; bottom: 4px; right: 0px;">
+        <ng-container *ngIf='shouldShowPrivate'>
+            <button class="icon-button" mat-icon-button style="margin-top:-2px;" (click)="cancelAddComment()">
+                <mat-icon>clear</mat-icon>
+            </button>
+            <button class="icon-button" color='accent' mat-icon-button (click)="isPrivateMode = !isPrivateMode"
+                *ngIf="isPrivateMode">
+                <mat-icon>lock</mat-icon>
+            </button>
+            <button class="icon-button" color='accent' mat-icon-button (click)="isPrivateMode = !isPrivateMode"
+                *ngIf="!isPrivateMode">
+                <mat-icon>lock_open</mat-icon>
+            </button>
+        </ng-container>
+
+        <button class="icon-button" color='primary' mat-icon-button (click)="saveComment()" [disabled]="!canSaveComment"
+            style="margin-left:2px;">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div> -->
+</div>

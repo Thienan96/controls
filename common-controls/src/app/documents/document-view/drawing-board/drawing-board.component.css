@@ -1,0 +1,6 @@
+.loading-tile {
+    left: 0;
+    bottom: 5px;
+    position: absolute;
+    z-index: 101;
+}

@@ -1,0 +1,89 @@
+<div fxLayout='column' fxFlex fxLayoutAlign='start stretch' style="width: 100%;height: 100%;">
+  <div *ngIf="showDropDownFolder" fxLayout='row' fxFlex="none" fxLayoutAlign='start center' style="padding: 0 16px;">
+    <mat-form-field fxFlex style="margin-right: 16px;">
+      <ntk-mat-dropdown [getData]='getFolders' [(ngModel)]='currentFolder' (valueChanged)='onFolderChanged()'>
+        <ng-template let-item="item">
+          <div class="dropdown-child-item" [style.margin-left]="item.Level * 16 + 'px'">{{item.Name}}&nbsp;<span
+              *ngIf='item.DocumentCount>0'>({{item.DocumentCount}})</span></div>
+        </ng-template>
+      </ntk-mat-dropdown>
+    </mat-form-field>
+    <button matTooltip="{{'btAddFolder' | translator}}" fxFlex="none" class="icon-button" mat-icon-button [matMenuTriggerFor]="matMenuAddFolder" *ngIf='canAdd'
+      disableRipple>
+      <mat-icon>create_new_folder</mat-icon>
+    </button>
+    <mat-menu #matMenuAddFolder [overlapTrigger]='false'>
+      <ng-template matMenuContent>
+        <button mat-menu-item (click)="onAddSubFolderClicked()">
+          <span>{{'btAddSubFolder' | translator}}</span>
+        </button>
+        <button mat-menu-item (click)="onAddFolderClicked()">
+          <span>{{'btAddFolder' | translator}}</span>
+        </button>
+      </ng-template>
+    </mat-menu>
+  </div>
+  <mat-divider *ngIf="showDropDownFolder" fxFlex="none"></mat-divider>
+  <div fxFlex='none' fxLayout='row' fxLayoutAlign='start center' style="padding-left: 7px;height:40px;">
+    <div fxFlex="90">
+      <mat-checkbox *ngIf="canSelectDocument" disableRipple fxFlex='none' [(ngModel)]="isSelectAll" 
+      [disabled]="!carArchiveDocument || emptyDocument" (click)="selectedAllChanged()" color="primary">
+        {{selectAllLabel}}</mat-checkbox>
+    </div>
+    <div *ngIf="canSelectDocument">
+      <ng-template [ngTemplateOutlet]="functionTemplate"></ng-template>
+    </div>
+  </div>
+  <mat-divider fxFlex="none"></mat-divider>
+  <ntk-virtual-list fxFlex #documentList (onGetData)="getDocumentList($event)"
+    (selectedChange)="onSelectedItemChanged($event)"
+    (itemClick)="documentList.setSelectedItem($event)"
+    (totalItem) = "onCountDocument($event)">
+    <ng-template let-item='item' let-i="index">
+      <div style="position: relative"
+      [style.height.px]="80">
+      <div [ngClass]="{'hs-item-list-selected': documentList.isSelectedItem(item) }" style="overflow: hidden;"
+        class="hs-item-list document-item" fxLayout='column' fxLayoutAlign='start stretch'>
+        <div fxFlex fxLayout='row' fxLayoutAlign='start stretch'>
+          <!--this icon is absolute-->
+          <mat-icon matTooltip="{{'lbEditDocument' | translator}}" (click)='editDocumentClick(item)' class="document-edit-icon" *ngIf='item.AccessRights?.CanEdit'>edit</mat-icon>
+          <!--check box-->
+          <div fxFlex='none' style="width:30px;margin-top:4px;" fxLayout="row" fxLayoutAlign="center start">
+            <mat-checkbox *ngIf="item.AccessRights?.CanArchive" disableRipple [ngClass]="{'head-check-force': (item?.isChecked)}"
+              class="head-check" [(ngModel)]="item.isChecked" [disabled]="!carArchiveDocument"
+              (change)='onDocumentChecked($event, item)' color='primary'>
+            </mat-checkbox>
+          </div>
+          <!--infor part-->
+          <div fxFlex fxLayout="column" style="overflow: hidden;">
+            <div fxFlex fxLayout="row" fxLayoutGap='8px' style="overflow: hidden; padding-top: 4px;">
+              <!--thumb-->
+              <ntk-document-thumb fxFlex='none' [document]='item' fxLayout="row"
+                (documentStatusChanged)="onDocumentStatusChanged($event)" fxLayoutAlign='center center'
+                style="width: 70px; height: 70px; ">
+              </ntk-document-thumb>
+              <div fxLayout='column' fxFlex fxLayoutAlign='center stretch' fxLayoutGap='4px'
+                style="overflow: hidden;padding-right: 8px;">
+                <ntk-middle-truncation  class="mat-body-1" >{{item?.Name}}</ntk-middle-truncation>
+                <!-- <span class="mat-body-1 hs-block-ellipsis">{{item?.Name}}</span> -->
+                <span class="hs-block-ellipsis mat-caption">{{getUploadInformation(item)}}</span>
+              </div>
+            </div>
+            <mat-divider fxFlex="none"></mat-divider>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    </ng-template>
+  </ntk-virtual-list>
+  <!-- <virtual-scroller fxFlex [items]="items" (vsUpdate)="updateViewPortChanged($event)" (vsChange)="onRequestItemsLoad($event)">
+    <div #container class="hs-virtual-container" style="margin:0;padding:0;">     
+    </div>
+  </virtual-scroller> -->
+
+  <div style="margin: 8px;" fxFlex="none" *ngIf='canAddDocument'>
+    <ntk-file-drop (onFilesDrop)='onFilesAdded($event)'></ntk-file-drop>
+  </div>
+</div>

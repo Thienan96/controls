@@ -1,0 +1,5 @@
+<ng-content></ng-content>
+<div *ngIf="canResize" [resizeEdges]="{ left: true }" class="resize-handle resize-handle-left"
+     ntkWeekTsResizeHandle></div>
+<div *ngIf="canResize" [resizeEdges]="{ right: true }" class="resize-handle resize-handle-right"
+     ntkWeekTsResizeHandle></div>

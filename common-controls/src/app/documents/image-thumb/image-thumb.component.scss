@@ -1,0 +1,114 @@
+﻿.hs-image-container {
+  margin-right: 5px;
+  margin-bottom: 5px;
+  position: relative;
+  /*width: 150px;
+  height: 180px;*/
+  overflow: hidden;
+}
+
+.thumb-img-mobile {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-container-full {
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.hs-image-container img {
+  display: block;
+  background-color: lightgray; /*in case the image cannot load, the place holder can show withback groud gray*/
+}
+
+.hs-image-container .hs-error-thumb-panel {
+  display: block;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  border: 1px solid #C0C0C0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.hs-image-container .hs-image-title {
+  background-color: rgba(0, 0, 0, 0.54);
+  font-size: 12px;
+  height: 32px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: white;
+  padding-left: 8px;
+}
+
+.hs-image-container .hs-image-title button {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin: auto;
+}
+
+.hs-image-container .hs-progress-bar {
+  width: 150px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.file-type-icon {
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.54);
+  width: 48px !important;
+  height: 48px !important;
+}
+
+
+::ng-deep ntk-image-thumb {
+  .btn-close, .button-checked {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    mat-icon{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+
+
+  .button-checked {
+    left: 0px;
+    top: 0px;
+    color: white;
+    .icon-check {
+      color: rgba(0,0,0,0.45);
+      height: 20px;
+      width: 20px;
+      line-height: 20px !important;
+      font-size: 20px;
+      margin-top: 1px;
+    }
+  }
+
+  .btn-close {
+    top: 0px;
+    left: 0px;
+    .icon-close {
+      color: #fff;
+      height: 20px;
+      width: 20px;
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+  }
+
+}

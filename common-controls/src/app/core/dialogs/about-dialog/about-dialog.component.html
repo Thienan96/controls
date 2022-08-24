@@ -1,0 +1,35 @@
+<div fxFill fxLayout="column">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>
+        <button fxFlex="none" mat-icon-button (click)="closeDialog()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <span fxFlex style="margin-left: 8px;">{{'btShowAbout' | translator}}</span>
+    </mat-toolbar>
+    <div class="content-dialog">
+        <div fxLayout="row" fxLayoutAlign="start start">
+            <div fxFlex="none" fxLayout="row">
+                <img [src]="logo" class="logo" style="height: 128px; width: 128px;" />
+                <span fxFlex></span>
+            </div>
+            <div fxFlex fxLayout="column" style="margin-left: 16px;">
+                <span class="mat-title about-title" style="margin-bottom: 0;">{{companyName}}</span>
+                <span>{{'lbVersion' | translator}} {{appVersion}}</span>
+            </div>
+        </div>
+
+        <div fxLayout="column" class="abount-web" style="margin-top:24px;">
+            <span>{{'lbWebsite' | translator}}</span>
+            <a href="{{websiteUrl}}" target="_blank">{{websiteUrl}}</a>
+        </div>
+
+        <div fxLayout="column" class="abount-privacy" style="margin-top:24px;">
+            <span>{{'lbPrivacyPolicy' | translator}}</span>
+            <a href="{{privacyUrl}}" target="_blank">{{privacyUrl}}</a>
+        </div>
+
+        <div fxLayout="column" class="abount-support" style="margin-top:24px;">
+            <span>{{'lbSupport' | translator}}</span>
+            <a href="mailto:{{supportSite}}">{{supportSite}}</a>
+        </div>
+    </div>
+</div>

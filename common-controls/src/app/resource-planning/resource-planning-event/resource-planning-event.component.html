@@ -1,0 +1,23 @@
+<div class="resources-calendar-event-content ntk-res-event {{item.ClassName}}"
+     [ngClass]="{'selected': isSelected, 'unMoveOutside': !item.canMoveOutside, 'unMoveInside': !item.canMoveInside}"
+     [ngStyle]="{'height.px':height, 'color':textColor}"
+     (click)="onClicked($event)"
+     (dblclick)="onDbClicked($event)"
+     [attr.event-id]="item.Id"
+     [attr.group-id]="resource.Resource.GroupId">
+  <div class="event-content" [ngStyle]="{background: item.Color}">
+    <div class="draggable-handle">
+      <div class="icon-right">
+        <div class="hour">{{shortDuration}}</div>
+        <mat-icon class="icon-action"
+                  [ngClass]="action.ClassName"
+                  [ngStyle]="{'color':textColor}"
+                  (click)="onButtonActionClicked(action, $event)"
+                  *ngFor="let action of actions">{{action.IconName}}
+        </mat-icon>
+      </div>
+      <div class="title" [innerHtml]="item.Title"></div>
+    </div>
+  </div>
+</div>
+

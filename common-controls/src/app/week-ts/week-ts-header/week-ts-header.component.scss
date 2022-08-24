@@ -1,0 +1,14 @@
+:host {
+  position: relative;
+  display: block;
+  height: 100%;
+}
+
+.hour {
+  position: absolute;
+  height: 100%;
+}
+
+.hour-text {
+  margin-left: -50%;
+}

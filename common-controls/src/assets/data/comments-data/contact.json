@@ -1,0 +1,43 @@
+{
+    "TotalCount": 7,
+    "HierarchicalData": [
+        {
+            "Name": "UsersOfActiveSubsidiary",
+            "Level": 0
+        },
+        {
+            "Code": "adminsso",
+            "Name": "SSO ADMIN",
+            "Id": "698a7008-7f2d-4815-8c77-b1444d3a1304",
+            "Level": 1
+        },
+        {
+            "Code": "gfadminvn",
+            "Name": "VN GF ADMIN",
+            "Id": "16527699-25ae-49e3-b2d7-c34c8ba5848e",
+            "Level": 1
+        },
+        {
+            "Code": "gfmanagervn",
+            "Name": "VN GF Manager",
+            "Id": "133e8a65-6cd1-481a-89ca-6cd89cb81533",
+            "Level": 1
+        },
+        {
+            "Code": "gfuservn",
+            "Name": "VN GF User",
+            "Id": "9a395eab-5071-4f20-9c87-f08cac5c97d1",
+            "Level": 1
+        },
+        {
+            "Name": "UsersOfOtherSubsidiaries",
+            "Level": 0
+        },
+        {
+            "Code": "hoang",
+            "Name": "Hoang Fake",
+            "Id": "08299688-6a88-4dcd-b635-d66af4fdca31",
+            "Level": 1
+        }
+    ]
+}

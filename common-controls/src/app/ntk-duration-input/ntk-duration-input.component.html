@@ -1,0 +1,4 @@
+<div>
+    <input #input [placeholder]="placeholder"  type="text" class='mat-input-element' (focus)="$event.target.select()" [(ngModel)]='displayText' (keydown)='onInputKeyDown($event)' [disabled]="disabled"/>    
+  </div>
+  

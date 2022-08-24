@@ -1,0 +1,44 @@
+<ng-container *ngIf="template" [ngTemplateOutlet]="template" [ngTemplateOutletContext]="this"></ng-container>
+<ng-container *ngIf="!template">
+    <div class="aside aside-left" fxFlex="none" *ngIf="columnsByPin.left && columnsByPin.left.length > 0">
+        <div [style.width.px]="datatableComponent.leftWidth" fxLayout="row" style="height: 100%;">
+            <ntk-datatable-cell fxFlex="none" class="datatable-cell"
+                                *ngFor="let column of columnsByPin.left; trackBy: trackByColumn"
+                                [cell]="column"
+                                [row]="row"
+                                [rowIndex]="index"
+                                [style.width.px]="column.width"
+                                [style.minWidth.px]="column.width"
+                                [class.is-last-column]="column.isLastColumn"
+                                (changed)="onCellChanged()"></ntk-datatable-cell>
+        </div>
+    </div>
+    <div class="aside aside-center" fxFlex style="overflow: hidden;" *ngIf="columnsByPin.center && columnsByPin.center.length > 0">
+        <div fxLayout="row" style="float:left;height: 100%;" class="scroller-horizontal-content"
+             [style.width.px]="datatableComponent.centerWidth"
+             [ngStyle]="{'transform': 'translate(-' + scrollLeft + 'px, 0px)'}">
+            <ntk-datatable-cell  class="datatable-cell"
+                                 *ngFor="let column of columnsByPin.center; trackBy: trackByColumn"
+                                 [cell]="column"
+                                 [row]="row"
+                                 [rowIndex]="index"
+                                 [style.width.px]="column.width"
+                                 [style.minWidth.px]="column.width"
+                                 [class.is-last-column]="column.isLastColumn"
+                                 (changed)="onCellChanged()"></ntk-datatable-cell>
+        </div>
+    </div>
+    <div class="aside aside-right" fxFlex="none"  *ngIf="columnsByPin.right && columnsByPin.right.length > 0">
+        <div [style.width.px]="datatableComponent.rightWidth" fxLayout="row" style="height: 100%;">
+            <ntk-datatable-cell fxFlex="none" class="datatable-cell"
+                                *ngFor="let column of columnsByPin.right; trackBy: trackByColumn"
+                                [cell]="column"
+                                [row]="row"
+                                [rowIndex]="index"
+                                [style.width.px]="column.width"
+                                [style.minWidth.px]="column.width"
+                                [class.is-last-column]="column.isLastColumn"
+                                (changed)="onCellChanged()"></ntk-datatable-cell>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,40 @@
+@mixin ntk-kanban-item-component($theme, $options) {
+  $placeholderBackground: map_get($options, placeholderBackground);
+  ntk-kanban-item {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+    display: block;
+    position: relative;
+    background: #fff;
+    cursor: move;
+
+    // Hide item if dragging
+    &.cdk-drag-placeholder {
+      background: $placeholderBackground;
+
+      .content {
+        opacity: 0;
+      }
+    }
+
+    &.cdk-drag-animating {
+      transition: transform 600ms cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    &.selected {
+      background: #ececec;
+    }
+
+    .wrapper {
+      border: 1px solid #ccc;
+      margin-top: -1px;
+    }
+
+  }
+
+
+}

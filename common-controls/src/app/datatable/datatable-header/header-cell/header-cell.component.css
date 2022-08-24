@@ -1,0 +1,13 @@
+.resize-handler {
+    width: 5px;
+    cursor: col-resize;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+}
+
+.resize-handler:hover,
+.cdk-drag-dragging {
+    background-color: #d3d3d3;
+}

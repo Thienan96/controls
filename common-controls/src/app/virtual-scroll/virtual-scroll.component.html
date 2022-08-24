@@ -1,0 +1,30 @@
+<div [style.height.%]="100" style="position: relative;overflow: hidden;">
+    <div [style.height.%]="100" #scrollbar (scroll)="onScroll($event)">
+        <div *ngIf="currentStickyItem?.isSticked" class="sticky w-sticky-{{wScrollBar}}"
+            [style.top.px]="diffTop"
+            (click)='onItemClick(currentStickyItem?.data, currentStickyItem?.index)' 
+            (dblclick)='onItemDbClick(currentStickyItem?.data)'>
+            <ng-container *ngTemplateOutlet="_itemTemplate;context:{item: currentStickyItem?.data}">
+            </ng-container>
+        </div>
+        <virtual-scroller #scroll 
+        [parentScroll]='scrollbar' 
+        [style.height.%]="100" 
+        [style.width.%]="100" 
+        [items]="items"
+        (vsUpdate)="onUpdate($event)" 
+        (vsChange)="onChange($event)" 
+        [enableUnequalChildrenSizes]="true">
+            <div #container class="virtual-list-container" style="margin:0;padding:0;">
+                <div *ngFor="let row of viewPortItems; trackBy:trackByFunction; let i = index;"
+                    (click)='onItemClick(row)' (dblclick)='onItemDbClick(row)'>
+                        <ng-container *ngTemplateOutlet="_itemTemplate;context:{item: row}">
+                        </ng-container>
+                </div>
+            </div>
+        </virtual-scroller>
+        <button *ngIf='isScrolllUp && currentScroll > heightShouldShowBtnScrollTop && shouldShowSrollTop' mat-fab class="sroll-top" (click)="scrollTop()" color='primary'>
+            <mat-icon aria-label="arrow_upward">north</mat-icon>
+        </button>
+    </div>
+</div>

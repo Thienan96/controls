@@ -1,0 +1,79 @@
+@mixin ntk-filters-bar-component($theme, $options) {
+  $paddingBottom: map-get($options, paddingBottom);
+  ntk-filters-bar {
+    height: 48px;
+    display: block;
+    .btn-add-filter {
+      text-transform: uppercase;
+    }
+    mat-icon {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    .text-uppercase{
+      text-transform: uppercase;
+    }
+
+    .ntk-toolbar-filter-item-width {
+      display: none;
+    }
+    .hide-content{
+      .ntk-toolbar-filter-item-small-width{
+        display: none !important;
+      }
+      .ntk-toolbar-filter-item-width{
+        display: block;
+      }
+    }
+    .btn-actions{
+      display: none;
+    }
+  }
+
+  .ntk-toolbar-available-menu-overlay {
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    .cdk-overlay-pane {
+      position: absolute !important;
+      top: 0 !important; // fix issue position if top don't set
+    }
+    .mat-menu-panel {
+    }
+  }
+
+  .ntk-toolbar-available-menu-overlay-1 {
+    $top: 112px;
+
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    .cdk-overlay-pane {
+      top: $top !important;
+      position: absolute !important;
+    }
+    .mat-menu-panel {
+      max-height: calc(100vh - #{$top} - #{$paddingBottom}) !important;
+    }
+  }
+  .ntk-toolbar-available-menu-overlay-2 {
+    $top: 160px;
+
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    height: auto !important;
+    .cdk-overlay-pane {
+      top: $top !important;
+      position: absolute !important;
+    }
+    .mat-menu-panel {
+      max-height: calc(100vh - #{$top} - #{$paddingBottom}) !important;
+    }
+  }
+}
+
+
+

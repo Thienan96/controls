@@ -1,0 +1,15 @@
+<mat-form-field  class="form-field-full-height" (click)="preventDefault($event)">
+    <ntk-mat-dropdown [canSearch]="canSearch"
+                      [disableListenKeyboard]="true"
+                      [getDisplayText]="getDisplayText.bind(this)"
+                      [dropdownWidth]="dropdownWidth"
+                      (onGetData)='onGetDropdownData($event)'
+                      (valueChanged)="onValueChanged()"
+                      [(ngModel)]="value"
+                      [template]="template"
+                      [allowAddItem]="allowAddItem"
+                      [addItemText]="addItemText"
+                      [disabled]="disabled"
+                      (onClickAction)="actionClicked()">
+    </ntk-mat-dropdown>
+</mat-form-field>

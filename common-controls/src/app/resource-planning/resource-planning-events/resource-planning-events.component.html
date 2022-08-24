@@ -1,0 +1,32 @@
+<div style="margin-left: 1px;height: 100%" class="events-wrapper" [ngClass]="dayPlanning.ClassName">
+  <div style="position: relative;width: 100%;height: 100%">
+    <div class="total">
+      <ntk-resource-planning-tooltip [getContent]="getDayPlanningTooltipCallback.bind(this)"
+                                     [options]="options.tooltip"></ntk-resource-planning-tooltip>
+      <div [innerHtml]="dayPlanning.HeaderContent||'&nbsp;'|safeHtml"></div>
+    </div>
+    <div class="events-container">
+      <ntk-resource-planning-droppable
+        class="events"
+        [disabled]="!dayPlanning.canDrop"
+        (click)="onClicked()"
+        (dblclick)="onDoubleClicked()"
+        [options]="droppableOptions">
+        <ntk-resource-planning-event
+          *ngFor="let event of events"
+          [event]="event"
+          [resource]="resource"
+          [options]="options"
+          [selected]="selected"
+          [getEventTooltip]="getEventTooltip"
+          [updateEvent]="updateEvent"
+          [buttonActionClick]="buttonActionClick"
+          [eventClicked]="eventClick"
+          [eventDbClicked]="eventDblClick"
+          [eventDragStarted]="eventDragStarted"
+          [eventDragStopped]="eventDragStopped"
+        ></ntk-resource-planning-event>
+      </ntk-resource-planning-droppable>
+    </div>
+  </div>
+</div>

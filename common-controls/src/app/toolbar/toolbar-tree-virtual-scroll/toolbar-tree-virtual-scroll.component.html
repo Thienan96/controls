@@ -1,0 +1,32 @@
+<cdk-virtual-scroll-viewport [itemSize]="itemSize" #scrollViewPort>
+    <mat-nav-list>
+        <mat-list-item *cdkVirtualFor="let item of dataSource; let i = index" (click)="onItemClicked(item)" [disableRipple]="item.Disabled" [class.disabled]="item.Disabled">
+            <ng-template  [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{
+                item:item,
+                onItemChanged: onItemChanged.bind(this),
+                index: i,
+                offsetHeight: isFirstItemInLevel(i) ? -10 : 0,
+                indentLines: calculateIndentLines(i)}">
+            </ng-template>
+            <div class="mask"></div>
+        </mat-list-item>
+    </mat-nav-list>
+</cdk-virtual-scroll-viewport>
+
+<ng-template #itemTemplate let-item="item" let-index="index" let-offsetHeight="offsetHeight" let-indentLines="indentLines" let-onItemChanged="onItemChanged">
+    <div fxLayout="row" fxLayoutAlign=" center"  fxFlex style="width: 100%;">
+        <mat-checkbox
+            color="primary"
+            *ngIf="item.Value"
+            [disabled]="item.Disabled"
+            [class.toolbar-filter-item-group-header]="item.Disabled"
+            [checked]="item.IsSelected"
+            (change)="onItemChanged($event)"
+            [value]="item">
+        </mat-checkbox>
+        <ntk-tree-indent [offset-height]="offsetHeight" [indent-lines]="indentLines" [height]="48"></ntk-tree-indent>
+        <span class='hs-block-ellipsis' [ngStyle]="{'font-weight': item.Disabled ? '500' : '400'}" [style.font-size.px]="14" [style.margin-left.px]="8">
+            {{item.DisplayValue}}
+        </span>
+    </div>
+</ng-template>

@@ -1,0 +1,73 @@
+@mixin ntk-search-icon-component($theme) {
+  $primary: map-get($theme, primary);
+
+  .ntk-search-icon {
+    input {
+      width: 100%;
+      top: 0;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      color: inherit;
+      outline: none;
+      margin: 0;
+      border: 0;
+      padding-right: 40px;
+      height: 40px;
+      background-color: transparent;
+      box-sizing: border-box;
+
+      &::-ms-clear {
+        display: none;
+      }
+    }
+
+
+    .ntk-toolbar-search-background {
+      border-radius: 3px;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      right: 0;
+      height: 36px;
+      background-color: mat-color($primary, 200);
+    }
+
+
+    .btn-search, .btn-clear {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0px, -50%);
+    }
+
+    .btn-clear {
+      z-index: 2;
+    }
+
+    &.is-show-search {
+      width: 100%;
+    }
+
+    &.normal-mode:not(.is-force-show-search) {
+      input {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        text-indent: 40px;
+        background: transparent;
+      }
+
+      .ntk-toolbar-search-background {
+        display: none;
+      }
+    }
+
+    &.is-show-background{
+      input{
+        padding-left: 16px;
+      }
+    }
+  }
+}
+

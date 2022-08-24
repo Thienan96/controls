@@ -1,0 +1,23 @@
+{
+  "EntityVersion": 14,
+  "EntityDiscriminator": "CheckListTemplate",
+  "Name": "ccc",
+  "Code": null,
+  "Description": null,
+  "IsArchived": false,
+  "IsMaintenancePlan": false,
+  "Category": null,
+  "Attachments": [],
+  "Site": null,
+  "Equipment": null,
+  "Room": null,
+  "CheckListTemplate": null,
+  "DeletedAttachmentIds": null,
+  "RoomFullPath": null,
+  "RoomType": null,
+  "DocumentTemplate": null,
+  "LinesCount": 4,
+  "VisitsCount": 7,
+  "VisitScheduleCount": 1,
+  "Id": "16ab4745-9be0-403a-8627-25c2ef0e4d03"
+}

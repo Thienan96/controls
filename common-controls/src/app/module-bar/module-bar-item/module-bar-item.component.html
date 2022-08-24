@@ -1,0 +1,34 @@
+<div class="modules-bar-item"
+     [class.active]="moduleDef.isActive"
+     [ngClass]="moduleDef.className"
+     [matTooltip]="moduleDef.translationKey | translator"
+     [ntk-tooltip-translator]="moduleDef.translationKey"
+     [matTooltipPosition]="'right'"
+     [matTooltipDisabled]="!isCollapsed">
+    <div [style.marginLeft.px]="moduleDef.level*indent" class="modules-bar-item-indent">
+        <div style="position: relative;height: 100%;width: 100%">
+            <mat-icon *ngIf="moduleDef.children && moduleDef.children.length>0" class="expand-icon" aria-label="icon">
+                {{moduleDef.isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}
+            </mat-icon>
+            <div fxLayout fxLayoutAlign="start center" style="height: 100%;width: 100%">
+                <img fxFlex="none"
+                     class="img-module"
+                     *ngIf="moduleDef.activeImageIcon || moduleDef.inActiveImageIcon"
+                     [src]="(moduleDef.isActive ? moduleDef.activeImageIcon : moduleDef.inActiveImageIcon) | secure | async"/>
+                <div fxFlex="none" fxLayoutAlign="start center" *ngIf="moduleDef.svgIcon || moduleDef.customSvgIcon">
+                    <mat-icon *ngIf="moduleDef.svgIcon">{{moduleDef.svgIcon}}</mat-icon>
+                    <mat-icon *ngIf="moduleDef.customSvgIcon" [svgIcon]="moduleDef.customSvgIcon"></mat-icon>
+                </div>
+                <div fxFlex fxLayout fxLayoutAlign="start center" class="module-name-part">
+                    <div class="module-name"
+                         [ntk-translator]="moduleDef.translationKey"
+                         [matTooltip]="moduleDef.translationKey | translator"
+                         [ntk-tooltip-translator]="moduleDef.translationKey"
+                         [matTooltipPosition]="'right'"
+                         ntk-tooltip-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.stepper-slide-container {
+    overflow: hidden;
+    height: 100%;
+}
+
+.stepper-content {
+    outline: 0;
+    height: 100%;
+    width: 100%;
+  
+    &[aria-expanded='false'] {
+      height: 0;
+      overflow: hidden;
+      width: 0;
+    }
+  }
+  

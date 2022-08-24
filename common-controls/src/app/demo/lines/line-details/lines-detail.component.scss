@@ -1,0 +1,15 @@
+::ng-deep{
+  // Set background when item is selected
+  .expandable-details-details-mode { // Details-Mode
+    .is-selected:not(.is-conditional-group-item) {
+      .item-content {
+        background: #ECECEC;
+      }
+
+      .header {
+        background-color: transparent;
+      }
+    }
+  }
+
+}

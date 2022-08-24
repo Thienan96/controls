@@ -1,0 +1,24 @@
+<div (onResizeSensor)="onResize()" fxFill fxLayout="column" ntk-resize-sensor>
+    <div fxFlex="none">
+        <div [style.paddingRight.px]="paddingRight" class="details-calendar-day-header-container" fxLayout="row">
+            <ng-content select="ntk-details-calendar-day-header"></ng-content>
+        </div>
+    </div>
+    <div class="scroll-viewport" fxFlex>
+        <div class="scroller-content" ntk-resize-sensor (onResizeSensor)="onResize()">
+            <div class="details-calendar-background-container">
+                <ng-content select="ntk-details-calendar-background"></ng-content>
+            </div>
+            <ng-content select="ntk-details-calendar-hours"></ng-content>
+            <div class="details-calendar-day-container" fxLayout="row">
+                <ng-content select="ntk-details-calendar-day"></ng-content>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="none">
+        <div [style.paddingRight.px]="paddingRight" class="details-calendar-day-footer-container" fxLayout="row">
+            <ng-content select="ntk-details-calendar-day-footer"></ng-content>
+        </div>
+    </div>
+</div>
+<div  class="blocked-content"></div>

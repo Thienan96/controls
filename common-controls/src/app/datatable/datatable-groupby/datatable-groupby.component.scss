@@ -1,0 +1,66 @@
+@mixin datatable-groupby($theme, $options) {
+  $groupByBackgroundColor: map_get($options, groupByBackgroundColor);
+  $borderColor: map_get($options, borderColor);
+  $warnColor: map-get($theme, warn);
+  ntk-datatable-groupby {
+    background: $groupByBackgroundColor;
+    padding: 0 8px;
+    border-left: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
+    border-top: 1px solid $borderColor;
+    border-radius: 8px 8px 0 0;
+    height: 52px;
+
+    .button-clear {
+      $buttonSize: 32px;
+      line-height: $buttonSize;
+      width: $buttonSize;
+      height: $buttonSize;
+
+      .mat-icon {
+        $iconSize: 20px;
+        line-height: $iconSize;
+        width: $iconSize;
+        height: $iconSize;
+        font-size: $iconSize;
+      }
+    }
+
+    .icon-chevron {
+      margin-left: -5px;
+      $iconSize: 24px;
+      line-height: $iconSize;
+      width: $iconSize;
+      height: $iconSize;
+      font-size: $iconSize;
+    }
+
+    .group {
+      // padding: 0 0 0 10px;
+      display: flex;
+      .group-name {
+        cursor: pointer;
+      }
+    }
+    .color-warn {
+      color: mat-color($warnColor);
+    }
+
+    .cdk-drag-placeholder {
+      visibility: hidden;
+    }
+
+  }
+
+  .datatable-groupby-drag.cdk-drag-preview {
+    background: $groupByBackgroundColor;
+    padding: 4px 16px;
+    width: auto !important;
+    height: auto !important;
+
+    .button-clear, .color-warn {
+      display: none;
+    }
+  }
+
+}

@@ -1,0 +1,45 @@
+<ntk-shuffle style="display: block;background: #f1f1f1;padding: 8px;">
+    <ntk-shuffle-item *ngFor="let contact of contacts" >
+        <div style="margin: 8px">
+            <mat-card>
+                <div fxLayout="row">
+                    <div class="logo-circle" fxFlex="none">
+                        <img *ngIf="contact.LogoUrl" src="{{contact.LogoUrl}}"/>
+                        <mat-icon *ngIf="!contact.LogoUrl">person</mat-icon>
+                    </div>
+                    <div class="card-content">
+                        <mat-card-title>{{contact.Name}}</mat-card-title>
+                        <mat-card-subtitle style="margin-bottom: 0">
+                            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="contact.OfficePhone">
+                                <mat-icon>phone</mat-icon>
+                                <span>{{contact.OfficePhone}}</span>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="contact.MobilePhone">
+                                <mat-icon>phone_iphone</mat-icon>
+                                <span>{{contact.MobilePhone}}</span>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="contact.Email">
+                                <mat-icon>email</mat-icon>
+                                <span>{{contact.Email}}</span>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="start center" *ngIf="contact.Language">
+                                <mat-icon>language</mat-icon>
+                                <span>{{contact.Language}}</span>
+                            </div>
+                        </mat-card-subtitle>
+                    </div>
+                </div>
+                <div class="mat-caption" *ngIf="contact.Comment"
+                     [innerHTML]="contact.Comment | safeHtml | carriageReturn2HtmlBr"></div>
+                <mat-card-actions align="end">
+                    <button mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </ntk-shuffle-item>
+</ntk-shuffle>

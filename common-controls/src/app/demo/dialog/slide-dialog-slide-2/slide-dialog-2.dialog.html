@@ -1,0 +1,18 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch">
+    <div fxFlex fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+        <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'>
+            <button *ngIf="!dialogData.ShowBackButton" fxFlex="none" mat-icon-button (click)="onClose()" >
+                <mat-icon>close</mat-icon>
+            </button>
+            <button *ngIf="dialogData.ShowBackButton" fxFlex="none" mat-icon-button (click)="onBack()" >
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <div fxFlex class='title-dialog'>Slide 2</div>
+            <button fxFlex="none" mat-button  (click)="onSave()">Save</button>
+            <button fxFlex="none" mat-button  (click)="onSaveAndClose()">Save And Close</button>
+        </mat-toolbar>
+        <div fxFlex class="content-dialog">
+            Slide 2
+        </div>
+    </div>
+</div>

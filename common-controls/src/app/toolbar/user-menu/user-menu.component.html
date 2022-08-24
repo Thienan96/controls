@@ -1,0 +1,21 @@
+<button mat-icon-button [matMenuTriggerFor]="matMenuProfile" (menuOpened)="menuOpened()" ntk-stop-monitoring>
+    <mat-icon *ngIf="!imageUrl">account_circle</mat-icon>
+    <div class="avatar" *ngIf="imageUrl">
+        <img [src]="imageUrl" />
+    </div>
+</button>
+<mat-menu #matMenuProfile="matMenu" [overlapTrigger]='false' xPosition='before' class="ntk-toolbar-menu ntk-user-menu-menu">
+    <button mat-menu-item *ngIf="showUserProfileItem" (click)='onShowProfileClick()' ntk-translator='btShowProfile'></button>
+    <button mat-menu-item *ngIf="showChangePasswordItem" (click)='onChangePasswordClick()' ntk-translator='btChangePassword'></button>
+    <button mat-menu-item *ngIf="showChangeLangualeItem" (click)='onChangeLanguageClick()' ntk-translator='btChangeLanguage'></button>
+    <button mat-menu-item *ngIf="showUserSettingItem" (click)='onGeneralSettingClick()' ntk-translator='btGeneralSettings'></button>
+
+    <!-- Notifications & emails-->
+    <button mat-menu-item *ngIf="allowNotificationSettingItem && showNotificationMenu" 
+        (click)='onNotificationSettingClick()' ntk-translator='lbNotificationsEmails'></button>
+    <button mat-menu-item *ngIf="showReleaseNotesItem" (click)='onReleaseNotesClick()' [ngClass]="{'new-release-alert': highlightNewReleaseAlert}" ntk-translator='lbReleaseNotes'></button>
+    <button mat-menu-item (click)='onAboutClick()' ntk-translator='btShowAbout'></button>
+    <ng-content></ng-content>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)='onLogoutClick()' ntk-translator='btLogout'></button>
+</mat-menu>

@@ -1,0 +1,8 @@
+<div [style.margin-left.px]="level*indent" class="expandable-drag item-content" >
+    <div class="header" fxLayoutAlign="start center" fxLayout="row" [style.height.px]="itemHeight" >
+        <ng-content select="ntk-expandable-item-header"></ng-content>
+    </div>
+    <div class="content" *ngIf="isSelected">
+        <ng-content select="ntk-expandable-item-content"></ng-content>
+    </div>
+</div>

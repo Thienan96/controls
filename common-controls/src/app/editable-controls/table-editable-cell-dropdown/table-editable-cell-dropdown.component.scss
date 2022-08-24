@@ -1,0 +1,67 @@
+@mixin table-editable-cell-dropdown($options) {
+  $cellPadding: map_get($options, 'cellPadding');
+  ntk-table-editable-cell-dropdown {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    ntk-mat-dropdown {
+      display: block;
+      height: 100%;
+      position: relative;
+
+      &.ntk-mat-dropdown-disabled {
+        .mat-dropdown-arrow {
+          color: rgba(0, 0, 0, 0.3) !important;
+        }
+      }
+
+      .mat-dropdown-container {
+        display: table !important;
+        height: 100%;
+
+        input.mat-input-element {
+          padding: $cellPadding !important;
+          margin-top: 0 !important;
+          padding-right: 0 !important;
+          box-sizing: border-box;
+        }
+
+      }
+
+      .mat-dropdown-arrow {
+        margin: $cellPadding !important;
+      }
+
+      mat-progress-bar {
+        bottom: 0 !important;
+      }
+
+      .mat-dropdown-value {
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 100%;
+          top: 0;
+        }
+
+        @-moz-document url-prefix() {
+          input {
+            position: absolute;
+          }
+        }
+      }
+
+      .mat-dropdown-clear {
+        width: 26px;
+        min-width: 26px;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 0px;
+        color: rgba(0, 0, 0, 0.54);
+      }
+    }
+  }
+}

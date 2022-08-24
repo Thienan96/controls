@@ -1,0 +1,16 @@
+<div class="ntk-toolbar-search-wrapper" style="width: 100%">
+  <div fxLayout="row" fxFlex fxLayoutAlign="start center">
+    <div fxFlex style="width: 100%;overflow: hidden;">
+      <form>
+        <input fxFlex  type="text" autocomplete='off' [disableControl]="disableSearchText"  title="{{'lbSearch'|translator}}" placeholder="{{placeHolderText}}"  (ngModelChange)='onSearchChanged($event)'  name="ntk-input-toolbar-search" [(ngModel)]="searchText" (focus)="onFocus()"/>
+      </form>
+    </div>
+
+    <button mat-icon-button class="btn-search">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button class="btn-clear" (click)="onClearSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>

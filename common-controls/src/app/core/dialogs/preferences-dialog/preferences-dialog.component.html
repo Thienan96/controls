@@ -1,0 +1,128 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+  <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary'
+    style='margin: 0;'>
+    <button fxFlex="none" mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <span fxFlex class="hs-toolbar-title">{{'btGeneralSettings' | translator}}</span>
+    <button mat-button (click)="onSaveClick()">{{'btSave' | translator}}</button>
+  </mat-toolbar>
+  <!-- <mat-divider></mat-divider> -->
+
+  <!-- <mat-progress-bar mode="indeterminate"  [style.display]="busy?'inherit':'none'" class="loading-progress"></mat-progress-bar> -->
+
+  <div style="padding: 32px;overflow: auto;" fxLayout="column" fxLayoutGap="24px">
+    <!--Display mode for grid-->
+    <div fxLayout="row">
+      <span fxFlex>{{'btGridMode' | translator}}</span>
+      <mat-radio-group fxFlex='none' fxLayout="row" fxLayoutGap="16px" [value]="settings.gridMode"
+        (change)="settings.gridMode = $event.value">
+        <mat-radio-button value="normal" color='primary'>{{'lbNormal' | translator}}</mat-radio-button>
+        <mat-radio-button value="compact" color='primary'>{{'lbCompact' | translator}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <!--NBSHD-3801: alternate color-->
+    <div fxLayout="row">
+      <span fxFlex>{{'lbGridAlternateColor' | translator}}</span>
+      <mat-slide-toggle
+          color="primary"
+          [(ngModel)]="settings.gridAlternateColor">        
+      </mat-slide-toggle>
+    </div>
+    <!--Helpsite title-->
+    <span class="mat-body-strong" *ngIf="preferenceSetting?.showIncidentSettings || preferenceSetting?.showInterventionSettings">HELPSITES</span>
+    <!--Incident history by default-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showIncidentSettings">
+      <div fxFlex>
+        {{('lbShowIncidentHistoryByDefault' | translator)}}
+      </div>
+      <div fxFlex="none">
+        <mat-checkbox [(ngModel)]="settings.showIncidentHistoryDefault" color='primary'></mat-checkbox>
+      </div>
+    </div>
+    <!--Intervention history by default-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showInterventionSettings">
+      <div fxFlex>
+        {{('lbShowInterventionHistoryByDefault' | translator)}}
+      </div>
+      <div fxFlex="none">
+        <mat-checkbox [(ngModel)]="settings.showInterventionHistoryDefault" color='primary'></mat-checkbox>
+      </div>
+    </div>
+
+    <!--Planning title-->
+    <span class="mat-body-strong" *ngIf="preferenceSetting?.showPlanningSettings">{{'lbPlanningSetting' | translator}}</span>
+
+    <!--show tasks status as-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showPlanningSettings">
+      <span fxFlex>{{'lbShowTaskStatusAs' | translator}}</span>
+      <mat-radio-group fxFlex='none' fxLayout="row" fxLayoutGap="16px" [value]="settings.ShowTasksStatusAs"
+        (change)="settings.ShowTasksStatusAs = $event.value">
+        <mat-radio-button value="tabs" color='primary'>{{'lbTabs' | translator}}</mat-radio-button>
+        <mat-radio-button value="filter" color='primary'>{{'lbFilter' | translator}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <!--Invoices and quotes-->
+    <span class="mat-body-strong" *ngIf="preferenceSetting?.showSalesSettings">{{'lbInvoicesAndQuotes' | translator}}</span>
+
+    <!--Invoice default status-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showcreationSalesInvoiceSettings">
+      <span fxFlex>{{'lbCreationInvoices' | translator}}</span>
+      <mat-select fxFlex="none" [style.width.px]="160" [(value)]="settings.DefaultInvoiceStatus"
+        disableOptionCentering panelClass="offset-down-panel">
+        <mat-option *ngFor="let invoiceStatus of invoiceStatusList" [value]="invoiceStatus.Id">
+          {{"invoicestatus_" + invoiceStatus.Name | translator}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <!--Quote default status-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showcreationQuoteSettings">
+      <span fxFlex>{{'lbCreationQuotes' | translator}}</span>
+      <mat-select fxFlex="none" [style.width.px]="160" [(value)]="settings.DefaultQuoteStatus"
+        disableOptionCentering panelClass="offset-down-panel">
+        <mat-option *ngFor="let quoteStatus of quoteStatusList" [value]="quoteStatus.Id">
+          {{"estimatestatus_" + quoteStatus.Name | translator}}
+        </mat-option>
+      </mat-select>
+    </div>
+   
+    <!--Default tab on invoice, quotes-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showSalesSettings">
+      <span fxFlex>{{'lbDefaultTabOnInvoicesAndQuotes' | translator}}</span>
+      <mat-radio-group fxFlex='none' fxLayout="row" fxLayoutGap="16px" [value]="settings.DefaultTabOnInvoicesAndQuotes"
+        (change)="settings.DefaultTabOnInvoicesAndQuotes = $event.value">
+        <mat-radio-button value="header" color='primary'>{{'lbHeader' | translator}}</mat-radio-button>
+        <mat-radio-button value="lines" color='primary'>{{'lbLines' | translator}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <!--Purchase orders & purchase requests-->
+    <span class="mat-body-strong" *ngIf="preferenceSetting?.showPurchasesSettings">{{'lbPurchasesSettings' | translator}}</span>
+
+    <!--PO default status-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showcreationPOSettings">
+      <span fxFlex>{{'lbCreationPurchaseOrdersDefaultStatus' | translator}}</span>
+      <mat-select fxFlex="none" [style.width.px]="160" [(value)]="settings.DefaultPurchaseOrdersStatus" 
+        disableOptionCentering panelClass="offset-down-panel">
+        <mat-option *ngFor="let poStatus of purchaseOrderStatusList" [value]="poStatus.Id">
+          {{"purchaseorderstatus_" + poStatus.Name | translator}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <!--Purchase invoice default status-->
+    <div fxLayout="row" *ngIf="preferenceSetting?.showcreationPurchaseInvoiceSettings">
+      <span fxFlex>{{'lbCreationPurchaseInvoicesDefaultStatus' | translator}}</span>
+      <mat-select fxFlex="none" [style.width.px]="160" [(value)]="settings.DefaultPurchaseInvoiceStatus" 
+        disableOptionCentering panelClass="offset-down-panel">
+        <mat-option *ngFor="let status of purchaseInvoiceStatusList" [value]="status.Id">
+          {{"purchaseinvoicestatus_" + status.Name | translator}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+
+  </div>
+</div>

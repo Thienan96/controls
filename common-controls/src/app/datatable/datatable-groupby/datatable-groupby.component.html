@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="start center" style="height: 100%;">
+    <div [style.margin-right.px]="8">{{'GroupBy'|translator}} :</div>
+    <div cdkDropList cdkDropListOrientation="horizontal"  (cdkDropListDropped)="drop($event)" fxLayout="row">
+        <div *ngFor="let group of groups; index as i;" fxLayout="row" fxLayoutAlign="start center" class="group datatable-groupby-drag" cdkDrag>
+            <div *ngIf="groups.length < columns.length" [matMenuTriggerFor]="datatableGroupbyMenu" class="group-name" [matMenuTriggerData]="{group: group}">{{group.name}}</div>
+            <div *ngIf="groups.length >= columns.length" class="group-name">{{group.name}}</div>
+            <!-- <div *ngIf="group.readOnly" class="group-name">{{group.name}}</div> -->
+            <button mat-icon-button class="button-clear" [disabled]="!this.canRemoveFirstItem && i === 0" (click)="onButtonClear(group)">
+                <mat-icon>clear</mat-icon>
+            </button>            
+            <mat-icon class="icon-chevron color-warn">chevron_right</mat-icon>
+        </div>
+    </div>
+    <div>
+        <button mat-button class="color-warn" 
+            *ngIf="groups.length < columns.length"
+            [matMenuTriggerFor]="datatableGroupbyMenu" 
+            [matMenuTriggerData]="{group: null}" 
+            [matMenuTriggerRestoreFocus]="false">{{'AddGroupBy'|translator}}</button>
+    </div>
+</div>
+
+<mat-menu #datatableGroupbyMenu="matMenu">
+    <ng-template matMenuContent let-group="group">
+        <button mat-menu-item *ngFor="let column of columns|datatableNegative:groups" (click)="onGroupClick(column, group)">{{column.displayValue}}</button>
+    </ng-template>
+</mat-menu>

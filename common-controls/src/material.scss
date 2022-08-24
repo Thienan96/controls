@@ -1,0 +1,309 @@
+@import '~@angular/material/theming';
+
+@import './public_styles';
+
+// Plus imports for other components in your app.
+
+// ngx-datatable meterial style
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+@import './app/table-editable/table-editable';
+@import './app/demo/table-editable-workspace/table-editable-workspace.component';
+@import './app/datatable/datatable';
+@import './app/module-bar/module-bar';
+@import './app/documents/folder-tree/folder-tree-style.scss';
+@import './app/chip/chip';
+@import './app/core/add-comment/add-comment-mobile/add-comment-mobile.component.scss';    
+// ngx-toastr style
+@import '~ngx-toastr/toastr';
+@import './app/details-calendar/details-calendar';
+
+$custom-typography: mat-typography-config(
+        $display-1: mat-typography-level(16px, 30px, 200)
+);
+
+@include mat-base-typography($custom-typography);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($custom-typography);
+
+//hs
+$hs-primary: (
+    50: #ffeaca,
+    100: #f7c07a,
+    200: #f6b561,
+    300: #f5aa49,
+    400: #f39e31,
+    500: #f29319,
+    600: #e5860d,
+    700: #cc780c,
+    800: #b46a0a,
+    900: #9c5c09,
+    A100: #fad7aa,
+    A200: #fce2c2,
+    A400: #fdeeda,
+    A700: #844d07,
+    contrast: (
+        50: $dark-secondary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $light-primary-text,
+        A200: $light-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text
+    ));
+$hs-accent: (
+        50 : #ffffff,
+    100 : #f8bac8,
+    200 : #f387a0,
+    300 : #ec466d,
+    400 : #e92b57,
+    500 : #de1745,
+    600 : #c2143c,
+    700 : #a61134,
+    800 : #8b0e2b,
+    900 : #6f0c23,
+    A100 : #fff5f7,
+    A200 : #ff8fa9,
+    A400 : #fb2d5d,
+    A700 : #ee2050,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    ));
+// gf
+$gf-primary: (
+        50 : #ffffff,
+        100 : #ffc2bd,
+        200 : #ff8e85,
+        300 : #ff4c3d,
+        400 : #ff2f1f,
+        500 : #ff1300,
+        600 : #e01100,
+        700 : #c20e00,
+        800 : #a30c00,
+        900 : #850a00,
+        A100 : #ffffff,
+        A200 : #ffa199,
+        A400 : #ff4233,
+        A700 : #ff2b1a,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #ffffff,
+            400 : #ffffff,
+            500 : #ffffff,
+            600 : #ffffff,
+            700 : #ffffff,
+            800 : #ffffff,
+            900 : #ffffff,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #ffffff,
+            A700 : #ffffff,
+        ));
+$gf-accent: (
+        50 : #fabdeb,
+    100 : #f576d5,
+    200 : #f142c5,
+    300 : #db10a8,
+    400 : #be0e92,
+    500 : #a20c7c,
+    600 : #850a66,
+    700 : #690850,
+    800 : #4c063b,
+    900 : #300425,
+    A100 : #ffaeea,
+    A200 : #ff48d1,
+    A400 : #e100a8,
+    A700 : #bf0991,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    ));
+// cl
+$cl-primary: (
+    50: #cee8fc,
+    100: #41a0fa,
+    200: #3e8eda,
+    300: #0f87f9,
+    400: #067ae9,
+    500: #056DD0,
+    600: #0460b7,
+    700: #04539e,
+    800: #034685,
+    900: #03396c,
+    A100: #72b9fc,
+    A200: #8bc5fc,
+    A400: #a4d2fd,
+    A700: #022c53,
+    contrast: (
+        50: $dark-secondary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $light-primary-text,
+        A200: $light-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text
+    ));
+$cl-accent: (
+        50 : #efe5fe,
+        100 : #c29bfc,
+        200 : #a164fb,
+        300 : #761ff9,
+        400 : #6507f2,
+        500 : #5906d4,
+        600 : #4c05b6,
+        700 : #400498,
+        800 : #34037b,
+        900 : #27035d,
+        A100 : #e9daff,
+        A200 : #ac74ff,
+        A400 : #6f0eff,
+        A700 : #6201f3,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #ffffff,
+            400 : #ffffff,
+            500 : #ffffff,
+            600 : #ffffff,
+            700 : #ffffff,
+            800 : #ffffff,
+            900 : #ffffff,
+            A100 : #000000,
+            A200 : #000000,
+            A400 : #ffffff,
+            A700 : #ffffff,
+        ));
+
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat-palette($cl-primary);
+$app-accent: mat-palette($cl-accent);
+$app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent);
+
+$toolbar-theme: mat-light-theme(mat-palette($mat-green), mat-palette($mat-purple));
+
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+@include toolbar-component($toolbar-theme, 
+    (
+    badge-background-color: whitesmoke,
+    badge-color: #ff1300
+    ));
+@include attchment-box($app-theme);
+@include upload-logo($app-theme);
+@include ntk-mat-dropdown-panel($app-theme);
+@include ntk-toastr($app-theme);
+@include resource-planning($app-theme, (
+        borderColor:#e1e1e1,
+        borderBoldColor: #cacaca,
+        navigationButtonWith: 20px,
+        userInformationWidth: 140px,
+        weekendColor:#c0c0c0,
+        warmColor:#ff0000,
+        iconColor:rgba(0, 0, 0, 0.54),
+        durationBackgroundColor: darkgray,
+        durationColor:#fff,
+        eventFullColor: #f1f1f1,
+        fontSize: 14px,
+        fontSizeSmaller: 12px
+));
+@include message-dialog($app-theme);
+@include ngx-datatable($app-theme);
+
+@include table-editable($app-theme);
+@include table-editable-workspace();
+
+@include datatable($app-theme);
+
+@include module-bar($toolbar-theme);
+
+@include folder-tree($app-theme, (
+    borderColor: rgba(0, 0, 0, 0.12),
+    cellPadding: 0 8px,
+    alternateColor: rgba(225, 239, 255, 0.4),
+    hoverBackgroundColor: #f7f7f7,
+    selectedBackgroundColor: #ececec,
+    headerBackgroundColor: #fff,
+    headerHeight: 50px,
+    footerHeight: 32px,
+    footerBackgroundColor: #f1f1f1,
+    groupByBackgroundColor:#f1f1f1
+));
+
+@include chip($app-theme);
+@include ntk-kanban($app-theme);
+
+@include scss-add-comment-mobile($app-theme);
+
+
+.color-primary{
+  color: mat-color($app-primary);
+}
+.color-warn {
+  color: mat-color($app-warn);
+}
+
+
+@include details-calendar($app-theme);

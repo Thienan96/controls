@@ -1,0 +1,27 @@
+.textarea-comment {
+    overflow-y: auto;
+    border: 0px;
+    width: calc(100% - 16px);
+    height: 100%;
+    resize: none;
+    margin: 8px;
+    background-color: transparent;
+}
+
+.textarea-comment::placeholder {
+    font-size: 14px;
+    line-height: 16px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ntk-add-comment-expanded {
+    height: 80%;
+}
+
+.text-area-box {
+    margin:4px;
+    border-radius:4px;
+    background-color:white;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.52);
+    padding-bottom: 20px;
+}

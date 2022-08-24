@@ -1,0 +1,43 @@
+<div class="module-bar-menu-wrapper"
+     ntk-resize-sensor
+     (onResizeSensor)="onResize()"
+     [class.should-show-scroller]="shouldShowScroller"
+     [class.bar-collapsed]="isCollapsed"
+     [class.show-scrollerbar]="showScrollerBar">
+    <div fxLayout="column" style="position: relative; width: 100%; height: 100%;">
+        <!-- button up -->
+        <div fxLayout fxLayoutAlign="center center" class="icon-navigation icon-up" *ngIf="shouldShowScroller">
+            <button mat-icon-button aria-label="Go top" [disabled]="!canGoUp" (click)="goUp()">
+                <mat-icon>keyboard_arrow_up</mat-icon>
+            </button>
+        </div>
+
+        <!-- content -->
+        <div fxFlex
+             class="modules-bar-container"
+             #modulesBarContainer>
+            <div #modulesBarItemsOffset class="modules-bar-items-offset" >
+                <ntk-module-item-wrapper
+                        mat-list-item
+                        #menuGroup
+                        *ngFor="let module of modulesDef"
+                        [moduleDef]="module"
+                        [indent]="indent"
+                        [itemHeight]="itemHeight"
+                        [isCollapsed]="isCollapsed"
+                        [parent]="this"
+                        (expandStateChanged)="onGroupExpandStateChanged($event)"
+                        (moduleItemClick)="gotoModule($event)">
+                </ntk-module-item-wrapper>
+                <div class="modules-bar-padding"></div>
+            </div>
+        </div>
+
+        <!-- button down -->
+        <div fxLayout fxLayoutAlign="center center" class="icon-navigation icon-down" *ngIf="shouldShowScroller">
+            <button mat-icon-button aria-label="Go down" [disabled]="!canGoDown" (click)="goDown()">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

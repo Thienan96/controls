@@ -1,0 +1,21 @@
+<div fxLayout='column' class="data-field-wrapper" fxLayoutAlign='start stretch'>
+    <span *ngIf='!skipTranslation' class='field-label' [style.margin-bottom.px]="canShowIconButton ? -5: 2" >{{captionKey | translator}}</span>    
+    <span *ngIf='skipTranslation' class='field-label' [style.margin-bottom.px]="canShowIconButton ? -5: 2" >{{captionKey}}</span>    
+    <div fxLayout='row' fxLayoutAlign='start end' *ngIf="value">
+        <span *ngIf='!withTruncation'  class='field-data selectable' [matTooltip]="toolTip">{{value}}<span class="custom-sufix" *ngIf="value && valueSufix">{{valueSufix}}</span></span>
+        <ntk-middle-truncation  *ngIf='withTruncation' [style.max-width.%]="100" [matTooltip]="toolTip"
+            [maxLines]='maxLines' class='information-data' >{{value}}</ntk-middle-truncation>
+        <span fxFlex="none" class="custom-sufix" *ngIf="withTruncation && valueSufix">{{valueSufix}}</span>
+        <mat-icon aria-label="Field icon" *ngIf="canShowIconButton" 
+                  color="primary" class="field-icon-button" 
+                  cdkOverlayOrigin #overlay='cdkOverlayOrigin'
+                  (click)='onIconClick()' (mouseenter)='onIconMouseEnter(overlay)'>
+                  {{iconName}}
+        </mat-icon>
+        <!-- <button mat-icon-button fxFlex="none" class="field-icon-button" color="primary" [disableRipple]="true"
+            (click)='onIconClick()' *ngIf="canShowIconButton">
+            <mat-icon aria-label="Field icon" >{{iconName}}</mat-icon>
+        </button> -->
+        <div fxFlex *ngIf='withTruncation'></div>
+    </div>
+</div>

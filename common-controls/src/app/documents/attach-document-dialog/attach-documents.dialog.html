@@ -1,0 +1,61 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start stretch" style="position: relative;">
+    <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="start center" color='primary' style='margin: 0;'>        
+        
+        <button fxFlex="none" mat-icon-button (click)="close()" *ngIf="!isShowSearch">
+            <mat-icon>close</mat-icon>
+        </button>
+
+        <div fxFlex style="margin-left: 8px; font-size: 20px; font-weight: 400" 
+            *ngIf="!isShowSearch" >{{'lbSelectDocuments' | translator}}</div>
+
+        <button fxFlex="none" mat-icon-button (click)="enableSearch()" *ngIf="!isShowSearch">
+            <mat-icon>search</mat-icon>
+        </button>
+
+        <button mat-icon-button style="margin-left:-8px; color:inherit;"
+                (click)="disableSearch()"
+                *ngIf="isShowSearch">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <input fxFlex #inputQuery
+               style="color:inherit;"
+               type="text" 
+               *ngIf="isShowSearch"
+               [(ngModel)]="query" 
+               (onDebounce)="searchTextChanged($event)"
+               debounce='500'
+               class="hs-input-filter-search"
+               placeholder="{{'lbSearch' | translator}}" />
+
+        <button mat-icon-button
+                *ngIf="isShowSearch && query"
+                (click)="clearQuery()">
+            <mat-icon>clear</mat-icon>
+        </button>
+
+        <button mat-button (click)="acceptSelectionClick()" >{{'btOk' | translator}}</button>
+
+    </mat-toolbar>
+    <!-- <mat-divider></mat-divider> -->    
+    
+    <!-- <mat-progress-bar mode="indeterminate"  [style.display]="busy?'inherit':'none'" class="loading-progress"></mat-progress-bar> -->
+
+    <div style="overflow: hidden;;" fxLayout='row' fsLayoutAlign='start stretch' fxFlex>
+        <div fxFlex='30'>
+            <ntk-documents-list  [siteId]='siteId' [withRooms]='withRooms' style="width: 100%; height: 100%;" (documentSelected)='onDocumentSelected($event)' #documentsList >
+            </ntk-documents-list>
+        </div>
+        <mat-divider fxFlex="none" class="divider" style='margin-top:0 !important;' vertical ></mat-divider>
+        <div fxFlex style="overflow: hidden;" fxLayout="column">
+            <ntk-document-view fxFlex [hidden]="isShowPDFDocument" [documentWrapper]='selectedDocument' [isShowDownload]='isShowDownload'>
+            </ntk-document-view>
+            <ntk-pdf-preview *ngIf="isShowPDFDocument"
+            #pdfPreview style="width:100%;height:100%"
+            [documentWrapper]="selectedDocument"
+            [canShowFullReport]="false"
+            >
+            </ntk-pdf-preview>
+        </div>
+    </div>
+</div>

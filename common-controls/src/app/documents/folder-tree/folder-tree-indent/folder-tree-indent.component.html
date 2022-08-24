@@ -1,0 +1,21 @@
+<div
+  class="indent-container"
+  [style.height.px]="height"
+  *ngIf="middleLines?.length > 0">
+  <!-- <div class="lines-repeat" [style.width.px]='middleLines * 20' [style.height.px]="height + 2" [style.top.px]="height/2 * -1"></div> -->
+  <div fxLayout="row">
+    <div
+      *ngFor="let item of middleLines"
+      [ngClass]="{ 'level-indent-line': true }"
+      [style.marginLeft.px]="32"
+      [style.marginRight.px] = "26"
+      [style.height.px]="!item ? 0 : height * 1.5 + offsetHeight"
+      [style.bottom.px]="height / 2"
+      [style.margin-bottom.px]="height * 0.5 * -1"></div>
+  </div>
+  <div
+    class="level-indent-line-outlast"
+    [style.height.px]="height + offsetHeight"
+    [style.bottom.px]="height / 2"
+    [style.marginLeft.px]="32 + 59 * (middleLines.length - 1)"></div>
+</div>

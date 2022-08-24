@@ -1,0 +1,41 @@
+<div fxFlex fxLayout="column" fxLayoutAlign="start stretch" class='mat-elevation-z2 panel-container'>
+    <div *ngIf="showStatusText" fxLayout="column" fxLayoutAlign="center center" style="min-height: 50px;">
+        <span class="notif-status-text">{{statusTextKey | translator}}</span>
+    </div>
+    <div fxFlex style="position: relative;">
+        <virtual-scroller  [items]="items" (vsUpdate)="updateViewPortChanged($event)" (vsChange)="onRequestItemsLoad($event)">
+            <div *ngFor="let item of viewPortItems; let index = index" (click)='itemClick(item, index)'>
+                <div class="notif-item" >
+                    <ng-container *ngTemplateOutlet="(itemTemplate ? itemTemplate : defaultTemplate);context:{item: item}"></ng-container>
+                </div>
+            </div>
+        </virtual-scroller>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxFlex="none" style="height: 50px;" fxLayout='row' fxLayoutAlign='start center' fxLayoutGap="8px">
+        <button mat-button color="primary" *ngIf="!hideNotificationSetting" (click)="onSettingsClick.emit($event)">{{'btNotificationSettings' | translator | uppercase}}</button>
+        <button mat-button color="primary" *ngIf="!hideNotificationHistory" (click)="onNotificationHistoriesClick.emit($event)">{{'lbNotificationHistory' | translator | uppercase}}</button>
+        <div fxFlex></div>
+        <button mat-button color="primary" *ngIf="!hideClearAll" (click)="onDeleteAllMessagesClick.emit()">{{'btClearAllFilters' | translator | uppercase}}</button>
+    </div>
+    <ng-template #defaultTemplate let-item='item'>
+        <div style="height: 100%;width: 100%">
+            <div fxFlex style="height:100%" fxLayout="column">
+                <div fxFlex="none" fxLayout='row'>
+                    <mat-icon color="primary">notifications</mat-icon>
+                    <div fxFlex class="notif-header mat-body-strong">
+                        <span class="sender-name">{{item?.Sender?.Name}}</span>
+                        <span class="sent">{{item.Sent | formatDate}}</span>
+                    </div>
+                </div>
+                <div  fxFlex fxLayoutAlign="start center">
+                    <ntk-middle-truncation [autoResize]="false" maxLines="2" class="notif-message mat-caption">{{item.Message}}</ntk-middle-truncation>
+                </div>
+            </div>
+            <button fxFlex="none" mat-icon-button class="default-mat-icon-button button-remove" (click)="onDeleteMessageClicked(item,$event)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+
+    </ng-template>
+</div>

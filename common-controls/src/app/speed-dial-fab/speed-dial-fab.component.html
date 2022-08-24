@@ -1,0 +1,40 @@
+<!-- <div id="fab-dismiss" *ngIf="fabTogglerState ==='active'" (click)="onToggleFab()">
+</div> -->
+<ng-container *ngIf='triggerByClick'>
+  <div *ngIf='items?.length > 1' class='fab-container' [style.flexDirection]="'column-reverse'"  (mouseleave)="hideItems()">
+    <button mat-fab color='primary' class="fab-toggler" [disabled]='isDisabled' (click)='onClickDefault()'>
+      <mat-icon *ngIf="isSvg" [svgIcon]="default"></mat-icon>
+      <mat-icon *ngIf="!isSvg">{{fabTogglerState === 'active' ? 'close' : default}}</mat-icon>
+    </button>
+    <ng-container *ngTemplateOutlet='template'></ng-container>
+  </div>
+</ng-container>
+<ng-container *ngIf='!triggerByClick'>
+  <div *ngIf='items?.length > 1' class='fab-container' [style.flexDirection]="'column-reverse'" (mouseleave)="hideItems()">
+    <button mat-fab color='primary' class="fab-toggler" [disabled]='isDisabled' (mouseenter)="showItems()" (click)='defaultClick.emit()'>
+      <mat-icon *ngIf="isSvg" svgIcon="default"></mat-icon>
+      <mat-icon *ngIf="!isSvg">{{default}}</mat-icon>
+    </button>
+    <ng-container *ngTemplateOutlet='template'></ng-container>
+  </div>
+</ng-container>
+<div *ngIf='items?.length === 1' class='fab-container' [style.flexDirection]="'column-reverse'">
+  <button mat-fab  matTooltip="{{items[0].tooltip | translator}}" matTooltipPosition="above" color='primary' class="fab-toggler" [disabled]='isDisabled' (click)='defaultClick.emit()'>
+    <mat-icon *ngIf="isSvg" svgIcon="default"></mat-icon>
+    <mat-icon *ngIf="!isSvg">{{default}}</mat-icon>
+  </button>
+</div>
+<ng-template #template>
+  <div class="column-reverse" [@speedDialStagger]="buttons?.length">
+    <div fxLayout="row" fxLayoutAlign="end center" *ngFor="let btn of buttons" style="margin-bottom: 10px;">
+      <div *ngIf='showTooltip' style="padding-right: 10px">
+        <span class="tooltip">{{btn.tooltip | translator}}</span>
+      </div>
+      <button mat-mini-fab matTooltipPosition="left" class="fab" #tooltip (click)="onClickFab(btn)" [disabled]='btn.isDisabled'>
+        <mat-icon svgIcon="{{btn.action}}" *ngIf="!!btn.icon"></mat-icon>
+        <mat-icon *ngIf="!!btn.maticon">{{btn.maticon}}</mat-icon>
+        <img *ngIf="!btn.maticon && !btn.icon && !!btn.imageurl" [src]="btn.imageurl" style="width:24px; height:24px; margin: auto; outline:none">
+      </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,23 @@
+.sticky {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+.content-height {
+  width: 1px;
+  opacity: 0;
+}
+
+.w-sticky-17 {
+  width: calc(100% - 17px);
+}
+
+.w-sticky-0 {
+  width: 100%;
+}
+
+.sroll-top {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+}

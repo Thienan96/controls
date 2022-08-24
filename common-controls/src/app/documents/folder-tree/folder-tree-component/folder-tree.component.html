@@ -1,0 +1,43 @@
+<div fxLayout="column" style="height: 100%;">
+  <div fxFlex="none" fxLayout="row" fxLayoutAlign="start center" style="height: 39px;">
+    <div fxFlex="90">
+      <!-- <span style="padding-left: 8px;">
+        {{countFolderCheckLabel}}
+      </span> -->
+    </div>
+    <div fxLayoutAlign="start center" style=" margin-left: auto; order: 2;">
+      <ng-template [ngTemplateOutlet]="functionTemplate"></ng-template>
+    </div>
+  </div>
+  <mat-divider class="full-width-divider"></mat-divider>
+  <ntk-folder-tree-header [columns]=columns [template]="headerTemplate || DefaultheaderTemplate"
+    [style.paddingRight.px]="offsetScroll" [style.right.px]="scrollLeft" (columnResized)="onResizeColumn($event)"
+    [scrollLeft]="scrollLeft">
+  </ntk-folder-tree-header>
+  <mat-divider></mat-divider>
+  <ntk-folder-tree-virtical-scroll #folderScroll [items]="items" [scrollDebounceTime]="100"
+    (vsUpdate)="onUpdate($event)" (vsChange)="onChange($event)">
+    <ntk-folder-tree-row *ngFor="let folder of viewPortItems" [row]="folder"
+      (expandedChange)="onExpandedChanged($event)" [isFirstItemInLevel]="isFirstItemInLevel(folder)"
+      [calculateMiddleLines]="calculateMiddleLines(folder)" [isSelected]="folder.Id === rowSelected?.Id"
+      [hasChecked]="totalChecked > 0 ? true : false" (selectedChange)="onSelectedItemChanged($event)"
+      (onCheckedChange)="onCheckedFolder($event)" (showConnectorInfo)="onShowConnectorInfo($event)"
+      [listWidth]="listColumnWidth" [scrollLeft]="scrollLeft">
+    </ntk-folder-tree-row>
+  </ntk-folder-tree-virtical-scroll>
+  <mat-divider></mat-divider>
+  <ntk-datatable-scroller-horizontal fxFlex="none" [columns]="columns" [scrollLeft]="scrollLeft" [datatable]="this">
+  </ntk-datatable-scroller-horizontal>
+  <ng-template #DefaultheaderTemplate let-column="column">
+    <div *ngIf="column?.property === 'isChecked'; else normalHeader">
+      <mat-checkbox style="margin-right: 8px" fxFlex disableRipple color='primary'>
+      </mat-checkbox>
+    </div>
+    <ng-template #normalHeader>
+      <div style="width: 100%; text-align: left;">
+        <span *ngIf="!column.translationKey"></span>
+        <span *ngIf="column.translationKey">{{column.translationKey | translator}}</span>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

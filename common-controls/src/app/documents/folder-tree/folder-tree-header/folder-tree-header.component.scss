@@ -1,0 +1,23 @@
+@mixin folder-tree-header($theme, $options) {
+    $headerBackgroundColor: map_get($options, headerBackgroundColor);
+    $borderColor: map_get($options, borderColor);
+    $headerHeight: map_get($options, headerHeight);
+    ntk-folder-tree-header {
+      height: $headerHeight;
+      background: $headerBackgroundColor;
+    }
+  }
+  
+  .resize-boundary {  
+    border: dotted red 1px;  
+    z-index: 1;
+  }
+  
+  .resize-boundary:active {
+    z-index: 1000;
+    border: dotted red 2px;
+  }
+  
+  .ntk-folder-tree-header:hover .resize-hanlder {  
+    border-right: dotted 1px lightgray;
+  }

@@ -1,0 +1,33 @@
+[
+  {"DocumentCount": 1,
+    "HasChildren": true,
+    "Id": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "IsGeneratedDocumentFolder": false,
+    "IsPhotoFolder": false,
+    "Name": "Test",
+    "Room": null,
+    "VisibleBy": "Manager"
+  },
+  {
+    "ParentFolderId": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "Name": "test3",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "53b5c09c-1a94-4e2c-bc88-9fae28e6495e"
+  },
+  {
+    "ParentFolderId": "24b5a56b-2d51-4a6a-b783-28f27878044e",
+    "Name": "test2",
+    "Room": null,
+    "IsPhotoFolder": false,
+    "IsGeneratedDocumentFolder": false,
+    "HasChildren": false,
+    "VisibleBy": "Admin",
+    "DocumentCount": 0,
+    "Id": "44578734-407e-4d7a-a816-d7a850efd0d8"
+  }
+]

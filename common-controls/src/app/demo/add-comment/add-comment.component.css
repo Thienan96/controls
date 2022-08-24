@@ -1,0 +1,7 @@
+.add-comment-demo .ntk-add-comment-expanded {
+    height: 70%;    
+}
+
+.add-comment-demo .ntk-add-comment-expanded .textarea-comment {
+    height: 100%;
+}

@@ -1,0 +1,589 @@
+{
+  "TotalRowCount": 115,
+  "RowCount": 115,
+  "Index": 0,
+  "HierarchicalData": [
+    {
+      "Id": "9d08b95d-d364-486c-a204-885a8953a95f",
+      "Name": "Room 1.28",
+      "Type": "Building",
+      "Level": 1,
+      "Disabled": true
+    },
+    {
+      "Id": "48ff1f0c-d1aa-4a14-a9ce-a2643382f564",
+      "Name": "Room 2.29",
+      "Type": "Building",
+      "Level": 2,
+      "Disabled": true
+    },
+    {
+      "Id": "bdfb75dd-c787-41b5-854d-0f479bf45e57",
+      "Name": "Room 3.34",
+      "Level": 3,
+      "Readonly": true
+    },
+    {
+      "Id": "68699aa1-dd10-4388-a535-3ea06db382b9",
+      "Name": "Room 3.37",
+      "Level": 3
+    },
+    {
+      "Id": "21fef494-4dcc-46ea-9f8d-db6add104f76",
+      "Name": "Room 3.39",
+      "Level": 3
+    },
+    {
+      "Id": "38fce39c-3d74-4d0d-92b7-3e819e0e5724",
+      "Name": "Room 3.32",
+      "Level": 3
+    },
+    {
+      "Id": "fbe9fa6b-32f6-4201-9aac-f92192cc76fe",
+      "Name": "Room 3.38",
+      "Type": "Building",
+      "Level": 3
+    },
+    {
+      "Id": "174d3404-1a04-4392-8327-0dde421addd1",
+      "Name": "Room 4.41",
+      "Level": 3
+    },
+    {
+      "Id": "b07ecc7a-4d52-4d30-ae89-d4a5d1412b33",
+      "Name": "Room 3.40",
+      "Level": 3
+    },
+    {
+      "Id": "2544ece1-29b4-43b5-9656-7f1041532348",
+      "Name": "Room 4.42",
+      "Level": 4
+    },
+    {
+      "Id": "b7956880-5881-42e5-bcd9-5383f85cf080",
+      "Name": "Room 4.43",
+      "Level": 4
+    },
+    {
+      "Id": "5fac3e9c-e576-4abc-afc0-8fd2ec9bdada",
+      "Name": "Room 3.36",
+      "Level": 5
+    },
+    {
+      "Id": "6c04e78e-2373-43ca-938f-c0bffbbf20de",
+      "Name": "Room 3.33",
+      "Level": 6
+    },
+    {
+      "Id": "51d7f5a4-111d-4483-98cb-488f096adf06",
+      "Name": "Room 4.44",
+      "Level": 4
+    },
+    {
+      "Id": "aeb5135e-be19-4e07-b536-b7ab3b7dc6e9",
+      "Name": "Room 4.45",
+      "Level": 4
+    },
+    {
+      "Id": "f9bf624a-7534-4367-a359-466e738a30da",
+      "Name": "Room 4.46",
+      "Level": 4
+    },
+    {
+      "Id": "acd9f8cd-8001-4931-95bb-9d3924d8c8c3",
+      "Name": "Room 3.31",
+      "Type": "Building",
+      "Level": 5
+    },
+    {
+      "Id": "4c0fa55a-eb55-4600-8344-ced15a52bc3d",
+      "Name": "ezrezrezr",
+      "Level": 4
+    },
+    {
+      "Id": "a52f3836-ab08-46d6-97f2-564f692bdc07",
+      "Name": "Room 3.30",
+      "Level": 5
+    },
+    {
+      "Id": "8011e814-2e11-47e5-80c6-25fe2427c156",
+      "Name": "ezaeaze",
+      "Level": 4
+    },
+    {
+      "Id": "12ef465f-1ee1-4288-a321-9bfda4eaee5a",
+      "Name": "Room 4.48",
+      "Level": 4
+    },
+    {
+      "Id": "ae223b2d-cefd-4577-87b7-237ccde5811c",
+      "Name": "Room 4.49",
+      "Level": 4
+    },
+    {
+      "Id": "4d48cdbb-3db1-44f5-ace3-cbd3a537b161",
+      "Name": "Room 4.47",
+      "Level": 4
+    },
+    {
+      "Id": "c7a86a1b-e345-4621-9f0f-5a03662c10e9",
+      "Name": "Room 4.50",
+      "Level": 4
+    },
+    {
+      "Id": "062f7558-f469-4397-a3ad-521d85e5544f",
+      "Name": "Room 4.51",
+      "Level": 4
+    },
+    {
+      "Id": "17a8ada9-04f2-4cb9-8840-b07eeed88ba4",
+      "Name": "Room 4.52",
+      "Level": 4
+    },
+    {
+      "Id": "8d8942e8-aeda-479e-b566-7b22bdfbdfcf",
+      "Name": "Room 4.53",
+      "Level": 4
+    },
+    {
+      "Id": "837bbfaf-ea57-4a96-b7fe-6136be7e1a87",
+      "Name": "Room 3.35",
+      "Level": 2
+    },
+    {
+      "Id": "f960774d-2ecc-4f6e-b49b-a9548d30e526",
+      "Name": "Room 2.59",
+      "Level": 2
+    },
+    {
+      "Id": "f049a1d3-990a-4c7a-9b41-4125ec73b226",
+      "Name": "Room 3.60",
+      "Level": 3
+    },
+    {
+      "Id": "82ec0f59-9117-45a5-b2a0-fe0697eb4746",
+      "Name": "Room 3.61",
+      "Level": 3
+    },
+    {
+      "Id": "570b3985-380f-4138-9287-20e8beff605f",
+      "Name": "Room 3.62",
+      "Level": 3
+    },
+    {
+      "Id": "9b666242-ba20-4614-a5bf-8e3a0bec4880",
+      "Name": "Room 3.63",
+      "Level": 3
+    },
+    {
+      "Id": "3fe0d383-e17e-4ac0-a878-2c9f3011d08a",
+      "Name": "Room 3.64",
+      "Level": 3
+    },
+    {
+      "Id": "8f3b4488-60bf-4fd4-8c9a-4425cefe6e7a",
+      "Name": "Room 3.65",
+      "Level": 3
+    },
+    {
+      "Id": "8e57dcef-9ca9-4ef1-84ad-2182490fad5b",
+      "Name": "Room 3.66",
+      "Level": 3
+    },
+    {
+      "Id": "e81c0f0d-0e81-4bb6-866a-0206733ae388",
+      "Name": "Room 3.67",
+      "Level": 3
+    },
+    {
+      "Id": "406579fd-da76-4770-b3d4-a6275f9fe829",
+      "Name": "Room 3.68",
+      "Level": 3
+    },
+    {
+      "Id": "fef56a35-4db9-4876-96e9-e11a570a326b",
+      "Name": "Room 3.69",
+      "Level": 3
+    },
+    {
+      "Id": "4bb3177b-0e59-4a12-a97a-d11245251970",
+      "Name": "Room 3.70",
+      "Level": 3
+    },
+    {
+      "Id": "407debb6-1853-4124-8d2f-b9ebc251516f",
+      "Name": "Room 3.7 AV",
+      "Level": 4
+    },
+    {
+      "Id": "70443c84-73d4-4102-b9d0-0a9b2f6f82b5",
+      "Name": "Room 3.72",
+      "Level": 4
+    },
+    {
+      "Id": "419eb9d1-d212-4776-83a7-88e42b0c5b70",
+      "Name": "Room 3.71",
+      "Level": 4
+    },
+    {
+      "Id": "569012fd-9ac3-4645-8afc-98454ef7a5fc",
+      "Name": "Room 3.74",
+      "Level": 3
+    },
+    {
+      "Id": "68cb2234-3155-4ed8-84be-f13fd2158170",
+      "Name": "Room 3.75",
+      "Level": 3
+    },
+    {
+      "Id": "aaa58127-19b7-4053-adaf-8d464e87dfe9",
+      "Name": "Room 3.76",
+      "Level": 3
+    },
+    {
+      "Id": "d0a7e871-991c-422c-9697-66d3966b05c8",
+      "Name": "Room 3.77",
+      "Level": 3
+    },
+    {
+      "Id": "39cf2e56-85be-47a6-a22a-9f8d45eef499",
+      "Name": "Room 3.78",
+      "Level": 3
+    },
+    {
+      "Id": "329ad395-fd1e-4ad8-9aa2-2343f379d21e",
+      "Name": "Room 3.79",
+      "Level": 3
+    },
+    {
+      "Id": "d8a713ff-fc57-443f-9923-0a21f1ae8a54",
+      "Name": "Room 3.80",
+      "Level": 3
+    },
+    {
+      "Id": "92539d21-1514-4bf5-b77a-727da3e694e7",
+      "Name": "Room 3.81",
+      "Level": 3
+    },
+    {
+      "Id": "a40fc325-2521-4121-a115-408662d64762",
+      "Name": "Room 3.82",
+      "Level": 3
+    },
+    {
+      "Id": "db9b16d9-1120-40d3-b22f-107128662a74",
+      "Name": "Room 3.83",
+      "Level": 3
+    },
+    {
+      "Id": "d0363c3d-2266-437e-9990-fcb69e928008",
+      "Name": "Room 3.84",
+      "Level": 3
+    },
+    {
+      "Id": "86831c50-1dcd-4a74-ac3d-8b6760ff5a6d",
+      "Name": "Room 3.85",
+      "Level": 3
+    },
+    {
+      "Id": "8747fd61-4b6c-42d3-bebc-412c4e6b5b05",
+      "Name": "Room 3.86",
+      "Level": 3
+    },
+    {
+      "Id": "72496d40-c1b5-4d9c-a037-07b3f802d99c",
+      "Name": "Room 3.87",
+      "Level": 3
+    },
+    {
+      "Id": "28675efb-995e-4bac-8ebd-6a06007d5583",
+      "Name": "Room 3.88",
+      "Level": 3
+    },
+    {
+      "Id": "54c5be51-d62b-4ed7-b484-3aac8c946f71",
+      "Name": "Room 4.89",
+      "Level": 4
+    },
+    {
+      "Id": "672a7b13-8792-4a42-b988-1052d84949f3",
+      "Name": "Room 4.90",
+      "Level": 4
+    },
+    {
+      "Id": "9d2668be-ffae-4358-a6c4-0cedc088556d",
+      "Name": "Room 4.91",
+      "Level": 4
+    },
+    {
+      "Id": "72612f82-787f-45f7-b6ed-a4c762dd5f3d",
+      "Name": "Room 4.92",
+      "Level": 4
+    },
+    {
+      "Id": "92586cee-55e0-4088-af5a-de4a81cf2b97",
+      "Name": "Room 4.93",
+      "Level": 4
+    },
+    {
+      "Id": "a6827469-1263-4d7c-ba23-0cd4082330a9",
+      "Name": "Room 4.94",
+      "Level": 4
+    },
+    {
+      "Id": "e12ba2ce-3316-4bb1-846d-8eb14f0c7ae6",
+      "Name": "Room 4.95",
+      "Level": 4
+    },
+    {
+      "Id": "8785b1b7-d5fd-40fd-9292-adf515bd7fea",
+      "Name": "Room 4.96",
+      "Level": 4
+    },
+    {
+      "Id": "c40c1001-f488-4d1d-833e-5e398becf300",
+      "Name": "fdsfsf",
+      "Level": 1
+    },
+    {
+      "Id": "69828f8a-9fc7-43ca-a31e-3c82e1847ad0",
+      "Name": "fdsfsf",
+      "Level": 2
+    },
+    {
+      "Id": "73608eca-57bb-4ed5-b1f3-7306d765dde1",
+      "Name": "fdsfdsfs",
+      "Level": 2
+    },
+    {
+      "Id": "d8642953-3c42-4ac7-b8c3-c422a964fd2f",
+      "Name": "fdsfsfdsfsf",
+      "Level": 2
+    },
+    {
+      "Id": "ba03c4e5-756f-4576-9bde-222e1f1c923f",
+      "Name": "ffdsfsfdsfs",
+      "Level": 2
+    },
+    {
+      "Id": "8ff376f0-decb-466e-b36a-6f64793d274e",
+      "Name": "Room 1.97",
+      "Level": 1
+    },
+    {
+      "Id": "dcf84685-93c5-44b9-8802-ebd3c6115c59",
+      "Name": "Room 2.98",
+      "Level": 2
+    },
+    {
+      "Id": "8f8ea853-a3eb-4537-911e-d51af5fd6495",
+      "Name": "Room 2.99",
+      "Level": 2
+    },
+    {
+      "Id": "9645ea05-7a2f-4836-b192-1be3ed80a1b5",
+      "Name": "Room 2.56",
+      "Level": 2
+    },
+    {
+      "Id": "10c76393-fdc9-4090-a187-2218d629a731",
+      "Name": "Room 2.100",
+      "Level": 2
+    },
+    {
+      "Id": "4360290b-7422-4c00-8c05-00236d37a07f",
+      "Name": "Room 2.101",
+      "Level": 2
+    },
+    {
+      "Id": "53f83eac-5b1f-4492-8a85-b42265791f30",
+      "Name": "Room 2.102",
+      "Level": 2
+    },
+    {
+      "Id": "ae062ce1-c965-4f4c-bd0c-4965376df57e",
+      "Name": "Room 2.103",
+      "Level": 2
+    },
+    {
+      "Id": "514550d2-c827-4fc4-8831-ac348d344af8",
+      "Name": "dsfsdfs",
+      "Level": 2
+    },
+    {
+      "Id": "e3c39463-bd68-4b32-bf09-94d95ad9af9c",
+      "Name": "Room 2.105",
+      "Level": 2
+    },
+    {
+      "Id": "b1396a05-a2f9-4a2d-b0d8-dec4b6e1eb1f",
+      "Name": "Room 2.104",
+      "Level": 2
+    },
+    {
+      "Id": "883e6090-1729-40d1-8ee1-2ff95ed44feb",
+      "Name": "Room 2.106",
+      "Level": 2
+    },
+    {
+      "Id": "44fe9e6f-022f-44d2-85bf-fa1bef9e60e1",
+      "Name": "Room 2.107",
+      "Level": 2
+    },
+    {
+      "Id": "d07a52e4-1fc7-40bd-96d9-1b72aea652f8",
+      "Name": "Room 2.108",
+      "Level": 2
+    },
+    {
+      "Id": "de7a0b6a-aa5d-4de4-93e7-a8505e207e91",
+      "Name": "Room 2.109",
+      "Level": 2
+    },
+    {
+      "Id": "cbf4633a-e0dd-4a06-92ba-e4696d319896",
+      "Name": "Room 2.110",
+      "Level": 2
+    },
+    {
+      "Id": "f5c6180b-8991-4ffa-9e52-6bab0c20b4f6",
+      "Name": "Room 2.111",
+      "Level": 2
+    },
+    {
+      "Id": "288003cb-b66f-4f04-903c-8648501b2bcc",
+      "Name": "Room 2.112",
+      "Level": 2
+    },
+    {
+      "Id": "e267691d-a60f-42a2-af82-fdbbf6bb7e28",
+      "Name": "Room 2.113",
+      "Level": 2
+    },
+    {
+      "Id": "b178e7ea-f1a6-4693-ad8c-7f3f187609aa",
+      "Name": "Room 2.114",
+      "Level": 2
+    },
+    {
+      "Id": "b1a99b8d-5533-42ab-bcfc-8626289e8805",
+      "Name": "Room 2.115",
+      "Level": 2
+    },
+    {
+      "Id": "fe251528-4ea6-46e7-8537-ae697b0bcebb",
+      "Name": "Room 2.116",
+      "Level": 2
+    },
+    {
+      "Id": "34b42565-288f-40bd-baed-e289f9163527",
+      "Name": "Room 2.117",
+      "Level": 2
+    },
+    {
+      "Id": "436cf543-4142-454d-a979-c45e7bd3ea5c",
+      "Name": "Room 2.118",
+      "Level": 2
+    },
+    {
+      "Id": "fc28a78e-1af4-482c-82d0-0270ad1636ae",
+      "Name": "Room 2.119",
+      "Level": 2
+    },
+    {
+      "Id": "bcf0deff-2a19-4b55-b393-9671f0a030f9",
+      "Name": "Room 2.120",
+      "Level": 2
+    },
+    {
+      "Id": "f2b9490b-95a3-476a-a687-237f7b60cf79",
+      "Name": "Room 2.121",
+      "Level": 2
+    },
+    {
+      "Id": "52211cfb-9142-4821-bd54-0a4733827135",
+      "Name": "Room 2.122",
+      "Level": 2
+    },
+    {
+      "Id": "e038bba5-1df1-459c-83ab-58b9ae039d5f",
+      "Name": "Room 2.123",
+      "Level": 2
+    },
+    {
+      "Id": "e1f77fe2-1e59-4d2d-a18e-610335643cc0",
+      "Name": "Room 2.124",
+      "Level": 2
+    },
+    {
+      "Id": "d1c2694c-3ed9-4a9e-ac9a-b2bb486fd000",
+      "Name": "Room 2.125",
+      "Level": 2
+    },
+    {
+      "Id": "80447d23-4166-4420-b872-ff8087e7f2d9",
+      "Name": "Room 2.126",
+      "Level": 2
+    },
+    {
+      "Id": "f884862b-0d6c-41b6-bbee-6aa60b2c9b60",
+      "Name": "Room 2.127",
+      "Level": 2
+    },
+    {
+      "Id": "4a8dd8fd-c08c-433b-ae74-f497d35d694e",
+      "Name": "Room 2.129",
+      "Level": 2
+    },
+    {
+      "Id": "714ac86c-8ddc-4b8e-ad8b-0f77fc687834",
+      "Name": "Room 2.130",
+      "Level": 2
+    },
+    {
+      "Id": "34a1158f-308e-45ad-beb4-be88e159f17a",
+      "Name": "Room 2.131",
+      "Level": 2
+    },
+    {
+      "Id": "59c5254e-5f6f-4c09-b70d-2616b62e2bf5",
+      "Name": "Room 2.132",
+      "Level": 2
+    },
+    {
+      "Id": "e1c22dc0-df34-4c2f-9c78-2ca8f0241afd",
+      "Name": "Room 2.133",
+      "Level": 2
+    },
+    {
+      "Id": "540e3dba-9d5f-42d0-bc73-21a9d25679d1",
+      "Name": "Room 2.134",
+      "Level": 2
+    },
+    {
+      "Id": "c7ca65d3-ee08-4d44-99d8-af4431f909c7",
+      "Name": "Room 2.135",
+      "Level": 2
+    },
+    {
+      "Id": "a5b61e25-0bca-46fa-a3cb-c61612f93e22",
+      "Name": "Room 1.55",
+      "Level": 1
+    },
+    {
+      "Id": "065344ff-a428-48d7-8687-b134d54b68b4",
+      "Name": "Room 2.128",
+      "Level": 2
+    },
+    {
+      "Id": "f907543b-739d-46fb-9d63-cbce93f861e9",
+      "Name": "Room 2.57",
+      "Level": 2
+    },
+    {
+      "Id": "26feb67e-c771-407e-80ef-3ec45f73b72b",
+      "Name": "Room 2.58",
+      "Level": 2
+    }
+  ]
+}
