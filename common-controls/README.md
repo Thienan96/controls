@@ -1,21 +1,21 @@
-App demo: https://common-controls.web.app
+App demo: https://common-controls.web.app<br />
 
 Some nice controls written by 
-. Angular 8
-. Node 10
-. Npm 5
+. Angular 8<br />
+. Node 10<br />
+. Npm 5<br />
 
-List of main controls
-. Tooltip
-. Truncate text
-. Virtual scroll list
-. Virtual scroll grid
-. Editable 
-. Kanban table
-. Assignment table
-. Calendar
+List of main controls<br />
+. Tooltip<br />
+. Truncate text<br />
+. Virtual scroll list<br />
+. Virtual scroll grid<br />
+. Editable <br />
+. Kanban table<br />
+. Assignment table<br />
+. Calendar<br />
 
-TODO: 
-. Update version to newest angular
-. Public to npm
-. Bug fixing
+TODO: <br />
+. Update version to newest angular<br />
+. Public to npm<br />
+. Bug fixing<br />
